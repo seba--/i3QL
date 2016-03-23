@@ -3,7 +3,7 @@ package idb.algebra.remote
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
-import idb.query.QueryEnvironment
+import idb.query.{Color, QueryEnvironment}
 
 /**
  * @author Mirko Köhler
@@ -147,20 +147,20 @@ trait RelationalAlgebraIRRemoteReorderJoins
 		}
 	}
 
-	private def isGreater(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean =
+	private def isGreater(a : Color, b : Color, env : QueryEnvironment) : Boolean =
 		isSmallerDef(b, a, env)
 
-	private def isSmaller(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean =
+	private def isSmaller(a : Color, b : Color, env : QueryEnvironment) : Boolean =
 		isSmallerDef(a, b, env)
 
-	val isSmallerDef : (Set[Any], Set[Any], QueryEnvironment) => Boolean =
+	val isSmallerDef : (Color, Color, QueryEnvironment) => Boolean =
 		isSmallerImpl1
 
-	private def isSmallerImpl1(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean =
+	private def isSmallerImpl1(a : Color, b : Color, env : QueryEnvironment) : Boolean =
 		a < b
 
 
-	private def isSmallerImpl2(a : Set[Any], b : Set[Any], env : QueryEnvironment) : Boolean = {
+	private def isSmallerImpl2(a : Color, b : Color, env : QueryEnvironment) : Boolean = {
 		val aPermissions = (env permission a) sortWith ((h1, h2) => h1.name < h2.name)
 		val bPermissions = (env permission b) sortWith ((h1, h2) => h1.name < h2.name)
 

@@ -64,7 +64,7 @@ trait RelationalAlgebraBase
     /**
      * Wraps an table as a leaf in the query tree
      */
-    def table[Domain]  (table: Table[Domain], isSet: Boolean = false, color : Set[Any] = null)(
+    def table[Domain]  (table: Table[Domain], isSet: Boolean = false, color : Color = NoColor)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]],
 		queryEnvironment : QueryEnvironment
@@ -74,7 +74,7 @@ trait RelationalAlgebraBase
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    def relation[Domain]  (table: Table[Domain], isSet: Boolean = false, color : Set[Any] = null)(
+    def relation[Domain]  (relation: Relation[Domain], isSet: Boolean = false, color : Color = NoColor)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]],
 		queryEnvironment : QueryEnvironment

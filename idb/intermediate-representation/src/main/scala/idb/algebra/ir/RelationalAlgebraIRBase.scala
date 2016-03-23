@@ -67,18 +67,7 @@ trait RelationalAlgebraIRBase
          */
         def isMaterialized: Boolean
 
-		def setColor(c : Set[Any])(implicit queryEnvironment: QueryEnvironment): Unit = {
-			queryEnvironment.colors.put(id, c)
-		}
-
-		def setColor(r : QueryBaseOps*)(implicit queryEnvironment: QueryEnvironment): Unit = {
-			val colorSet = r.foldLeft(Set.empty[Any])((s, query) => s union query.getColor)
-			setColor(colorSet)
-		}
-
-		def getColor(implicit queryEnvironment: QueryEnvironment) : Set[Any] = {
-			queryEnvironment.getColor(id)
-		}
+		def color : Color
     }
 
     abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps
@@ -103,40 +92,44 @@ trait RelationalAlgebraIRBase
 		fresh
 	}
 
-    protected case class QueryTable[Domain] (
+    case class QueryTable[Domain] (
         table: Table[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
-        isMaterialized: Boolean = false
+        isMaterialized: Boolean = false,
+		color : Color = NoColor
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps {
 
 	}
 
-	protected case class QueryRelation[Domain] (
-        table: Relation[Domain],
+	case class QueryRelation[Domain] (
+        relation: Relation[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
-        isMaterialized: Boolean = false
+        isMaterialized: Boolean = false,
+		color : Color = NoColor
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
 
-	protected case class Materialize[Domain : Manifest] (
+	case class Materialize[Domain : Manifest] (
 	  relation : Rep[Query[Domain]]
 	) extends Def[Query[Domain]] with QueryBaseOps {
 		def isMaterialized: Boolean = true //Materialization is always materialized
 		def isSet = false
 		def isIncrementLocal = false
+		def color = relation.color
 	}
 
-	protected case class Root[Domain : Manifest] (
+	case class Root[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
 	) extends Def[Query[Domain]] with QueryBaseOps {
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = relation.isSet
 		def isIncrementLocal = relation.isIncrementLocal
+		def color = NoColor //Root node never has any taints
 	}
 
 	//This version checks the type of the table for the annotation instead of the table itself
@@ -157,31 +150,32 @@ trait RelationalAlgebraIRBase
 			RemoteHost(annotation.host())
 	}
 
-	protected def getColorAnnotation (m : Any) : Set[Any] = {
+	protected def getColorAnnotation (m : Any) : Color = {
 		val annotation = m.getClass.getAnnotation(classOf[Remote])
 
 		if (annotation == null)
-			Set.empty
+			NoColor
 		else
-			Set(annotation.description())
+			Color(annotation.description())
 	}
 
     /**
      * Wraps an table as a leaf in the query tree
      */
-    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Set[Any] = null)(
+    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Color = NoColor)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]],
 		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = {
+		val c : Color = if (color == NoColor) getColorAnnotation(table) else NoColor
+
 		val t = QueryTable (
 			table,
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
-			isMaterialized = false
+			isMaterialized = false,
+			color = c
 		)
-		val c : Set[Any] = if (color == null) getColorAnnotation(table) else Set.empty
-		t.setColor(c)
 		t
 	}
 
@@ -190,20 +184,20 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Set[Any] = null)(
+    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Color = NoColor)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]],
 		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = {
+
+		val c : Color = if (color == NoColor) getColorAnnotation(relation) else NoColor
 		val t = QueryRelation (
 			relation,
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
-			isMaterialized = false
+			isMaterialized = false,
+			color = c
 		)
-
-		val c : Set[Any] = if (color == null) getColorAnnotation(relation) else Set.empty
-		t.setColor(c)
 		t
 	}
 		
@@ -211,22 +205,20 @@ trait RelationalAlgebraIRBase
 
 	override def materialize[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] ={
-		val r = Materialize(relation)
-		r.setColor(relation)
-		r
-	}
+	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] =
+		Materialize(relation)
+
+
 
 
 
 
 	override def root[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
-		val r = Root(relation)
-		r.setColor(r)
-		r
-	}
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+		Root(relation)
+
+
 
 
 

@@ -33,7 +33,7 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraSetTheoryOperators, RelationalAlgebraBasicOperators}
-import idb.query.{QueryEnvironment, Color$}
+import idb.query.{Color, QueryEnvironment}
 
 
 /**

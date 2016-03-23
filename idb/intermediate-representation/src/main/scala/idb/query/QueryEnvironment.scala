@@ -26,10 +26,10 @@ trait QueryEnvironment {
 	 */
 	def permission(name : String) : List[Host]
 
-	def permission(description : RemoteDescription) : List[Host] = description match {
-		case DefaultDescription => Nil
-		case NameDescription(name) => permission(name)
-		case SetDescription(set) => set.map(desc => permission(desc)).fold(hosts)((a, b) => a intersect b)
+	def permission(description : Color) : List[Host] = description match {
+		case NoColor => Nil
+		case SingleColor(name) => permission(name)
+		case CompoundColor(set) => set.map(desc => permission(desc)).fold(hosts)((a, b) => a intersect b)
 	}
 
 	/**

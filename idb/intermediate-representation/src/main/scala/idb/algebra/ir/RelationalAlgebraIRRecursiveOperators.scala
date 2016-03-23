@@ -143,7 +143,7 @@ trait RelationalAlgebraIRRecursiveOperators
             }
             case QueryRelation (r, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
-            case QueryTable (e, _, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
+            case QueryTable (e, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
 
             //why is sometimes the matched r used and sometimes e.relation?

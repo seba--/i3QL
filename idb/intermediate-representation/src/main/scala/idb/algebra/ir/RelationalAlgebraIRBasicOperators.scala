@@ -54,6 +54,8 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
     case class Selection[Domain: Manifest] (
@@ -65,6 +67,8 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
@@ -78,6 +82,8 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+
+		def color = Color.join(relationA.color, relationB.color)
     }
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
@@ -92,6 +98,8 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+
+		def color = Color.join(relationA.color, relationB.color)
 	}
 
     case class DuplicateElimination[Domain: Manifest] (
@@ -101,6 +109,8 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Duplicate Elimination stores intermediate objects and therefore implements foreach
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
     case class Unnest[Domain: Manifest, Range: Manifest] (
@@ -111,67 +121,57 @@ trait RelationalAlgebraIRBasicOperators
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 
     def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
-		val r = Projection (relation, function)
-		r.setColor(relation)
-		r
-	}
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+		Projection (relation, function)
+
+
 
 
     def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
-		val r = Selection (relation, function)
-		r.setColor(relation)
-		r
-	}
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+		Selection (relation, function)
+
 
 
     def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
-		val r =  CrossProduct (relationA, relationB)
-		r.setColor(relationA, relationB)
-		r
-	}
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] =
+		CrossProduct (relationA, relationB)
 
 
     def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]],
         equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] =  {
-		val r =  EquiJoin (relationA, relationB, equalities)
-		r.setColor(relationA, relationB)
-		r
-	}
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] =
+		EquiJoin (relationA, relationB, equalities)
+
 
 
     def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =  {
-		val r =  DuplicateElimination (relation)
-		r.setColor(relation)
-		r
-	}
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+		DuplicateElimination (relation)
+
 
 
    def unnest[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         unnesting: Rep[Domain => Traversable[Range]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(Domain, Range)]] = {
-	   val r = Unnest (relation, unnesting)
-	   r.setColor(relation)
-	   r
-   }
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(Domain, Range)]] =
+	   Unnest (relation, unnesting)
+
 
 
 }

@@ -32,7 +32,7 @@
  */
 package idb.algebra.base
 
-import idb.query.{QueryEnvironment, Color$}
+import idb.query.{QueryEnvironment, Color}
 
 /**
  *
@@ -48,5 +48,10 @@ trait RelationalAlgebraRemoteOperators
 	    thisDesc : Color,
         thatDesc : Color
     )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+
+	def reclassification[Domain : Manifest] (
+		relation : Rep[Query[Domain]],
+		newColor : Color
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
 }

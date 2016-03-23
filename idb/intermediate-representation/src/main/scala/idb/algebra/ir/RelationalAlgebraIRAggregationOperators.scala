@@ -60,6 +60,8 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
@@ -72,6 +74,8 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 	case class AggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -85,6 +89,8 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 	case class AggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
@@ -100,6 +106,8 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 	case class AggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
@@ -112,6 +120,8 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 	case class AggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -125,6 +135,8 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 	case class Grouping[Domain : Manifest, Result : Manifest] (
@@ -134,6 +146,8 @@ trait RelationalAlgebraIRAggregationOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
+
+		def color = relation.color
 	}
 
 	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
@@ -156,7 +170,7 @@ trait RelationalAlgebraIRAggregationOperators
 			convertKey,
 			convert
 		)
-		r.setColor(relation)
+
 		r
 	}
 
@@ -177,7 +191,7 @@ trait RelationalAlgebraIRAggregationOperators
 			removed,
 			updated
 		)
-		r.setColor(relation)
+
 		r
 	}
 
@@ -196,7 +210,7 @@ trait RelationalAlgebraIRAggregationOperators
 			removed,
 			updated
 		)
-		r.setColor(relation)
+
 		r
 	}
 
@@ -221,7 +235,7 @@ trait RelationalAlgebraIRAggregationOperators
 			convertKey,
 			convert
 		)
-		r.setColor(relation)
+
 		r
 	}
 
@@ -240,7 +254,7 @@ trait RelationalAlgebraIRAggregationOperators
 			removed,
 			updated
 		)
-		r.setColor(relation)
+
 		r
 	}
 
@@ -261,7 +275,7 @@ trait RelationalAlgebraIRAggregationOperators
 			removed,
 			updated
 		)
-		r.setColor(relation)
+
 		r
 	}
 
@@ -271,7 +285,7 @@ trait RelationalAlgebraIRAggregationOperators
 		grouping : Rep[Domain => Range]
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
 		val r = Grouping (relation,grouping)
-		r.setColor(relation)
+
 		r
 	}
 

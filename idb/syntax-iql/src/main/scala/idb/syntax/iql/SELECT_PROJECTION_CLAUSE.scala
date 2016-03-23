@@ -40,6 +40,8 @@ import idb.syntax.iql.IR._
  */
 trait SELECT_PROJECTION_CLAUSE[Select, Range]
 	extends SELECT_CLAUSE[Select, Range]
+	with CAN_FROM_CLAUSE[Select, Range]
+	//with CAN_RECLASS_CLAUSE[Select, Range]
 {
 
 	def FROM[Domain: Manifest] (
@@ -57,7 +59,7 @@ trait SELECT_PROJECTION_CLAUSE[Select, Range]
 		relationA : Rep[Query[DomainA]],
 		relationB : Rep[Query[DomainB]],
 		relationC : Rep[Query[DomainC]]
- 	): FROM_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
+	): FROM_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
 		with CAN_GROUP_CLAUSE_3[Select, DomainA, DomainB, DomainC, Range]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest] (
@@ -65,7 +67,7 @@ trait SELECT_PROJECTION_CLAUSE[Select, Range]
 		relationB : Rep[Query[DomainB]],
 		relationC : Rep[Query[DomainC]],
 		relationD : Rep[Query[DomainD]]
- 	): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
+	): FROM_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 		with CAN_GROUP_CLAUSE_4[Select, DomainA, DomainB, DomainC, DomainD, Range]
 
 	def FROM[DomainA : Manifest, DomainB : Manifest, DomainC : Manifest, DomainD : Manifest, DomainE : Manifest] (
@@ -74,6 +76,6 @@ trait SELECT_PROJECTION_CLAUSE[Select, Range]
 		relationC : Rep[Query[DomainC]],
 		relationD : Rep[Query[DomainD]],
 		relationE : Rep[Query[DomainE]]
- 	): FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
+	): FROM_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 		with CAN_GROUP_CLAUSE_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, Range]
 }

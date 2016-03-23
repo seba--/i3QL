@@ -68,6 +68,9 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
             case Def (Remote (r, _, remoteDesc)) =>
                 RemoteView (queryEnvironment.actorSystem, compile (r))
 
+			case Def (Reclassification(r, _)) =>
+				compile (r)
+
             case _ => super.compile (query)
         }
     }
