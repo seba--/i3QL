@@ -1,8 +1,8 @@
 package idb.algebra.remote
 
 import idb.algebra.ir.{RelationalAlgebraIRRemoteOperators, RelationalAlgebraIRBasicOperators}
-import idb.query.{QueryEnvironment, NoColor}
-
+import idb.query.colors.Color
+import idb.query.{QueryEnvironment}
 /**
  * @author Mirko Köhler
  */
@@ -21,22 +21,22 @@ trait RelationalAlgebraIRRemoteBasicOperators
 			case (Def(Remote(r, _, _)), _) => super.crossProduct(relationA, relationB)
 			case (_, Def(Remote(r, _, _))) => super.crossProduct(relationA, relationB)
 
-			case (a, b) if a.color == NoColor && b.color != NoColor	=>
+			case (a, b) if a.color == Color.NO_COLOR  && b.color != Color.NO_COLOR 	=>
 				crossProduct(
 					relationA,
-					remote(relationB, NoColor, relationB.color)
+					remote(relationB, Color.NO_COLOR , relationB.color)
 				)
 
-			case (a, b) if a.color != NoColor && b.color == NoColor	=>
+			case (a, b) if a.color != Color.NO_COLOR  && b.color == Color.NO_COLOR 	=>
 				crossProduct(
-					remote(relationA, NoColor, relationA.color),
+					remote(relationA, Color.NO_COLOR , relationA.color),
 					relationB
 				)
 
 			case (a,b) if a.color != b.color =>
 				crossProduct(
-					remote(relationA, NoColor, relationA.color),
-					remote(relationB, NoColor, relationB.color)
+					remote(relationA, Color.NO_COLOR , relationA.color),
+					remote(relationB, Color.NO_COLOR , relationB.color)
 				)
 			case _ => super.crossProduct(relationA, relationB)
 		}
@@ -54,16 +54,16 @@ trait RelationalAlgebraIRRemoteBasicOperators
 			case (Def(Remote(r, _, _)), _) => super.equiJoin(relationA, relationB, equalities)
 			case (_, Def(Remote(r, _, _))) => super.equiJoin(relationA, relationB, equalities)
 
-			case (a, b) if a.color == NoColor && b.color != NoColor	=>
+			case (a, b) if a.color == Color.NO_COLOR  && b.color != Color.NO_COLOR 	=>
 				equiJoin(
 					relationA,
-					remote(relationB, NoColor, relationB.color),
+					remote(relationB, Color.NO_COLOR , relationB.color),
 					equalities
 				)
 
-			case (a, b) if a.color != NoColor && b.color == NoColor	=>
+			case (a, b) if a.color != Color.NO_COLOR  && b.color == Color.NO_COLOR 	=>
 				equiJoin(
-					remote(relationA, NoColor, relationA.color),
+					remote(relationA, Color.NO_COLOR , relationA.color),
 					relationB,
 					equalities
 				)
@@ -71,8 +71,8 @@ trait RelationalAlgebraIRRemoteBasicOperators
 			case (a,b) if a.color != b.color =>
 				//val thisDesc = relationA.remoteDesc union relationB.remoteDesc
 				equiJoin(
-					remote(relationA, NoColor, relationA.color),
-					remote(relationB, NoColor, relationB.color),
+					remote(relationA, Color.NO_COLOR , relationA.color),
+					remote(relationB, Color.NO_COLOR , relationB.color),
 					equalities
 				)
 			case _ => super.equiJoin(relationA, relationB, equalities)

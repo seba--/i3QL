@@ -68,11 +68,11 @@ class TestIROptFusion
 
 		val f1 = fun ((x: Rep[Int]) => x > 0)
         val f2 = fun ((x: Rep[Int]) => x < 1000)
-        val expA = selection (selection (emptyRelation[Int](), f1), f2)
+        val expA = selection (selection (emptyRelation[Int], f1), f2)
 
         val f3 = fun((x: Rep[Int]) => f1 (x) && f2 (x)) //(x > 0) && (x < 1000)
 
-        val expB = selection (emptyRelation[Int](), f3)
+        val expB = selection (emptyRelation[Int], f3)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -93,7 +93,7 @@ class TestIROptFusion
 
         class Impl extends A with B
 
-        val base = emptyRelation[Impl]()
+        val base = emptyRelation[Impl]
 
         val f1 = fun ((x: Rep[A]) => x.isA)
 
@@ -120,7 +120,7 @@ class TestIROptFusion
 
         class Impl extends A
 
-        val base = emptyRelation[Impl]()
+        val base = emptyRelation[Impl]
 
         val f1 = fun ((x: Rep[A]) => x.isA1)
 
@@ -150,7 +150,7 @@ class TestIROptFusion
 
         class Impl extends A
 
-        val base = emptyRelation[Impl]()
+        val base = emptyRelation[Impl]
 
         val f1 = fun ((x: Rep[A]) => x.isA1)
 
@@ -170,11 +170,11 @@ class TestIROptFusion
 
 		val f1 = fun ((x: Rep[Int]) => x + 1)
         val f2 = fun ((x: Rep[Int]) => x + 2)
-        val expA = projection (projection (emptyRelation[Int](), f1), f2)
+        val expA = projection (projection (emptyRelation[Int], f1), f2)
 
         val f3 = (x: Rep[Int]) => f2 (f1 (x)) // x + 3
 
-        val expB = projection (emptyRelation[Int](), f3)
+        val expB = projection (emptyRelation[Int], f3)
 
         assertEquals (expB, expA)
     }
@@ -187,11 +187,11 @@ class TestIROptFusion
 
         val f2 = fun((x:Rep[Int]) => x == 100)
 
-        val expA = selection (selection (emptyRelation[Int](), f1), f2)
+        val expA = selection (selection (emptyRelation[Int], f1), f2)
 
         val f3 = fun((x: Rep[Int]) => f1 (x) && f2 (x))
 
-        val expB = selection (emptyRelation[Int](), f3)
+        val expB = selection (emptyRelation[Int], f3)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -207,11 +207,11 @@ class TestIROptFusion
 
         val f1Ind = fun((x:Rep[Int]) => f1(x))
 
-        val expA = selection (selection (emptyRelation[Int](), f1Ind), f2)
+        val expA = selection (selection (emptyRelation[Int], f1Ind), f2)
 
         val f3 = fun((x: Rep[Int]) => f1Ind (x) && f2 (x))
 
-        val expB = selection (emptyRelation[Int](), f3)
+        val expB = selection (emptyRelation[Int], f3)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -230,11 +230,11 @@ class TestIROptFusion
         val dynF1 = dynamicLambda(parameter(f1Ind), body(f1Ind))
         val dynF2 = dynamicLambda(parameter(f2), body(f2))
 
-        val expA = selection (selection (emptyRelation[Int](), dynF1), dynF2)
+        val expA = selection (selection (emptyRelation[Int], dynF1), dynF2)
 
         val f3 = fun((x: Rep[Int]) => dynF1 (x) && dynF2 (x))
 
-        val expB = selection (emptyRelation[Int](), f3)
+        val expB = selection (emptyRelation[Int], f3)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -253,11 +253,11 @@ class TestIROptFusion
         val dynF1 = dynamicLambda(parameter(f1), body(f1))
         val dynF2 = dynamicLambda(parameter(f2), body(f2))
 
-        val expA = selection (selection (emptyRelation[Int](), dynF1), dynF2)
+        val expA = selection (selection (emptyRelation[Int], dynF1), dynF2)
 
         val f3 = fun((x: Rep[Int]) =>  x > fStatic("hello") && x > fStatic("world"))
 
-        val expB = selection (emptyRelation[Int](), f3)
+        val expB = selection (emptyRelation[Int], f3)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)

@@ -73,11 +73,11 @@ class TestIROptPushSelection
 		val f1 = fun ((x: Rep[Int]) => x + 2)
         val f2 = fun ((x: Rep[Int]) => x > 0)
 
-        val expA = selection (projection (emptyRelation[Int](), f1), f2)
+        val expA = selection (projection (emptyRelation[Int], f1), f2)
 
         val f3 = (x: Rep[Int]) => f2 (f1 (x)) // x > -2
 
-        val expB = projection (selection (emptyRelation[Int](), f3), f1)
+        val expB = projection (selection (emptyRelation[Int], f3), f1)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -90,11 +90,11 @@ class TestIROptPushSelection
 		val f1 = fun ((x: Rep[Int]) => if (x > 0) unit (true) else unit (false))
         val f2 = fun ((x: Rep[Boolean]) => x)
 
-        val expA = selection (projection (emptyRelation[Int](), f1), f2)
+        val expA = selection (projection (emptyRelation[Int], f1), f2)
 
         val f3 = (x: Rep[Int]) => f2 (f1 (x)) // if (x > 0) unit (true) else unit (false) // x > 0
 
-        val expB = projection (selection (emptyRelation[Int](), f3), f1)
+        val expB = projection (selection (emptyRelation[Int], f3), f1)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -108,11 +108,11 @@ class TestIROptPushSelection
 
         val f2 = fun ((x: Rep[(Int, Boolean)]) => x._2)
 
-        val expA = selection (projection (emptyRelation[Int](), f1), f2)
+        val expA = selection (projection (emptyRelation[Int], f1), f2)
 
         val f3 = (x: Rep[Int]) => f2 (f1 (x)) // x > 0
 
-        val expB = projection (selection (emptyRelation[Int](), f3), f1)
+        val expB = projection (selection (emptyRelation[Int], f3), f1)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -127,7 +127,7 @@ class TestIROptPushSelection
 		val f1 = fun ((x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false)))
         val f2 = fun ((x: Rep[(Int, Boolean)]) => x._2)
 
-        val expA = selection (projection (emptyRelation[Int](), f1), f2)
+        val expA = selection (projection (emptyRelation[Int], f1), f2)
 
         val f3 = (x: Rep[Int]) => f2 (f1 (x)) //x > 0 == true
 
@@ -135,7 +135,7 @@ class TestIROptPushSelection
 
         //val f4 = (x: Rep[Int]) => (if (x > 0) unit (true) else unit (false)) == true
 
-        val expB = projection (selection (emptyRelation[Int](), f3), f1)
+        val expB = projection (selection (emptyRelation[Int], f3), f1)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -150,11 +150,11 @@ class TestIROptPushSelection
 
         val f2 = fun((x:Rep[Int]) => x + 1)
 
-        val expA = selection (projection (emptyRelation[Int](), f2), f1)
+        val expA = selection (projection (emptyRelation[Int], f2), f1)
 
         val f3 = (x: Rep[Int]) => f1 (f2 (x))
 
-        val expB = projection (selection (emptyRelation[Int](), f3), f2)
+        val expB = projection (selection (emptyRelation[Int], f3), f2)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)
@@ -169,11 +169,11 @@ class TestIROptPushSelection
 
         val f2 = fun((x1:Rep[Int], x2 :Rep[Int]) => (x1 + 1, x2))
 
-        val expA = selection (projection (emptyRelation[(Int,Int)](), f2), f1)
+        val expA = selection (projection (emptyRelation[(Int,Int)], f2), f1)
 
         val f3 = (x: Rep[(Int,Int)]) => f1 (f2 (x))
 
-        val expB = projection (selection (emptyRelation[(Int,Int)](), f3), f2)
+        val expB = projection (selection (emptyRelation[(Int,Int)], f3), f2)
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)

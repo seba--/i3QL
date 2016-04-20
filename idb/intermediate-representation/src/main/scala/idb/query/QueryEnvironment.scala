@@ -1,6 +1,7 @@
 package idb.query
 
 import akka.actor.ActorSystem
+import idb.query.colors.Color
 
 import scala.collection.mutable
 
@@ -26,11 +27,11 @@ trait QueryEnvironment {
 	 */
 	def permission(name : String) : List[Host]
 
-	def permission(description : Color) : List[Host] = description match {
-		case NoColor => Nil
+	/*def permission(description : Color) : List[Host] = description match {
+		case  => Nil
 		case SingleColor(name) => permission(name)
 		case CompoundColor(set) => set.map(desc => permission(desc)).fold(hosts)((a, b) => a intersect b)
-	}
+	}    */
 
 	/**
 	 * Closes the environment. Queries with that environment should no longer be used.

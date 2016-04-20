@@ -33,7 +33,8 @@
 package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraSetTheoryOperators, RelationalAlgebraBasicOperators}
-import idb.query.{Color, QueryEnvironment}
+import idb.query.colors.Color
+import idb.query.{QueryEnvironment}
 
 
 /**
@@ -56,7 +57,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = Color.join(relationA.color, relationB.color)
+		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
 
     }
 
@@ -71,7 +72,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = Color.join(relationA.color, relationB.color)
+		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
     }
 
     case class Intersection[Domain: Manifest] (
@@ -82,7 +83,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = Color.join(relationA.color, relationB.color)
+		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
 	}
 
     case class Difference[Domain: Manifest] (
@@ -93,7 +94,7 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Difference implements foreach
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = Color.join(relationA.color, relationB.color)
+		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
 	}
 
 

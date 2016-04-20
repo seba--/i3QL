@@ -32,7 +32,8 @@
  */
 package idb.algebra.base
 
-import idb.query.{QueryEnvironment, Color}
+import idb.query.QueryEnvironment
+import idb.query.colors.Color
 
 /**
  *

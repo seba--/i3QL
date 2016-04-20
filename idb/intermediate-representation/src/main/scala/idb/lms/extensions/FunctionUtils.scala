@@ -32,7 +32,9 @@
  */
 package idb.lms.extensions
 
+
 import idb.lms.extensions.print.QuoteFunction
+import idb.query.colors.{FieldName, FieldColor, Color, ClassColor}
 
 import scala.virtualization.lms.common._
 import scala.reflect.SourceContext
@@ -459,6 +461,67 @@ trait FunctionUtils
 
         fun ((x: Rep[Domain]) => faUnsafe (x) || fbUnsafe (x))(mDomain, manifest[Boolean])
     }
+
+	def colorsOfTFields(func : Rep[_ => _], coloring : Color) : Set[Color] = {
+
+
+		func match {
+			case Def(Lambda(f, x@UnboxedTuple(l), y)) =>
+				colorsOfTFieldsInExp(y.res, x, coloring)
+
+			case _ =>
+				Predef.println(s"Warning! $func is not a lambda!")
+				Set.empty
+		}
+	}
+
+	protected def colorsOfTFieldsInExp(exp : Exp[_], parameter : Exp[_], coloring : Color) : Set[Color] = {
+		Predef.println(s"exp: $exp, parameter: $parameter")//, color: $coloring")
+
+		if (exp == parameter) {
+			Predef.println(s"exp == parameter --> $coloring")
+			return Set(coloring)
+		}
+
+
+		exp match {
+			case Def(e) =>
+
+
+				val subExpressions = syms(e)
+				Predef.println(s"definition: $e, sub: $subExpressions")
+
+				if (subExpressions.isEmpty)
+					return Set()
+
+				e match {
+					case FieldApply(sub, fieldName) =>
+						val colorOfSubexpression = colorsOfTFieldsInExp(sub, parameter, coloring)
+						var result = Set.empty[Color]
+
+						colorOfSubexpression.foreach(col => col match {
+							case FieldColor(fieldMap) =>
+								val fieldColor = fieldMap.get(FieldName(fieldName))
+								fieldColor match {
+									case Some(c) =>
+										result = result ++ Set(c)
+									case None =>
+										result = result ++ Set(col)
+								}
+							case ClassColor(_) =>
+								result = result ++ Set(col)
+						}
+						)
+						return result
+
+					case _ =>
+						val colorsOfSubexpressions = subExpressions.map(x => colorsOfTFieldsInExp(x, parameter, coloring))
+						return colorsOfSubexpressions.fold(Set())((a, b) => a ++ b)
+				}
+			case _ =>
+				throw new IllegalArgumentException("No def.")
+		}
+	}
 
 
 }

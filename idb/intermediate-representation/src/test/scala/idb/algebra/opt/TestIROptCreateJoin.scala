@@ -70,10 +70,10 @@ class TestIROptCreateJoin
 
 		val selectionFunc = (t : Rep[(Int, Int)]) => t._1 == t._2
 
-        val expA = selection (crossProduct (emptyRelation[Int](), emptyRelation[Int]()), selectionFunc)
+        val expA = selection (crossProduct (emptyRelation[Int], emptyRelation[Int]), selectionFunc)
 
         val f1 : Rep[Int => Any] = (x: Rep[Int]) => x
-        val expB = equiJoin(emptyRelation[Int](), emptyRelation[Int](), scala.List((f1, f1)))
+        val expB = equiJoin(emptyRelation[Int], emptyRelation[Int], scala.List((f1, f1)))
 
         assertEquals (quoteRelation (expB), quoteRelation (expA))
         assertEquals (expB, expA)

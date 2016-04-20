@@ -33,6 +33,7 @@
 package idb.algebra
 
 import idb.algebra.ir.RelationalAlgebraIRBase
+import idb.query.QueryEnvironment
 
 /**
  *
@@ -50,6 +51,6 @@ trait TestUtils extends RelationalAlgebraIRBase
      * Constructs an AST node for a base relation with a dummy for the concrete queried relation.
      * Useful for just constructing ASTs and testing equivalence, without executing (i.e., compiling) the query.
      */
-    def emptyRelation[Domain: Manifest] () = table (List.empty[Domain])
+    def emptyRelation[Domain: Manifest](implicit queryEnvironment : QueryEnvironment) = table (List.empty[Domain])
 
 }

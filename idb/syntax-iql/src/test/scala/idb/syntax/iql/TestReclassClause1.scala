@@ -30,66 +30,65 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.ir
+package idb.syntax.iql
 
-import idb.algebra.TestUtils
 import idb.query.QueryEnvironment
-import org.junit.Assert._
-import org.junit.Test
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
+import idb.query.colors.{NO_COLORING, NO_COLOR}
+import idb.schema.university._
+import idb.syntax.iql.IR._
+import idb.syntax.iql.TestUtil.assertEqualStructure
+import idb.syntax.iql.UniversityDatabase._
+import org.junit.{Ignore, Test}
+
+import scala.language.implicitConversions
+
 
 /**
  *
  * @author Ralf Mitschke
- *
  */
-
-class TestIRConstruction
-    extends RelationalAlgebraIRBasicOperators
-    with LiftAll
-    with ScalaOpsPkgExp
-    with TestUtils
+class TestReclassClause1
 {
+
+
     @Test
-    def testSelection () {
-		implicit val local = QueryEnvironment.Local
+    def testTable () {
+		implicit val queryEnvironment = QueryEnvironment.Local
+        val query = RECLASS (
+            SELECT (*) FROM students,
+			NO_COLORING
+        )
 
-        val f = fun ((x: Rep[Int]) => x > 0)
-        val exp = selection (emptyRelation[Int], f)
-        val s = syms (exp)(0)
-        val d = findDefinition (s) match {
-            case Some (TP (_, rhs)) => rhs
-            case _ => null
-        }
+        assertEqualStructure (reclassification(table (students), NO_COLORING), query)
+    }
 
-        assertEquals (
-            Selection (emptyRelation[Int], f),
-            d
+
+
+    @Test
+    def testSelection1ProjectTupleDirect () {
+		implicit val queryEnvironment = QueryEnvironment.Local
+        val query = RECLASS (
+            SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) =>
+				s.firstName == "Sally"),
+			NO_COLORING
+        )
+
+        assertEqualStructure (
+            reclassification(
+				projection (
+					selection (
+						table (students),
+						fun ((s: Rep[Student]) => s.firstName == "Sally")
+					),
+					fun ((s: Rep[Student]) => (s.firstName, s.lastName))
+				),
+				NO_COLORING
+			),
+            query
         )
     }
 
 
-    @Test
-    def testCommonSubExpressionWithSelection () {
-		implicit val local = QueryEnvironment.Local
 
-		val f = fun ((x: Rep[Int]) => x > 0)
-        val exp1 = selection (emptyRelation[Int], f)
-        val exp2 = selection (emptyRelation[Int], f)
 
-        assertEquals (
-            exp1,
-            exp2
-        )
-    }
-
-  /* @Test
-     def testLocalIncrementTable () {
-        val e = emptyRelation[Data]()
-
-        assertEquals (
-            QueryTable (scala.List.empty[Data], isSet = false, isIncrementLocal = true, isMaterialized = false),
-            e
-        )
-    } */
 }

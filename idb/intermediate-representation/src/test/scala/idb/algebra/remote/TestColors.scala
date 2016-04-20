@@ -1,15 +1,35 @@
 package idb.algebra.remote
 
-import idb.query.{CompoundColor, SingleColor, NoColor, Color$}
+import idb.query.colors.{ClassColor, Color}
 import org.junit.Assert._
 import org.junit.Test
 
 /**
  * @author Mirko Köhler
  */
-class TestRemoteDescription {
+class TestColors {
 
-	val d1 = SingleColor("red")
+	val c1 = Color("red")
+	val c2 = Color("green")
+	val c3 = Color("blue")
+
+
+	val f1 = Color("name" -> c1, "pin" -> c3)
+	val f2 = Color("name" -> c1, "pin" -> c2)
+
+
+	@Test
+	def testTupleColor(): Unit = {
+		assertEquals(Color("_1" -> c1, "_2" -> c2), Color.tupled(c1, c2))
+	}
+
+	@Test
+	def testColorUnion() : Unit = {
+		assertEquals(Color("name" -> c1, "pin" -> Color.group("green", "blue")), Color.union(f1, f2))
+		assertEquals(Color("name" -> c1, "pin" -> Color.group("red", "blue")), Color.union(f1, c1))
+	}
+
+/*	val d1 = SingleColor("red")
 	val d2 = SingleColor("green")
 	val d3 = CompoundColor(Set(SingleColor("red"), SingleColor("blue"), SingleColor("yellow")))
 	val d4 = CompoundColor(Set(SingleColor("red"), SingleColor("blue"), SingleColor("gray")))
@@ -44,7 +64,7 @@ class TestRemoteDescription {
 
 		assertTrue(Color.compareTo(d6, d3) < 0)
 		assertTrue(Color.compareTo(d6, d5) > 0)
-	}
+	}    */
 
 
 }

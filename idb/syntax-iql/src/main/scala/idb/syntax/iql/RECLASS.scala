@@ -1,6 +1,6 @@
 package idb.syntax.iql
 
-import idb.query.Color
+import idb.query.colors.Color
 import idb.syntax.iql.IR._
 
 /**
@@ -9,8 +9,8 @@ import idb.syntax.iql.IR._
 object RECLASS {
 
 	def apply[Domain : Manifest](
-		newColor : Color,
-		relation : Rep[Query[Domain]]
+		relation : Rep[Query[Domain]] ,
+		newColor : Color
 	) : Rep[Query[Domain]] =
 		reclassification(relation, newColor)
 }

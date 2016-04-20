@@ -33,6 +33,8 @@
 package idb.lms.extensions
 
 
+import idb.query.colors._
+
 import scala.virtualization.lms.common._
 import org.junit.Test
 import org.junit.Ignore
@@ -364,7 +366,4 @@ class TestFunctionUtils
 			isDisjunctiveParameterEquality(f)
 		)
 	}
-
-
-
 }

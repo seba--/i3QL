@@ -32,9 +32,11 @@
  */
 package idb.algebra.ir
 
+
 import idb.algebra.base.RelationalAlgebraBase
 import idb.annotations.{Remote, LocalIncrement}
 import idb.query._
+import idb.query.colors.Color
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
 import scala.language.implicitConversions
@@ -53,8 +55,6 @@ trait RelationalAlgebraIRBase
 
     trait QueryBaseOps
     {
-
-		val id : Int = freshId()
 
         def isSet: Boolean
 
@@ -86,18 +86,12 @@ trait RelationalAlgebraIRBase
         relation.tp.typeArguments (0).asInstanceOf[Manifest[T]]
 
 
-	private var fresh = 0
-	protected def freshId() : Int = {
-		fresh = fresh + 1
-		fresh
-	}
-
-    case class QueryTable[Domain] (
+	case class QueryTable[Domain] (
         table: Table[Domain],
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
         isMaterialized: Boolean = false,
-		color : Color = NoColor
+		color : Color = Color.NO_COLOR
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps {
@@ -109,7 +103,7 @@ trait RelationalAlgebraIRBase
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
         isMaterialized: Boolean = false,
-		color : Color = NoColor
+		color : Color = Color.NO_COLOR
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
@@ -129,7 +123,7 @@ trait RelationalAlgebraIRBase
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = relation.isSet
 		def isIncrementLocal = relation.isIncrementLocal
-		def color = NoColor //Root node never has any taints
+		def color = Color.NO_COLOR //Root node never has any taints
 	}
 
 	//This version checks the type of the table for the annotation instead of the table itself
@@ -154,7 +148,7 @@ trait RelationalAlgebraIRBase
 		val annotation = m.getClass.getAnnotation(classOf[Remote])
 
 		if (annotation == null)
-			NoColor
+			Color.NO_COLOR
 		else
 			Color(annotation.description())
 	}
@@ -162,12 +156,12 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps an table as a leaf in the query tree
      */
-    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Color = NoColor)(
+    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]],
 		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = {
-		val c : Color = if (color == NoColor) getColorAnnotation(table) else NoColor
+		val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(table) else Color.NO_COLOR
 
 		val t = QueryTable (
 			table,
@@ -184,13 +178,13 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Color = NoColor)(
+    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]],
 		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = {
 
-		val c : Color = if (color == NoColor) getColorAnnotation(relation) else NoColor
+		val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(relation) else Color.NO_COLOR
 		val t = QueryRelation (
 			relation,
 			isSet = isSet,

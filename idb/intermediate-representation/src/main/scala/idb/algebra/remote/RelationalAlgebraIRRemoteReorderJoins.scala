@@ -3,7 +3,8 @@ package idb.algebra.remote
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
-import idb.query.{Color, QueryEnvironment}
+import idb.query.colors.Color
+import idb.query.{QueryEnvironment}
 
 /**
  * @author Mirko Köhler
@@ -157,23 +158,23 @@ trait RelationalAlgebraIRRemoteReorderJoins
 		isSmallerImpl1
 
 	private def isSmallerImpl1(a : Color, b : Color, env : QueryEnvironment) : Boolean =
-		a < b
+		false
 
 
-	private def isSmallerImpl2(a : Color, b : Color, env : QueryEnvironment) : Boolean = {
+	/*private def isSmallerImpl2(a : Color, b : Color, env : QueryEnvironment) : Boolean = {
 		val aPermissions = (env permission a) sortWith ((h1, h2) => h1.name < h2.name)
 		val bPermissions = (env permission b) sortWith ((h1, h2) => h1.name < h2.name)
 
 		if (aPermissions equals bPermissions) {
-			a < b
+			false
 		} else if (aPermissions.isEmpty && bPermissions.nonEmpty) {
 			false
 		} else if (bPermissions.isEmpty) {
 			true
 		} else {
-			a < b
+			false
 		}
-	}
+	}    */
 
 
 }

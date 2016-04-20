@@ -34,8 +34,9 @@ package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraAggregationOperators, RelationalAlgebraBasicOperators}
 import idb.query.QueryEnvironment
+import idb.query.colors.{ClassColor, Color}
 import scala.virtualization.lms.common.LiftAll
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.lms.extensions.{FunctionUtils, ScalaOpsExpOptExtensions}
 
 
 /**
@@ -44,7 +45,7 @@ import idb.lms.extensions.ScalaOpsExpOptExtensions
  *
  */
 trait RelationalAlgebraIRAggregationOperators
-    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators
+    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators with FunctionUtils
 {
 
     case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, RangeA, RangeB, Range : Manifest] (
@@ -61,7 +62,20 @@ trait RelationalAlgebraIRAggregationOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = {
+			val cGroup = colorsOfTFields(grouping, relation.color)
+			val cConvertKey = colorsOfTFields(convertKey, Color.fromIdsInColors(cGroup))
+			val rangeACol = Color.fromIdsInColors(cConvertKey)
+
+			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR))
+			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR))
+			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR))
+			val rangeBCol = Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
+
+			val cConvert = colorsOfTFields(convert, Color.tupled(rangeACol, rangeBCol))
+
+			Color.fromIdsInColors(cConvert)
+		}
 	}
 
 	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
@@ -75,7 +89,12 @@ trait RelationalAlgebraIRAggregationOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = {
+			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR))
+			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR))
+			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR))
+			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
+		}
 	}
 
 	case class AggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -90,7 +109,15 @@ trait RelationalAlgebraIRAggregationOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = {
+			val cGroup = colorsOfTFields(grouping, relation.color)
+
+			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR))
+			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR))
+			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR))
+
+			Color.fromIdsInColors(cGroup ++ cAdd ++ cRemove ++ cUpdate)
+		}
 	}
 
 	case class AggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
@@ -107,7 +134,20 @@ trait RelationalAlgebraIRAggregationOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = {
+			val cGroup = colorsOfTFields(grouping, relation.color)
+			val cConvertKey = colorsOfTFields(convertKey, Color.fromIdsInColors(cGroup))
+			val rangeACol = Color.fromIdsInColors(cConvertKey)
+
+			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			val rangeBCol = Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
+
+			val cConvert = colorsOfTFields(convert, Color.tupled(rangeACol, rangeBCol))
+
+			Color.fromIdsInColors(cConvert)
+		}
 	}
 
 	case class AggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
@@ -121,7 +161,12 @@ trait RelationalAlgebraIRAggregationOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = {
+			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
+		}
 	}
 
 	case class AggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -136,7 +181,15 @@ trait RelationalAlgebraIRAggregationOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = {
+			val cGroup = colorsOfTFields(grouping, relation.color)
+
+
+			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
+			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate ++ cGroup)
+		}
 	}
 
 	case class Grouping[Domain : Manifest, Result : Manifest] (
@@ -147,7 +200,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = Color.fromIdsInColors(colorsOfTFields(grouping, relation.color))
 	}
 
 	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](

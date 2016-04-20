@@ -33,7 +33,9 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBasicOperators
-import idb.query.{Color, QueryEnvironment, Color$}
+import idb.lms.extensions.FunctionUtils
+import idb.query.QueryEnvironment
+import idb.query.colors.{ClassColor, Color, FieldColor, FieldName}
 
 
 /**
@@ -42,7 +44,7 @@ import idb.query.{Color, QueryEnvironment, Color$}
  *
  */
 trait RelationalAlgebraIRBasicOperators
-    extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators
+    extends RelationalAlgebraIRBase with RelationalAlgebraBasicOperators with FunctionUtils
 {
     case class Projection[Domain : Manifest, Range : Manifest] (
         var relation: Rep[Query[Domain]],
@@ -51,11 +53,11 @@ trait RelationalAlgebraIRBasicOperators
 		val mDom = implicitly[Manifest[Domain]]
 		val mRan = implicitly[Manifest[Domain]]
 
-		def isMaterialized: Boolean = relation.isMaterialized
-		def isSet = false
-		def isIncrementLocal = relation.isIncrementLocal
+		override def isMaterialized: Boolean = relation.isMaterialized
+		override def isSet = false
+		override def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		override def color = Color.fromIdsInColors(colorsOfTFields(function, relation.color))
 	}
 
     case class Selection[Domain: Manifest] (
@@ -64,11 +66,11 @@ trait RelationalAlgebraIRBasicOperators
     ) extends Def[Query[Domain]] with QueryBaseOps {
         val mDom = implicitly[Manifest[Domain]]
 
-		def isMaterialized: Boolean = relation.isMaterialized
-		def isSet = false
-		def isIncrementLocal = relation.isIncrementLocal
+		override def isMaterialized: Boolean = relation.isMaterialized
+		override def isSet = false
+		override def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		override def color = relation.color
 	}
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
@@ -79,11 +81,11 @@ trait RelationalAlgebraIRBasicOperators
         val mDomA = implicitly[Manifest[DomainA]]
         val mDomB = implicitly[Manifest[DomainB]]
 
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
-		def isSet = false
-		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
+		override def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
+		override def isSet = false
+		override def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
 
-		def color = Color.join(relationA.color, relationB.color)
+		override def color = Color.tupled(relationA.color, relationB.color)
     }
 
     case class EquiJoin[DomainA: Manifest, DomainB: Manifest] (
@@ -99,7 +101,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
 
-		def color = Color.join(relationA.color, relationB.color)
+		def color = Color.tupled(relationA.color, relationB.color)
 	}
 
     case class DuplicateElimination[Domain: Manifest] (
@@ -122,7 +124,7 @@ trait RelationalAlgebraIRBasicOperators
 		def isSet = false
 		def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+		def color = Color.tupled(relation.color, Color.fromIdsInColors(colorsOfTFields(unnesting, relation.color)))
 	}
 
 
