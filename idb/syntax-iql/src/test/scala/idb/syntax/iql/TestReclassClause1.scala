@@ -33,7 +33,7 @@
 package idb.syntax.iql
 
 import idb.query.QueryEnvironment
-import idb.query.colors.{NO_COLORING, NO_COLOR}
+import idb.query.colors.Color
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import idb.syntax.iql.TestUtil.assertEqualStructure
@@ -56,10 +56,10 @@ class TestReclassClause1
 		implicit val queryEnvironment = QueryEnvironment.Local
         val query = RECLASS (
             SELECT (*) FROM students,
-			NO_COLORING
+			Color.NO_COLOR
         )
 
-        assertEqualStructure (reclassification(table (students), NO_COLORING), query)
+        assertEqualStructure (reclassification(table (students), Color.NO_COLOR), query)
     }
 
 
@@ -70,7 +70,7 @@ class TestReclassClause1
         val query = RECLASS (
             SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) =>
 				s.firstName == "Sally"),
-			NO_COLORING
+			Color.NO_COLOR
         )
 
         assertEqualStructure (
@@ -82,7 +82,7 @@ class TestReclassClause1
 					),
 					fun ((s: Rep[Student]) => (s.firstName, s.lastName))
 				),
-				NO_COLORING
+				Color.NO_COLOR
 			),
             query
         )

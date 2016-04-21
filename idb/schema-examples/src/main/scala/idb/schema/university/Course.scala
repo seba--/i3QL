@@ -32,7 +32,6 @@
  */
 package idb.schema.university
 
-import idb.annotations.LocalIncrement
 import scala.language.implicitConversions
 import scala.virtualization.lms.common.StructExp
 

@@ -1,6 +1,6 @@
 package idb.syntax.iql
 
-import idb.query.Color
+import idb.query.colors.Color
 import idb.syntax.iql.IR._
 
 /**

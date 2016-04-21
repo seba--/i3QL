@@ -51,7 +51,7 @@ trait RelationalAlgebraGenBaseAsIncremental
         query match {
             case QueryRelation (relation, _, _, _, _) => relation
 
-            case QueryTable (table, _, _, _, _, _) => table
+            case QueryTable (table, _, _, _, _) => table
 
 			case Def (Root (relation)) => compile(relation)
 

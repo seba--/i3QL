@@ -33,6 +33,8 @@
 package idb.algebra.compiler
 
 import idb.algebra.ir.RelationalAlgebraIRBase
+import idb.query.QueryEnvironment
+import idb.query.colors.Color
 import scala.language.implicitConversions
 
 /**
@@ -51,18 +53,22 @@ trait RelationalAlgebraSAEBinding
     /**
      * Wraps a table as a leaf in the query tree
      */
-    def table[Domain] (table: Table[Domain])(
-        implicit mDom: Manifest[Domain],
-        mRel: Manifest[Table[Domain]]
+	override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR)(
+		implicit mDom: Manifest[Domain],
+		mRel: Manifest[Table[Domain]],
+		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] =
-        super.table (table, table.isSet)
+        super.table (table, isSet, color)
+
+
 
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    def relation[Domain] (relation: Relation[Domain])(
-        implicit mDom: Manifest[Domain],
-        mRel: Manifest[Relation[Domain]]
-    ): Rep[Query[Domain]] =
-        super.relation (relation, relation.isSet)
+	override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR)(
+		implicit mDom: Manifest[Domain],
+		mRel: Manifest[Relation[Domain]],
+		queryEnvironment : QueryEnvironment
+	): Rep[Query[Domain]] =
+        super.relation (relation, isSet, color)
 }

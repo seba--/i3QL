@@ -27,39 +27,6 @@ object sae extends Build {
 	lazy val integrationTest = Project(id = "idb-integration-test", base = file("idb/integration-test"))
 		.dependsOn (schemaExamples % "test", syntax % "test", intermediateRepresentation % "test")
 		
-	/*
-    Project Bytecode Database
-	*/
-	lazy val db = Project(id = "db", base = file("bytecode-database"))
-		.aggregate (databaseInterface, bindingASM)
-
-  lazy val databaseInterface = Project(id = "db-interface", base = file("bytecode-database/interface"))
-    .dependsOn (syntax % "compile")
-
-	lazy val bindingASM = Project(id = "db-binding-asm", base = file("bytecode-database/binding-asm"))
-    .dependsOn (databaseInterface % "compile", testData % "compile;test")
-    
-  /*
-    Project Analyses
-  */
-
-  	lazy val analyses = Project(id = "analyses", base = file("analyses"))
-    	.aggregate (findbugs, metrics, profiler)
-  
-  	lazy val findbugs = Project(id = "analyses-findbugs", base = file("analyses/findbugs"))
-    	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
-  
-  	lazy val metrics = Project(id = "analyses-metrics", base = file("analyses/metrics"))
-    	.dependsOn(databaseInterface % "compile", bindingASM % "compile", testData % "compile;test")
-
-	lazy val profiler = Project(id = "analyses-profiler", base = file("analyses/profiler"))
-		.dependsOn(databaseInterface % "compile", bindingASM % "compile", findbugs % "compile;test", metrics % "compile;test", testData % "compile;test")
-   
-   /*
-	Project Interpreter
-   */
-	lazy val interpreter = Project(id = "interpreter", base = file("interpreter"))
-    	.dependsOn(syntax % "compile;test")
 
   /*
     Project Hospital example
@@ -83,7 +50,7 @@ object sae extends Build {
     Root Project
   */  
   lazy val root = Project(id = "sae", base = file("."))
-		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, databaseInterface, bindingASM, findbugs, metrics, profiler, interpreter, hospitalExample)
+		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, hospitalExample, testData)
   
     
 

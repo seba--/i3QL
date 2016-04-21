@@ -49,13 +49,15 @@ package object iql
 
     implicit def tableToQuery[Domain] (ext: Table[Domain])(
         implicit mDom: Manifest[Domain],
-        mExt: Manifest[Table[Domain]]
+        mExt: Manifest[Table[Domain]],
+	    queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = table (ext)
 
 
     implicit def relationToQuery[Domain] (rel: Relation[Domain])(
         implicit mDom: Manifest[Domain],
-        mExt: Manifest[Relation[Domain]]
+        mExt: Manifest[Relation[Domain]],
+		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = relation (rel)
 
 
@@ -78,7 +80,7 @@ package object iql
     implicit def queryToInfixOps[Range: Manifest] (query: Rep[Query[Range]]) : QueryInfixOps[Range] =
         QueryInfixOps (query)
 
-    implicit def relationToInfixOps[Range: Manifest] (query: Relation[Range]) : QueryInfixOps[Range] =
+    implicit def relationToInfixOps[Range: Manifest] (query: Relation[Range])(implicit queryEnvironment: QueryEnvironment = QueryEnvironment.Default) : QueryInfixOps[Range] =
         QueryInfixOps (relation (query))
 
 
