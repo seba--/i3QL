@@ -161,14 +161,14 @@ trait RelationalAlgebraIRBase
         mRel: Manifest[Table[Domain]],
 		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = {
-		val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(table) else Color.NO_COLOR
+		//val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(table) else Color.NO_COLOR
 
 		val t = QueryTable (
 			table,
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
 			isMaterialized = false,
-			color = c
+			color = color
 		)
 		t
 	}

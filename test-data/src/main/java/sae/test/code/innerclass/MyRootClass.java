@@ -3,8 +3,7 @@ package sae.test.code.innerclass;
 /**
  * Author: Ralf Mitschke
  * Created: 08.06.11 14:16
- * <p/>
- * Notice, we test on the anonymous inner classes, thus do NOT change the order of the defined methods!
+  * Notice, we test on the anonymous inner classes, thus do NOT change the order of the defined methods!
  */
 public class MyRootClass
 {

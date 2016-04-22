@@ -478,6 +478,7 @@ trait FunctionUtils
 	protected def colorsOfTFieldsInExp(exp : Exp[_], parameter : Exp[_], coloring : Color) : Set[Color] = {
 		Predef.println(s"exp: $exp, parameter: $parameter")//, color: $coloring")
 
+		//TODO: Add special treatment if parameter is tuple!
 		if (exp == parameter) {
 			Predef.println(s"exp == parameter --> $coloring")
 			return Set(coloring)
@@ -518,8 +519,12 @@ trait FunctionUtils
 						val colorsOfSubexpressions = subExpressions.map(x => colorsOfTFieldsInExp(x, parameter, coloring))
 						return colorsOfSubexpressions.fold(Set())((a, b) => a ++ b)
 				}
+
+
+			//case Sym(id) =>
+
 			case _ =>
-				throw new IllegalArgumentException("No def.")
+				throw new IllegalArgumentException(s"No def: $exp")
 		}
 	}
 
