@@ -34,7 +34,7 @@ package idb.lms.extensions
 
 
 import idb.lms.extensions.print.QuoteFunction
-import idb.query.colors.{FieldName, FieldColor, Color, ClassColor}
+import idb.query.colors._
 
 import scala.virtualization.lms.common._
 import scala.reflect.SourceContext
@@ -466,7 +466,7 @@ trait FunctionUtils
 
 
 		func match {
-			case Def(Lambda(f, x@UnboxedTuple(l), y)) =>
+			case Def(Lambda(f, x, y)) =>
 				colorsOfTFieldsInExp(y.res, x, coloring)
 
 			case _ =>
@@ -476,11 +476,11 @@ trait FunctionUtils
 	}
 
 	protected def colorsOfTFieldsInExp(exp : Exp[_], parameter : Exp[_], coloring : Color) : Set[Color] = {
-		Predef.println(s"exp: $exp, parameter: $parameter")//, color: $coloring")
+		//Predef.println(s"exp: $exp, parameter: $parameter")//, color: $coloring")
 
 		//TODO: Add special treatment if parameter is tuple!
 		if (exp == parameter) {
-			Predef.println(s"exp == parameter --> $coloring")
+			//Predef.println(s"exp == parameter --> $coloring")
 			return Set(coloring)
 		}
 
@@ -490,7 +490,7 @@ trait FunctionUtils
 
 
 				val subExpressions = syms(e)
-				Predef.println(s"definition: $e, sub: $subExpressions")
+				//Predef.println(s"definition: $e, sub: $subExpressions")
 
 				if (subExpressions.isEmpty)
 					return Set()
@@ -521,12 +521,44 @@ trait FunctionUtils
 				}
 
 
-			//case Sym(id) =>
+			case Const(_) =>
+				Set()
 
 			case _ =>
 				throw new IllegalArgumentException(s"No def: $exp")
 		}
 	}
+
+
+	def projectionColor(color : Color, func: Rep[_ => _]): Color = func match {
+
+		case Def(Lambda(f, x, y)) =>
+			y.res match {
+				case Def(Struct(tags, fields)) =>
+					var colorMap : Map[FieldId, Color] = Predef.Map.empty
+
+					fields.foreach(t => {
+						val fieldName = t._1
+						val exp = t._2
+						//TODO: Add recursive calls here!
+						colorMap = colorMap + (FieldName(fieldName) -> Color.fromIdsInColors(colorsOfTFieldsInExp(exp, x, color)))
+					})
+					//Predef.println(s"Struct $tags with $fields")
+					FieldColor(colorMap)
+				case yRes =>
+					Color.fromIdsInColors(colorsOfTFieldsInExp(yRes, x, color))
+			}
+
+		/*case Def(Lambda(f, x, y)) =>
+			Predef.println("No UnboxedTuple")
+			Color.fromIdsInColors(colorsOfTFields(func, color))  */
+
+		case _ =>
+			Predef.println(s"Warning! $func is not a lambda!")
+			Color.empty
+	}
+
+
 
 
 }

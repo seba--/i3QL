@@ -97,7 +97,6 @@ class TestColorUtils
 		assertEquals(Set(Color("blue")), colorsOfTFields(f, coloring))
 	}
 
-
 	@Test
 	def testColorsInFun2(): Unit = {
 		val f = (t : Rep[((Int, Int), Int)]) => t._1._2 + t._2
@@ -120,6 +119,51 @@ class TestColorUtils
 		val c2 = Color("blue")
 
 		assertEquals(Set(Color("blue"), Color("red")), colorsOfTFields(f, Color.tupled(c1, c1, c2)))
+	}
+
+	@Test
+	def testProjectionColor1(): Unit = {
+		val f : Rep[_ => _] = (t : Rep[((Int, Int), Int)]) => make_tuple2((t._1._2 + 1, t._2))
+
+		val coloring = Color(
+			"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
+			"_2" -> Color("yellow")
+		)
+
+		assertEquals(Color("_1" -> Color("blue"), "_2" -> Color("yellow")), projectionColor(coloring, f))
+	}
+
+	@Test
+	def testProjectionColor2(): Unit = {
+		val f : Rep[_ => _] = (t : Rep[((Int, Int), Int)]) => t._2
+
+		val coloring = Color(
+			"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
+			"_2" -> Color("yellow")
+		)
+
+		assertEquals(Color("yellow"), projectionColor(coloring, f))
+	}
+
+	@Test
+	def testProjectionColor3(): Unit = {
+		val f : Rep[_ => _] = (t : Rep[Int]) => make_tuple2((t, __unit(0)))
+
+		val coloring = Color("red")
+
+		assertEquals(Color("_1" -> Color("red"), "_2" -> Color.empty), projectionColor(coloring, f))
+	}
+
+	@Test
+	def testProjectionColor4(): Unit = {
+		val f : Rep[_ => _] = (t : Rep[((Int, Int), Int)]) => make_tuple3((t._1._2 + t._2, __unit(0), __unit(1)))
+
+		val coloring = Color(
+			"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
+			"_2" -> Color("yellow")
+		)
+
+		assertEquals(Color("_1" -> Color.group("blue", "yellow"), "_2" -> Color.empty, "_3" -> Color.empty), projectionColor(coloring, f))
 	}
 
 

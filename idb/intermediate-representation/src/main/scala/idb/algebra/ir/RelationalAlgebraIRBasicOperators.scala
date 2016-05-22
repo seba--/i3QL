@@ -57,7 +57,7 @@ trait RelationalAlgebraIRBasicOperators
 		override def isSet = false
 		override def isIncrementLocal = relation.isIncrementLocal
 
-		override def color = Color.fromIdsInColors(colorsOfTFields(function, relation.color))
+		override def color = projectionColor(relation.color, function)
 	}
 
     case class Selection[Domain: Manifest] (
@@ -70,7 +70,10 @@ trait RelationalAlgebraIRBasicOperators
 		override def isSet = false
 		override def isIncrementLocal = relation.isIncrementLocal
 
-		override def color = relation.color
+		override def color =
+			Color.union(relation.color, Color.fromIdsInColors(colorsOfTFields(function, relation.color)))
+
+
 	}
 
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
@@ -101,7 +104,13 @@ trait RelationalAlgebraIRBasicOperators
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
 
-		def color = Color.tupled(relationA.color, relationB.color)
+		def color = {
+			val e = equalities.foldRight(Predef.Set.empty[Color])((a, b) => colorsOfTFields(a._1, relationA.color))
+			val f = equalities.foldRight(Predef.Set.empty[Color])((a, b) => colorsOfTFields(a._2, relationB.color))
+
+			val eUnionF = Color.union(Color.fromIdsInColors(e), Color.fromIdsInColors(f))
+			Color.tupled(Color.union(relationA.color, eUnionF), Color.union(relationB.color, eUnionF))
+		}
 	}
 
     case class DuplicateElimination[Domain: Manifest] (

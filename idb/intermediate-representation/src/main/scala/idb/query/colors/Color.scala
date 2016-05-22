@@ -25,6 +25,8 @@ object Color {
 
 	val NO_COLOR = ClassColor(Set.empty)
 
+	def empty = group()
+
 	def apply(name : String) : Color =
 		group(name)
 
@@ -32,7 +34,10 @@ object Color {
 		ClassColor(names.map(StringColor).toSet)
 
 	def apply(es : (String, Color)*) : Color =
-		FieldColor(Map(es.map(t => (FieldName(t._1), t._2)) : _*))
+		if (es.isEmpty)
+			empty
+		else
+			FieldColor(Map(es.map(t => (FieldName(t._1), t._2)) : _*))
 
 	/**
 	 * Creates a color that colors a tuple, where each element in the tuple has the corresponding color given as parameter.
@@ -44,7 +49,7 @@ object Color {
 	}
 
 	def ids(colors : Set[Color]) : Set[ColorId] =
-		colors.map(_.ids).flatten
+		colors.flatMap(_.ids)
 
 	def fromIdsInColors(colors : Set[Color]) : Color =
 		ClassColor(ids(colors))
