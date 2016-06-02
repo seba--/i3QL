@@ -1,7 +1,7 @@
 package idb.query
 
 import akka.actor.ActorSystem
-import idb.query.colors.Color
+import idb.query.colors.{Color, ColorId}
 
 import scala.collection.mutable
 
@@ -20,12 +20,12 @@ trait QueryEnvironment {
 	/**
 	 * Returns a list of all hosts
 	 */
-	def hosts : List[Host]
+	def hosts : Set[Host]
 
 	/**
 	 * Maps the descriptions of tables (i.e. colors) to the hosts that have the right to read the tables.
 	 */
-	def permission(name : String) : List[Host]
+	def permissionsOf(host : Host) : Set[ColorId]
 
 	/*def permission(description : Color) : List[Host] = description match {
 		case  => Nil
@@ -37,23 +37,11 @@ trait QueryEnvironment {
 	 * Closes the environment. Queries with that environment should no longer be used.
 	 */
 	def close(): Unit
-
-	def colors : mutable.Map[Int, Set[Any]]
-
-	def getColor(id : Int) : Set[Any] = {
-		colors.get(id) match {
-			case Some(c) => c
-			case None => Set.empty
-		}
-	}
-
 }
 
 protected class QueryEnvironmentImpl (
 	val _actorSystem : Option[ActorSystem] = None,
-    val _hosts : List[Host] = List(),
-    val _permissions : Map[String, List[Int]] = Map(),
- 	val _colors : mutable.Map[Int, Set[Any]] = mutable.Map.empty[Int, Set[Any]]
+    val _permissions : Map[Host, Set[ColorId]] = Map()
 ) extends QueryEnvironment {
 
 	override def actorSystem =
@@ -62,21 +50,18 @@ protected class QueryEnvironmentImpl (
 		else
 			throw new UnsupportedByQueryEnvironmentException("No actor system", this)
 
-	override def hosts = _hosts
+	override def hosts =
+		_permissions.keySet
 
-	override def permission(name : String) = _permissions.get(name) match {
-		case Some(l) => l.map(i => _hosts(i))
-		case _ => List()
+	def permissionsOf(host : Host) : Set[ColorId] = _permissions.get(host) match {
+		case Some(set) => set
+		case _ => Set()
 	}
 
 	override def close(): Unit = {
 		if (_actorSystem.isDefined)
 			_actorSystem.get.shutdown()
 	}
-
-	override def colors = _colors
-
-
 }
 
 object QueryEnvironment {
@@ -93,12 +78,10 @@ object QueryEnvironment {
 
 	def create(
 		actorSystem : ActorSystem = null,
-	    hosts : List[Host] = List(),
-	    permissions : Map[String, List[Int]] = Map()
+	    permissions : Map[Host, Set[ColorId]] = Map()
 	) : QueryEnvironment =
 		new QueryEnvironmentImpl (
 			_actorSystem = if (actorSystem == null) None else Some(actorSystem),
-			_hosts = hosts,
 		    _permissions = permissions
 		)
 

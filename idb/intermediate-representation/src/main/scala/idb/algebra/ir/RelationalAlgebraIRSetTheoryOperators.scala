@@ -32,9 +32,10 @@
  */
 package idb.algebra.ir
 
-import idb.algebra.base.{RelationalAlgebraSetTheoryOperators, RelationalAlgebraBasicOperators}
+import idb.algebra.base.{RelationalAlgebraBasicOperators, RelationalAlgebraSetTheoryOperators}
+import idb.algebra.exceptions.NonMatchingHostsException
 import idb.query.colors.Color
-import idb.query.{QueryEnvironment}
+import idb.query.QueryEnvironment
 
 
 /**
@@ -57,7 +58,13 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
+
+		def color = relationA.color union relationB.color
+		override def host = {
+			if (relationA.host != relationB.host)
+				throw new NonMatchingHostsException(relationA.host, relationB.host)
+			relationA.host
+		}
 
     }
 
@@ -72,7 +79,13 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
+
+		def color = relationA.color union relationB.color
+		override def host = {
+			if (relationA.host != relationB.host)
+				throw new NonMatchingHostsException(relationA.host, relationB.host)
+			relationA.host
+		}
     }
 
     case class Intersection[Domain: Manifest] (
@@ -83,7 +96,13 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
+
+		def color = relationA.color union relationB.color
+		override def host = {
+			if (relationA.host != relationB.host)
+				throw new NonMatchingHostsException(relationA.host, relationB.host)
+			relationA.host
+		}
 	}
 
     case class Difference[Domain: Manifest] (
@@ -94,7 +113,13 @@ trait RelationalAlgebraIRSetTheoryOperators
 		def isMaterialized: Boolean = !isIncrementLocal //Difference implements foreach
 		def isSet = false
 		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-		def color = relationA.color union relationB.color //Color.join(relationA.color, relationB.color)
+
+		def color = relationA.color union relationB.color
+		override def host = {
+			if (relationA.host != relationB.host)
+				throw new NonMatchingHostsException(relationA.host, relationB.host)
+			relationA.host
+		}
 	}
 
 

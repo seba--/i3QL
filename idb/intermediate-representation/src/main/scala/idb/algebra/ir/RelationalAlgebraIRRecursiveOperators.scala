@@ -33,8 +33,9 @@
 package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraRecursiveOperators
+import idb.algebra.exceptions.RemoteUnsupportedException
 import idb.query.colors.Color
-import idb.query.{QueryEnvironment}
+import idb.query.{Host, QueryEnvironment}
 
 /**
  *
@@ -58,14 +59,14 @@ trait RelationalAlgebraIRRecursiveOperators
         val mEdge = implicitly[Manifest[Edge]]
         val mVertex = implicitly[Manifest[Vertex]]
 
-        def isMaterialized: Boolean = !isIncrementLocal
+        override def isMaterialized: Boolean = !isIncrementLocal
 
-        //Transitive closure is materialized
-        def isSet = false
+        override def isSet = false
 
-        def isIncrementLocal = relation.isIncrementLocal
+        override def isIncrementLocal = relation.isIncrementLocal
 
-		def color = relation.color
+        override def color = relation.color
+        override def host = relation.host
     }
 
     case class Recursion[Domain: Manifest] (
@@ -73,12 +74,14 @@ trait RelationalAlgebraIRRecursiveOperators
         var result: Rep[Query[Domain]]
     ) extends Def[Query[Domain]] with QueryBaseOps
     {
-        def isMaterialized: Boolean = result.isMaterialized
+        override def isMaterialized: Boolean = result.isMaterialized
 
-        def isSet = false
+        override def isSet = false
 
-        def isIncrementLocal = result.isIncrementLocal
-		def color = Color.NO_COLOR //
+        override def isIncrementLocal = result.isIncrementLocal
+
+        override def color = throw new RemoteUnsupportedException
+        override def host = throw new RemoteUnsupportedException
 
     }
 
@@ -87,12 +90,14 @@ trait RelationalAlgebraIRRecursiveOperators
         var source: Rep[Query[Domain]]
     ) extends Def[Query[Domain]] with QueryBaseOps
     {
-        def isMaterialized: Boolean = result.isMaterialized
+        override def isMaterialized: Boolean = result.isMaterialized
 
-        def isSet = result.isSet
+        override def isSet = result.isSet
 
-        def isIncrementLocal = result.isIncrementLocal
-		def color = Color.NO_COLOR //
+        override def isIncrementLocal = result.isIncrementLocal
+
+        override def color = throw new RemoteUnsupportedException
+        override def host = throw new RemoteUnsupportedException
     }
 
 
@@ -142,9 +147,9 @@ trait RelationalAlgebraIRRecursiveOperators
             {
                 setFunction (Recursion (relation, result.asInstanceOf[Rep[Query[Domain]]]))
             }
-            case QueryRelation (r, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
+            case QueryRelation (r, _, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
-            case QueryTable (e, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
+            case QueryTable (e, _, _, _, _, _) => throw new IllegalArgumentException ("The base was not found in the " +
                 "result tree.")
 
             //why is sometimes the matched r used and sometimes e.relation?

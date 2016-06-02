@@ -35,8 +35,9 @@ package idb.algebra.ir
 import idb.algebra.base.{RelationalAlgebraAggregationOperators, RelationalAlgebraBasicOperators}
 import idb.query.QueryEnvironment
 import idb.query.colors.{ClassColor, Color}
+
 import scala.virtualization.lms.common.LiftAll
-import idb.lms.extensions.{FunctionUtils, ScalaOpsExpOptExtensions}
+import idb.lms.extensions.{FunctionUtils, RemoteUtils, ScalaOpsExpOptExtensions}
 
 
 /**
@@ -45,7 +46,7 @@ import idb.lms.extensions.{FunctionUtils, ScalaOpsExpOptExtensions}
  *
  */
 trait RelationalAlgebraIRAggregationOperators
-    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators with FunctionUtils
+    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators with RemoteUtils
 {
 
     case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, RangeA, RangeB, Range : Manifest] (
@@ -76,6 +77,8 @@ trait RelationalAlgebraIRAggregationOperators
 
 			Color.fromIdsInColors(cConvert)
 		}
+
+		def host = relation.host
 	}
 
 	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
@@ -95,6 +98,8 @@ trait RelationalAlgebraIRAggregationOperators
 			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR))
 			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
 		}
+
+		def host = relation.host
 	}
 
 	case class AggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -118,6 +123,8 @@ trait RelationalAlgebraIRAggregationOperators
 
 			Color.fromIdsInColors(cGroup ++ cAdd ++ cRemove ++ cUpdate)
 		}
+
+		def host = relation.host
 	}
 
 	case class AggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
@@ -148,6 +155,8 @@ trait RelationalAlgebraIRAggregationOperators
 
 			Color.fromIdsInColors(cConvert)
 		}
+
+		def host = relation.host
 	}
 
 	case class AggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
@@ -167,6 +176,8 @@ trait RelationalAlgebraIRAggregationOperators
 			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
 			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
 		}
+
+		def host = relation.host
 	}
 
 	case class AggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
@@ -190,6 +201,8 @@ trait RelationalAlgebraIRAggregationOperators
 			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
 			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate ++ cGroup)
 		}
+
+		def host = relation.host
 	}
 
 	case class Grouping[Domain : Manifest, Result : Manifest] (
@@ -201,6 +214,7 @@ trait RelationalAlgebraIRAggregationOperators
 		def isIncrementLocal = relation.isIncrementLocal
 
 		def color = Color.fromIdsInColors(colorsOfTFields(grouping, relation.color))
+		def host = relation.host
 	}
 
 	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](

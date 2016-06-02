@@ -32,8 +32,8 @@
  */
 package idb.algebra.ir
 
-import idb.algebra.base.{RelationalAlgebraRemoteOperators, RelationalAlgebraBasicOperators}
-import idb.query.QueryEnvironment
+import idb.algebra.base.{RelationalAlgebraBasicOperators, RelationalAlgebraRemoteOperators}
+import idb.query.{Host, QueryEnvironment}
 import idb.query.colors.Color
 
 
@@ -47,37 +47,37 @@ trait RelationalAlgebraIRRemoteOperators
 {
     case class Remote[Domain : Manifest] (
         var relation: Rep[Query[Domain]],
-        thisDesc : Color,
-		thatDesc : Color
+		host : Host
     ) extends Def[Query[Domain]] with QueryBaseOps {
-		def isMaterialized: Boolean = relation.isMaterialized
-		def isSet = relation.isSet
-		def isIncrementLocal = relation.isIncrementLocal
+		override def isMaterialized: Boolean = relation.isMaterialized
+		override def isSet = relation.isSet
+		override def isIncrementLocal = relation.isIncrementLocal
 
-		def color = thisDesc
+		override def color = relation.color
+
     }
 
 	case class Reclassification[Domain : Manifest] (
 		var relation : Rep[Query[Domain]],
 		newColor : Color
 	) extends Def[Query[Domain]] with QueryBaseOps {
-		def isMaterialized: Boolean = relation.isMaterialized
-		def isSet = relation.isSet
-		def isIncrementLocal = relation.isIncrementLocal
+		override def isMaterialized: Boolean = relation.isMaterialized
+		override def isSet = relation.isSet
+		override def isIncrementLocal = relation.isIncrementLocal
 
-		def color = newColor
+		override def color = newColor
+		override def host = relation.host
 	}
 
 
-	def remote[Domain: Manifest] (
+	override def remote[Domain: Manifest] (
 		relation: Rep[Query[Domain]],
-		thisDesc : Color,
-		thatDesc : Color
+		host : Host
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
-		Remote(relation, thisDesc, thatDesc)
+		Remote(relation, host)
 
 
-	def reclassification[Domain : Manifest] (
+	override def reclassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
 		newColor : Color
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =

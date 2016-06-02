@@ -16,10 +16,10 @@ class QueryEnvironmentTest {
 		val hostB = RemoteHost("B")
 		val hostC = RemoteHost("C")
 
-		val qe = QueryEnvironment.create(
+	/*	val qe = QueryEnvironment.create(
 			hosts = List(hostA, hostB, hostC),
 		    permissions = Map("green" -> List(0, 1), "red" -> List(1), "yellow" -> List(1, 2), "blue" -> List(0, 1, 2), "orange" -> List(2))
-		)
+		) */
 
 	/*	val d1 = Color("green")
 		assertEquals(List(hostA, hostB), qe permission d1)

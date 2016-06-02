@@ -59,8 +59,8 @@ trait RelationalAlgebraPrintPlanRemoteOperators
 
     override def quoteRelation (x: Exp[Any]): String =
         x match {
-            case Def (Remote (relation, thisDesc, thatDesc)) =>
-                withIndent (s"remote{$thisDesc -> $thatDesc}(\n") +
+            case Def (Remote (relation, newHost)) =>
+                withIndent (s"remote{--> $newHost}(\n") +
                     withMoreIndent (quoteRelation (relation) + "\n") +
                     withIndent (")")
 

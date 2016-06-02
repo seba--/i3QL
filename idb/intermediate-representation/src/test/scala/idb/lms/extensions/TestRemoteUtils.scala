@@ -41,9 +41,9 @@ import scala.virtualization.lms.common._
 
 /**
  *
- * @author Ralf Mitschke, Mirko Köhler
+ * @author Mirko Köhler
  */
-class TestColorUtils
+class TestRemoteUtils
     extends BaseFatExp
     with NumericOpsExp
     with EffectExp
@@ -52,7 +52,7 @@ class TestColorUtils
     with TupleOpsExp
     with BooleanOpsExp
     with LiftAll
-    with FunctionUtils
+    with RemoteUtils
 	with PrimitiveOpsExp
 	with StringOpsExpExt
 {

@@ -34,9 +34,11 @@ package idb.algebra.ir
 
 
 import idb.algebra.base.RelationalAlgebraBase
-import idb.annotations.{Remote, LocalIncrement}
+import idb.algebra.exceptions.NoServerAvailableException
+import idb.annotations.{LocalIncrement, Remote}
 import idb.query._
 import idb.query.colors.Color
+
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
 import scala.language.implicitConversions
@@ -68,6 +70,8 @@ trait RelationalAlgebraIRBase
         def isMaterialized: Boolean
 
 		def color : Color
+
+		def host : Host
     }
 
     abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps
@@ -91,7 +95,8 @@ trait RelationalAlgebraIRBase
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
         isMaterialized: Boolean = false,
-		color : Color = Color.NO_COLOR
+		color : Color,
+		host : Host
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps {
@@ -103,7 +108,8 @@ trait RelationalAlgebraIRBase
         isSet: Boolean = false,
         isIncrementLocal: Boolean = false,
         isMaterialized: Boolean = false,
-		color : Color = Color.NO_COLOR
+		color : Color,
+		host : Host
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
@@ -115,6 +121,7 @@ trait RelationalAlgebraIRBase
 		def isSet = false
 		def isIncrementLocal = false
 		def color = relation.color
+		def host = relation.host
 	}
 
 	case class Root[Domain : Manifest] (
@@ -124,6 +131,7 @@ trait RelationalAlgebraIRBase
 		def isSet = relation.isSet
 		def isIncrementLocal = relation.isIncrementLocal
 		def color = Color.NO_COLOR //Root node never has any taints
+		def host : Host = Host.local //Root node is per definition on the client
 	}
 
 	//This version checks the type of the table for the annotation instead of the table itself
@@ -156,7 +164,7 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps an table as a leaf in the query tree
      */
-    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR)(
+    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR, host : Host = Host.local)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]],
 		queryEnvironment : QueryEnvironment
@@ -168,7 +176,8 @@ trait RelationalAlgebraIRBase
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
 			isMaterialized = false,
-			color = color
+			color = color,
+			host = host
 		)
 		t
 	}
@@ -178,7 +187,7 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR)(
+    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR, host : Host = Host.local)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]],
 		queryEnvironment : QueryEnvironment
@@ -190,7 +199,8 @@ trait RelationalAlgebraIRBase
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
 			isMaterialized = false,
-			color = c
+			color = c,
+			host = host
 		)
 		t
 	}
@@ -211,9 +221,6 @@ trait RelationalAlgebraIRBase
 		relation : Rep[Query[Domain]]
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
 		Root(relation)
-
-
-
 
 
 }
