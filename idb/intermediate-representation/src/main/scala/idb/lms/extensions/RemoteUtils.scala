@@ -33,14 +33,12 @@ trait RemoteUtils
 	}
 
 	protected def colorsOfTFieldsInExp(exp : Exp[_], parameter : Exp[_], coloring : Color) : Set[Color] = {
-		//Predef.println(s"exp: $exp, parameter: $parameter")//, color: $coloring")
 
 		//TODO: Add special treatment if parameter is tuple!
 		if (exp == parameter) {
 			//Predef.println(s"exp == parameter --> $coloring")
 			return Set(coloring)
 		}
-
 
 		exp match {
 			case Def(e) =>
@@ -75,9 +73,14 @@ trait RemoteUtils
 						return colorsOfSubexpressions.fold(Set())((a, b) => a ++ b)
 				}
 
-
 			case Const(_) =>
+				//Constants do not have a color
 				Set()
+
+			case Sym(_) =>
+				//Sym was not found -> color it in every way possible to avoid security risks
+				System.err.println("Sym was not found, color with all colors possible: " + exp)
+				Set(coloring)
 
 			case _ =>
 				throw new IllegalArgumentException(s"No def: $exp")

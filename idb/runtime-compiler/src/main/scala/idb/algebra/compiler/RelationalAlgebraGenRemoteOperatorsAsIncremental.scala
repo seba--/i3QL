@@ -32,11 +32,12 @@
  */
 package idb.algebra.compiler
 
+import idb.algebra.exceptions.{NoServerAvailableException, UnknownHostDeployException}
 import idb.algebra.ir._
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
 import idb.operators.impl.opt._
-import idb.query.QueryEnvironment
+import idb.query._
 import idb.remote.RemoteView
 
 import scala.virtualization.lms.common._
@@ -65,9 +66,34 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
-            case Def (Remote (r, remoteDesc)) =>
-				//TODO: Add remote link here
-                RemoteView (queryEnvironment.actorSystem, compile (r))
+
+            case Def (Remote (r, host)) =>
+				//The hosts can be obtained like this:
+				val childHost = r.host
+				val parentHost = host
+
+				parentHost match {
+					case LocalHost =>
+						//TODO: Send to local host
+						compile(r)
+
+					case NamedHost(_) =>
+						//TODO: Send to local host
+						compile(r)
+
+					case UnknownHost =>
+						throw new UnknownHostDeployException()
+
+					case RemoteHost(name, address) =>
+						//TODO: Send to remote host
+						RemoteView (
+							actorSystem = queryEnvironment.actorSystem,
+							remoteSystem = address,
+								partition = compile (r)
+						)
+				}
+
+
 
 			case Def (Reclassification(r, _)) =>
 				compile (r)

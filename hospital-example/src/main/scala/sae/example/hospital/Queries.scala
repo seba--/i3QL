@@ -7,6 +7,7 @@ import idb.observer.Observer
 import idb.query.colors.{Color, StringColor}
 import idb.query.{LocalHost, QueryEnvironment, RemoteHost}
 import idb.remote.RemoteView
+import idb.syntax.iql.DISTINCT
 import sae.example.hospital.data.Patient
 import sae.example.hospital.data.Person
 import sae.example.hospital.data._
@@ -172,6 +173,64 @@ object Queries extends HospitalTestData {
 		}
 	}
 
+	def distributedExample3(): Unit = {
+
+		import Hospital.DistributedSetup2._
+
+		try {
+			import idb.syntax.iql._
+			import idb.syntax.iql.IR._
+
+			val q : Rep[Query[(Int, String, String)]] = // : Relation[(Int, String, String)] =
+				ROOT (
+					RECLASS (
+						SELECT DISTINCT
+							((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
+							FROM
+							(person, knowledge, UNNEST(patient, (x: Rep[Patient]) => x.symptoms))
+							WHERE
+							((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) =>
+								person.personId == patientSymptom._1.personId AND
+									patientSymptom._2 == knowledgeData.symptom),
+						Color("research")
+					)
+
+				)
+
+			executeExample(q)
+		} finally {
+			queryEnv.close()
+		}
+	}
+
+	def distributedExample4(): Unit = {
+
+		import Hospital.DistributedSetup2._
+
+		try {
+			import idb.syntax.iql._
+			import idb.syntax.iql.IR._
+
+			val q : Rep[Query[(Int, String, String)]] = // : Relation[(Int, String, String)] =
+				ROOT (
+					SELECT DISTINCT
+						((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
+						FROM
+						(person, knowledge, UNNEST(patient, (x: Rep[Patient]) => x.symptoms))
+						WHERE
+						((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) =>
+							person.personId == patientSymptom._1.personId AND
+								patientSymptom._2 == knowledgeData.symptom)
+				)
+
+
+
+			executeExample(q)
+		} finally {
+			queryEnv.close()
+		}
+	}
+
 
 	//import idb.{Table, Relation}
 	private def executeExample[A : Manifest](resultRelation : Rep[Query[A]])(implicit env : QueryEnvironment): Unit = {
@@ -224,12 +283,14 @@ object Queries extends HospitalTestData {
 
 	def main(args : Array[String]): Unit = {
 
-		val example = 0
+		val example = 3
 
 		example match {
 			case 0 => normalExample()
 			case 1 => distributedExample1()
 			case 2 => distributedExample2()
+			case 3 => distributedExample3()
+			case 4 => distributedExample4()
 		}
 	}
 

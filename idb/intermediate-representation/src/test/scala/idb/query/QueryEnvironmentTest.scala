@@ -12,9 +12,9 @@ class QueryEnvironmentTest {
 
 	@Test
 	def testPermission(): Unit = {
-		val hostA = RemoteHost("A")
-		val hostB = RemoteHost("B")
-		val hostC = RemoteHost("C")
+		val hostA = NamedHost("A")
+		val hostB = NamedHost("B")
+		val hostC = NamedHost("C")
 
 	/*	val qe = QueryEnvironment.create(
 			hosts = List(hostA, hostB, hostC),

@@ -17,3 +17,6 @@ class RemoteUnsupportedException
 
 class NoServerAvailableException
 	extends QueryException("No server available for color.")
+
+class UnknownHostDeployException
+	extends QueryException("Cannot deploy query on unknown host.")

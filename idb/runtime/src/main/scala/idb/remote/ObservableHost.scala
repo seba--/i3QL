@@ -18,6 +18,7 @@ object ObservableHost {
         //TODO does this return the correct system?
         //val actorSystem = context.system
         val remoteViewActor = remoteView.createActor(actorSystem)
+
         remoteHost ! Forward(remoteViewActor)
       }
       case _ => rel.children.foreach { ch => forward(ch, actorSystem) }
@@ -46,6 +47,9 @@ class ObservableHost[T](var hosted: Option[Observable[T]] = None) extends Actor 
       hosted = Some(obs)
       //TODO does this return the correct system?
       forward(obs, context.system)
+
+      // answer the sender s.t. synchronization works
+      sender() ! true
     }
   }
 

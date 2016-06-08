@@ -34,6 +34,7 @@ package idb.remote
 
 import akka.actor._
 import akka.remote.RemoteScope
+import akka.pattern.ask
 import akka.util.Timeout
 import idb.Relation
 import idb.observer._
@@ -137,7 +138,10 @@ object RemoteView {
 
 		val remoteView = new RemoteView[T](remoteHost, partition.isSet)
 
-		remoteHost ! Host(partition)
+		// synchronize Host message
+		implicit val timeout = Timeout(5 seconds)
+		val res = remoteHost ? Host(partition)
+		Await.result(res, timeout.duration)
 
 		remoteView
 	}

@@ -86,7 +86,6 @@ trait RelationalAlgebraIROptCreateJoin
 
 			b match {
 				case Def(exp@Equal(lhs, rhs)) => {
-					Predef.println(exp.b.tp)
 					val usedByLeft = findSyms(lhs)(tupledParams)
 					val usedByRight = findSyms(rhs)(tupledParams)
 					if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {

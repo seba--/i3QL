@@ -23,8 +23,8 @@ class TestRemote extends UniversityTestData {
 	@Test
 	def testRemote(): Unit = {
 
-		val registrationHost = RemoteHost("RegistrationServer")
-		val studentHost = RemoteHost("StudentServer")
+		val registrationHost = NamedHost("RegistrationServer")
+		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
@@ -91,8 +91,8 @@ class TestRemote extends UniversityTestData {
 	@Ignore //TODO This test fails if all tests are run. This may have something to do with compiler resetting.
 	def testRemote2(): Unit = {
 
-		val registrationHost = RemoteHost("RegistrationServer")
-		val studentHost = RemoteHost("StudentServer")
+		val registrationHost = NamedHost("RegistrationServer")
+		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
@@ -147,8 +147,8 @@ class TestRemote extends UniversityTestData {
 
 	@Test
 	def testRemote3(): Unit = {
-		val registrationHost = RemoteHost("RegistrationServer")
-		val studentHost = RemoteHost("StudentServer")
+		val registrationHost = NamedHost("RegistrationServer")
+		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
@@ -215,7 +215,7 @@ class TestRemote extends UniversityTestData {
 
 	@Test
 	def testRemote4(): Unit = {
-		val studentHost = RemoteHost("StudentServer")
+		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(

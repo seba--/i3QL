@@ -20,9 +20,14 @@ trait RelationalAlgebraIRRemoteCreateRemotes
 		relation : Rep[Query[Domain]]
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
 		//Adds a remote node as child of the root if the relation is on another server
-		if (relation.host != Host.local)
-			root(remote(relation, Host.local))
-		else
+		if (relation.host != Host.local) {
+			val localPermissions = queryEnvironment.permissionsOf(Host.local)
+
+			if (relation.color.ids subsetOf localPermissions)
+				root(remote(relation, Host.local))
+			else
+				throw new NoServerAvailableException
+		} else
 			super.root(relation)
 	}
 

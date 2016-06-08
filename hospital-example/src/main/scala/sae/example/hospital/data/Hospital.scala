@@ -2,7 +2,7 @@ package sae.example.hospital.data
 
 import akka.actor.ActorSystem
 import idb.{SetTable, Table}
-import idb.query.{LocalHost, QueryEnvironment, RemoteHost}
+import idb.query.{LocalHost, NamedHost, QueryEnvironment, RemoteHost}
 import idb.query.colors.Color
 
 /**
@@ -26,9 +26,9 @@ object Hospital {
 	}
 
 	object DistributedSetup1 extends BaseHospital {
-		val patientHost = RemoteHost("PatientDBServer")
-		val personHost =  RemoteHost("PersonDBServer")
-		val knowledgeHost = RemoteHost("KnowledgeDBServer")
+		val patientHost = NamedHost("PatientDBServer")
+		val personHost =  NamedHost("PersonDBServer")
+		val knowledgeHost = NamedHost("KnowledgeDBServer")
 
 		implicit val queryEnv = QueryEnvironment.create(
 			actorSystem = ActorSystem("example"),
@@ -45,6 +45,34 @@ object Hospital {
 
 		val patient =
 			IR.table(Hospital.LocalSetup.patient, color = Color.group("hospital", "research"), host = patientHost)
+
+		val knowledge =
+			IR.table(Hospital.LocalSetup.knowledge, color = Color.group("research"), host = knowledgeHost)
+
+	}
+
+	object DistributedSetup2 extends BaseHospital {
+		val patientHost = NamedHost("PatientDBServer")
+		val personHost =  NamedHost("PersonDBServer")
+		val knowledgeHost = NamedHost("KnowledgeDBServer")
+		val superHost =  NamedHost("SuperHost")
+
+		implicit val queryEnv = QueryEnvironment.create(
+			actorSystem = ActorSystem("example"),
+			permissions = Map (
+				LocalHost -> Set("research"),
+				superHost -> Set("hospital", "research"),
+				patientHost -> Set("hospital"),
+				personHost -> Set("hospital"),
+				knowledgeHost -> Set("research")
+			)
+		)
+
+		val person =
+			IR.table(Hospital.LocalSetup.person, color = Color("hospital"), host = personHost)
+
+		val patient =
+			IR.table(Hospital.LocalSetup.patient, color = Color("hospital"), host = patientHost)
 
 		val knowledge =
 			IR.table(Hospital.LocalSetup.knowledge, color = Color.group("research"), host = knowledgeHost)

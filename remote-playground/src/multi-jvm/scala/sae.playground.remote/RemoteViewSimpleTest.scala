@@ -29,7 +29,7 @@ with STMultiNodeSpec with ImplicitSender {
         enterBarrier("deployed")
 
         enterBarrier("sending")
-        Thread.sleep(1000) // wait until ObservableHost has its observer registered
+        Thread.sleep(100) // wait until ObservableHost has its observer registered
         println("has observers: " + db.hasObservers)
 
         db += "Test1"

@@ -54,7 +54,7 @@ trait RelationalAlgebraPrintPlanRemoteOperators
         FunctionUtils with RelationalAlgebraIRRemoteOperators
 
 
-    import IR.{Remote, Def, Exp}
+    import IR.{Remote, Def, Exp, Reclassification}
 
 
     override def quoteRelation (x: Exp[Any]): String =
@@ -64,6 +64,11 @@ trait RelationalAlgebraPrintPlanRemoteOperators
                     withMoreIndent (quoteRelation (relation) + "\n") +
                     withIndent (")")
 
+            case Def (rel@Reclassification(r, newColor)) =>
+				withIndent (s"reclass[${rel.host}](\n") +
+					withMoreIndent (quoteRelation (r) + "\n") +
+					withMoreIndent (newColor + "\n") +
+					withIndent (")")
 
 
             case _ => super.quoteRelation (x)

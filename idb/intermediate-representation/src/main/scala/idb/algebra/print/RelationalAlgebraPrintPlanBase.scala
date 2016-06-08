@@ -71,7 +71,12 @@ trait RelationalAlgebraPrintPlanBase
 				withIndent (s"root[${rel.host}](" + "\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
 					withIndent (")")
-            case _ => throw new IllegalArgumentException ("Unknown relation: " + x)
+            case Def(xDef) =>
+				throw new IllegalArgumentException ("Unknown relation: " + xDef)
+
+			case _ =>
+				throw new IllegalArgumentException ("Unknown relation: " + x)
+
         }
 
 }
