@@ -12,12 +12,12 @@ import sae.example.hospital.data._
 object Queries2 extends HospitalTestData {
 
 	def main(args : Array[String]): Unit = {
-		import sae.example.hospital.data.HospitalDatabase._
+		import sae.example.hospital.data.Hospital.LocalSetup._
 
 		//Setup query
 		val join1 = EquiJoinView[FinancialData, Person](
-			financeDatabase,
-			personDatabase,
+			finance,
+			person,
 			Seq(f => f.personId),
 			Seq(p => p.personId),
 			isSet = true
@@ -25,21 +25,21 @@ object Queries2 extends HospitalTestData {
 
 		val join2 = EquiJoinView[(FinancialData, Person), Patient](
 			join1,
-			patientDatabase,
+			patient,
 			Seq(fp => fp._2.personId),
 			Seq(p => p.personId),
 			isSet = true
 		)
 
 		val selection1 = SelectionView[TreatmentData](
-			treatmentDatabase,
+			treatment,
 		    t => t.diagnosis == Diagnosis.allergy,
 			isSet = true
 		)
 
 		val join3 = EquiJoinView[((FinancialData, Person), Patient), TreatmentData](
 			join2,
-			treatmentDatabase,
+			treatment,
 			Seq(fpp => fpp._2.treatmentId),
 			Seq(t => t.treatmentId),
 			isSet = true
@@ -52,22 +52,22 @@ object Queries2 extends HospitalTestData {
 		//Add to tables
 		println("Start adding items...")
 		//No allergy patients
-		financeDatabase += financeJohnDoe
-		personDatabase += johnDoe
-		patientDatabase += patientJohnDoe1
-		treatmentDatabase += treatmentLungCancerChemo
+		finance += financeJohnDoe
+		person += johnDoe
+		patient += patientJohnDoe1
+		treatment += treatmentLungCancerChemo
 
 		//Allergy patient
-		treatmentDatabase += treatmentAllergyMedicine
-		treatmentDatabase += treatmentAllergyInhaler
+		treatment += treatmentAllergyMedicine
+		treatment += treatmentAllergyInhaler
 
-		financeDatabase += financeJaneDoe
-		personDatabase += janeDoe
-		patientDatabase += patientJaneDoe2
+		finance += financeJaneDoe
+		person += janeDoe
+		patient += patientJaneDoe2
 
-		financeDatabase += financeBobRoss
-		personDatabase += bobRoss
-		patientDatabase += patientBobRoss1
+		finance += financeBobRoss
+		person += bobRoss
+		patient += patientBobRoss1
 
 		//print result
 		println("Results:")

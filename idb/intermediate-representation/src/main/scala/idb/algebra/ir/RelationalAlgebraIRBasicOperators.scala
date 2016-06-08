@@ -166,8 +166,10 @@ trait RelationalAlgebraIRBasicOperators
 	override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
 		Selection (relation, function)
+	}
+
 
 
 

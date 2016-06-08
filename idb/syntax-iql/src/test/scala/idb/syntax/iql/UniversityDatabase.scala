@@ -32,7 +32,6 @@
  */
 package idb.syntax.iql
 
-import idb.annotations.Remote
 import idb.schema.university._
 import idb.{BagTable, Table}
 

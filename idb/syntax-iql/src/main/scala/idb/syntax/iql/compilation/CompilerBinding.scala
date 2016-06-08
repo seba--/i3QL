@@ -57,7 +57,7 @@ object CompilerBinding
     with ScalaGenStruct
     with ScalaGenTupledFunctions
     with ScalaGenDateOps
-    with ScalaGenFlightOps
+    //with ScalaGenFlightOps
 {
     override val IR = idb.syntax.iql.IR
 

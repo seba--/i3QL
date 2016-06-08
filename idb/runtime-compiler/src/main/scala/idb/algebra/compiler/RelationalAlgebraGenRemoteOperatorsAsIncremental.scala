@@ -65,7 +65,8 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
-            case Def (Remote (r, _, remoteDesc)) =>
+            case Def (Remote (r, remoteDesc)) =>
+				//TODO: Add remote link here
                 RemoteView (queryEnvironment.actorSystem, compile (r))
 
 			case Def (Reclassification(r, _)) =>

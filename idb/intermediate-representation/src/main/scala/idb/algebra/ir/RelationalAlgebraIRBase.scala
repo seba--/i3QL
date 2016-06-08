@@ -35,7 +35,7 @@ package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
 import idb.algebra.exceptions.NoServerAvailableException
-import idb.annotations.{LocalIncrement, Remote}
+import idb.annotations.{LocalIncrement}
 import idb.query._
 import idb.query.colors.Color
 
@@ -143,23 +143,16 @@ trait RelationalAlgebraIRBase
 		m.getClass.getAnnotation(classOf[LocalIncrement]) != null
 	}
 
-	protected def getRemoteHost (m : Any) : Host = {
+/*	protected def getRemote(m : Any) : (Color, Host) = {
 		val annotation = m.getClass.getAnnotation(classOf[Remote])
 
 		if (annotation == null)
-			LocalHost
+			(Color.NO_COLOR, LocalHost)
 		else
-			RemoteHost(annotation.host())
-	}
+			(_, RemoteHost(annotation.host()))
+	}      */
 
-	protected def getColorAnnotation (m : Any) : Color = {
-		val annotation = m.getClass.getAnnotation(classOf[Remote])
 
-		if (annotation == null)
-			Color.NO_COLOR
-		else
-			Color(annotation.description())
-	}
 
     /**
      * Wraps an table as a leaf in the query tree
@@ -169,6 +162,7 @@ trait RelationalAlgebraIRBase
         mRel: Manifest[Table[Domain]],
 		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = {
+
 		//val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(table) else Color.NO_COLOR
 
 		val t = QueryTable (
@@ -193,13 +187,13 @@ trait RelationalAlgebraIRBase
 		queryEnvironment : QueryEnvironment
     ): Rep[Query[Domain]] = {
 
-		val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(relation) else Color.NO_COLOR
+		//val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(relation) else Color.NO_COLOR
 		val t = QueryRelation (
 			relation,
 			isSet = isSet,
 			isIncrementLocal = isIncrementLocal (mDom),
 			isMaterialized = false,
-			color = c,
+			color = color,
 			host = host
 		)
 		t

@@ -1,7 +1,7 @@
 package idb.query
 
 import akka.actor.ActorSystem
-import idb.query.colors.{Color, ColorId}
+import idb.query.colors.{Color, ColorId, StringColor}
 
 import scala.collection.mutable
 
@@ -76,13 +76,22 @@ object QueryEnvironment {
 	 */
 	val Default = Local
 
-	def create(
+	/*def create(
 		actorSystem : ActorSystem = null,
 	    permissions : Map[Host, Set[ColorId]] = Map()
 	) : QueryEnvironment =
 		new QueryEnvironmentImpl (
-			_actorSystem = if (actorSystem == null) None else Some(actorSystem),
+			_actorSystem = Option(actorSystem),
 		    _permissions = permissions
+		)    */
+
+	def create(
+		actorSystem : ActorSystem = null,
+		permissions : Map[Host, Set[String]] = Map()
+	) : QueryEnvironment =
+		new QueryEnvironmentImpl (
+			_actorSystem = Option(actorSystem),
+			_permissions = permissions.mapValues(setString => setString.map(s => StringColor(s)))
 		)
 
 

@@ -1,25 +1,17 @@
 package idb.integration.test
 
-import java.util
-import java.util.Date
 
 import akka.actor.ActorSystem
 import idb.query._
-import idb.{SetTable, Table, BagTable}
-import idb.algebra.ir._
-import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.annotations.Remote
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.BagTable
 import idb.schema.university.{Registration, Student}
 import org.junit.Assert._
 import org.junit.Test
 import org.junit.Ignore
 import idb.syntax.iql._
 import UniversityDatabase._
+import idb.query.colors.Color
 import org.hamcrest.CoreMatchers._
-
-import scala.virtualization.lms.common.{TupledFunctionsExp, StaticDataExp, StructExp, ScalaOpsPkgExp}
 
 
 /**
@@ -30,30 +22,37 @@ class TestRemote extends UniversityTestData {
 
 	@Test
 	def testRemote(): Unit = {
+
+		val registrationHost = RemoteHost("RegistrationServer")
+		val studentHost = RemoteHost("StudentServer")
+
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test1")
+			actorSystem = ActorSystem("test1"),
+			permissions = Map(
+				LocalHost -> Set("registration", "students"),
+				registrationHost -> Set("registration"),
+				studentHost -> Set("students")
+			)
+
 		)
 
 		//Initialize remote tables
-		//I. Using annotations ...
-		@Remote(description = "registrations", host = "RegistrationHost")
-		class RemoteRegistrations extends BagTable[Registration]
-
-		val remoteRegistrations = new RemoteRegistrations
-
-		//II. using direct call to table ...
 		import idb.syntax.iql.IR._
 
-		val studentTable = BagTable.empty[Student]
-
-		val remoteStudents = table(
-			table = studentTable,
-			isSet = false,
-			host = RemoteHost("StudentServer"),
-			remote = SingleColor("students")
+		val registrationTable = BagTable.empty[Registration]
+		val remoteRegistrations = table(
+			table = registrationTable,
+			host = registrationHost,
+			color = Color("registration")
 		)
 
+		val studentTable = BagTable.empty[Student]
+		val remoteStudents = table(
+			table = studentTable,
+			host = studentHost,
+			color = Color("students")
+		)
 
 		//Query
 		val q =
@@ -74,7 +73,7 @@ class TestRemote extends UniversityTestData {
 
 		//Add data to tables
 		studentTable.add(johnDoe)
-		remoteRegistrations.add(johnTakesEise)
+		registrationTable.add(johnTakesEise)
 
 		//Wait for actors
 		Thread.sleep(500)
@@ -92,20 +91,37 @@ class TestRemote extends UniversityTestData {
 	@Ignore //TODO This test fails if all tests are run. This may have something to do with compiler resetting.
 	def testRemote2(): Unit = {
 
+		val registrationHost = RemoteHost("RegistrationServer")
+		val studentHost = RemoteHost("StudentServer")
+
+		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test2")
+			actorSystem = ActorSystem("test2"),
+			permissions = Map(
+				LocalHost -> Set("registration", "students"),
+				registrationHost -> Set("registration"),
+				studentHost -> Set("students")
+			)
+
 		)
 
-		@Remote(description = "students", host = "StudentServer")
-		class RemoteStudents extends BagTable[Student]
-
-		@Remote(description = "registrations", host = "RegistrationHost")
-		class RemoteRegistrations extends BagTable[Registration]
-
-		val remoteStudents = new RemoteStudents
-		val remoteRegistrations = new RemoteRegistrations
-
+		//Initialize remote tables
 		import idb.syntax.iql.IR._
+
+		val registrationTable = BagTable.empty[Registration]
+		val remoteRegistrations = table(
+			table = registrationTable,
+			host = registrationHost,
+			color = Color("registration")
+		)
+
+		val studentTable = BagTable.empty[Student]
+		val remoteStudents = table(
+			table = studentTable,
+			host = studentHost,
+			color = Color("students")
+		)
+
 
 		val q =
 			plan(
@@ -115,8 +131,8 @@ class TestRemote extends UniversityTestData {
 
 		val compiledQ = compile(q).asMaterialized
 
-		remoteStudents.add(johnDoe)
-		remoteRegistrations.add(johnTakesEise)
+		studentTable.add(johnDoe)
+		registrationTable.add(johnTakesEise)
 
 		//Wait for actors
 		Thread.sleep(500)
@@ -131,20 +147,36 @@ class TestRemote extends UniversityTestData {
 
 	@Test
 	def testRemote3(): Unit = {
+		val registrationHost = RemoteHost("RegistrationServer")
+		val studentHost = RemoteHost("StudentServer")
+
+		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test3")
+			actorSystem = ActorSystem("test1"),
+			permissions = Map(
+				LocalHost -> Set("registration", "students"),
+				registrationHost -> Set("registration"),
+				studentHost -> Set("students")
+			)
+
 		)
 
-		@Remote(description = "students", host = "StudentServer")
-		class RemoteStudents extends BagTable[Student]
-
-		@Remote(description = "registrations", host = "RegistrationHost")
-		class RemoteRegistrations extends BagTable[Registration]
-
-		val remoteStudents = new RemoteStudents
-		val remoteRegistrations = new RemoteRegistrations
-
+		//Initialize remote tables
 		import idb.syntax.iql.IR._
+
+		val registrationTable = BagTable.empty[Registration]
+		val remoteRegistrations = table(
+			table = registrationTable,
+			host = registrationHost,
+			color = Color("registration")
+		)
+
+		val studentTable = BagTable.empty[Student]
+		val remoteStudents = table(
+			table = studentTable,
+			host = studentHost,
+			color = Color("students")
+		)
 
 		val q =
 			plan(
@@ -161,12 +193,12 @@ class TestRemote extends UniversityTestData {
 
 		val compiledQ = compile(q).asMaterialized
 
-		remoteStudents.add(sallyFields)
-		remoteRegistrations.add(sallyTakesIcs1)
-		remoteStudents.add(jackBlack)
-		remoteRegistrations.add(jackTakesIcs1)
-		remoteRegistrations.add(sallyTakesIcs2)
-		remoteRegistrations.add(jackTakesIcs2)
+		studentTable.add(sallyFields)
+		registrationTable.add(sallyTakesIcs1)
+		studentTable.add(jackBlack)
+		registrationTable.add(jackTakesIcs1)
+		registrationTable.add(sallyTakesIcs2)
+		registrationTable.add(jackTakesIcs2)
 
 		//Wait for actors
 		Thread.sleep(500)
@@ -183,16 +215,26 @@ class TestRemote extends UniversityTestData {
 
 	@Test
 	def testRemote4(): Unit = {
+		val studentHost = RemoteHost("StudentServer")
+
+		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test4")
+			actorSystem = ActorSystem("test1"),
+			permissions = Map(
+				LocalHost -> Set("students"),
+				studentHost -> Set("students")
+			)
 		)
 
-		@Remote(description = "students", host = "StudentServer")
-		class RemoteStudents extends BagTable[Student]
-
-		val remoteStudents = new RemoteStudents
-
+		//Initialize remote tables
 		import idb.syntax.iql.IR._
+
+		val studentTable = BagTable.empty[Student]
+		val remoteStudents = table(
+			table = studentTable,
+			host = studentHost,
+			color = Color("students")
+		)
 
 		val q =
 			plan(
@@ -206,8 +248,8 @@ class TestRemote extends UniversityTestData {
 
 		val compiledQ = compile(q).asMaterialized
 
-		remoteStudents += johnDoe
-		remoteStudents += sallyFields
+		studentTable += johnDoe
+		studentTable += sallyFields
 
 		//Wait for actors
 		Thread.sleep(500)
@@ -222,9 +264,9 @@ class TestRemote extends UniversityTestData {
 	}
 
 
-	@Ignore
-	@Test
-	def testRemoteAirports(): Unit = {
+//	@Ignore
+//	@Test
+/*	def testRemoteAirports(): Unit = {
 		import idb.syntax.iql.IR._
 
 		implicit val queryEnvironment = QueryEnvironment.create(
@@ -265,6 +307,6 @@ class TestRemote extends UniversityTestData {
 
 		compiledQ.foreach(x => Predef.println(x))
 		Predef.println("\n")
-	}
+	}   */
 
 }

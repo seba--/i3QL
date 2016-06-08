@@ -58,12 +58,16 @@ trait RelationalAlgebraIROptCreateJoin
         (relation match {
             // rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
 			case Def(c@CrossProduct(a, b)) if isDisjunctiveParameterEquality(function)(c.mDomA, c.mDomB) => {
-				equiJoin(a, b, scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryEnvironment)
+					equiJoin(a, b, scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryEnvironment)
 			}
 
 			// add further equality tests to the join
 			case Def(c@EquiJoin(a, b, xs)) if isDisjunctiveParameterEquality(function)(c.mDomA, c.mDomB) =>
-				equiJoin(a, b, xs ::: scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryEnvironment)
+				equiJoin(
+					a,
+					b,
+					xs.:::(scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))
+				)(c.mDomA, c.mDomB, queryEnvironment)
 
             case _ => super.selection (relation, function)
         }).asInstanceOf[Rep[Query[Domain]]]
@@ -76,12 +80,13 @@ trait RelationalAlgebraIROptCreateJoin
 		val params = parameters(function)
 		val b = body(function)
 
-		if (params.size == 1 && isTuple2Manifest(params(0).tp)) {
-			val t = params(0).asInstanceOf[Exp[Tuple2[B,C]]]
-			val tupledParams = scala.collection.immutable.Set(t._1, t._2)
+		if (params.size == 1 && isTuple2Manifest(params.head.tp)) {
+			val t : Exp[(B, C)] = params.head.asInstanceOf[Exp[(B,C)]]
+			val tupledParams : Set[Exp[Any]] = scala.collection.immutable.Set(t._1, t._2)
 
 			b match {
-				case Def(Equal(lhs: Exp[Boolean@unchecked], rhs: Exp[Boolean@unchecked])) => {
+				case Def(exp@Equal(lhs, rhs)) => {
+					Predef.println(exp.b.tp)
 					val usedByLeft = findSyms(lhs)(tupledParams)
 					val usedByRight = findSyms(rhs)(tupledParams)
 					if (usedByLeft.size != 1 || usedByRight.size != 1 && usedByLeft == usedByRight) {
@@ -91,15 +96,19 @@ trait RelationalAlgebraIROptCreateJoin
 
 					val l = tupledParams.toList
 
-					val x = l(0)
-					val y = l(1)
+					val x = l(0).asInstanceOf[Exp[B]]
+					val y = l(1).asInstanceOf[Exp[C]]
 					if (usedByLeft == Set(x)) {
-						//return (doLambda[B, Any](x => lhs), doLambda[C, Any](y => rhs))
-						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
+						//Add manifest[Any] manually to avoid having manifest[Nothing]
+						val f1 = dynamicLambda[B, Any](x, lhs, x.tp, manifest[Any])
+						val f2 = dynamicLambda[C, Any](y, rhs, y.tp, manifest[Any])
+						return (f1, f2)
 					}
 					else {
-						//return (doLambda[B, Any](x => rhs), doLambda[C, Any](y => lhs))
-						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
+						//Add manifest[Any] manually to avoid having manifest[Nothing]
+						val f1 = dynamicLambda[B, Any](x, rhs, x.tp, manifest[Any])
+						val f2 = dynamicLambda[C, Any](y, lhs, y.tp, manifest[Any])
+						return (f1, f2)
 					}
 				}
 				case _ => throw new java.lang.IllegalArgumentException("Expected equality in function " + function.toString)
@@ -113,15 +122,19 @@ trait RelationalAlgebraIROptCreateJoin
 						throw new java.lang.IllegalArgumentException(
 							"Expected equality that separates left and right parameter in function " + function.toString)
 					}
-					val x = params(0)
-					val y = params(1)
+					val x = params(0).asInstanceOf[Exp[B]]
+					val y = params(1).asInstanceOf[Exp[C]]
 					if (usedByLeft == Set(x)) {
-						//return (doLambda[B, Any](x => lhs), doLambda[C, Any](y => rhs))
-						return (dynamicLambda(x, lhs), dynamicLambda(y, rhs))
+						//Add manifest[Any] manually to avoid having manifest[Nothing]
+						val f1 = dynamicLambda[B, Any](x, lhs, x.tp, manifest[Any])
+						val f2 = dynamicLambda[C, Any](y, rhs, y.tp, manifest[Any])
+						return (f1, f2)
 					}
 					else {
-						//return (doLambda[B, Any](x => rhs), doLambda[C, Any](y => lhs))
-						return (dynamicLambda(x, rhs), dynamicLambda(y, lhs))
+						//Add manifest[Any] manually to avoid having manifest[Nothing]
+						val f1 = dynamicLambda[B, Any](x, rhs, x.tp, manifest[Any])
+						val f2 = dynamicLambda[C, Any](y, lhs, y.tp, manifest[Any])
+						return (f1, f2)
 					}
 				}
 				case _ => throw new java.lang.IllegalArgumentException("Expected equality in function " + function.toString)

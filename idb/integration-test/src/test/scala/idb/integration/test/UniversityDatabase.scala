@@ -32,7 +32,6 @@
  */
 package idb.integration.test
 
-import idb.annotations.Remote
 import idb.schema.university._
 import idb.{Relation, BagTable, Table}
 

@@ -48,11 +48,11 @@ import idb.algebra.opt._
  */
 trait RelationalAlgebraIROptPackage
     extends RelationalAlgebraIROptSimplifyBasicOps
-    with RelationalAlgebraIROptSimplifySetTheoryOps
-    with RelationalAlgebraIROrderSetTheoryOps
-    with RelationalAlgebraIROptSelectionInSetTheoryOps
+	with RelationalAlgebraIROptSimplifySetTheoryOps
+	with RelationalAlgebraIROrderSetTheoryOps
+	with RelationalAlgebraIROptSelectionInSetTheoryOps
 	with RelationalAlgebraIROptPushSelection
-    with RelationalAlgebraIROptOrderSelections
+	with RelationalAlgebraIROptOrderSelections
     with RelationalAlgebraIROptPushSetTheoryOps
     with RelationalAlgebraIROptCreateJoin
 	with RelationalAlgebraIROptPushDuplicateElimination

@@ -81,7 +81,7 @@ trait TupledFunctionsExpDynamicLambda
         implicit val ma1 = x1.tp
         implicit val ma2 = x2.tp
         implicit val mb = body.tp
-        dynamicLambdaDef (UnboxedTuple[(A1, A2)](scala.List (x1, x2)), body)
+        dynamicLambdaDef (UnboxedTuple[(A1, A2)](scala.List (x1, x2)), body, manifest[(A1, A2)], manifest[B])
     }
 
 

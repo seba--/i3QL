@@ -2,7 +2,7 @@ package idb.lms.extensions
 
 import idb.algebra.exceptions.NoServerAvailableException
 import idb.algebra.ir.RelationalAlgebraIRRemoteOperators
-import idb.query.{Host, QueryEnvironment}
+import idb.query.{Host, LocalHost, QueryEnvironment}
 import idb.query.colors._
 
 import scala.virtualization.lms.common.{BooleanOpsExp, StaticDataExp, TupledFunctionsExp}
@@ -129,7 +129,7 @@ trait RemoteUtils
 		var permissionCount : Int = 0
 		hosts.foreach(h => {
 			val c = queryEnvironment.permissionsOf(h).size
-			if (bestHost == null || permissionCount < c) {
+			if (bestHost == null || (permissionCount < c && h != LocalHost)) {
 				bestHost = Some(h)
 				permissionCount = c
 			}

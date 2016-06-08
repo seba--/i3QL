@@ -57,16 +57,18 @@ trait RelationalAlgebraPrintPlanBase
 
     def quoteRelation (x: Exp[Any]): String =
         x match {
-            case QueryTable (e, _, _, _, color, host) =>
-                withIndent (s"table${e.hashCode}: Table[${x.tp.typeArguments(0)}](host=$host, col=$color)")
-            case QueryRelation (r, _, _, _, color, host) =>
-                withIndent ("relation" + r.hashCode () + ": Relation[" + x.tp.typeArguments (0) + "]")
-            case Def (Materialize (r)) =>
-                withIndent ("materialize(" + "\n") +
+            case r@QueryTable (e, _, _, _, color, host) =>
+                withIndent (s"table[${r.host}](${e.hashCode()}, : Table[${x.tp}])")
+
+            case rel@QueryRelation (r, _, _, _, color, host) =>
+				withIndent (s"relation[${rel.host}](${r.hashCode()}, : Rel[${x.tp}])")
+
+            case Def (rel@Materialize (r)) =>
+                withIndent (s"materialize[${rel.host}](\n") +
                     withMoreIndent (quoteRelation (r) + "\n") +
                     withIndent (")")
-			case Def (IR.Root (r)) =>
-				withIndent ("root(" + "\n") +
+			case Def (rel@IR.Root (r)) =>
+				withIndent (s"root[${rel.host}](" + "\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
 					withIndent (")")
             case _ => throw new IllegalArgumentException ("Unknown relation: " + x)

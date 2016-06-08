@@ -184,16 +184,21 @@ trait RelationalAlgebraIROptPushSelection
 		val sym0 = symsInQuestion (0)
 		val sym1 = symsInQuestion (1)
 
+
         if (freeV.size == 2) {
-           return (
-                Some (dynamicLambda (sym0, functionBody)),
-                Some (dynamicLambda (sym1, functionBody))
-                )
+			val f1 = dynamicLambda (sym0, functionBody)
+			val f2 = dynamicLambda (sym1, functionBody)
+
+           return (Some (f1), Some (f2))
         }
 
         symsInQuestion.indexOf (freeV (0)) match {
-            case 0 => return (None, Some (dynamicLambda (sym1, functionBody)))
-            case 1 => return (Some (dynamicLambda (sym0, functionBody)), None)
+            case 0 =>
+				val f = dynamicLambda (sym1, functionBody)
+				return (None, Some (f))
+            case 1 =>
+				val f = dynamicLambda (sym0, functionBody)
+				return (Some (f), None)
         }
 
 		return (None, None)

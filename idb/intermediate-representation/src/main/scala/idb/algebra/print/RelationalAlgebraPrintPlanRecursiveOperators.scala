@@ -58,21 +58,21 @@ trait RelationalAlgebraPrintPlanRecursiveOperators
 
     override def quoteRelation (x: Exp[Any]): String =
         x match {
-            case Def (Recursion (base, recursion)) =>
-                withIndent ("Recursion(" + "\n") +
+            case Def (rel@Recursion (base, recursion)) =>
+                withIndent (s"Recursion[${rel.host}](\n") +
                     withMoreIndent (quoteRelation (base) + ",\n") +
                     withMoreIndent (withIndent(recursion.toString) + "\n") +
                     withIndent (")")
 
-            case Def (RecursionResult (result, _)) =>
-                withIndent ("RecursionResult(" + "\n") +
+            case Def (rel@RecursionResult (result, _)) =>
+                withIndent (s"RecursionResult[${rel.host}](\n") +
                     withMoreIndent (quoteRelation (result) + "\n") +
                     withIndent (")")
 
 
-            case _ => {
+            case _ =>
                 super.quoteRelation (x) + "[ref=" + x + "]"
-            }
+
         }
 
 

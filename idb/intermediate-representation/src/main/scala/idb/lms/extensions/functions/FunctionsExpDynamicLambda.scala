@@ -66,9 +66,9 @@ trait FunctionsExpDynamicLambda
 
     }
 
-    def dynamicLambdaDef[A, B] (x: Exp[A], body: Exp[B]): Def[A => B] = {
-        implicit val ma = x.tp
-        implicit val mb = body.tp
+    def dynamicLambdaDef[A, B] (x: Exp[A], body: Exp[B], mA : Manifest[A], mB : Manifest[B]): Def[A => B] = {
+        implicit val _mA = mA
+        implicit val _mB = mB
         val block = reifyEffects (body)
         new DynamicLambda (x, block)
     }
@@ -76,7 +76,7 @@ trait FunctionsExpDynamicLambda
     def dynamicLambda[A, B] (x: Exp[A], body: Exp[B])(implicit pos: SourceContext): Exp[A => B] = {
         implicit val ma = x.tp
         implicit val mb = body.tp
-        dynamicLambdaDef (x, body)
+        dynamicLambdaDef (x, body, ma, mb)
     }
 
 

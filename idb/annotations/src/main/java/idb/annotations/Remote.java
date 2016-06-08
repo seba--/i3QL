@@ -6,8 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * @author Mirko Köhler
  */
-@Retention( RetentionPolicy.RUNTIME )
+/*@Retention( RetentionPolicy.RUNTIME )
 public @interface Remote {
     public String host();
-    public String description();
-}
+    public String taint();
+} */
