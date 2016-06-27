@@ -20,8 +20,6 @@ trait RemoteUtils
 {
 
 	def colorsOfTFields(func : Rep[_ => _], coloring : Color) : Set[Color] = {
-
-
 		func match {
 			case Def(Lambda(f, x, y)) =>
 				colorsOfTFieldsInExp(y.res, x, coloring)
@@ -33,7 +31,6 @@ trait RemoteUtils
 	}
 
 	protected def colorsOfTFieldsInExp(exp : Exp[_], parameter : Exp[_], coloring : Color) : Set[Color] = {
-
 		//TODO: Add special treatment if parameter is tuple!
 		if (exp == parameter) {
 			//Predef.println(s"exp == parameter --> $coloring")

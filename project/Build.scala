@@ -38,7 +38,7 @@ object sae extends Build {
     Project Remote playground
    */
   lazy val remotePlayground = Project(id = "remote-playground", base = file("remote-playground"))
-    .dependsOn(syntax % "compile;test")
+    .dependsOn(syntax % "compile;test").dependsOn(runtime % "compile;test").dependsOn(hospitalExample % "compile;test").dependsOn(intermediateRepresentation % "compile;test")
 
   /*
     Project Test Data

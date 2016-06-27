@@ -24,6 +24,8 @@ libraryDependencies ++= Seq(
 
 libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.1" % "test"
 
+jvmOptions in MultiJvm := Seq("-Xmx256M")
+
 // make sure that MultiJvm test are compiled by the default test compilation
 compile in MultiJvm <<= (compile in MultiJvm) triggeredBy (compile in Test)
 

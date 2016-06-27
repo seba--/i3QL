@@ -87,11 +87,9 @@ class TestRemoteUtils
 	def testColorsInFun1(): Unit = {
 		val f = (t : Rep[((Int, Int), Int)]) => t._1._2 + 1
 
-		val coloring = FieldColor(
-			Map(
-				FieldName("_1") -> FieldColor(Map(FieldName("_1") -> Color("red"), FieldName("_2") -> Color("blue"))),
-				FieldName("_2") -> Color("yellow")
-			)
+		val coloring = Color(
+				"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
+				"_2" -> Color("yellow")
 		)
 
 		assertEquals(Set(Color("blue")), colorsOfTFields(f, coloring))

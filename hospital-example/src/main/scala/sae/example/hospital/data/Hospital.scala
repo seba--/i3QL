@@ -44,7 +44,7 @@ object Hospital {
 			IR.table(Hospital.LocalSetup.person, color = Color("hospital"), host = personHost)
 
 		val patient =
-			IR.table(Hospital.LocalSetup.patient, color = Color.group("hospital", "research"), host = patientHost)
+			IR.table(Hospital.LocalSetup.patient, color = Color("hospital"), host = patientHost)
 
 		val knowledge =
 			IR.table(Hospital.LocalSetup.knowledge, color = Color.group("research"), host = knowledgeHost)

@@ -215,9 +215,9 @@ object Queries extends HospitalTestData {
 				ROOT (
 					SELECT DISTINCT
 						((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) => (person.personId, person.name, knowledgeData.diagnosis))
-						FROM
+					FROM
 						(person, knowledge, UNNEST(patient, (x: Rep[Patient]) => x.symptoms))
-						WHERE
+					WHERE
 						((person : Rep[Person], knowledgeData : Rep[KnowledgeData], patientSymptom : Rep[(Patient, String)]) =>
 							person.personId == patientSymptom._1.personId AND
 								patientSymptom._2 == knowledgeData.symptom)
