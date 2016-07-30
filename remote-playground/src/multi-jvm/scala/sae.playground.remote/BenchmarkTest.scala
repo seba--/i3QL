@@ -55,7 +55,7 @@ with STMultiNodeSpec with ImplicitSender {
   "A RemoteView" must {
     "run this Benchmark" in {
       runOn(nodes(0)) {
-        val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream("benchmark.txt", true))
+        val out: java.io.PrintStream = System.out; //new java.io.PrintStream(new FileOutputStream("benchmark.txt", true))
         out.println("Running benchmark with " + BenchmarkConfig.nodes.size + " nodes ...")
 
         val beforeInitTime = System.nanoTime()
