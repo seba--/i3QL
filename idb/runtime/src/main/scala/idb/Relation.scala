@@ -32,6 +32,7 @@
  */
 package idb
 
+
 import idb.observer.Observable
 import idb.collections.impl.{MaterializedBag, MaterializedSet}
 

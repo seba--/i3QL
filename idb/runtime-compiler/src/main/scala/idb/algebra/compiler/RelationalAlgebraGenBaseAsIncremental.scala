@@ -34,6 +34,7 @@ package idb.algebra.compiler
 
 import idb.algebra.ir.RelationalAlgebraIRBase
 import idb.query.QueryEnvironment
+import idb.remote.ObservableHost
 
 
 /**
@@ -53,7 +54,11 @@ trait RelationalAlgebraGenBaseAsIncremental
 
             case QueryTable (table, _, _, _, _, _) => table
 
-			case Def (Root (relation)) => compile(relation)
+			case Def (Root (relation)) => {
+          val r = compile(relation)
+          ObservableHost.forward(r, queryEnvironment.actorSystem)
+          r
+      }
 
             case Def(r) =>
                 throw new UnsupportedOperationException ("Compilation not supported for queries of type: " + r.getClass)
