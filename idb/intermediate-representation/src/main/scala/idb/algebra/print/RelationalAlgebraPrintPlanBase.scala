@@ -67,7 +67,7 @@ trait RelationalAlgebraPrintPlanBase
                 withIndent (s"materialize[${rel.host}](\n") +
                     withMoreIndent (quoteRelation (r) + "\n") +
                     withIndent (")")
-			case Def (rel@IR.Root (r)) =>
+			case Def (rel@IR.Root (r, host)) =>
 				withIndent (s"root[${rel.host}](" + "\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
 					withIndent (")")

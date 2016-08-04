@@ -17,18 +17,19 @@ trait RelationalAlgebraIRRemoteCreateRemotes
 {
 
 	override def root[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
+		relation : Rep[Query[Domain]],
+		host : Host
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
 		//Adds a remote node as child of the root if the relation is on another server
-		if (relation.host != Host.local) {
-			val localPermissions = queryEnvironment.permissionsOf(Host.local)
+		if (relation.host != host) {
+			val rootPermissions = queryEnvironment.permissionsOf(host)
 
-			if (relation.color.ids subsetOf localPermissions)
-				root(remote(relation, Host.local))
+			if (relation.color.ids subsetOf rootPermissions)
+				root(remote(relation, host), host)
 			else
 				throw new NoServerAvailableException
 		} else
-			super.root(relation)
+			super.root(relation, host)
 	}
 
 	override def reclassification[Domain : Manifest] (

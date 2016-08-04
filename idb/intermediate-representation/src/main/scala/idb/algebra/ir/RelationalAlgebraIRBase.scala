@@ -125,13 +125,13 @@ trait RelationalAlgebraIRBase
 	}
 
 	case class Root[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
+		relation : Rep[Query[Domain]],
+		host : Host
 	) extends Def[Query[Domain]] with QueryBaseOps {
 		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = relation.isSet
 		def isIncrementLocal = relation.isIncrementLocal
 		def color = Color.NO_COLOR //Root node never has any taints
-		def host : Host = Host.local //Root node is per definition on the client
 	}
 
 	//This version checks the type of the table for the annotation instead of the table itself
@@ -212,9 +212,10 @@ trait RelationalAlgebraIRBase
 
 
 	override def root[Domain : Manifest] (
-		relation : Rep[Query[Domain]]
+		relation : Rep[Query[Domain]],
+		host : Host
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
-		Root(relation)
+		Root(relation, host)
 
 
 }

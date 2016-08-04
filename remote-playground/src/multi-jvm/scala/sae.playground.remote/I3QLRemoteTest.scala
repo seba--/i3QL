@@ -65,7 +65,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 				implicit val env = QueryEnvironment.create(
 					system,
-					Map(host1 -> Set("red"), host2 -> Set("blue"), Host.local -> Set("red", "blue"))
+					Map(host1 -> Set("red"), host2 -> Set("blue"))
 				)
 
 				import idb.syntax.iql._
@@ -89,7 +89,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 						Color("red")
 					)
 
-				val q3 = ROOT(q2)
+				val q3 = ROOT(q2, host1)
 
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR
@@ -98,7 +98,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				Predef.println(printer.quoteRelation(q3))
 
 
-				val relation : Relation[Int] = q3
+				val relation : Relation[Int] = q3.asMaterialized
 
 				Predef.println(relation.prettyprint(""))
 
@@ -131,6 +131,10 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				expectMsg(10.seconds, Added("6"))
 				expectMsg(10.seconds, Added("7"))
 				expectMsg(10.seconds, Added("8"))
+
+				Thread.sleep(10000)
+
+				relation.foreach(Predef.println)
 
 			}
 

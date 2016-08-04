@@ -414,7 +414,7 @@ package object iql
 	)(
 		implicit queryEnvironment : QueryEnvironment
 	): Relation[Range] = {
-		val res = CompilerBinding.compile (root(query))
+		val res = CompilerBinding.compile (query)
 		res
 	}
 

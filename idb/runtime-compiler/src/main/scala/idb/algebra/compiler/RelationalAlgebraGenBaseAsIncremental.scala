@@ -54,7 +54,7 @@ trait RelationalAlgebraGenBaseAsIncremental
 
             case QueryTable (table, _, _, _, _, _) => table
 
-			case Def (Root (relation)) => {
+			case Def (Root (relation, host)) => {
           val r = compile(relation)
           ObservableHost.forward(r, queryEnvironment.actorSystem)
           r
