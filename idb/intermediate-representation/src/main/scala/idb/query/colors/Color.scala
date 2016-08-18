@@ -9,6 +9,9 @@ trait Color {
 	def union(other : Color) : Color =
 		Color.union(this, other)
 
+  def -(taint : Set[ColorId]) : Color =
+    Color.diff(this, taint)
+
 	def ids : Set[ColorId]
 }
 
@@ -67,6 +70,13 @@ object Color {
 		case (FieldColor(ma), FieldColor(mb)) if ma.size == mb.size && ma.keySet == mb.keySet =>
 			FieldColor(ma ++ mb.map(t => t._1 -> union(ma(t._1), t._2)))
 	}
+
+  def diff(col : Color, taint : Set[ColorId]) : Color = col match {
+    case ClassColor(as) =>
+      ClassColor(as -- taint)
+    case FieldColor(m) =>
+      FieldColor(m.map(t => (t._1, diff(t._2, taint))))
+  }
 
 
 

@@ -14,9 +14,7 @@ scalaVersion := "2.11.2"
 scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
 
 libraryDependencies ++= Seq(
-	"EPFL" %% "lms" % "latest.integration",
-  	"de.tud.cs.st" %% "idb-syntax-iql" % "latest.integration",
-  	"de.tud.cs.st" %% "idb-runtime" % "latest.integration"
+	"EPFL" %% "lms" % "latest.integration"
 )
 
 libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.1" % "test"

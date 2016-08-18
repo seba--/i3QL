@@ -33,7 +33,7 @@
 package idb.algebra.base
 
 import idb.query.{Host, QueryEnvironment}
-import idb.query.colors.Color
+import idb.query.colors.{Color, ColorId}
 
 /**
  *
@@ -54,9 +54,16 @@ trait RelationalAlgebraRemoteOperators
 		host : Host
     )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
-	def reclassification[Domain : Manifest] (
+  def reclassification[Domain : Manifest] (
+    relation : Rep[Query[Domain]],
+    newColor : Color
+  )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+
+	def declassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
-		newColor : Color
+		colors : Set[ColorId]
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+
+
 
 }

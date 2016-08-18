@@ -34,7 +34,7 @@ package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraBasicOperators, RelationalAlgebraRemoteOperators}
 import idb.query.{Host, QueryEnvironment}
-import idb.query.colors.Color
+import idb.query.colors.{Color, ColorId}
 
 
 /**
@@ -69,6 +69,18 @@ trait RelationalAlgebraIRRemoteOperators
 		override def host = relation.host
 	}
 
+	case class Declassification[Domain : Manifest] (
+		var relation : Rep[Query[Domain]],
+		colors : Set[ColorId]
+	) extends Def[Query[Domain]] with QueryBaseOps {
+		override def isMaterialized: Boolean = relation.isMaterialized
+		override def isSet = relation.isSet
+		override def isIncrementLocal = relation.isIncrementLocal
+
+		override def color = relation.color - colors
+		override def host = relation.host
+	}
+
 
 	override def remote[Domain: Manifest] (
 		relation: Rep[Query[Domain]],
@@ -82,6 +94,12 @@ trait RelationalAlgebraIRRemoteOperators
 		newColor : Color
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
 		Reclassification(relation, newColor)
+
+	override def declassification[Domain : Manifest] (
+		relation : Rep[Query[Domain]],
+		colors : Set[ColorId]
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+		Declassification(relation, colors)
 
 
 
