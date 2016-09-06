@@ -35,7 +35,7 @@ package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
 import idb.algebra.exceptions.NoServerAvailableException
-import idb.annotations.{LocalIncrement}
+import idb.annotations.LocalIncrement
 import idb.query._
 import idb.query.colors.Color
 

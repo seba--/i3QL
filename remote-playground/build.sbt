@@ -12,17 +12,12 @@ parallelExecution in Test := false
 
 logBuffered in Test := false
 
-scalaVersion := "2.11.2"
-
-scalaOrganization in ThisBuild := "org.scala-lang.virtualized"
-
 libraryDependencies ++= Seq(
 	"EPFL" %% "lms" % "latest.integration",
-	"com.typesafe.akka" %% "akka-remote" % akkaVersion,
 	"com.typesafe.akka" %% "akka-multi-node-testkit" % akkaVersion
 )
 
-libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.1" % "test"
+//libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.2.1" % "test"
 
 jvmOptions in MultiJvm := Seq("-Xmx256M")
 

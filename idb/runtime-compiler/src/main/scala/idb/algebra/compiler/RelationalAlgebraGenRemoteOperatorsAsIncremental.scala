@@ -85,7 +85,6 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 						throw new UnknownHostDeployException()
 
 					case RemoteHost(name, address) =>
-						//TODO: Send to remote host
 						RemoteView (
 							actorSystem = queryEnvironment.actorSystem,
 							remoteSystem = address,

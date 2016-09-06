@@ -52,9 +52,6 @@ object sae extends Build {
   lazy val root = Project(id = "sae", base = file("."))
 		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, hospitalExample, testData, remotePlayground)
   
-    
-
-	
 
   val virtScala = Option(System.getenv("SCALA_VIRTUALIZED_VERSION")).getOrElse("2.11.2")
 
