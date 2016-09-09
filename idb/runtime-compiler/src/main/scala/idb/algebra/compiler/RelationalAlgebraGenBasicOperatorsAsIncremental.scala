@@ -32,15 +32,17 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.{FunctionUtils, ScalaCodegenExt}
 import idb.operators.impl._
 import idb.operators.impl.opt._
 import idb.query.QueryEnvironment
+
 import scala.virtualization.lms.common._
 import idb.MaterializedView
+import idb.algebra.compiler.util.FunctionBoxFactory
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
+import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
 
 /**
  *
@@ -50,6 +52,7 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
     with ScalaCodegenExt
     with ScalaGenEffect
+	with FunctionBoxFactory
 {
 
     val IR: RelationalAlgebraIRBasicOperators
@@ -66,10 +69,10 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
             case Def (Selection (r, f)) => {
-                new SelectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
+                new SelectionView (compile (r), create (f), false)
             }
             case Def (Projection (r, f)) => {
-                new ProjectionView (compile (r), compileFunctionWithDynamicManifests (f), false)
+                new ProjectionView (compile (r), create (f), false)
             }
             case Def (e@CrossProduct (a, b)) => {
 				if (e.isIncrementLocal)

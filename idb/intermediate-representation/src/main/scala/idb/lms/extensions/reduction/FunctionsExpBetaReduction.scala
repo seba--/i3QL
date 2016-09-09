@@ -53,7 +53,8 @@ trait FunctionsExpBetaReduction
     with ExpressionUtils
 {
 
-    protected val transformer = new ForwardTransformer
+    @SerialVersionUID(42303241L)
+    protected val transformer = new ForwardTransformer with Serializable
     {
         val IR: FunctionsExpBetaReduction.this.type = FunctionsExpBetaReduction.this
     }

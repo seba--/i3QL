@@ -41,7 +41,7 @@ import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenSeqOpsExt, Scal
  *
  * @author Ralf Mitschke
  */
-object CompilerBinding
+case object CompilerBinding
     extends RelationalAlgebraGenBasicOperatorsAsIncremental
     with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
     with RelationalAlgebraGenAggregationOperatorsAsIncremental

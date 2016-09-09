@@ -23,8 +23,9 @@ trait ScalaCodegenExt
     val IR: BaseExp with FunctionsExp
 
 
-    var compiler: Global = _
-    var reporter: ConsoleReporter = _
+
+    @transient var compiler: Global = _
+    @transient var reporter: ConsoleReporter = _
 
     def setupCompiler () {
         val settings = new Settings ()
@@ -51,9 +52,7 @@ trait ScalaCodegenExt
     }
 
 	var compileCount = 0
-
     var dumpGeneratedCode = true
-
     var silent = false
 
     def compileFunctionApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
@@ -80,21 +79,82 @@ trait ScalaCodegenExt
     def compileFunctionWithDynamicManifests[A, B] (f: IR.Rep[A => B]): A => B = {
 
         f.tp.typeArguments match {
-            case List (mA, mB) => {
-                val mAUnsafe = mA.asInstanceOf[Manifest[A]]
-                val mBUnsafe = mB.asInstanceOf[Manifest[B]]
-                compileFunction (
-                    IR.doApply (f, _: IR.Rep[A])(
-                        mAUnsafe,
-                        mBUnsafe,
-                        if (!f.pos.isEmpty)
-                            f.pos (0)
-                        else
-                            null
-                    )
-                )(mAUnsafe, mBUnsafe)
-            }
+            case List (mA, mB) =>
+				val mAUnsafe = mA.asInstanceOf[Manifest[A]]
+				val mBUnsafe = mB.asInstanceOf[Manifest[B]]
+				compileFunction (
+					IR.doApply (f, _: IR.Rep[A])(
+						mAUnsafe,
+						mBUnsafe,
+						if (f.pos.nonEmpty)
+							f.pos.head
+						else
+							null
+					)
+				)(mAUnsafe, mBUnsafe)
+		}
+    }
+
+	def functionToScalaCodeWithDynamicManifests[A, B](f: IR.Rep[A => B]) : (String, String) = {
+		val List (mA, mB) = f.tp.typeArguments
+		val mAUnsafe = mA.asInstanceOf[Manifest[A]]
+		val mBUnsafe = mB.asInstanceOf[Manifest[B]]
+		functionToScalaCode (
+			IR.doApply (f, _: IR.Rep[A])(
+				mAUnsafe,
+				mBUnsafe,
+				if (f.pos.nonEmpty)
+					f.pos.head
+				else
+					null
+			)
+		)(mAUnsafe, mBUnsafe)
+	}
+
+    def functionToScalaCode[A: Manifest, B: Manifest](f: IR.Rep[A] => IR.Rep[B]) : (String, String) = {
+        if (this.compiler eq null)
+            setupCompiler ()
+
+        val className = "staged$" + compileCount
+        compileCount += 1
+
+        val source = new StringWriter ()
+        val staticData = emitSource (f, className, new PrintWriter (source))
+        // IR.reset
+
+        if (dumpGeneratedCode) println (source)
+
+        (className, source.toString)
+    }
+
+    def compileScalaCode[A: Manifest, B: Manifest](className : String, source : String) : A => B = {
+        val compiler = this.compiler
+        val run = new compiler.Run
+
+        val fileSystem = new VirtualDirectory ("<vfs>", None)
+        compiler.settings.outputDirs.setSingleOutput (fileSystem)
+
+        run.compileSources (List (new scala.reflect.internal.util.BatchSourceFile ("<stdin>", source.toString)))
+
+
+        if (!silent) {
+            reporter.printSummary ()
+            if (!reporter.hasErrors)
+                println ("compilation: ok")
+            else
+                println ("compilation: had errors")
         }
+
+        reporter.reset ()
+
+        val loader = new AbstractFileClassLoader (fileSystem, this.getClass.getClassLoader)
+
+        val cls: Class[_] = loader.loadClass (className)
+
+		//TODO: Reimplement static data
+        val cons = cls.getConstructor() //(staticData.map (_._1.tp.runtimeClass): _*)
+        val obj: A => B = cons.newInstance().asInstanceOf[A => B] //(staticData.map (_._2.asInstanceOf[AnyRef]): _*).asInstanceOf[A => B]
+        obj
     }
 
     def compileFunction[A: Manifest, B: Manifest] (f: IR.Rep[A] => IR.Rep[B]): A => B = {
@@ -152,10 +212,21 @@ trait ScalaCodegenExt
                 "*******************************************/")
             emitFileHeader()
 
-            // TODO: separate concerns, should not hard code "pxX" name scheme for static data here
-            stream.println(s"@SerialVersionUID(${java.util.UUID.randomUUID().hashCode()})")
+            //Normal version
             stream.println("class "+className+(if (staticData.isEmpty) "" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
-                + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) with Serializable {")
+                   + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) {")
+
+            //Serializeable version
+//            stream.println(s"@SerialVersionUID(${className.hashCode})")
+//            stream.println("class "+className+(if (staticData.isEmpty) "" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
+//                + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) with Serializable {")
+
+            //Case class version
+//            stream.println("case class "+className+(if (staticData.isEmpty) "()" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
+//                            + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) {")
+
+
+
             stream.println("def apply("+args.map(a => quote(a) + ":" + remap(a.tp)).mkString(", ")+"): "+sA+" = {")
 
             emitBlock(body)

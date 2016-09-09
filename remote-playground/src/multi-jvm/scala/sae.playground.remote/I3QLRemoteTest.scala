@@ -87,8 +87,8 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 						//SELECT ((i : Rep[Int]) => i.doubleValue())
 						//SELECT (*)
 
-				val q3_0 = //RECLASS(q2, Color("red"))
-					q2
+				val q3_0 = RECLASS(q2, Color("red"))
+					//q2
 
 				val q3 = ROOT (RECLASS(q3_0, Color("blue")), host2)
 

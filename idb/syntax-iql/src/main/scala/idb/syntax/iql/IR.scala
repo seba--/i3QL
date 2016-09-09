@@ -53,7 +53,7 @@ import scala.virtualization.lms.common._
  *
  * @author Ralf Mitschke
  */
-object IR
+case object IR
     extends ScalaOpsExpOptExtensions
     with RelationalAlgebraIROperatorsPackage
 	with RelationalAlgebraIRFusionPackage
@@ -68,5 +68,10 @@ object IR
     with LiftEverything
 {
     type SubQuery[+T] = IQL_SUB_QUERY[T]
+
+	@SerialVersionUID(-865432132L)
+	abstract class Def[+T] extends Serializable { // operations (composite)
+		override final lazy val hashCode = scala.runtime.ScalaRunTime._hashCode(this.asInstanceOf[Product])
+	}
 
 }
