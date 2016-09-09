@@ -66,7 +66,7 @@ trait RelationalAlgebraPrintPlanAggregationOperators
     override def quoteRelation (x: Exp[Any]): String =
         x match {
             case Def (r@Grouping (relation, grouping)) =>
-                withIndent (s"grouping[${r.host}](\n") +
+                withIndent (s"grouping[${r.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (grouping) + "\n") +
                     withIndent (")")

@@ -4,10 +4,9 @@ import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.BagTable
+
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
 import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
@@ -16,15 +15,15 @@ import idb.query.colors._
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
-class I3QLRemoteTestMultiJvmNode1 extends I3QLRemoteTest
-class I3QLRemoteTestMultiJvmNode2 extends I3QLRemoteTest
-object I3QLRemoteTest {} // this object is necessary for multi-node testing
+class I3QLRemoteTreeTestMultiJvmNode1 extends I3QLRemoteTreeTest
+class I3QLRemoteTreeTestMultiJvmNode2 extends I3QLRemoteTreeTest
+object I3QLRemoteTreeTest {} // this object is necessary for multi-node testing
 
-class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
+class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 	with STMultiNodeSpec with ImplicitSender {
 
 	import MultiNodeConfig._
-	import I3QLRemoteTest._
+	import I3QLRemoteTreeTest._
 
 	def initialParticipants = roles.size
 
@@ -37,8 +36,8 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 		Map(host1 -> Set("red"), host2 -> Set("blue"))
 	)
 
-	"OOPS A RemoteView" must {
-		"work in more complex trees" in {
+	"A manually generated remote tree" must {
+		"work the same as the automatically generated tree" in {
 			//enterBarrier("startup") // TODO: is this necessary?
 
 			runOn(node1) {
@@ -48,7 +47,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				import idb.syntax.iql._
 
 				val db = BagTable.empty[Int]
-				REMOTE TABLE (db, "db")
+				env.actorSystem.actorOf(Props(classOf[ObservableHost[Int]], db), "db")
 
 				enterBarrier("deployed")
 
@@ -68,34 +67,32 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				// will send the Selection to node 1 and receive the final results
 				enterBarrier("deployed")
 
-				import idb.syntax.iql._
-				import idb.syntax.iql.IR._
+				import idb.Relation
 
 				//FIXME: Why do we have to explicitly specify the type here?
-				val table : Rep[Query[Int]] =
-						REMOTE FROM[Int] (host1, "db", Color("red"))
+				val table  = RemoteView[Int](env.actorSystem, node(node1) / "user" / "db", false)
+				//		REMOTE FROM[Int] (host1, "db", Color("red"))
 
-				val q1 =
-					RECLASS(
-						SELECT (*) FROM table WHERE ((i : Rep[Int]) => i > 2),
-						Color("blue")
-					)
+				val q1 = RemoteView(env.actorSystem, node(node2).address,
+					SelectionView(table, (i : Int) => i > 2, false)
+				)
+//					RECLASS(
+//						SELECT (*) FROM table WHERE ((i : Rep[Int]) => i > 2),
+//						Color("blue")
+//					)
 
-				val q2 =
-					RECLASS(
-						SELECT ((i : Rep[Int]) => i + 2) FROM q1,
-						//SELECT (*) FROM q1,
-						Color("red")
-					)
+				val q2 = RemoteView(env.actorSystem, node(node1).address,
+					ProjectionView(q1, (i : Int) => i + 2, false)
+				)
+//					RECLASS(
+//						SELECT ((i : Rep[Int]) => i + 2) FROM q1,
+//						//SELECT (*) FROM q1,
+//						Color("red")
+//					)
 
-				val q3 = ROOT(
-					RECLASS(q2, Color("blue")), host2)
-
-				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = idb.syntax.iql.IR
-				}
-
-				Predef.println(printer.quoteRelation(q3))
+				val q3 = RemoteView(env.actorSystem, node(node2).address, q2)
+				ObservableHost.forward(q3, env.actorSystem)
+				//	ROOT(q2, host2)
 
 
 				val relation : Relation[Int] = q3.asMaterialized

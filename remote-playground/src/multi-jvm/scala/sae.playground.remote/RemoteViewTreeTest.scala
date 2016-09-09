@@ -59,7 +59,7 @@ with STMultiNodeSpec with ImplicitSender {
               node(node2).address,
               new SelectionView(
                 RemoteView[Int](system, remoteHostPath, false),
-                fun,
+                (i : Int) => (i % 2) == 0,
                 false
               )
             ),
@@ -72,6 +72,10 @@ with STMultiNodeSpec with ImplicitSender {
         tree.addObserver(new SendToRemote[String](testActor))
 
         enterBarrier("sending")
+
+        Predef.println("SENDING....")
+        Predef.println(tree.prettyprint(" "))
+        Predef.println("...")
 
         import scala.concurrent.duration._
         expectMsg(10.seconds, Added("22"))

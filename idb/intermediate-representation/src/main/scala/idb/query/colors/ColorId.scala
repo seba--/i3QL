@@ -5,4 +5,8 @@ package idb.query.colors
  */
 trait ColorId
 
-case class StringColor(name : String) extends ColorId
+case class StringColor(name : String) extends ColorId {
+
+	override def toString: String =
+		s"<$name>"
+}

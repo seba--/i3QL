@@ -59,25 +59,25 @@ trait RelationalAlgebraPrintPlanSetTheoryOperators
     override def quoteRelation (x: Exp[Any]): String =
         x match {
             case Def (rel@UnionAdd (left, right)) =>
-                withIndent (s"unionAdd[${rel.host}](\n") +
+                withIndent (s"unionAdd[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
             case Def (rel@UnionMax (left, right)) =>
-                withIndent (s"unionMax[${rel.host}](\n") +
+                withIndent (s"unionMax[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
             case Def (rel@Intersection (left, right)) =>
-                withIndent (s"intersection[${rel.host}](" + "\n") +
+                withIndent (s"intersection[${rel.host.name}](" + "\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
             case Def (rel@Difference (left, right)) =>
-                withIndent (s"difference[${rel.host}](\n") +
+                withIndent (s"difference[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")

@@ -27,7 +27,7 @@ trait RelationalAlgebraIRRemoteCreateRemotes
 			if (relation.color.ids subsetOf rootPermissions)
 				root(remote(relation, host), host)
 			else
-				throw new NoServerAvailableException
+				throw new NoServerAvailableException(s"ROOT ${host.name} has no permission for ${relation.color.ids}. Only has permissions: $rootPermissions")
 		} else
 			super.root(relation, host)
 	}

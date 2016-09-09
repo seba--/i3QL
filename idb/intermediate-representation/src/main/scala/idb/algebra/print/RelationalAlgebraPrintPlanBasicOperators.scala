@@ -65,25 +65,25 @@ trait RelationalAlgebraPrintPlanBasicOperators
     override def quoteRelation (x: Exp[Any]): String =
         x match {
             case Def (rel@Projection (relation, function)) =>
-                withIndent (s"projection[${rel.host}](\n") +
+                withIndent (s"projection[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
             case Def (rel@Selection (relation, function)) =>
-                withIndent (s"selection[${rel.host}](\n") +
+                withIndent (s"selection[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
             case Def (rel@CrossProduct (left, right)) =>
-                withIndent (s"crossProduct[${rel.host}](\n") +
+                withIndent (s"crossProduct[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
             case Def (rel@EquiJoin (left, right, equalities)) =>
-                withIndent (s"equiJoin[${rel.host}](\n") +
+                withIndent (s"equiJoin[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + ",\n") +
                     withMoreIndent (withIndent ("Seq(\n")) +
@@ -101,12 +101,12 @@ trait RelationalAlgebraPrintPlanBasicOperators
                     withIndent (")")
 
             case Def (rel@DuplicateElimination (relation)) =>
-                withIndent (s"duplicateElimination[${rel.host}](\n") +
+                withIndent (s"duplicateElimination[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + "\n") +
                     withIndent (")")
 
            case Def (rel@Unnest (relation, function)) =>
-                withIndent (s"unnest[${rel.host}](\n") +
+                withIndent (s"unnest[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
                     withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")

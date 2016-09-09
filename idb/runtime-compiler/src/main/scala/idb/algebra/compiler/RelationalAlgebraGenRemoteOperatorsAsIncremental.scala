@@ -84,10 +84,10 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 					case UnknownHost =>
 						throw new UnknownHostDeployException()
 
-					case RemoteHost(name, address) =>
+					case RemoteHost(name, path) =>
 						RemoteView (
 							actorSystem = queryEnvironment.actorSystem,
-							remoteSystem = address,
+							remoteSystem = path.address,
 								partition = compile (r)
 						)
 				}

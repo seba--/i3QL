@@ -60,12 +60,12 @@ trait RelationalAlgebraPrintPlanRemoteOperators
     override def quoteRelation (x: Exp[Any]): String =
         x match {
             case Def (rel@Remote (relation, newHost)) =>
-                withIndent (s"remote-->${rel.host}(\n") +
+                withIndent (s"remote[${rel.host.name}<--](\n") +
                     withMoreIndent (quoteRelation (relation) + "\n") +
                     withIndent (")")
 
             case Def (rel@Reclassification(r, newColor)) =>
-				withIndent (s"reclass[${rel.host}](\n") +
+				withIndent (s"reclass[${rel.host.name}](\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
 					withMoreIndent (newColor + "\n") +
 					withIndent (")")

@@ -15,8 +15,11 @@ class NonMatchingHostsException(a : Host, b : Host)
 class RemoteUnsupportedException
 	extends QueryException("Cannot use remote functionality.")
 
-class NoServerAvailableException
-	extends QueryException("No server available for color.")
+class NoServerAvailableException(s : String)
+	extends QueryException(s) {
+
+	def this() = this("No server available.")
+}
 
 class UnknownHostDeployException
 	extends QueryException("Cannot deploy query on unknown host.")

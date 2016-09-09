@@ -109,22 +109,6 @@ object RemoteView {
 	val debug = false
 
 	/*
-	 * Old version. To be deleted.
-	 */
-	def apply[T](actorSystem : ActorSystem, partition : Relation[T]) : RemoteView[T] = {
-		val remoteHost = actorSystem.actorOf(Props[ObservableHost[T]])
-
-		val remoteView = new RemoteView[T](remoteHost, partition.isSet)
-
-		val remoteViewActor = actorSystem.actorOf(Props(classOf[RemoteViewActor[T]], remoteView))
-		//val errorDetector = actorSystem.actorOf(Props(new SupervisionActor(remote)))
-
-		remoteHost ! HostObservableAndForward(partition, remoteViewActor)
-
-		remoteView
-	}
-
-	/*
 	 * Connect to an already running remote partition
 	 * TODO: ask remote relation whether it `isSet` (would have to happen synchronously)?
 	 */

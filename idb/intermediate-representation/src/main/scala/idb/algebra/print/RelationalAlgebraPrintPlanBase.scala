@@ -58,17 +58,17 @@ trait RelationalAlgebraPrintPlanBase
     def quoteRelation (x: Exp[Any]): String =
         x match {
             case r@QueryTable (e, _, _, _, color, host) =>
-                withIndent (s"table[${r.host}](${e.hashCode()}, : Table[${x.tp}])")
+                withIndent (s"table[${r.host.name}](${e.hashCode()}, : Table[${x.tp}])")
 
             case rel@QueryRelation (r, _, _, _, color, host) =>
-				withIndent (s"relation[${rel.host}](${r.hashCode()}, : Rel[${x.tp}])")
+				withIndent (s"relation[${rel.host.name}](${r.hashCode()}, : Rel[${x.tp}])")
 
             case Def (rel@Materialize (r)) =>
-                withIndent (s"materialize[${rel.host}](\n") +
+                withIndent (s"materialize[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (r) + "\n") +
                     withIndent (")")
 			case Def (rel@IR.Root (r, host)) =>
-				withIndent (s"root[${rel.host}](" + "\n") +
+				withIndent (s"root[${rel.host.name}](" + "\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
 					withIndent (")")
             case Def(xDef) =>

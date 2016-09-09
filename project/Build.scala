@@ -22,7 +22,7 @@ object sae extends Build {
 		.dependsOn (schemaExamples % "compile;test", runtime % "compile;test", intermediateRepresentation % "compile;test")
 
 	lazy val syntax = Project(id = "idb-syntax-iql", base = file("idb/syntax-iql"))
-		.dependsOn (runtimeCompiler % "compile;test", schemaExamples % "compile;test")
+		.dependsOn (runtimeCompiler % "compile;test", schemaExamples % "compile;test", runtime % "compile;test")
 
 	lazy val integrationTest = Project(id = "idb-integration-test", base = file("idb/integration-test"))
 		.dependsOn (schemaExamples % "test", syntax % "test", intermediateRepresentation % "test")
