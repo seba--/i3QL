@@ -86,7 +86,7 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 
 					case RemoteHost(name, path) =>
 						RemoteView (
-							actorSystem = queryEnvironment.actorSystem,
+							actorSystem = queryEnvironment.system,
 							remoteSystem = path.address,
 								partition = compile (r)
 						)

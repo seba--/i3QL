@@ -28,7 +28,7 @@ class TestRemote extends UniversityTestData {
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test1"),
+			system = ActorSystem("test1"),
 			permissions = Map(
 				LocalHost -> Set("registration", "students"),
 				registrationHost -> Set("registration"),
@@ -96,7 +96,7 @@ class TestRemote extends UniversityTestData {
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test2"),
+			system = ActorSystem("test2"),
 			permissions = Map(
 				LocalHost -> Set("registration", "students"),
 				registrationHost -> Set("registration"),
@@ -152,7 +152,7 @@ class TestRemote extends UniversityTestData {
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test1"),
+			system = ActorSystem("test1"),
 			permissions = Map(
 				LocalHost -> Set("registration", "students"),
 				registrationHost -> Set("registration"),
@@ -219,7 +219,7 @@ class TestRemote extends UniversityTestData {
 
 		//Initialize query context as implicit value
 		implicit val queryEnvironment = QueryEnvironment.create(
-			actorSystem = ActorSystem("test1"),
+			system = ActorSystem("test1"),
 			permissions = Map(
 				LocalHost -> Set("students"),
 				studentHost -> Set("students")

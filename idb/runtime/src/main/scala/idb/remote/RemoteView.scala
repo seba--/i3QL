@@ -99,14 +99,14 @@ class RemoteView[Domain](val remoteHost: ActorRef, val isSet: Boolean) // TODO: 
 	override def notify_endTransaction() = super.notify_endTransaction()
 
 	override def prettyprint(implicit prefix: String) = prefix +
-		s"RemoteView(<CONNECTED>"
+		s"RemoteView($remoteHost)"
 
 	def createActor(actorSystem: ActorSystem) = actorSystem.actorOf(Props(classOf[RemoteViewActor[Domain]], this))
 }
 
 object RemoteView {
 
-	val debug = false
+	val debug = true
 
 	/*
 	 * Connect to an already running remote partition

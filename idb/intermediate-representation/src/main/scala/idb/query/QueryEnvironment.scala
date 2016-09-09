@@ -15,7 +15,12 @@ trait QueryEnvironment {
 	/**
 	 * Gets the actor system for the environment.
 	 */
-	def actorSystem : ActorSystem
+	def system : ActorSystem
+
+	/**
+		Checks whether the environment is in a local or distributed setting. Local settings do not have to define an actor system.
+	 */
+	def isLocal : Boolean
 
 	/**
 	 * Returns a list of all hosts
@@ -40,13 +45,16 @@ trait QueryEnvironment {
 }
 
 protected class QueryEnvironmentImpl (
-	val _actorSystem : Option[ActorSystem] = None,
-    val _permissions : Map[Host, Set[ColorId]] = Map()
+	val _system : Option[ActorSystem] = None,
+	val _permissions : Map[Host, Set[ColorId]] = Map()
 ) extends QueryEnvironment {
 
-	override def actorSystem =
-		if (_actorSystem.isDefined)
-			_actorSystem.get
+	override def isLocal =
+		_system.isEmpty
+
+	override def system =
+		if (_system.isDefined)
+			_system.get
 		else
 			throw new UnsupportedByQueryEnvironmentException("No actor system", this)
 
@@ -59,8 +67,8 @@ protected class QueryEnvironmentImpl (
 	}
 
 	override def close(): Unit = {
-		if (_actorSystem.isDefined)
-			_actorSystem.get.shutdown()
+		if (_system.isDefined)
+			_system.get.shutdown()
 	}
 }
 
@@ -86,11 +94,11 @@ object QueryEnvironment {
 		)    */
 
 	def create(
-		actorSystem : ActorSystem = null,
+		system : ActorSystem = null,
 		permissions : Map[Host, Set[String]] = Map()
 	) : QueryEnvironment =
 		new QueryEnvironmentImpl (
-			_actorSystem = Option(actorSystem),
+			_system = Option(system),
 			_permissions = permissions.mapValues(setString => setString.map(s => StringColor(s)))
 		)
 

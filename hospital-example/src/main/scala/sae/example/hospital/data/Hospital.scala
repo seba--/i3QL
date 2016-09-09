@@ -31,7 +31,7 @@ object Hospital {
 		val knowledgeHost = NamedHost("KnowledgeDBServer")
 
 		implicit val queryEnv = QueryEnvironment.create(
-			actorSystem = ActorSystem("example"),
+			system = ActorSystem("example"),
 			permissions = Map (
 				LocalHost -> Set("hospital", "research"),
 				patientHost -> Set("hospital"),
@@ -58,7 +58,7 @@ object Hospital {
 		val superHost =  NamedHost("SuperHost")
 
 		implicit val queryEnv = QueryEnvironment.create(
-			actorSystem = ActorSystem("example"),
+			system = ActorSystem("example"),
 			permissions = Map (
 				LocalHost -> Set("research"),
 				superHost -> Set("hospital", "research"),

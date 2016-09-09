@@ -2,13 +2,15 @@ package idb.lms.extensions
 
 
 import scala.reflect.RefinedManifest
-import scala.virtualization.lms.internal.{ScalaFatCodegen, ScalaCodegen}
-import scala.tools.nsc.{Settings, Global}
+import scala.virtualization.lms.internal.{ScalaCodegen, ScalaFatCodegen}
+import scala.tools.nsc.{Global, Settings}
 import scala.tools.nsc.reporters.ConsoleReporter
-import java.io.{StringWriter, PrintWriter}
+import java.io.{PrintWriter, StringWriter}
+
 import scala.reflect.io.{File, VirtualDirectory}
 import scala.tools.nsc.interpreter.AbstractFileClassLoader
-import scala.virtualization.lms.common.{FunctionsExp, BaseExp}
+import scala.virtualization.lms.common.{BaseExp, FunctionsExp}
+
 
 /**
  *
@@ -52,7 +54,7 @@ trait ScalaCodegenExt
 
     var dumpGeneratedCode = true
 
-    var silent = true
+    var silent = false
 
     def compileFunctionApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
         compileFunction (IR.doApply (f, _))
@@ -134,6 +136,40 @@ trait ScalaCodegenExt
 
         val obj: A => B = cons.newInstance (staticData.map (_._2.asInstanceOf[AnyRef]): _*).asInstanceOf[A => B]
         obj
+    }
+
+
+    import IR.Sym
+    override def emitSource[A : Manifest](args: List[Sym[_]], body: Block[A], className: String, out: PrintWriter) = {
+
+        val sA = remap(manifest[A])
+
+        val staticData = getFreeDataBlock(body)
+
+        withStream(out) {
+            stream.println("/*****************************************\n"+
+                "  Emitting Generated Code                  \n"+
+                "*******************************************/")
+            emitFileHeader()
+
+            // TODO: separate concerns, should not hard code "pxX" name scheme for static data here
+            stream.println(s"@SerialVersionUID(${java.util.UUID.randomUUID().hashCode()})")
+            stream.println("class "+className+(if (staticData.isEmpty) "" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
+                + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) with Serializable {")
+            stream.println("def apply("+args.map(a => quote(a) + ":" + remap(a.tp)).mkString(", ")+"): "+sA+" = {")
+
+            emitBlock(body)
+            stream.println(quote(getBlockResult(body)))
+
+            stream.println("}")
+
+            stream.println("}")
+            stream.println("/*****************************************\n"+
+                "  End of Generated Code                  \n"+
+                "*******************************************/")
+        }
+
+        staticData
     }
 
 }

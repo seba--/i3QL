@@ -283,7 +283,7 @@ object Queries extends HospitalTestData {
 
 	def main(args : Array[String]): Unit = {
 
-		val example = 3
+		val example = 0
 
 		example match {
 			case 0 => normalExample()

@@ -13,13 +13,13 @@ import idb.syntax.iql.IR._
 object REMOTE {
 
 	def TABLE[V] (table : Table[V], id : String)(implicit queryEnvironment : QueryEnvironment) : ActorRef = {
-		queryEnvironment.actorSystem.actorOf(Props(classOf[ObservableHost[V]], table), id)
+		queryEnvironment.system.actorOf(Props(classOf[ObservableHost[V]], table), id)
 	}
 
 	def FROM[Domain : Manifest] (host : RemoteHost, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
 		val remoteHostPath: ActorPath = host.path / "user" / id
 		relation[Domain](
-			RemoteView[Domain](queryEnvironment.actorSystem, remoteHostPath, false),
+			RemoteView[Domain](queryEnvironment.system, remoteHostPath, false),
 			color = color,
 			host = host
 		)

@@ -55,10 +55,14 @@ trait RelationalAlgebraGenBaseAsIncremental
             case QueryTable (table, _, _, _, _, _) => table
 
 			case Def (Root (relation, host)) => {
-          val r = compile(relation)
-          ObservableHost.forward(r, queryEnvironment.actorSystem)
-          r
-      }
+                val r = compile(relation)
+
+                if (!queryEnvironment.isLocal) {
+                    ObservableHost.forward(r, queryEnvironment.system)
+                }
+
+                r
+            }
 
             case Def(r) =>
                 throw new UnsupportedOperationException ("Compilation not supported for queries of type: " + r.getClass)

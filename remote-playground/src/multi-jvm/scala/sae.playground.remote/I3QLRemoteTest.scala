@@ -13,6 +13,7 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
+import idb.syntax.iql.RECLASS
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
@@ -48,6 +49,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				import idb.syntax.iql._
 
 				val db = BagTable.empty[Int]
+
 				REMOTE TABLE (db, "db")
 
 				enterBarrier("deployed")
@@ -73,23 +75,22 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 				//FIXME: Why do we have to explicitly specify the type here?
 				val table : Rep[Query[Int]] =
-						REMOTE FROM[Int] (host1, "db", Color("red"))
+						REMOTE FROM [Int] (host1, "db", Color("red"))
 
-				val q1 =
-					RECLASS(
-						SELECT (*) FROM table WHERE ((i : Rep[Int]) => i > 2),
-						Color("blue")
-					)
+				val q1 = SELECT (*) FROM RECLASS(table, Color("red")) WHERE ((i : Rep[Int]) => i > 2)
+					//SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS(table, Color("blue"))
 
-				val q2 =
-					RECLASS(
-						SELECT ((i : Rep[Int]) => i + 2) FROM q1,
-						//SELECT (*) FROM q1,
-						Color("red")
-					)
+				val q2_0 = //RECLASS(q1, Color("blue"))
+					q1
 
-				val q3 = ROOT(
-					RECLASS(q2, Color("blue")), host2)
+				val q2 = SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS (q2_0, Color("blue"))
+						//SELECT ((i : Rep[Int]) => i.doubleValue())
+						//SELECT (*)
+
+				val q3_0 = //RECLASS(q2, Color("red"))
+					q2
+
+				val q3 = ROOT (RECLASS(q3_0, Color("blue")), host2)
 
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR
@@ -98,7 +99,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				Predef.println(printer.quoteRelation(q3))
 
 
-				val relation : Relation[Int] = q3.asMaterialized
+				val relation : Relation[_] = q3.asMaterialized
 
 				Predef.println(relation.prettyprint(" "))
 
@@ -122,19 +123,22 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				)    */
 
 				//ObservableHost.forward(tree, system) // FIXME: always call this on the root node after tree construction (should happen automatically)
-				relation.addObserver(new SendToRemote[Int](testActor))
+				relation.addObserver(new SendToRemote(testActor))
 
 				enterBarrier("sending")
 
-				import scala.concurrent.duration._
-				expectMsg(10.seconds, Added(5))
-				expectMsg(10.seconds, Added(6))
-				expectMsg(10.seconds, Added(7))
-				expectMsg(10.seconds, Added(8))
+				try {
+					import scala.concurrent.duration._
+					expectMsg(10.seconds, Added(5))
+					expectMsg(10.seconds, Added(6))
+					expectMsg(10.seconds, Added(7))
+					expectMsg(10.seconds, Added(8))
+				} finally {
+					Thread.sleep(7000)
+					Predef.println("RELATION:")
+					relation.foreach(Predef.println)
+				}
 
-				Thread.sleep(7000)
-
-				relation.foreach(Predef.println)
 
 			}
 
