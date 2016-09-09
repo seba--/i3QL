@@ -1,4 +1,4 @@
-package sae.playground.remote
+package sae.playground.remote.hospital
 
 import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
@@ -13,136 +13,171 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
-import idb.syntax.iql.RECLASS
+import sae.example.hospital.data._
+import sae.playground.remote.STMultiNodeSpec
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
 class HospitalRemoteTestMultiJvmNode1 extends HospitalRemoteTest
 class HospitalRemoteTestMultiJvmNode2 extends HospitalRemoteTest
+class HospitalRemoteTestMultiJvmNode3 extends HospitalRemoteTest
+class HospitalRemoteTestMultiJvmNode4 extends HospitalRemoteTest
+
 object HospitalRemoteTest {} // this object is necessary for multi-node testing
 
 class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 	with STMultiNodeSpec with ImplicitSender {
 
-	import MultiNodeConfig._
+	import HospitalConfig._
 	import HospitalRemoteTest._
 
 	def initialParticipants = roles.size
 
 	//Setup query environment
-	val host1 = RemoteHost("node1", node(node1))
-	val host2 = RemoteHost("node2", node(node2))
+	val personHost = RemoteHost("personHost", node(node1))
+	val patientHost = RemoteHost("patientHost", node(node2))
+	val knowledgeHost = RemoteHost("knowledgeHost", node(node3))
+	val clientHost = RemoteHost("clientHost", node(node4))
+
+	object BaseHospital extends HospitalSchema {
+		override val IR = idb.syntax.iql.IR
+	}
+	import BaseHospital._
+
+	object Data extends HospitalTestData
+	import Data._
 
 	implicit val env = QueryEnvironment.create(
 		system,
-		Map(host1 -> Set("red"), host2 -> Set("blue"))
+		Map(
+			personHost -> Set("red"),
+			patientHost -> Set("red", "green", "purple"),
+			knowledgeHost -> Set("purple"),
+			clientHost -> Set("white") //For now: Client has its own permission to simulate pushing queries down
+		)
 	)
 
-	"OOPS A RemoteView" must {
-		"work in more complex trees" in {
-			//enterBarrier("startup") // TODO: is this necessary?
-
+	"A hospital" must {
+		"work for three servers (without client)" in {
+			/*
+				Person Server
+			 */
 			runOn(node1) {
-				// will run the Table and the Selection (sent from node2)
-
-				//system.actorOf(Props(classOf[ObservableHost[Int]], db), "db") // TODO: provide easier way to create a remotely observable data source
 				import idb.syntax.iql._
 
-				val db = BagTable.empty[Int]
-
-				REMOTE TABLE (db, "db")
+				val db = BagTable.empty[Person]
+				REMOTE RELATION (db, "person-db")
 
 				enterBarrier("deployed")
+				//The query gets compiled here...
+				enterBarrier("compiled")
 
-				enterBarrier("sending")
-				Thread.sleep(100) // wait until ObservableHost has its observer registered
-				println("has observers: " + db.hasObservers+ ", sending now ...")
-
-				db += 1
-				db += 2
-				db += 3
-				db += 4
-				db += 5
-				db += 6
+				db += johnDoe
+				db += sallyFields
+				db += johnCarter
+				db += janeDoe
 			}
 
+			/*
+				Patient Server
+			 */
 			runOn(node2) {
-				// will send the Selection to node 1 and receive the final results
+				import idb.syntax.iql._
+
+				val db = BagTable.empty[Patient]
+				REMOTE RELATION (db, "patient-db")
+
+				enterBarrier("deployed")
+				//The query gets compiled here...
+				enterBarrier("compiled")
+
+				db += patientJohnDoe2
+				db += patientSallyFields1
+				db += patientJohnCarter1
+				db += patientJaneDoe1
+				db += patientJaneDoe2
+			}
+
+			/*
+				Knowledge Server
+			 */
+			runOn(node3) {
+				import idb.syntax.iql._
+
+				val db = BagTable.empty[KnowledgeData]
+				REMOTE RELATION (db, "knowledge-db")
+
+				enterBarrier("deployed")
+				//The query gets compiled here...
+				enterBarrier("compiled")
+
+				db += lungCancer1
+				db += lungCancer2
+				db += commonCold1
+				db += panicDisorder1
+			}
+
+			/*
+				Client
+			 */
+			runOn(node4) {
 				enterBarrier("deployed")
 
 				import idb.syntax.iql._
 				import idb.syntax.iql.IR._
 
-				//FIXME: Why do we have to explicitly specify the type here?
-				val table : Rep[Query[Int]] =
-						REMOTE FROM [Int] (host1, "db", Color("red"))
+				//Create variables for all the remote tables
+				val personDB : Rep[Query[Person]] = REMOTE FROM [Person] (personHost, "person-db", Color("red"))
+				val patientDB : Rep[Query[Patient]] = REMOTE FROM [Patient] (patientHost, "patient-db", Color("green"))
+				val knowledgeDB : Rep[Query[KnowledgeData]] = REMOTE FROM [KnowledgeData] (knowledgeHost, "knowledge-db", Color("purple"))
 
-				val q1 = SELECT (*) FROM RECLASS(table, Color("red")) WHERE ((i : Rep[Int]) => i > 2)
-					//SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS(table, Color("blue"))
+				//Write an i3ql query...
+				val q1 =
+					SELECT DISTINCT (
+						(person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis)
+					) FROM (
+						personDB, UNNEST(patientDB, (x: Rep[Patient]) => x.symptoms), knowledgeDB
+					) WHERE	(
+						(person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) =>
+								person.personId == patientSymptom._1.personId AND
+								patientSymptom._2 == knowledgeData.symptom AND
+								knowledgeData.symptom == Symptoms.cough
+					)
 
-				val q2_0 = //RECLASS(q1, Color("blue"))
-					q1
+				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
+				val q = ROOT(RECLASS(q1, Color("white")), clientHost)
 
-				val q2 = SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS (q2_0, Color("blue"))
-						//SELECT ((i : Rep[Int]) => i.doubleValue())
-						//SELECT (*)
-
-				val q3_0 = //RECLASS(q2, Color("red"))
-					q2
-
-				val q3 = ROOT (RECLASS(q3_0, Color("blue")), host2)
-
+				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR
 				}
+				Predef.println(printer.quoteRelation(q))
 
-				Predef.println(printer.quoteRelation(q3))
-
-
-				val relation : Relation[_] = q3.asMaterialized
-
+				//Compile the LMS tree and then materialize for further testing purposes
+				val relation : Relation[_] = q.asMaterialized
+				//Print the runtime class representation
 				Predef.println(relation.prettyprint(" "))
 
-				// data flows from node1 (Table) -> node2 -> node1 -> node2
-				/*val tree = RemoteView(
-					system,
-					node(node1).address,
-					new ProjectionView(
-						RemoteView(
-							system,
-							node(node2).address,
-							new SelectionView(
-								RemoteView[Int](system, remoteHostPath, false),
-								fun,
-								false
-							)
-						),
-						(n:Int) => { n.toString * 2 },
-						false
-					)
-				)    */
-
-				//ObservableHost.forward(tree, system) // FIXME: always call this on the root node after tree construction (should happen automatically)
+				//Add observer for testing purposes
 				relation.addObserver(new SendToRemote(testActor))
 
-				enterBarrier("sending")
+
+				enterBarrier("compiled")
+				//The tables are now sending data
 
 				try {
 					import scala.concurrent.duration._
-					expectMsg(10.seconds, Added(5))
+					expectMsg(10.seconds, Added((0, "John Doe", "common cold")))
 					expectMsg(10.seconds, Added(6))
 					expectMsg(10.seconds, Added(7))
 					expectMsg(10.seconds, Added(8))
 				} finally {
-					Thread.sleep(7000)
+					Thread.sleep(3000) //Wait some time until data has been sent
 					Predef.println("RELATION:")
 					relation.foreach(Predef.println)
 				}
-
-
 			}
 
-			//enterBarrier("finished")
 		}
 	}
 }

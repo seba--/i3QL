@@ -50,7 +50,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 				val db = BagTable.empty[Int]
 
-				REMOTE TABLE (db, "db")
+				REMOTE RELATION (db, "db")
 
 				enterBarrier("deployed")
 
