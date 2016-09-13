@@ -5,6 +5,8 @@ import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.BagTable
 import idb.remote._
+import idb.syntax.iql.compilation.RemoteActor
+
 
 class RemoteViewSimpleTestMultiJvmNode1 extends RemoteViewSimpleTest
 class RemoteViewSimpleTestMultiJvmNode2 extends RemoteViewSimpleTest

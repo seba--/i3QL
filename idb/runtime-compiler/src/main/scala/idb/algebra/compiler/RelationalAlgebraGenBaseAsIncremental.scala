@@ -34,7 +34,7 @@ package idb.algebra.compiler
 
 import idb.algebra.ir.RelationalAlgebraIRBase
 import idb.query.QueryEnvironment
-import idb.remote.RemoteActor
+
 
 
 /**
@@ -57,9 +57,9 @@ trait RelationalAlgebraGenBaseAsIncremental
 			case Def (Root (relation, host)) =>
                 val r = compile(relation)
 
-                if (!queryEnvironment.isLocal) {
-                    RemoteActor.forward(queryEnvironment.system, r)
-                }
+//                if (!queryEnvironment.isLocal) {
+//                    RemoteActor.forward(queryEnvironment.system, r)
+//                }
                 r
 
             case Def(r) =>

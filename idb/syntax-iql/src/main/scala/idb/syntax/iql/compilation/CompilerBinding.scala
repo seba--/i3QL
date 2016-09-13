@@ -32,10 +32,19 @@
  */
 package idb.syntax.iql.compilation
 
+import akka.actor.{ActorPath, Deploy, Props}
+import akka.remote.RemoteScope
+import akka.util.Timeout
+import idb.Relation
 import idb.algebra.compiler._
-import idb.lms.extensions.{ScalaGenFlightOps, ScalaGenDateOps}
+import idb.lms.extensions.{ScalaGenDateOps, ScalaGenFlightOps}
+
 import scala.virtualization.lms.common._
-import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenSeqOpsExt, ScalaGenStringOpsExt, ScalaGenOptionOps}
+import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenOptionOps, ScalaGenSeqOpsExt, ScalaGenStringOpsExt}
+import idb.query.QueryEnvironment
+import idb.remote.Receive
+
+import scala.concurrent.Await
 
 /**
  *
@@ -66,4 +75,23 @@ case object CompilerBinding
       IR.reset
       super.reset
     }
+
+
+	override def compileRemote[Domain](partition: IR.Rep[IR.Query[Domain]], path: ActorPath)(implicit queryEnvironment: QueryEnvironment): IR.Relation[Domain] = {
+		val compiledPartition = compile (partition)
+		val remoteAddr = path.address
+
+		val remoteHost = queryEnvironment.system.actorOf(Props(classOf[RemoteActor[Domain]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
+
+		val receive = new Receive[Domain](remoteHost, compiledPartition.isSet)
+
+		// synchronize Host message
+		import akka.pattern.ask //imports the ?
+		import scala.concurrent.duration._
+		implicit val timeout = Timeout(10 seconds)
+		val res = remoteHost ? Host(compiledPartition)
+		Await.result(res, timeout.duration)
+
+		receive
+	}
 }

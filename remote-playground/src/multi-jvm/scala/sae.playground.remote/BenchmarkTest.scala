@@ -11,6 +11,7 @@ import idb.BagTable
 import idb.observer.Observer
 import idb.remote._
 import idb.operators.impl.SelectionView
+import idb.syntax.iql.compilation.RemoteActor
 
 // change the number of BenchmarkTestMultiJvmNode classes here (by disabling some of the nodes)
 // as well as the number of roles in BenchmarkConfig to configure the benchmark

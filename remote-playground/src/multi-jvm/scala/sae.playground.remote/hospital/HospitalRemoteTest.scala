@@ -13,6 +13,7 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
+import idb.syntax.iql.compilation.RemoteActor
 import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
 
@@ -127,9 +128,12 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				import idb.syntax.iql.IR._
 
 				//Create variables for all the remote tables
-				val personDB : Rep[Query[Person]] = REMOTE FROM [Person] (personHost, "person-db", Color("red"))
-				val patientDB : Rep[Query[Patient]] = REMOTE FROM [Patient] (patientHost, "patient-db", Color("green"))
-				val knowledgeDB : Rep[Query[KnowledgeData]] = REMOTE FROM [KnowledgeData] (knowledgeHost, "knowledge-db", Color("purple"))
+				val personDB : Rep[Query[Person]] =
+					REMOTE FROM [Person] (personHost, "person-db", Color("red"))
+				val patientDB : Rep[Query[Patient]] =
+					REMOTE FROM [Patient] (patientHost, "patient-db", Color("green"))
+				val knowledgeDB : Rep[Query[KnowledgeData]] =
+					REMOTE FROM [KnowledgeData] (knowledgeHost, "knowledge-db", Color("purple"))
 
 				//Write an i3ql query...
 				val q1 =
@@ -147,6 +151,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 				val q = ROOT(RECLASS(q1, Color("white")), clientHost)
 
+
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR
@@ -154,7 +159,9 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				Predef.println(printer.quoteRelation(q))
 
 				//Compile the LMS tree and then materialize for further testing purposes
-				val relation : Relation[_] = q.asMaterialized
+				val r : Relation[_] = q
+				RemoteActor.forward(system, r) //TODO: Add this to ROOT
+				val relation = r.asMaterialized
 				//Print the runtime class representation
 				Predef.println(relation.prettyprint(" "))
 
@@ -167,10 +174,9 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 
 				try {
 					import scala.concurrent.duration._
-					expectMsg(10.seconds, Added((0, "John Doe", "common cold")))
-					expectMsg(10.seconds, Added(6))
-					expectMsg(10.seconds, Added(7))
-					expectMsg(10.seconds, Added(8))
+					expectMsg(10.seconds, AddedAll(scala.List((0,"John Doe","common cold"), (0,"John Doe","lung cancer"))))
+					expectMsg(10.seconds, AddedAll(scala.List((3,"Jane Doe","common cold"), (3,"Jane Doe","lung cancer"))))
+
 				} finally {
 					Thread.sleep(3000) //Wait some time until data has been sent
 					Predef.println("RELATION:")

@@ -4,8 +4,9 @@ import akka.actor.{ActorPath, ActorRef, Props}
 import idb.query.colors.Color
 import idb.{BagTable, Table}
 import idb.query.{Host, QueryEnvironment, RemoteHost}
-import idb.remote.{Receive, RemoteActor}
+import idb.remote.Receive
 import idb.syntax.iql.IR._
+import idb.syntax.iql.compilation.RemoteActor
 
 /**
   * Created by Mirko on 06.09.2016.

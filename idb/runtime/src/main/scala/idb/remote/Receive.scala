@@ -46,13 +46,23 @@ class Receive[Domain](
 class ReceivingActor[Domain](recv : Receive[Domain]) extends Actor {
 	override def receive = {
 		case Added(v: Domain) =>
-			println(s"Added $v (sender:${sender()}, self: ${context.self})")
+			println(s"Added[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			recv.notify_added(v)
-		case Removed(v: Domain) => recv.notify_removed(v)
-		case Updated(oldV: Domain, newV: Domain) => recv.notify_updated(oldV, newV)
-		case AddedAll(vs: Seq[Domain]) => recv.notify_addedAll(vs)
-		case RemovedAll(vs: Seq[Domain]) => recv.notify_removedAll(vs)
-		case EndTransaction => recv.notify_endTransaction()
+		case Removed(v: Domain) =>
+			println(s"Removed[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+			recv.notify_removed(v)
+		case Updated(oldV: Domain, newV: Domain) =>
+			println(s"Updated[$oldV=>$newV]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+			recv.notify_updated(oldV, newV)
+		case AddedAll(vs: Seq[Domain]) =>
+			println(s"AddedAll[$vs]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+			recv.notify_addedAll(vs)
+		case RemovedAll(vs: Seq[Domain]) =>
+			println(s"RemovedAll[$vs]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+			recv.notify_removedAll(vs)
+		case EndTransaction =>
+			println(s"EndTransaction--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+			recv.notify_endTransaction()
 		//case str: String => println(s"DEBUG (sender: ${sender()}, self: ${context.self}): $str")
 	}
 

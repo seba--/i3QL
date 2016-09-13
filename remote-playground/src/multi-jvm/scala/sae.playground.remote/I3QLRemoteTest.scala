@@ -14,6 +14,8 @@ import idb.remote._
 import idb.query._
 import idb.query.colors._
 import idb.syntax.iql.RECLASS
+import idb.syntax.iql.compilation.RemoteActor
+
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
@@ -98,8 +100,9 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 				Predef.println(printer.quoteRelation(q3))
 
-
-				val relation : Relation[_] = q3.asMaterialized
+				val r : Relation[_] = q3
+				RemoteActor.forward(system, r)
+				val relation = r.asMaterialized
 
 				Predef.println(relation.prettyprint(" "))
 

@@ -6,6 +6,8 @@ import akka.testkit.ImplicitSender
 import idb.BagTable
 import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.remote._
+import idb.syntax.iql.compilation.RemoteActor
+
 
 class RemoteViewTreeTestMultiJvmNode1 extends RemoteViewTreeTest
 class RemoteViewTreeTestMultiJvmNode2 extends RemoteViewTreeTest

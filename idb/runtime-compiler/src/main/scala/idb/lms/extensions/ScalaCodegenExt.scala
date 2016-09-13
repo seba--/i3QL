@@ -130,6 +130,9 @@ trait ScalaCodegenExt
     }
 
     def compileScalaCode[A, B](code : ClassCode[A,B]) : A => B = {
+		if (this.compiler eq null)
+			setupCompiler ()
+
         val compiler = this.compiler
         val run = new compiler.Run
 
@@ -215,13 +218,13 @@ trait ScalaCodegenExt
             emitFileHeader()
 
             //Normal version
-//            stream.println("class "+className+(if (staticData.isEmpty) "" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
-//                   + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) {")
+            stream.println("class "+className+(if (staticData.isEmpty) "" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
+                   + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) {")
 
             //Serializeable version
-            stream.println(s"@SerialVersionUID(${java.util.UUID.randomUUID().getLeastSignificantBits}L)")
-            stream.println("class "+className+(if (staticData.isEmpty) "" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
-                + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) with Serializable {")
+//            stream.println(s"@SerialVersionUID(${java.util.UUID.randomUUID().getLeastSignificantBits}L)")
+//            stream.println("class "+className+(if (staticData.isEmpty) "" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
+//                + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) with Serializable {")
 
             //Case class version
 //            stream.println("case class "+className+(if (staticData.isEmpty) "()" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
