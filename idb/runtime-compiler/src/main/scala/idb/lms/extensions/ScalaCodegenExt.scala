@@ -7,6 +7,8 @@ import scala.tools.nsc.{Global, Settings}
 import scala.tools.nsc.reporters.ConsoleReporter
 import java.io.{PrintWriter, StringWriter}
 
+import idb.algebra.compiler.util.ClassCode
+
 import scala.reflect.io.{File, VirtualDirectory}
 import scala.tools.nsc.interpreter.AbstractFileClassLoader
 import scala.virtualization.lms.common.{BaseExp, FunctionsExp}
@@ -95,7 +97,7 @@ trait ScalaCodegenExt
 		}
     }
 
-	def functionToScalaCodeWithDynamicManifests[A, B](f: IR.Rep[A => B]) : (String, String) = {
+	def functionToScalaCodeWithDynamicManifests[A, B](f: IR.Rep[A => B]) : ClassCode[A,B] = {
 		val List (mA, mB) = f.tp.typeArguments
 		val mAUnsafe = mA.asInstanceOf[Manifest[A]]
 		val mBUnsafe = mB.asInstanceOf[Manifest[B]]
@@ -111,7 +113,7 @@ trait ScalaCodegenExt
 		)(mAUnsafe, mBUnsafe)
 	}
 
-    def functionToScalaCode[A: Manifest, B: Manifest](f: IR.Rep[A] => IR.Rep[B]) : (String, String) = {
+    def functionToScalaCode[A: Manifest, B: Manifest](f: IR.Rep[A] => IR.Rep[B]) : ClassCode[A,B] = {
         if (this.compiler eq null)
             setupCompiler ()
 
@@ -124,17 +126,17 @@ trait ScalaCodegenExt
 
         if (dumpGeneratedCode) println (source)
 
-        (className, source.toString)
+        ClassCode(className, source.toString)
     }
 
-    def compileScalaCode[A: Manifest, B: Manifest](className : String, source : String) : A => B = {
+    def compileScalaCode[A, B](code : ClassCode[A,B]) : A => B = {
         val compiler = this.compiler
         val run = new compiler.Run
 
         val fileSystem = new VirtualDirectory ("<vfs>", None)
         compiler.settings.outputDirs.setSingleOutput (fileSystem)
 
-        run.compileSources (List (new scala.reflect.internal.util.BatchSourceFile ("<stdin>", source.toString)))
+        run.compileSources (List (new scala.reflect.internal.util.BatchSourceFile ("<stdin>", code.source.toString)))
 
 
         if (!silent) {
@@ -149,7 +151,7 @@ trait ScalaCodegenExt
 
         val loader = new AbstractFileClassLoader (fileSystem, this.getClass.getClassLoader)
 
-        val cls: Class[_] = loader.loadClass (className)
+        val cls: Class[_] = loader.loadClass (code.className)
 
 		//TODO: Reimplement static data
         val cons = cls.getConstructor() //(staticData.map (_._1.tp.runtimeClass): _*)

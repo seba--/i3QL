@@ -32,15 +32,22 @@
  */
 package idb.algebra.compiler
 
+import akka.actor.{Actor, ActorRef, ActorSystem, Deploy, Props}
+import akka.remote.RemoteScope
+import akka.util.Timeout
+import idb.algebra.compiler.util.BoxedFunction
 import idb.algebra.exceptions.{NoServerAvailableException, UnknownHostDeployException}
 import idb.algebra.ir._
 import idb.lms.extensions.ScalaCodegenExt
+import idb.observer.Observable
 import idb.operators.impl._
 import idb.operators.impl.opt._
 import idb.query._
-import idb.remote.Receive
+import idb.remote._
 
+import scala.concurrent.Await
 import scala.virtualization.lms.common._
+import scala.language.postfixOps
 
 /**
  *
@@ -63,6 +70,8 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
     import IR._
 
 
+	val useBoxing = false;
+
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
 
@@ -84,11 +93,21 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 						throw new UnknownHostDeployException()
 
 					case RemoteHost(name, path) =>
-						Receive (
-							system = queryEnvironment.system,
-							remoteAddr = path.address,
-							partition = compile (r)
-						)
+						val partition = compile (r)
+						val remoteAddr = path.address
+
+						val remoteHost = queryEnvironment.system.actorOf(Props(classOf[RemoteActor[Domain]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
+
+						val receive = new Receive[Domain](remoteHost, partition.isSet)
+
+						// synchronize Host message
+						import akka.pattern.ask //imports the ?
+						import scala.concurrent.duration._
+						implicit val timeout = Timeout(10 seconds)
+						val res = remoteHost ? Host(partition)
+						Await.result(res, timeout.duration)
+
+						receive
 				}
 
 
@@ -100,4 +119,57 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
         }
     }
 
+	class RemoteActor[T](var hosted: Observable[T] = null) extends Actor {
+
+		override def receive = {
+			case Forward(target) =>
+				hosted.addObserver(new Send(target));
+
+			case Host(obs: Observable[T]) =>
+				hosted = obs
+				RemoteActor.forward(context.system, obs)
+				// answer the sender s.t. synchronization works
+				sender() ! true
+		}
+
+		def this() = this(null)
+	}
+
+	object RemoteActor {
+
+		def forward(system : ActorSystem, rel: Observable[_]): Unit = {
+			rel match {
+				case receive: Receive[_] =>
+					val remoteHost = receive.remoteActor
+					val remoteViewActor = receive.withSystem(system)
+					remoteHost ! Forward(receive.receiveActor)
+
+				case r : SelectionView[_] =>
+					r.filter match {
+						case _ if !useBoxing =>
+						case b@BoxedFunction(_) =>
+							b.compile(RelationalAlgebraGenRemoteOperatorsAsIncremental.this)
+						case _ =>
+					}
+					r.children.foreach(child => forward(system, child))
+
+				case r : ProjectionView[_, _] =>
+					r.projection match {
+						case _ if !useBoxing =>
+						case b@BoxedFunction(_) =>
+							b.compile(RelationalAlgebraGenRemoteOperatorsAsIncremental.this)
+						case _ =>
+					}
+					r.children.foreach(child => forward(system, child))
+
+				case _ => rel.children.foreach(r => forward(system, r))
+			}
+		}
+	}
+
 }
+
+sealed trait HostMessage
+case class Forward(target: ActorRef) extends HostMessage
+case class Host[T](obs: Observable[T]) extends HostMessage
+

@@ -40,7 +40,7 @@ import idb.query.QueryEnvironment
 
 import scala.virtualization.lms.common._
 import idb.MaterializedView
-import idb.algebra.compiler.util.FunctionBoxFactory
+import idb.algebra.compiler.util.BoxedFunction
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
 
@@ -52,7 +52,6 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
     with ScalaCodegenExt
     with ScalaGenEffect
-	with FunctionBoxFactory
 {
 
     val IR: RelationalAlgebraIRBasicOperators
@@ -68,19 +67,19 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     // TODO incorporate set semantics into ir
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
-            case Def (Selection (r, f)) => {
-                new SelectionView (compile (r), create (f), false)
-            }
-            case Def (Projection (r, f)) => {
-                new ProjectionView (compile (r), create (f), false)
-            }
-            case Def (e@CrossProduct (a, b)) => {
+
+			case Def (Selection (r, f)) =>
+				new SelectionView (compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false)
+
+			case Def (Projection (r, f)) =>
+				new ProjectionView (compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false)
+
+			case Def (e@CrossProduct (a, b)) =>
 				if (e.isIncrementLocal)
 					TransactionalCrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]
                 else
 					CrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]
-            }
-            case Def (e@EquiJoin (a, b, eq)) => {
+			case Def (e@EquiJoin (a, b, eq)) => {
 				if (e.isIncrementLocal)
 					TransactionalEquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
 						eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]

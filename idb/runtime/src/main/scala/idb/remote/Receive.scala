@@ -68,7 +68,7 @@ object Receive {
 	}
 
 	def apply[T](system: ActorSystem, remoteAddr: Address, partition: Relation[T]): Receive[T] = {
-		val remoteHost = system.actorOf(Props(classOf[RemoteActor[T]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
+		/*val remoteHost = system.actorOf(Props(classOf[RemoteActor[T]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
 
 		val receive = new Receive[T](remoteHost, partition.isSet)
 
@@ -78,6 +78,7 @@ object Receive {
 		val res = remoteHost ? Host(partition)
 		Await.result(res, timeout.duration)
 
-		receive
+		receive*/
+		null
 	}
 }
