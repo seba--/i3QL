@@ -62,20 +62,20 @@ with STMultiNodeSpec with ImplicitSender {
 
         val db = BagTable.empty[D]
 
-        system.actorOf(Props(classOf[ObservableHost[D]], db), "db")
+        system.actorOf(Props(classOf[RemoteActor[D]], db), "db")
 
         val remoteHostPath = node(nodes(0)) / "user" / "db"
 
-        var tree = RemoteView[D](system, remoteHostPath, false)
+        var tree = Receive[D](system, remoteHostPath, false)
         val selectionFun: D => Boolean = { case (idx, time) => true /*Util.isPrime(303029)*/ }
 
         for (i <- 1 to BenchmarkConfig.nodes.size - 1) {
-          tree = RemoteView[D](system, node(nodes(i)).address, new SelectionView(tree, selectionFun, false))
+          tree = Receive[D](system, node(nodes(i)).address, new SelectionView(tree, selectionFun, false))
         }
 
-        tree = RemoteView[D](system, node(nodes(0)).address, tree)
+        tree = Receive[D](system, node(nodes(0)).address, tree)
 
-        ObservableHost.forward(tree, system)
+        RemoteActor.forward(system, tree)
         tree.addObserver(new Observer[D] {
           override def added(v: D) = {
             val (idx, time) = v
@@ -96,7 +96,7 @@ with STMultiNodeSpec with ImplicitSender {
           override def endTransaction() = {}
         })
 
-        tree.addObserver(new SendToRemote[D](testActor))
+        tree.addObserver(new Send[D](testActor))
         Thread.sleep(100) // wait until setup complete
 
         val afterInitTime = System.nanoTime()

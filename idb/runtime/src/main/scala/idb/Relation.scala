@@ -53,7 +53,7 @@ import idb.collections.impl.{MaterializedBag, MaterializedSet}
  */
 trait Relation[+V]
     extends Observable[V]
-    with Serializable // TODO: make sure that we don't serialize the wrong things (e.g. already registered observers)
+    with Serializable
 {
     /**
      * Runtime information whether a compiled query is a set or a bag
@@ -74,7 +74,7 @@ trait Relation[+V]
     protected def lazyInitialize ()
 
 
-    def children(): Seq[Relation[_]]
+    def children: Seq[Relation[_]]
 
     /**
      * Converts the data of the view into a list representation.

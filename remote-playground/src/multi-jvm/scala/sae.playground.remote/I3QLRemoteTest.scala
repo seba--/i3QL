@@ -123,7 +123,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				)    */
 
 				//ObservableHost.forward(tree, system) // FIXME: always call this on the root node after tree construction (should happen automatically)
-				relation.addObserver(new SendToRemote(testActor))
+				relation.addObserver(new Send(testActor))
 
 				enterBarrier("sending")
 

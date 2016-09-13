@@ -38,13 +38,12 @@ import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
 import idb.operators.impl.opt._
 import idb.query._
-import idb.remote.RemoteView
+import idb.remote.Receive
 
 import scala.virtualization.lms.common._
 
 /**
  *
- * @author Ralf Mitschke
  */
 trait RelationalAlgebraGenRemoteOperatorsAsIncremental
     extends RelationalAlgebraGenBaseAsIncremental
@@ -85,10 +84,10 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 						throw new UnknownHostDeployException()
 
 					case RemoteHost(name, path) =>
-						RemoteView (
-							actorSystem = queryEnvironment.system,
-							remoteSystem = path.address,
-								partition = compile (r)
+						Receive (
+							system = queryEnvironment.system,
+							remoteAddr = path.address,
+							partition = compile (r)
 						)
 				}
 

@@ -159,7 +159,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				Predef.println(relation.prettyprint(" "))
 
 				//Add observer for testing purposes
-				relation.addObserver(new SendToRemote(testActor))
+				relation.addObserver(new Send(testActor))
 
 
 				enterBarrier("compiled")

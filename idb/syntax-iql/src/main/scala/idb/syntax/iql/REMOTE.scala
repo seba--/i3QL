@@ -4,7 +4,7 @@ import akka.actor.{ActorPath, ActorRef, Props}
 import idb.query.colors.Color
 import idb.{BagTable, Table}
 import idb.query.{Host, QueryEnvironment, RemoteHost}
-import idb.remote.{ObservableHost, RemoteView}
+import idb.remote.{Receive, RemoteActor}
 import idb.syntax.iql.IR._
 
 /**
@@ -13,13 +13,13 @@ import idb.syntax.iql.IR._
 object REMOTE {
 
 	def RELATION[V](table : Relation[V], id : String)(implicit queryEnvironment : QueryEnvironment) : ActorRef = {
-		queryEnvironment.system.actorOf(Props(classOf[ObservableHost[V]], table), id)
+		queryEnvironment.system.actorOf(Props(classOf[RemoteActor[V]], table), id)
 	}
 
 	def FROM[Domain : Manifest] (host : RemoteHost, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
 		val remoteHostPath: ActorPath = host.path / "user" / id
 		relation[Domain](
-			RemoteView[Domain](queryEnvironment.system, remoteHostPath, false),
+			Receive[Domain](queryEnvironment.system, remoteHostPath, false),
 			color = color,
 			host = host
 		)

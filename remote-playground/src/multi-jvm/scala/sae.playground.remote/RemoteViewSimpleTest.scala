@@ -25,7 +25,7 @@ with STMultiNodeSpec with ImplicitSender {
       runOn(node1) {
         val db = BagTable.empty[String]
 
-        system.actorOf(Props(classOf[ObservableHost[String]], db), "db") // TODO: provide easier way to create a remotely observable data source
+        system.actorOf(Props(classOf[RemoteActor[String]], db), "db") // TODO: provide easier way to create a remotely observable data source
         enterBarrier("deployed")
 
         enterBarrier("sending")
@@ -40,10 +40,10 @@ with STMultiNodeSpec with ImplicitSender {
         enterBarrier("deployed")
 
         val remoteHostPath: ActorPath = node(node1) / "user" / "db"
-        val remoteView: RemoteView[String] = RemoteView[String](system, remoteHostPath, false)
+        val remoteView: Receive[String] = Receive[String](system, remoteHostPath, false)
 
-        ObservableHost.forward(remoteView, system) // FIXME: always call this on the root node after tree construction (should happen automatically)
-        remoteView.addObserver(new SendToRemote[String](testActor))
+        RemoteActor.forward(system, remoteView) // FIXME: always call this on the root node after tree construction (should happen automatically)
+        remoteView.addObserver(new Send[String](testActor))
 
         enterBarrier("sending")
 
