@@ -45,6 +45,7 @@ import idb.query.QueryEnvironment
 import idb.remote.Receive
 
 import scala.concurrent.Await
+import scala.language.postfixOps
 
 /**
  *
@@ -55,11 +56,11 @@ case object CompilerBinding
     with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
     with RelationalAlgebraGenAggregationOperatorsAsIncremental
     with RelationalAlgebraGenRecursiveOperatorsAsIncremental
-	with RelationalAlgebraGenRemoteOperatorsAsIncremental
+		with RelationalAlgebraGenRemoteOperatorsAsIncremental
     with RelationalAlgebraGenCacheAll
     with ScalaGenStaticData
     with ScalaGenOptionOps
-	with ScalaGenEitherOps
+		with ScalaGenEitherOps
     with ScalaGenStringOpsExt
     with ScalaGenSeqOpsExt
     with ScalaCodeGenPkg
@@ -88,7 +89,8 @@ case object CompilerBinding
 		// synchronize Host message
 		import akka.pattern.ask //imports the ?
 		import scala.concurrent.duration._
-		implicit val timeout = Timeout(10 seconds)
+		//Long timeout because query compilation may take some time (on low-end machines)
+		implicit val timeout = Timeout(120 seconds)
 		val res = remoteHost ? Host(compiledPartition)
 		Await.result(res, timeout.duration)
 
