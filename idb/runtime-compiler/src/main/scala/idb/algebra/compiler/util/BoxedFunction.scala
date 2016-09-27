@@ -17,7 +17,3 @@ case class BoxedFunction[A, B](code : ClassCode[A,B]) extends (A => B) {
 		f.apply(x)
 	}
 }
-
-object BoxedFunction {
-
-}
