@@ -1,1 +1,9 @@
-(0,0,1474988199838,0.0)
+### Benchmark Thu Sep 29 14:07:16 CEST 2016 ###
+iterations=10000 (of which warmup=4000), received events=10000
+Measurement: measured events=6000, avg delay=2458.7340000000167ms, time to receive=924ms
+### Benchmark Thu Sep 29 14:08:31 CEST 2016 ###
+iterations=10000 (of which warmup=4000), received events=10000
+Measurement: measured events=6000, avg delay=2372.297000000008ms, time to receive=864ms
+### Benchmark Thu Sep 29 14:09:19 CEST 2016 ###
+iterations=10000 (of which warmup=4000), received events=10000
+Measurement: measured events=6000, avg delay=2328.484499999998ms, time to receive=825ms

@@ -31,6 +31,10 @@ object HospitalBenchmark {} // this object is necessary for multi-node testing
 class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
 	with STMultiNodeSpec with ImplicitSender {
 
+	val warmupIterations = 4000
+	val iterations = 10000
+	val waitingTime = 5 //seconds
+
 	import HospitalConfig._
 	import HospitalBenchmark._
 
@@ -75,11 +79,13 @@ class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
 				//The query gets compiled here...
 				enterBarrier("compiled")
 
-				(1 to 1000000).foreach(i => {
+				(1 to iterations).foreach(i => {
 					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i, "John Doe", 1973)))
 				})
 
 				enterBarrier("sent")
+
+				enterBarrier("finished")
 			}
 
 			/*
@@ -95,13 +101,13 @@ class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
 				//The query gets compiled here...
 				enterBarrier("compiled")
 
-				(1 to 1000000).foreach(i => {
+				(1 to iterations).foreach(i => {
 					db += ((System.currentTimeMillis(),  sae.example.hospital.data.Patient(i, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))))
 				})
 
 				enterBarrier("sent")
 
-
+				enterBarrier("finished")
 			}
 
 			/*
@@ -120,6 +126,8 @@ class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
 				db += ((System.currentTimeMillis(), lungCancer1))
 
 				enterBarrier("sent")
+
+				enterBarrier("finished")
 			}
 
 			/*
@@ -160,25 +168,46 @@ class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR
 				}
-				Predef.println(printer.quoteRelation(q))
+				Predef.println("Relation.tree#" + printer.quoteRelation(q))
 
 				//Compile the LMS tree and then materialize for further testing purposes
 				val r : Relation[(Long, Long, Long, Int, String)] = q
 				RemoteActor.forward(system, r) //TODO: Add this to ROOT
 				//Print the runtime class representation
-				Predef.println(r.prettyprint(" "))
+				Predef.println("Relation.compiled#" + r.prettyprint(" "))
 
 				//Add observer for testing purposes
 				import idb.evaluator.BenchmarkEvaluator
-				val benchmark = new BenchmarkEvaluator[(Long, Long, Long, Int, String)](r, t => scala.math.max(t._1, scala.math.max(t._2, t._3)) )
+				val benchmark = new BenchmarkEvaluator[(Long, Long, Long, Int, String)](r, t => scala.math.max(t._1, scala.math.max(t._2, t._3)), iterations, warmup = warmupIterations)
 
 
 				enterBarrier("compiled")
 				//The tables are now sending data
 				enterBarrier("sent")
+				val time = System.currentTimeMillis()
+
+				Console.out.print("WaitingToFinish:")
+
+				for(i <- 1 to waitingTime) {
+					Console.out.print(".")
+					Console.out.flush()
+					Thread.sleep(1000)
+				}
+				Console.out.println()
+
+				val summary@(totalEvents, measureEvents, timeToReceive, messageDelay) = benchmark.getSummary
+				Predef.println("Summary#" + summary)
+
+				val s = s"### Benchmark ${new java.util.Date()} ###\n" +
+					s"iterations=$iterations (of which warmup=$warmupIterations), received events=$totalEvents\n" +
+					s"Measurement: measured events=$measureEvents, avg delay=${messageDelay}ms, time to receive=${timeToReceive}ms"
+
+
 				val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream("hospital-benchmark.txt", true))
-				out.println(benchmark.getSummary(System.currentTimeMillis()))
+				out.println(s)
 				out.close()
+
+				enterBarrier("finished")
 			}
 
 		}
