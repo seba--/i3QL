@@ -21,22 +21,23 @@ import sae.playground.remote.STMultiNodeSpec
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
-class HospitalBenchmarkMultiJvmNode1 extends HospitalBenchmark
-class HospitalBenchmarkMultiJvmNode2 extends HospitalBenchmark
-class HospitalBenchmarkMultiJvmNode3 extends HospitalBenchmark
-class HospitalBenchmarkMultiJvmNode4 extends HospitalBenchmark
+class HospitalBenchmark1MultiJvmNode1 extends HospitalBenchmark1
+class HospitalBenchmark1MultiJvmNode2 extends HospitalBenchmark1
+class HospitalBenchmark1MultiJvmNode3 extends HospitalBenchmark1
+class HospitalBenchmark1MultiJvmNode4 extends HospitalBenchmark1
 
-object HospitalBenchmark {} // this object is necessary for multi-node testing
+object HospitalBenchmark1 {} // this object is necessary for multi-node testing
 
-class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
+//Selection is pushed down == events get filtered before getting sent
+class HospitalBenchmark1 extends MultiNodeSpec(HospitalConfig)
 	with STMultiNodeSpec with ImplicitSender {
 
-	val warmupIterations = 4000
+	val warmupIterations = 0
 	val iterations = 10000
-	val waitingTime = 5 //seconds
+	val waitingTime = 3 //seconds
 
 	import HospitalConfig._
-	import HospitalBenchmark._
+	import HospitalBenchmark1._
 
 	def initialParticipants = roles.size
 
@@ -81,6 +82,7 @@ class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
 
 				(1 to iterations).foreach(i => {
 					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i, "John Doe", 1973)))
+					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i * 2, "Jane Doe", 1960)))
 				})
 
 				enterBarrier("sent")
@@ -157,7 +159,9 @@ class HospitalBenchmark extends MultiNodeSpec(HospitalConfig)
 						(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) =>
 								person._2.personId == patientSymptom._1._2.personId AND
 								patientSymptom._2 == knowledgeData._2.symptom AND
-								knowledgeData._2.symptom == Symptoms.cough
+								knowledgeData._2.symptom == Symptoms.cough AND
+								person._2.name == "John Doe"
+
 					)
 
 				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
