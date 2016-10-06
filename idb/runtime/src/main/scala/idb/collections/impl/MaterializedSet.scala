@@ -88,4 +88,5 @@ class MaterializedSet[V](val relation: Relation[V])
   override def prettyprint(implicit prefix: String) = prefix +
     s"MaterializedSet(${nested(relation)})"
 
+  override protected def resetInternal(): Unit = clear()
 }

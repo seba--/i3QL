@@ -81,6 +81,9 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
     )
   }
 
+  override protected def resetInternal(): Unit = ???
+
+
   object LeftObserver extends Observer[DomainA] {
 
     override def endTransaction() {

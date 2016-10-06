@@ -98,6 +98,9 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
     Nil
   }
 
+  override protected def resetInternal(): Unit = ???
+
+
   /**
    * access in O(n)
    */

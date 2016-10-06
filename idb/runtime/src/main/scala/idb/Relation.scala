@@ -106,6 +106,17 @@ trait Relation[+V]
         }
     }
 
+    private def resetChildren(): Unit = {
+        children.foreach(_._reset())
+    }
+
+    def _reset(): Unit = {
+        resetChildren()
+        resetInternal()
+    }
+
+    protected def resetInternal()
+
 
     def prettyprint(implicit prefix: String): String
     def nested(rel: Relation[_])(implicit prefix: String): String = "\n" + rel.prettyprint(prefix + "  ")

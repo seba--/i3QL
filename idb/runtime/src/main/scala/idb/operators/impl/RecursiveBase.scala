@@ -61,6 +61,9 @@ case class RecursiveBase[Domain](relation: Relation[Domain],
     notify_endTransaction()
   }
 
+  override protected def resetInternal(): Unit = ???
+
+
   override def added(v: Domain) {
     if (recursiveNotification) {
       nextElement = Some(v)

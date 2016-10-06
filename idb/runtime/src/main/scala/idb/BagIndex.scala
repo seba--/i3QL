@@ -100,4 +100,7 @@ class BagIndex[K, V](val relation: Relation[V],
 		map.putAll (newKey, newMap)
 	}
 
+	override protected def resetInternal(): Unit = {
+		map.clear()
+	}
 }

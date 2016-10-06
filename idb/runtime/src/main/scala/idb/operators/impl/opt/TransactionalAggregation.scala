@@ -49,6 +49,11 @@ class TransactionalAggregation[Domain, Key, AggregateValue, Result](val source: 
 		functionMap = mutable.HashMap.empty[Key, Aggregate]
 	}
 
+	override protected def resetInternal(): Unit = {
+		clear()
+	}
+
+
 	override def endTransaction() {
 
 		//Update additions

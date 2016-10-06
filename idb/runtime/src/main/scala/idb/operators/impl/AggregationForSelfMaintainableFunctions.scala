@@ -47,6 +47,8 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
         notify_endTransaction()
     }
 
+	override protected def resetInternal(): Unit = ???
+
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {
             return List (this)

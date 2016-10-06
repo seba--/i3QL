@@ -31,6 +31,10 @@ class TransactionalCrossProductView[DomainA, DomainB, Range](val left: Relation[
 		Nil
 	}
 
+	override protected def resetInternal(): Unit = {
+		clear()
+	}
+
 	private def clear() {
 		leftTransactionEnded = false
 		rightTransactionEnded = false

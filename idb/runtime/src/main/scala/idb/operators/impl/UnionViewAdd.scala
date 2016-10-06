@@ -56,6 +56,10 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
 
   }
 
+  override protected def resetInternal(): Unit = {
+
+  }
+
 
   private def doEndTransaction() {
     if (!leftTransactionEnded || !rightTransactionEnded)

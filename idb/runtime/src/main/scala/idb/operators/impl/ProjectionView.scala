@@ -70,6 +70,11 @@ case class ProjectionView[Domain, Range] (
         Nil
     }
 
+    override protected def resetInternal(): Unit = {
+
+    }
+
+
     override def endTransaction () {
         notify_endTransaction ()
     }

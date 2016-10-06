@@ -61,6 +61,8 @@ class TransactionalDuplicateEliminationView[Domain](val relation: Relation[Domai
     notify_endTransaction()
   }
 
+  override protected def resetInternal(): Unit = ???
+
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == relation) {
       return List(this)

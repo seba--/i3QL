@@ -42,7 +42,7 @@ import idb.lms.extensions.{ScalaGenDateOps, ScalaGenFlightOps}
 import scala.virtualization.lms.common._
 import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenOptionOps, ScalaGenSeqOpsExt, ScalaGenStringOpsExt}
 import idb.query.QueryEnvironment
-import idb.remote.Receive
+import idb.remote.{HostMsg, Receive}
 
 import scala.concurrent.Await
 import scala.language.postfixOps
@@ -91,7 +91,7 @@ case object CompilerBinding
 		import scala.concurrent.duration._
 		//Long timeout because query compilation may take some time (on low-end machines)
 		implicit val timeout = Timeout(120 seconds)
-		val res = remoteHost ? Host(compiledPartition)
+		val res = remoteHost ? HostMsg(compiledPartition)
 		Await.result(res, timeout.duration)
 
 		receive

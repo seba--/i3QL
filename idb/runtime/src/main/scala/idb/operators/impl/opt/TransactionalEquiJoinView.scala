@@ -79,6 +79,8 @@ class TransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: Relation
 
   }
 
+  override protected def resetInternal(): Unit = ???
+
   /**
    * Applies f to all elements of the view.
    */

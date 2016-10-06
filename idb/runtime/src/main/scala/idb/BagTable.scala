@@ -43,6 +43,10 @@ class BagTable[V]
      * Runtime information whether a compiled query is a set or a bag
      */
     def isSet: Boolean = false
+
+    override protected def resetInternal(): Unit = {
+
+    }
 }
 
 object BagTable

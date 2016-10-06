@@ -40,6 +40,10 @@ class Receive[Domain](
 	override def notify_addedAll(vs: Seq[Domain]): Unit = super.notify_addedAll(vs)
 	override def notify_removedAll(vs: Seq[Domain]): Unit = super.notify_removedAll(vs)
 	override def notify_endTransaction(): Unit = super.notify_endTransaction()
+
+	override protected def resetInternal(): Unit = {
+		remoteActor ! ResetMsg
+	}
 }
 
 

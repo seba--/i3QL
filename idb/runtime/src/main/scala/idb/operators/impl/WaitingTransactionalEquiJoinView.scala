@@ -68,6 +68,9 @@ class WaitingTransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: R
         Nil
     }
 
+    override protected def resetInternal(): Unit = ???
+
+
     /**
      * Applies f to all elements of the view.
      */

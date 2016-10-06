@@ -57,6 +57,10 @@ class TransactionalIntersectionView[Domain](val left: Relation[Domain],
 
 	override def lazyInitialize() {	}
 
+	override protected def resetInternal(): Unit = {
+		clear()
+	}
+
 
 	private def clear() {
 		LeftObserver.clear()

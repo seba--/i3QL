@@ -326,6 +326,8 @@ class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
         added (newV)
     }
 
+    override def resetInternal(): Unit = ???
+
 	override def endTransaction() {
 		notify_endTransaction()
 	}

@@ -68,6 +68,7 @@ trait Index[K, V]
     notify_endTransaction()
   }
 
+
   override def children() = List(relation)
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {

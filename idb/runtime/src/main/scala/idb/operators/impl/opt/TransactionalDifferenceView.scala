@@ -65,6 +65,8 @@ class TransactionalDifferenceView[Domain](val left: Relation[Domain],
 
 	}
 
+    override protected def resetInternal(): Unit = ???
+
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
             return List (LeftObserver)

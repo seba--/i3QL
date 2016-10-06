@@ -14,6 +14,10 @@ trait Set[V]
 
   def size: Int = data.size
 
+  def clear() = {
+    data.clear()
+  }
+
   def add_element(v: V) {
     if (data.add(v))
       notify_added(v)

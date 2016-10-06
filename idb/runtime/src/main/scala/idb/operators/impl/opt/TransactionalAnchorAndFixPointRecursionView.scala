@@ -70,6 +70,10 @@ class TransactionalAnchorAndFixPointRecursionView[Domain, Range, Key](val anchor
 
   }
 
+  override protected def resetInternal(): Unit = {
+    clear()
+  }
+
   private var recursionStack: List[List[Range]] = Nil
 
   def doRecursionForAddedElements() {

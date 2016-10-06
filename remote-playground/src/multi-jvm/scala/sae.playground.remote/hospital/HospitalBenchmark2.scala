@@ -30,11 +30,17 @@ object HospitalBenchmark2 {} // this object is necessary for multi-node testing
 
 //Selection is NOT pushed down == events do NOT get filtered before getting sent
 class HospitalBenchmark2 extends MultiNodeSpec(HospitalConfig)
-	with STMultiNodeSpec with ImplicitSender {
+	with STMultiNodeSpec with ImplicitSender with BenchmarkConfig with CSVPrinter {
 
-	val warmupIterations = 0
-	val iterations = 10
-	val waitingTime = 3 //seconds
+	override val benchmarkName = "hospital2"
+
+	val warmupIterations = 5000
+	val measureIterations = 10000
+
+	val waitForWarmup = 10 //seconds
+	val waitForMeasure = 10 //seconds
+
+	val waitForGc = 3 //seconds
 
 	import HospitalConfig._
 	import HospitalBenchmark2._
@@ -77,15 +83,29 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalConfig)
 				REMOTE RELATION (db, "person-db")
 
 				enterBarrier("deployed")
+
 				//The query gets compiled here...
 				enterBarrier("compiled")
 
-				(1 to iterations).foreach(i => {
+				(1 to warmupIterations).foreach(i => {
 					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i, "John Doe", 1973)))
 					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i * 2, "Jane Doe", 1960)))
 				})
 
-				enterBarrier("sent")
+				enterBarrier("sent-warmup")
+
+				enterBarrier("resetted")
+				System.gc()
+				Thread.sleep(waitForGc * 1000)
+
+				enterBarrier("ready-measure")
+
+				(1 to measureIterations).foreach(i => {
+					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i, "John Doe", 1973)))
+					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i * 2, "Jane Doe", 1960)))
+				})
+
+				enterBarrier("sent-measure")
 
 				enterBarrier("finished")
 			}
@@ -103,11 +123,23 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalConfig)
 				//The query gets compiled here...
 				enterBarrier("compiled")
 
-				(1 to iterations).foreach(i => {
+				(1 to warmupIterations).foreach(i => {
 					db += ((System.currentTimeMillis(),  sae.example.hospital.data.Patient(i, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))))
 				})
 
-				enterBarrier("sent")
+				enterBarrier("sent-warmup")
+
+				enterBarrier("resetted")
+				System.gc()
+				Thread.sleep(waitForGc * 1000)
+
+				enterBarrier("ready-measure")
+
+				(1 to measureIterations).foreach(i => {
+					db += ((System.currentTimeMillis(),  sae.example.hospital.data.Patient(i, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))))
+				})
+
+				enterBarrier("sent-measure")
 
 				enterBarrier("finished")
 			}
@@ -124,10 +156,19 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalConfig)
 				enterBarrier("deployed")
 				//The query gets compiled here...
 				enterBarrier("compiled")
+				db += ((System.currentTimeMillis(), lungCancer1))
+
+				enterBarrier("sent-warmup")
+
+				enterBarrier("resetted")
+				System.gc()
+				Thread.sleep(waitForGc * 1000)
+
+				enterBarrier("ready-measure")
 
 				db += ((System.currentTimeMillis(), lungCancer1))
 
-				enterBarrier("sent")
+				enterBarrier("sent-measure")
 
 				enterBarrier("finished")
 			}
@@ -137,6 +178,7 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalConfig)
 			 */
 			runOn(node4) {
 				enterBarrier("deployed")
+
 
 				import idb.syntax.iql._
 				import idb.syntax.iql.IR._
@@ -179,36 +221,34 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalConfig)
 				//Print the runtime class representation
 				Predef.println("Relation.compiled#" + r.prettyprint(" "))
 
-				//Add observer for testing purposes
-				import idb.evaluator.BenchmarkEvaluator
-				val benchmark = new BenchmarkEvaluator[(Long, Long, Long, Int, String)](r, t => scala.math.max(t._1, scala.math.max(t._2, t._3)), iterations, warmup = warmupIterations)
-
-
 				enterBarrier("compiled")
 				//The tables are now sending data
-				enterBarrier("sent")
-				val time = System.currentTimeMillis()
+				enterBarrier("sent-warmup")
 
-				Console.out.print("WaitingToFinish:")
+				Console.out.println("Wait for warmup...")
+				Thread.sleep(waitForWarmup * 1000)
 
-				for(i <- 1 to waitingTime) {
-					Console.out.print(".")
-					Console.out.flush()
-					Thread.sleep(1000)
-				}
-				Console.out.println()
+				r._reset()
+				Console.out.print("Wait for reset...")
+				Thread.sleep(3000)
 
-				val summary@(totalEvents, measureEvents, timeToReceive, messageDelay) = benchmark.getSummary
-				Predef.println("Summary#" + summary)
+				enterBarrier("resetted")
+				System.gc()
+				Thread.sleep(waitForGc * 1000)
 
-				val s = s"### Benchmark ${new java.util.Date()} ###\n" +
-					s"iterations=$iterations (of which warmup=$warmupIterations), received events=$totalEvents\n" +
-					s"Measurement: measured events=$measureEvents, avg delay=${messageDelay}ms, time to receive=${timeToReceive}ms"
+				//Add observer for testing purposes
+				import idb.evaluator.BenchmarkEvaluator
+				val benchmark = new BenchmarkEvaluator[(Long, Long, Long, Int, String)](r, t => scala.math.max(t._1, scala.math.max(t._2, t._3)), measureIterations, 0)
 
 
-				val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream("hospital-benchmark.txt", true))
-				out.println(s)
-				out.close()
+				enterBarrier("ready-measure")
+				//The tables are now sending data
+				enterBarrier("sent-measure")
+
+				Console.out.println("Wait for measure...")
+				Thread.sleep(waitForMeasure * 1000)
+
+				printCSV(benchmark)
 
 				enterBarrier("finished")
 			}

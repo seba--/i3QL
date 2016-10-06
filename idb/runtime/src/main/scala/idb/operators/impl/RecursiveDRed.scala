@@ -101,6 +101,8 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
 
   }
 
+  override protected def resetInternal(): Unit = ???
+
   def added(v: Domain) {
     addedAll(Seq(v))
   }

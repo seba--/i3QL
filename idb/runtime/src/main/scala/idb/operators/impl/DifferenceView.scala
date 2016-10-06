@@ -75,6 +75,11 @@ class DifferenceView[Domain](val left: Relation[Domain],
         Nil
     }
 
+    override protected def resetInternal(): Unit = {
+        leftDiffRight.clear()
+        rightDiffLeft.clear()
+    }
+
     /**
      * Each view must be able to
      * materialize it's content from the underlying
@@ -199,6 +204,7 @@ class DifferenceView[Domain](val left: Relation[Domain],
                 count -= 1
             }
         }
+
     }
 
     object RightObserver extends Observer[Domain]
@@ -267,6 +273,7 @@ class DifferenceView[Domain](val left: Relation[Domain],
                 count -= 1
             }
         }
+
     }
 
 

@@ -87,4 +87,6 @@ class MaterializedBag[V](val relation: Relation[V])
 
   override def prettyprint(implicit prefix: String) = prefix +
     s"MaterializedBag(${nested(relation)})"
+
+  override protected def resetInternal(): Unit = clear()
 }

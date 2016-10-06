@@ -37,6 +37,9 @@ class SymmetricDifferenceView[Domain](val left: MaterializedView[Domain],
 
 	def children(): Seq[Relation[_]] = Seq (left,right)
 
+	override protected def resetInternal(): Unit = ???
+
+
 
 	object LeftObserver extends Observer[Domain] {
 		def updated(oldV: Domain, newV: Domain) {

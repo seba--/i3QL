@@ -67,8 +67,9 @@ class DifferenceOnMaterializedView[Domain](val left: MaterializedView[Domain],
         Nil
     }
 
+	override protected def resetInternal(): Unit = ???
 
-    /**
+	/**
      * Applies f to all elements of the view.
      */
     def foreach[T](f: (Domain) => T) {

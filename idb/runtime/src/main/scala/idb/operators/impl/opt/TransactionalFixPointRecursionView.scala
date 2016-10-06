@@ -65,6 +65,10 @@ class TransactionalFixPointRecursionView[Domain, Range, Key](val source: Relatio
 
   }
 
+  override protected def resetInternal(): Unit = {
+    clear()
+  }
+
   def keyFunc = domainKeyFunction
 
 

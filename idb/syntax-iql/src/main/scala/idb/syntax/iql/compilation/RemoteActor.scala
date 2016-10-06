@@ -1,33 +1,33 @@
 package idb.syntax.iql.compilation
 
 import akka.actor.{Actor, ActorRef, ActorSystem}
+import idb.Relation
 import idb.algebra.compiler.util.BoxedFunction
 import idb.observer.Observable
 import idb.operators.impl.{ProjectionView, SelectionView}
-import idb.remote.{Receive, Send}
+import idb.remote._
 
 /**
   * Created by Mirko on 13.09.2016.
   */
-class RemoteActor[T](var hosted: Observable[T] = null) extends Actor {
+class RemoteActor[T](var hosted: Relation[T] = null) extends Actor {
 
 	override def receive = {
-		case Forward(target) =>
+		case ForwardMsg(target) =>
 			hosted.addObserver(new Send(target));
 
-		case Host(obs: Observable[T]) =>
+		case HostMsg(obs: Relation[T]) =>
 			hosted = obs
 			RemoteActor.forward(context.system, obs)
 			// answer the sender s.t. synchronization works
 			sender() ! true
+
+		case ResetMsg =>
+			if (hosted != null) hosted._reset()
 	}
 
 	def this() = this(null)
 }
-
-sealed trait HostMessage
-case class Forward(target: ActorRef) extends HostMessage
-case class Host[T](obs: Observable[T]) extends HostMessage
 
 object RemoteActor {
 
@@ -36,7 +36,7 @@ object RemoteActor {
 			case receive: Receive[_] =>
 				val remoteHost = receive.remoteActor
 				val remoteViewActor = receive.withSystem(system)
-				remoteHost ! Forward(receive.receiveActor)
+				remoteHost ! ForwardMsg(receive.receiveActor)
 
 			case r : SelectionView[_] =>
 				r.filter match {

@@ -43,6 +43,10 @@ class SetTable[V]
      * Runtime information whether a compiled query is a set or a bag
      */
     def isSet: Boolean = true
+
+    override protected def resetInternal(): Unit = {
+
+    }
 }
 
 object SetTable

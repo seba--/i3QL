@@ -77,6 +77,10 @@ class ProjectionSetRetainingView[Domain, Range](val relation: Relation[Domain],
     relation.foreach((v: Domain) => f(projection(v)))
   }
 
+  override protected def resetInternal(): Unit = {
+
+  }
+
   override def updated(oldV: Domain, newV: Domain) {
     notify_updated(projection(oldV), projection(newV))
   }

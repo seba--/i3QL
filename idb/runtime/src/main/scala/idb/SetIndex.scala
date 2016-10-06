@@ -85,4 +85,9 @@ class SetIndex[K, V](val relation: Relation[V],
 		remove_element (oldKey, oldV)
 		add_element (newKey, newV)
 	}
+
+	override protected def resetInternal(): Unit = {
+		map.clear()
+	}
+
 }

@@ -54,6 +54,7 @@ trait TransactionElementObserver[Domain]
     deletions = HashMultiset.create[Domain]()
   }
 
+
   // update operations on right relation
   override def updated(oldV: Domain, newV: Domain) {
     removed(oldV)

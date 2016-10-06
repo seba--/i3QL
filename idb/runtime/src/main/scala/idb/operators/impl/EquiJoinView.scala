@@ -69,6 +69,12 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 		Nil
 	}
 
+	override protected def resetInternal(): Unit = {
+		leftIndex._reset()
+		rightIndex._reset()
+	}
+
+
 	/**
 	 * Applies f to all elements of the view.
 	 */

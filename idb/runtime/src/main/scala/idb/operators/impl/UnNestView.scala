@@ -63,6 +63,11 @@ class UnNestView[Domain, Range](
     Nil
   }
 
+  override protected def resetInternal(): Unit = {
+
+  }
+
+
   /**
    * Applies f to all elements of the view.
    */

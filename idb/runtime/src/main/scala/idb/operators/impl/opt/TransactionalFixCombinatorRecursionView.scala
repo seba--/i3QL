@@ -72,6 +72,10 @@ class TransactionalFixCombinatorRecursionView[Domain, Range, Key](val anchors: R
 
   }
 
+  override protected def resetInternal(): Unit = {
+    clear()
+  }
+
   private var recursionStack: List[List[Range]] = Nil
 
   def doRecursionForAddedElements() {

@@ -69,6 +69,11 @@ case class SelectionView[Domain](
     Nil
   }
 
+  override protected def resetInternal(): Unit = {
+
+  }
+
+
   override def endTransaction() {
     notify_endTransaction()
   }

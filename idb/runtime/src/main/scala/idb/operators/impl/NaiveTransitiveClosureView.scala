@@ -81,6 +81,10 @@ class NaiveTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
         notify_endTransaction()
     }
 
+
+    override protected def resetInternal(): Unit = ???
+
+
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {
             return List (this)

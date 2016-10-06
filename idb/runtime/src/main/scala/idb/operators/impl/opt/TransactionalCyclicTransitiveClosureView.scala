@@ -70,6 +70,10 @@ class TransactionalCyclicTransitiveClosureView[Edge, Vertex] (val source: Relati
     private var sccRepresentatives = mutable.HashMap.empty[Vertex, Vertex]
 
 
+    override protected def resetInternal(): Unit = {
+        clear()
+    }
+
     override def clear () {
         adjacencyLists = mutable.HashMap.empty[Vertex, mutable.HashSet[Edge]]
         nonSCCDescendants = mutable.HashMap.empty[Vertex, mutable.HashSet[Vertex]]

@@ -25,6 +25,12 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 		/* do nothing */
 	}
 
+	override protected def resetInternal(): Unit = {
+		leftSet.clear()
+		rightSet.clear()
+	}
+
+
 	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
 		if (o == left) {
 			return List(LeftObserver)

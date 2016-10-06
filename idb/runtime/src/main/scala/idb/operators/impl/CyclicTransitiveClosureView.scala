@@ -105,6 +105,9 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 		Nil
 	}
 
+	override protected def resetInternal(): Unit = ???
+
+
 	/**
 	 *
 	 * access in O(1)

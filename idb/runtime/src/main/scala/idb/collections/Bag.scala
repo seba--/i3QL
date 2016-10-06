@@ -41,6 +41,10 @@ trait Bag[V]
     data.size()
   }
 
+  def clear(): Unit = {
+    data.clear()
+  }
+
   def add_element(v: V) {
     data.add(v)
     notify_added(v)

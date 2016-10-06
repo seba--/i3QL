@@ -58,6 +58,10 @@ class TransactionalUnionMaxView[Range, DomainA <: Range, DomainB <: Range](
 
 	}
 
+	override protected def resetInternal(): Unit = {
+		clear()
+	}
+
 	private def clear() {
 		LeftObserver.clear()
 		RightObserver.clear()
