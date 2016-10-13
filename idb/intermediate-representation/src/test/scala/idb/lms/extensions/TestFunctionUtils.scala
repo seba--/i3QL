@@ -206,11 +206,6 @@ class TestFunctionUtils
 
 		val func = (function: Rep[_ => _]) => function
 
-		func(f) match {
-			case Def(a) => Predef.println(a)
-			case _ =>
-		}
-
 		assertEquals(
 			0,
 			returnedParameter (f)

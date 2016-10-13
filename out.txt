@@ -1,0 +1,31 @@
+[0m[[0minfo[0m] [0mLoading project definition from /home/mirko/Projekte/stg/i3QL/project[0m
+[0m[[0minfo[0m] [0mSet current project to sae (in build file:/home/mirko/Projekte/stg/i3QL/)[0m
+[0m[[0minfo[0m] [0mSet current project to remote-playground (in build file:/home/mirko/Projekte/stg/i3QL/)[0m
+[0m[[0minfo[0m] [0mCompiling 5 Scala sources to /home/mirko/Projekte/stg/i3QL/remote-playground/target/scala-2.11/multi-jvm-classes...[0m
+[0m[[31merror[0m] [0m/home/mirko/Projekte/stg/i3QL/remote-playground/src/multi-jvm/scala/sae.playground.remote/hospital/HospitalBenchmark2.scala:40: overriding value waitForWarmup in trait HospitalBenchmarkConfig of type Int;[0m
+[0m[[31merror[0m] [0m value waitForWarmup needs `override' modifier[0m
+[0m[[31merror[0m] [0m	val waitForWarmup = 10 //seconds[0m
+[0m[[31merror[0m] [0m	    ^[0m
+[0m[[31merror[0m] [0m/home/mirko/Projekte/stg/i3QL/remote-playground/src/multi-jvm/scala/sae.playground.remote/hospital/HospitalBenchmark2.scala:41: overriding value waitForMeasure in trait HospitalBenchmarkConfig of type Int;[0m
+[0m[[31merror[0m] [0m value waitForMeasure needs `override' modifier[0m
+[0m[[31merror[0m] [0m	val waitForMeasure = 10 //seconds[0m
+[0m[[31merror[0m] [0m	    ^[0m
+[0m[[31merror[0m] [0m/home/mirko/Projekte/stg/i3QL/remote-playground/src/multi-jvm/scala/sae.playground.remote/hospital/HospitalBenchmark2.scala:43: overriding value waitForGc in trait HospitalBenchmarkConfig of type Int;[0m
+[0m[[31merror[0m] [0m value waitForGc needs `override' modifier[0m
+[0m[[31merror[0m] [0m	val waitForGc = 3 //seconds[0m
+[0m[[31merror[0m] [0m	    ^[0m
+[0m[[31merror[0m] [0m/home/mirko/Projekte/stg/i3QL/remote-playground/src/multi-jvm/scala/sae.playground.remote/hospital/HospitalBenchmark3.scala:40: overriding value waitForWarmup in trait HospitalBenchmarkConfig of type Int;[0m
+[0m[[31merror[0m] [0m value waitForWarmup needs `override' modifier[0m
+[0m[[31merror[0m] [0m	val waitForWarmup = 5 //seconds[0m
+[0m[[31merror[0m] [0m	    ^[0m
+[0m[[31merror[0m] [0m/home/mirko/Projekte/stg/i3QL/remote-playground/src/multi-jvm/scala/sae.playground.remote/hospital/HospitalBenchmark3.scala:41: overriding value waitForMeasure in trait HospitalBenchmarkConfig of type Int;[0m
+[0m[[31merror[0m] [0m value waitForMeasure needs `override' modifier[0m
+[0m[[31merror[0m] [0m	val waitForMeasure = 5 //seconds[0m
+[0m[[31merror[0m] [0m	    ^[0m
+[0m[[31merror[0m] [0m/home/mirko/Projekte/stg/i3QL/remote-playground/src/multi-jvm/scala/sae.playground.remote/hospital/HospitalBenchmark3.scala:43: overriding value waitForGc in trait HospitalBenchmarkConfig of type Int;[0m
+[0m[[31merror[0m] [0m value waitForGc needs `override' modifier[0m
+[0m[[31merror[0m] [0m	val waitForGc = 3 //seconds[0m
+[0m[[31merror[0m] [0m	    ^[0m
+[0m[[31merror[0m] [0m6 errors found[0m
+[0m[[31merror[0m] [0m(remote-playground/multi-jvm:[31mcompileIncremental[0m) Compilation failed[0m
+[0m[[31merror[0m] [0mTotal time: 4 s, completed 13.10.2016 14:26:15[0m

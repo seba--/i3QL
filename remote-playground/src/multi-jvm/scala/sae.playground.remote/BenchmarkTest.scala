@@ -67,14 +67,14 @@ with STMultiNodeSpec with ImplicitSender {
 
         val remoteHostPath = node(nodes(0)) / "user" / "db"
 
-        var tree = Receive[D](system, remoteHostPath, false)
+        var tree = ReceiveView[D](system, remoteHostPath, false)
         val selectionFun: D => Boolean = { case (idx, time) => true /*Util.isPrime(303029)*/ }
 
         for (i <- 1 to BenchmarkConfig.nodes.size - 1) {
-          tree = Receive[D](system, node(nodes(i)).address, new SelectionView(tree, selectionFun, false))
+          tree = ReceiveView[D](system, node(nodes(i)).address, new SelectionView(tree, selectionFun, false))
         }
 
-        tree = Receive[D](system, node(nodes(0)).address, tree)
+        tree = ReceiveView[D](system, node(nodes(0)).address, tree)
 
         RemoteActor.forward(system, tree)
         tree.addObserver(new Observer[D] {
@@ -97,7 +97,7 @@ with STMultiNodeSpec with ImplicitSender {
           override def endTransaction() = {}
         })
 
-        tree.addObserver(new Send[D](testActor))
+        new SendView[D](tree, testActor)
         Thread.sleep(100) // wait until setup complete
 
         val afterInitTime = System.nanoTime()

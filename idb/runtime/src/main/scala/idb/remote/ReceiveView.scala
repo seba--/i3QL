@@ -14,7 +14,7 @@ import scala.language.postfixOps
 /**
   * Created by Mirko on 13.09.2016.
   */
-class Receive[Domain](
+class ReceiveView[Domain](
 	val remoteActor : ActorRef,
 	val isSet : Boolean = false
 ) extends Relation[Domain] with NotifyObservers[Domain] {
@@ -47,7 +47,7 @@ class Receive[Domain](
 }
 
 
-class ReceivingActor[Domain](recv : Receive[Domain]) extends Actor {
+class ReceivingActor[Domain](recv : ReceiveView[Domain]) extends Actor {
 	override def receive = {
 		case Added(v: Domain) =>
 			println(s"$this#Added[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
@@ -72,16 +72,16 @@ class ReceivingActor[Domain](recv : Receive[Domain]) extends Actor {
 
 }
 
-object Receive {
+object ReceiveView {
 	def apply[T](system : ActorSystem, remoteHostPath : ActorPath, isSet : Boolean = false) = {
 		val remoteHost = system.actorSelection(remoteHostPath)
-		new Receive[T] (
+		new ReceiveView[T] (
 			Await.result(remoteHost.resolveOne()(Timeout(60 second)), 60 second),
 			isSet
 		)
 	}
 
-	def apply[T](system: ActorSystem, remoteAddr: Address, partition: Relation[T]): Receive[T] = {
+	def apply[T](system: ActorSystem, remoteAddr: Address, partition: Relation[T]): ReceiveView[T] = {
 		/*val remoteHost = system.actorOf(Props(classOf[RemoteActor[T]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
 
 		val receive = new Receive[T](remoteHost, partition.isSet)

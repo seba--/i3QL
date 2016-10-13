@@ -52,15 +52,15 @@ with STMultiNodeSpec with ImplicitSender {
         val fun: Int => Boolean = i => (i % 2) == 0
 
         // data flows from node1 (Table) -> node2 -> node1 -> node2
-        val tree = Receive(
+        val tree = ReceiveView(
           system,
           node(node1).address,
           new ProjectionView(
-            Receive(
+            ReceiveView(
               system,
               node(node2).address,
               new SelectionView(
-                Receive[Int](system, remoteHostPath, false),
+                ReceiveView[Int](system, remoteHostPath, false),
                 (i : Int) => (i % 2) == 0,
                 false
               )
@@ -71,7 +71,7 @@ with STMultiNodeSpec with ImplicitSender {
         )
 
         RemoteActor.forward(system, tree) // FIXME: always call this on the root node after tree construction (should happen automatically)
-        tree.addObserver(new Send[String](testActor))
+        new SendView[String](tree, testActor)
 
         enterBarrier("sending")
 

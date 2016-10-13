@@ -52,7 +52,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 				val db = BagTable.empty[Int]
 
-				REMOTE RELATION (db, "db")
+				REMOTE DEFINE (db, "db")
 
 				enterBarrier("deployed")
 
@@ -77,7 +77,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 				//FIXME: Why do we have to explicitly specify the type here?
 				val table : Rep[Query[Int]] =
-						REMOTE FROM [Int] (host1, "db", Color("red"))
+						REMOTE GET [Int] (host1, "db", Color("red"))
 
 				val q1 = SELECT (*) FROM RECLASS(table, Color("red")) WHERE ((i : Rep[Int]) => i > 2)
 					//SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS(table, Color("blue"))
@@ -126,7 +126,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				)    */
 
 				//ObservableHost.forward(tree, system) // FIXME: always call this on the root node after tree construction (should happen automatically)
-				relation.addObserver(new Send(testActor))
+				new SendView(relation, testActor)
 
 				enterBarrier("sending")
 

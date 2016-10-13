@@ -42,10 +42,10 @@ with STMultiNodeSpec with ImplicitSender {
         enterBarrier("deployed")
 
         val remoteHostPath: ActorPath = node(node1) / "user" / "db"
-        val remoteView: Receive[String] = Receive[String](system, remoteHostPath, false)
+        val remoteView: ReceiveView[String] = ReceiveView[String](system, remoteHostPath, false)
 
         RemoteActor.forward(system, remoteView) // FIXME: always call this on the root node after tree construction (should happen automatically)
-        remoteView.addObserver(new Send[String](testActor))
+        new SendView[String](remoteView, testActor)
 
         enterBarrier("sending")
 

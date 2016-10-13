@@ -42,7 +42,7 @@ import idb.lms.extensions.{ScalaGenDateOps, ScalaGenFlightOps}
 import scala.virtualization.lms.common._
 import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenOptionOps, ScalaGenSeqOpsExt, ScalaGenStringOpsExt}
 import idb.query.QueryEnvironment
-import idb.remote.{HostMsg, Receive}
+import idb.remote.{HostMsg, ReceiveView}
 
 import scala.concurrent.Await
 import scala.language.postfixOps
@@ -84,7 +84,7 @@ case object CompilerBinding
 
 		val remoteHost = queryEnvironment.system.actorOf(Props(classOf[RemoteActor[Domain]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
 
-		val receive = new Receive[Domain](remoteHost, compiledPartition.isSet)
+		val receive = new ReceiveView[Domain](remoteHost, compiledPartition.isSet)
 
 		// synchronize Host message
 		import akka.pattern.ask //imports the ?

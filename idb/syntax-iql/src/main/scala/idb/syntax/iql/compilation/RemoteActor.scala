@@ -14,7 +14,7 @@ class RemoteActor[T](var hosted: Relation[T] = null) extends Actor {
 
 	override def receive = {
 		case ForwardMsg(target) =>
-			hosted.addObserver(new Send(target));
+			new SendView(hosted, target);
 
 		case HostMsg(obs: Relation[T]) =>
 			hosted = obs
@@ -33,7 +33,7 @@ object RemoteActor {
 
 	def forward(system : ActorSystem, rel: Observable[_]): Unit = {
 		rel match {
-			case receive: Receive[_] =>
+			case receive: ReceiveView[_] =>
 				val remoteHost = receive.remoteActor
 				val remoteViewActor = receive.withSystem(system)
 				remoteHost ! ForwardMsg(receive.receiveActor)

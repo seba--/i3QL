@@ -4,7 +4,7 @@ import akka.actor.{ActorPath, ActorRef, Props}
 import idb.query.colors.Color
 import idb.{BagTable, Table}
 import idb.query.{Host, QueryEnvironment, RemoteHost}
-import idb.remote.Receive
+import idb.remote.ReceiveView
 import idb.syntax.iql.IR._
 import idb.syntax.iql.compilation.RemoteActor
 
@@ -13,14 +13,16 @@ import idb.syntax.iql.compilation.RemoteActor
   */
 object REMOTE {
 
-	def RELATION[V](table : Relation[V], id : String)(implicit queryEnvironment : QueryEnvironment) : ActorRef = {
+	def DEFINE[V](table : Relation[V], id : String)(implicit queryEnvironment : QueryEnvironment) : ActorRef = {
 		queryEnvironment.system.actorOf(Props(classOf[RemoteActor[V]], table), id)
 	}
 
-	def FROM[Domain : Manifest] (host : RemoteHost, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
+	def GET[Domain : Manifest](host : RemoteHost, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
 		val remoteHostPath: ActorPath = host.path / "user" / id
+
+		//FIXME: This should be changed to not be added on the compiling node
 		relation[Domain](
-			Receive[Domain](queryEnvironment.system, remoteHostPath, false),
+			ReceiveView[Domain](queryEnvironment.system, remoteHostPath, false),
 			color = color,
 			host = host
 		)

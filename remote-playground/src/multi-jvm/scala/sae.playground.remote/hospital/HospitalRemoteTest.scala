@@ -26,10 +26,10 @@ class HospitalRemoteTestMultiJvmNode4 extends HospitalRemoteTest
 
 object HospitalRemoteTest {} // this object is necessary for multi-node testing
 
-class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
+class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 	with STMultiNodeSpec with ImplicitSender {
 
-	import HospitalConfig._
+	import HospitalMultiNodeConfig._
 	import HospitalRemoteTest._
 
 	def initialParticipants = roles.size
@@ -67,7 +67,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				import idb.syntax.iql._
 
 				val db = BagTable.empty[Person]
-				REMOTE RELATION (db, "person-db")
+				REMOTE DEFINE (db, "person-db")
 
 				enterBarrier("deployed")
 				//The query gets compiled here...
@@ -86,7 +86,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				import idb.syntax.iql._
 
 				val db = BagTable.empty[Patient]
-				REMOTE RELATION (db, "patient-db")
+				REMOTE DEFINE (db, "patient-db")
 
 				enterBarrier("deployed")
 				//The query gets compiled here...
@@ -106,7 +106,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				import idb.syntax.iql._
 
 				val db = BagTable.empty[KnowledgeData]
-				REMOTE RELATION (db, "knowledge-db")
+				REMOTE DEFINE (db, "knowledge-db")
 
 				enterBarrier("deployed")
 				//The query gets compiled here...
@@ -129,11 +129,11 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 
 				//Create variables for all the remote tables
 				val personDB : Rep[Query[Person]] =
-					REMOTE FROM [Person] (personHost, "person-db", Color("red"))
+					REMOTE GET [Person] (personHost, "person-db", Color("red"))
 				val patientDB : Rep[Query[Patient]] =
-					REMOTE FROM [Patient] (patientHost, "patient-db", Color("green"))
+					REMOTE GET [Patient] (patientHost, "patient-db", Color("green"))
 				val knowledgeDB : Rep[Query[KnowledgeData]] =
-					REMOTE FROM [KnowledgeData] (knowledgeHost, "knowledge-db", Color("purple"))
+					REMOTE GET [KnowledgeData] (knowledgeHost, "knowledge-db", Color("purple"))
 
 				//Write an i3ql query...
 				val q1 =
@@ -166,7 +166,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalConfig)
 				Predef.println(relation.prettyprint(" "))
 
 				//Add observer for testing purposes
-				relation.addObserver(new Send(testActor))
+				new SendView(relation, testActor)
 
 
 				enterBarrier("compiled")

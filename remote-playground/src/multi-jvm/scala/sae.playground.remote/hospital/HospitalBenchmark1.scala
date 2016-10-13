@@ -1,21 +1,19 @@
 package sae.playground.remote.hospital
 
 import java.io.FileOutputStream
+import java.lang.management.ManagementFactory
 
 import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.BagTable
-import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
+import idb.{BagTable, Table}
+
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
-import idb.operators.impl.{ProjectionView, SelectionView}
+
 import idb.query.{QueryEnvironment, RemoteHost}
-import idb.remote._
-import idb.query._
 import idb.query.colors._
-import idb.syntax.iql.compilation.RemoteActor
+
 import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
 
@@ -29,37 +27,25 @@ class HospitalBenchmark1MultiJvmNode4 extends HospitalBenchmark1
 object HospitalBenchmark1 {} // this object is necessary for multi-node testing
 
 //Selection is pushed down == events get filtered before getting sent
-class HospitalBenchmark1 extends MultiNodeSpec(HospitalConfig)
-	with STMultiNodeSpec with ImplicitSender with BenchmarkConfig with CSVPrinter {
+class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
+	with STMultiNodeSpec with ImplicitSender with HospitalBenchmark {
 
 	override val benchmarkName = "hospital1"
 
 	val warmupIterations = 5000
-	val measureIterations = 10000
+	val measureIterations = 5000
 
-	val waitForWarmup = 10 //seconds
-	val waitForMeasure = 10 //seconds
-
-	val waitForGc = 5 //seconds
-
-	import HospitalConfig._
-	import HospitalBenchmark1._
-
+	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
+
+	import BaseHospital._
+	import Data._
 
 	//Setup query environment
 	val personHost = RemoteHost("personHost", node(node1))
 	val patientHost = RemoteHost("patientHost", node(node2))
 	val knowledgeHost = RemoteHost("knowledgeHost", node(node3))
 	val clientHost = RemoteHost("clientHost", node(node4))
-
-	object BaseHospital extends HospitalSchema {
-		override val IR = idb.syntax.iql.IR
-	}
-	import BaseHospital._
-
-	object Data extends HospitalTestData
-	import Data._
 
 	implicit val env = QueryEnvironment.create(
 		system,
@@ -71,153 +57,101 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalConfig)
 		)
 	)
 
-	"A hospital" must {
-		"work for three servers (without client)" in {
-			/*
-				Person Server
-			 */
-			runOn(node1) {
-				import idb.syntax.iql._
+	type PersonType = (Long, Person)
+	type PatientType = (Long, Patient)
+	type KnowledgeType = (Long, KnowledgeData)
 
-				val db = BagTable.empty[(Long, Person)]
-				REMOTE RELATION (db, "person-db")
+	import Data._
 
-				enterBarrier("deployed")
+	def barrier(name : String): Unit = {
+		enterBarrier(name)
+	}
 
-				//The query gets compiled here...
-				enterBarrier("compiled")
+	object PersonDBNode extends DBNode[PersonType] {
+		override val dbName: String = "person-db"
+		override val waitBeforeSend: Long = waitForSendPerson * 1000
 
-				(1 to warmupIterations).foreach(i => {
-					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i, "John Doe", 1973)))
-					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i * 2, "Jane Doe", 1960)))
-				})
+		override val _warmupIterations: Int = warmupIterations
+		override val _measureIterations: Int = measureIterations
 
-				enterBarrier("sent-warmup")
+		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index * 2, "Jane Doe", 1960)))
+		}
+	}
 
-				enterBarrier("resetted")
-				System.gc()
-				Thread.sleep(waitForGc * 1000)
+	object PatientDBNode extends DBNode[PatientType] {
+		override val dbName: String = "patient-db"
+		override val waitBeforeSend: Long = waitForSendPerson * 1000
 
-				enterBarrier("ready-measure")
+		override val _warmupIterations: Int = warmupIterations
+		override val _measureIterations: Int = measureIterations
 
-				(1 to measureIterations).foreach(i => {
-					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i, "John Doe", 1973)))
-					db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(i * 2, "Jane Doe", 1960)))
-				})
+		override def iteration(db : Table[(Long, Patient)], index : Int): Unit = {
+			db += ((System.currentTimeMillis(),  sae.example.hospital.data.Patient(index, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))))
+		}
+	}
 
-				enterBarrier("sent-measure")
+	object KnowledgeDBNode extends DBNode[KnowledgeType] {
+		override val dbName: String = "knowledge-db"
+		override val waitBeforeSend: Long = waitForSendPerson * 1000
 
-				enterBarrier("finished")
-			}
+		override val _warmupIterations: Int = 1
+		override val _measureIterations: Int = 1
 
-			/*
-				Patient Server
-			 */
-			runOn(node2) {
-				import idb.syntax.iql._
+		override def iteration(db : Table[(Long, KnowledgeData)], index : Int): Unit = {
+			db += ((System.currentTimeMillis(), lungCancer1))
+		}
+	}
 
-				val db = BagTable.empty[(Long, Patient)]
-				REMOTE RELATION (db, "patient-db")
+	"Hospital Benchmark" must {
+		"run benchmark" in {
+			runOn(node1) { PersonDBNode.exec() }
+			runOn(node2) { PatientDBNode.exec()	}
+			runOn(node3) { KnowledgeDBNode.exec() }
 
-				enterBarrier("deployed")
-				//The query gets compiled here...
-				enterBarrier("compiled")
-
-				(1 to warmupIterations).foreach(i => {
-					db += ((System.currentTimeMillis(),  sae.example.hospital.data.Patient(i, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))))
-				})
-
-				enterBarrier("sent-warmup")
-
-				enterBarrier("resetted")
-				System.gc()
-				Thread.sleep(waitForGc * 1000)
-
-				enterBarrier("ready-measure")
-
-				(1 to measureIterations).foreach(i => {
-					db += ((System.currentTimeMillis(),  sae.example.hospital.data.Patient(i, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))))
-				})
-
-				enterBarrier("sent-measure")
-
-				enterBarrier("finished")
-			}
-
-			/*
-				Knowledge Server
-			 */
-			runOn(node3) {
-				import idb.syntax.iql._
-
-				val db = BagTable.empty[(Long, KnowledgeData)]
-				REMOTE RELATION (db, "knowledge-db")
-
-				enterBarrier("deployed")
-				//The query gets compiled here...
-				enterBarrier("compiled")
-				db += ((System.currentTimeMillis(), lungCancer1))
-
-				enterBarrier("sent-warmup")
-
-				enterBarrier("resetted")
-				System.gc()
-				Thread.sleep(waitForGc * 1000)
-
-				enterBarrier("ready-measure")
-
-				db += ((System.currentTimeMillis(), lungCancer1))
-
-				enterBarrier("sent-measure")
-
-				enterBarrier("finished")
-			}
-
-			/*
-				Client
-			 */
 			runOn(node4) {
+				appendTitle()
 				enterBarrier("deployed")
 
+				//Write an i3ql query...
 				import idb.syntax.iql._
 				import idb.syntax.iql.IR._
 
-				//Create variables for all the remote tables
 				val personDB : Rep[Query[(Long, Person)]] =
-					REMOTE FROM (personHost, "person-db", Color("red"))
+					REMOTE GET (personHost, "person-db", Color("red"))
 				val patientDB : Rep[Query[(Long, Patient)]] =
-					REMOTE FROM (patientHost, "patient-db", Color("green"))
+					REMOTE GET (patientHost, "patient-db", Color("green"))
 				val knowledgeDB : Rep[Query[(Long, KnowledgeData)]] =
-					REMOTE FROM (knowledgeHost, "knowledge-db", Color("purple"))
+					REMOTE GET (knowledgeHost, "knowledge-db", Color("purple"))
 
-				//Write an i3ql query...
-				val q1 =
-					SELECT DISTINCT (
-						(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) => (person._1, patientSymptom._1._1, knowledgeData._1, person._2.personId, knowledgeData._2.diagnosis)
-					) FROM (
-						personDB, UNNEST(patientDB, (x: Rep[(Long, Patient)]) => x._2.symptoms), knowledgeDB
-					) WHERE	(
-						(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) =>
-								person._2.personId == patientSymptom._1._2.personId AND
-								patientSymptom._2 == knowledgeData._2.symptom AND
-								knowledgeData._2.symptom == Symptoms.cough AND
-								person._2.name == "John Doe"
+				val q1 =SELECT DISTINCT (
+					(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) => (person._1, patientSymptom._1._1, knowledgeData._1, person._2.personId, knowledgeData._2.diagnosis)
+				) FROM (
+					personDB, UNNEST(patientDB, (x: Rep[(Long, Patient)]) => x._2.symptoms), knowledgeDB
+				) WHERE	(
+					(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) =>
+						person._2.personId == patientSymptom._1._2.personId AND
+							patientSymptom._2 == knowledgeData._2.symptom AND
+							knowledgeData._2.symptom == Symptoms.cough AND
+							person._2.name == "John Doe"
 
 					)
-
-				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-				val q = ROOT(RECLASS(q1, Color("white")), clientHost)
-
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR
 				}
-				Predef.println("Relation.tree#" + printer.quoteRelation(q))
+				Predef.println("Relation.tree#" + printer.quoteRelation(q1))
 
-				//Compile the LMS tree and then materialize for further testing purposes
-				val r : Relation[(Long, Long, Long, Int, String)] = q
-				RemoteActor.forward(system, r) //TODO: Add this to ROOT
+				import idb.syntax.iql._
+				import idb.syntax.iql.IR._
+
+				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
+				val r : Relation[(Long, Long, Long, Int, String)] =
+				ROOT(RECLASS(q1, Color("white")), clientHost)
+
+
 				//Print the runtime class representation
 				Predef.println("Relation.compiled#" + r.prettyprint(" "))
 
@@ -226,15 +160,19 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalConfig)
 				//The tables are now sending data
 				enterBarrier("sent-warmup")
 
-				Console.out.print("Wait for warmup...")
+				Console.out.println("Wait for warmup...")
 				Thread.sleep(waitForWarmup * 1000)
 				r._reset()
 				Console.out.println("Wait for reset...")
 				Thread.sleep(3000)
 
 				enterBarrier("resetted")
-				System.gc()
-				Thread.sleep(waitForGc * 1000)
+				gc()
+
+				val rt = Runtime.getRuntime
+				val memBefore = rt.totalMemory() - rt.freeMemory()
+				val myOsBean= ManagementFactory.getOperatingSystemMXBean().asInstanceOf[com.sun.management.OperatingSystemMXBean]
+				appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime())
 
 
 				//Add observer for testing purposes
@@ -242,17 +180,22 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalConfig)
 				val benchmark = new BenchmarkEvaluator[(Long, Long, Long, Int, String)](r, t => scala.math.max(t._1, scala.math.max(t._2, t._3)), measureIterations, 0)
 
 				enterBarrier("ready-measure")
-				//The tables are now sending data
+				appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime())
+
+				// /The tables are now sending data
 				enterBarrier("sent-measure")
+				appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime())
 
 				Console.out.println("Wait for measure...")
 				Thread.sleep(waitForMeasure * 1000)
+				gc()
+				val memAfter = rt.totalMemory() - rt.freeMemory()
 
-				printCSV(benchmark)
+				appendSummary(benchmark)
 
 				enterBarrier("finished")
+				appendMemory("client",System.currentTimeMillis(),memBefore,memAfter)
 			}
-
 		}
 	}
 }
