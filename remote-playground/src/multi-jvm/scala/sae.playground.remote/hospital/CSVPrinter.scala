@@ -54,8 +54,8 @@ trait CSVPrinter extends HospitalConfig {
 		addToSummaryFile(s"mem,$node,$time,$memoryBefore,$memoryAfter")
 	}
 
-	def appendCpu(node : String, time : Long, cpu : Long): Unit = {
-		addToSummaryFile(s"cpu,$node,$time,$cpu")
+	def appendCpu(node : String, time : Long, cpu : Long, load : Double): Unit = {
+		addToSummaryFile(s"cpu,$node,$time,$cpu,$load")
 	}
 
 	private def addToSummaryFile(s : String): Unit = {

@@ -35,8 +35,8 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	override val benchmarkName = "hospital2"
 
-	val warmupIterations = 5000
-	val measureIterations = 5000
+	val warmupIterations = 10000
+	val measureIterations = 30000
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -170,13 +170,26 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				Console.out.println("Wait for reset...")
 				Thread.sleep(3000)
 
+				var clientFinished = false
+
 				enterBarrier("resetted")
+				val thr = new Thread(new Runnable {
+					override def run(): Unit = {
+						val myOsBean= ManagementFactory.getOperatingSystemMXBean.asInstanceOf[com.sun.management.OperatingSystemMXBean]
+
+						while (!clientFinished) {
+							Thread.sleep(cpuTimeMeasurements)
+							appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime(), myOsBean.getProcessCpuLoad())
+						}
+					}
+				})
+
 				gc()
 
 				val rt = Runtime.getRuntime
 				val memBefore = rt.totalMemory() - rt.freeMemory()
-				val myOsBean= ManagementFactory.getOperatingSystemMXBean().asInstanceOf[com.sun.management.OperatingSystemMXBean]
-				appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime())
+
+				thr.start()
 
 
 				//Add observer for testing purposes
@@ -184,14 +197,13 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				val benchmark = new BenchmarkEvaluator[(Long, Long, Long, Int, String)](r, t => scala.math.max(t._1, scala.math.max(t._2, t._3)), measureIterations, 0)
 
 				enterBarrier("ready-measure")
-				appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime())
 
 				// /The tables are now sending data
 				enterBarrier("sent-measure")
-				appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime())
 
 				Console.out.println("Wait for measure...")
 				Thread.sleep(waitForMeasure * 1000)
+				clientFinished = true
 				gc()
 				val memAfter = rt.totalMemory() - rt.freeMemory()
 

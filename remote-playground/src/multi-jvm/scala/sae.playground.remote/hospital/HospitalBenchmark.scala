@@ -13,12 +13,14 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 	implicit val env : QueryEnvironment
 
-	val waitForWarmup = 15 //seconds
-	val waitForMeasure = 15 //seconds
+	val waitForWarmup = 5 //seconds
+	val waitForMeasure = 5 //seconds
 
-	val waitForSendPerson = 10 //seconds
+	val waitForSendPerson = 5 //seconds
 
 	val waitForGc = 8 //seconds
+
+	val cpuTimeMeasurements = 100 //ms
 
 
 	object BaseHospital extends HospitalSchema {
@@ -44,8 +46,12 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 		def iteration(db : Table[Domain], index : Int)
 
+		var finished = false
+
 		def exec(): Unit = {
 			import idb.syntax.iql._
+
+
 
 			val db = BagTable.empty[Domain]
 			REMOTE DEFINE (db, dbName)
@@ -60,26 +66,39 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 			barrier("sent-warmup")
 
 			barrier("resetted")
+
+			val thr = new Thread(new Runnable {
+				override def run(): Unit = {
+					val myOsBean= ManagementFactory.getOperatingSystemMXBean.asInstanceOf[com.sun.management.OperatingSystemMXBean]
+
+					while (!finished) {
+						Thread.sleep(cpuTimeMeasurements)
+						appendCpu(dbName, System.currentTimeMillis(), myOsBean.getProcessCpuTime(), myOsBean.getProcessCpuLoad())
+					}
+				}
+			})
+
 			gc()
 			val rt = Runtime.getRuntime
 			val memBefore = rt.totalMemory() - rt.freeMemory()
-			val myOsBean= ManagementFactory.getOperatingSystemMXBean.asInstanceOf[com.sun.management.OperatingSystemMXBean]
-			appendCpu(dbName, System.currentTimeMillis(), myOsBean.getProcessCpuTime())
+
+			thr.start()
 
 			barrier("ready-measure")
 			Thread.sleep(waitBeforeSend)
-			appendCpu(dbName, System.currentTimeMillis(), myOsBean.getProcessCpuTime())
 			(1 to _measureIterations).foreach(i => iteration(db, i))
 
 			barrier("sent-measure")
 			Console.out.println("Wait for measure...")
-			appendCpu(dbName, System.currentTimeMillis(), myOsBean.getProcessCpuTime())
 			Thread.sleep(waitForMeasure * 1000)
+			finished = true
 			gc()
 			val memAfter = rt.totalMemory() - rt.freeMemory()
 
 			barrier("finished")
 			appendMemory(dbName,System.currentTimeMillis(),memBefore,memAfter)
+
+
 		}
 	}
 
