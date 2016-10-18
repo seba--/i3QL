@@ -49,27 +49,10 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
   left addObserver LeftObserver
   right addObserver RightObserver
 
-  var leftTransactionEnded: Boolean = false
-  var rightTransactionEnded: Boolean = false
-
-  override def lazyInitialize() {
-
-  }
-
   override protected def resetInternal(): Unit = {
 
   }
 
-
-  private def doEndTransaction() {
-    if (!leftTransactionEnded || !rightTransactionEnded)
-      return
-
-    leftTransactionEnded = false
-    rightTransactionEnded = false
-    notify_endTransaction()
-
-  }
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == left) {
@@ -112,10 +95,7 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
       notify_addedAll(vs)
     }
 
-    def endTransaction() {
-      leftTransactionEnded = true
-      doEndTransaction()
-    }
+
   }
 
   object RightObserver extends Observer[DomainB] {
@@ -141,10 +121,6 @@ class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation
       notify_addedAll(vs)
     }
 
-    def endTransaction() {
-      rightTransactionEnded = true
-      doEndTransaction()
-    }
   }
 
 }

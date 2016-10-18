@@ -27,8 +27,6 @@ class ReceiveView[Domain](
 
 	override def foreach[T](f: (Domain) => T): Unit = { }
 
-	override protected def lazyInitialize(): Unit = { }
-
 	override def children: Seq[Relation[_]] = Nil
 
 	override def prettyprint(implicit prefix: String): String = s"Recieve($remoteActor)"
@@ -39,7 +37,6 @@ class ReceiveView[Domain](
 	override def notify_updated(oldV: Domain, newV: Domain): Unit = super.notify_updated(oldV, newV)
 	override def notify_addedAll(vs: Seq[Domain]): Unit = super.notify_addedAll(vs)
 	override def notify_removedAll(vs: Seq[Domain]): Unit = super.notify_removedAll(vs)
-	override def notify_endTransaction(): Unit = super.notify_endTransaction()
 
 	override protected def resetInternal(): Unit = {
 		remoteActor ! ResetMsg
@@ -64,9 +61,6 @@ class ReceivingActor[Domain](recv : ReceiveView[Domain]) extends Actor {
 		case RemovedAll(vs: Seq[Domain]) =>
 			println(s"$this#RemovedAll[$vs]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			recv.notify_removedAll(vs)
-		case EndTransaction =>
-			println(s"$this#EndTransaction--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
-			recv.notify_endTransaction()
 		//case str: String => println(s"DEBUG (sender: ${sender()}, self: ${context.self}): $str")
 	}
 

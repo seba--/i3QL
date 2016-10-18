@@ -1,7 +1,7 @@
 package idb.operators.impl
 
 
-import collection.mutable
+import scala.collection.mutable
 import idb.{MaterializedView, Relation}
 import idb.operators.{AggregateFunction, SelfMaintainableAggregateFunctionFactory, Aggregation, SelfMaintainableAggregateFunction}
 import idb.observer.{Observable, NotifyObservers, Observer}
@@ -40,12 +40,6 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
 
     val groups = mutable.Map[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
-    // aggregation need to be isInitialized for update and remove events
-     lazyInitialize()
-
-    override def endTransaction() {
-        notify_endTransaction()
-    }
 
 	override protected def resetInternal(): Unit = ???
 
@@ -56,19 +50,10 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
         Nil
     }
 
-    /**
+     /**
      *
      */
-    def lazyInitialize() {
-        source.foreach ((v: Domain) => {
-            internal_added (v)
-        })
-    }
-
-    /**
-     *
-     */
-     def foreach[T](f: (Result) => T) {
+     override def foreach[T](f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 

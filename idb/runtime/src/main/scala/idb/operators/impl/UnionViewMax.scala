@@ -53,10 +53,6 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
   right addObserver RightObserver
 
 
-  override def lazyInitialize() {
-
-  }
-
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == left) {
       return List(LeftObserver)
@@ -85,10 +81,6 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
 
 
   object LeftObserver extends Observer[DomainA] {
-
-    override def endTransaction() {
-      notify_endTransaction()
-    }
 
     def updated(oldV: DomainA, newV: DomainA) {
       if (oldV == newV)
@@ -134,10 +126,6 @@ class UnionViewMax[Range, DomainA <: Range, DomainB <: Range](val left: Material
   }
 
   object RightObserver extends Observer[DomainB] {
-
-    override def endTransaction() {
-      notify_endTransaction()
-    }
 
     // update operations on right relation
     def updated(oldV: DomainB, newV: DomainB) {

@@ -53,13 +53,7 @@ case class RecursiveBase[Domain](relation: Relation[Domain],
 
   var recursiveNotification = false
 
-  override def lazyInitialize() {
 
-  }
-
-  override def endTransaction() {
-    notify_endTransaction()
-  }
 
   override protected def resetInternal(): Unit = ???
 

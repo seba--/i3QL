@@ -63,8 +63,6 @@ class DifferenceView[Domain](val left: Relation[Domain],
 
     private val rightDiffLeft: HashMultiset[Domain] = HashMultiset.create[Domain]()
 
-    lazyInitialize ()
-
 	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
             return List (LeftObserver)
@@ -78,27 +76,6 @@ class DifferenceView[Domain](val left: Relation[Domain],
     override protected def resetInternal(): Unit = {
         leftDiffRight.clear()
         rightDiffLeft.clear()
-    }
-
-    /**
-     * Each view must be able to
-     * materialize it's content from the underlying
-     * views.
-     * The laziness allows a query to be set up
-     * on relations (tables) that are already filled.
-     * The lazy initialization must be performed prior to processing the
-     * first add/delete/update events or foreach calls.
-     */
-    def lazyInitialize() {
-        val intersection: HashMultiset[Domain] = HashMultiset.create[Domain]()
-        left.foreach (v => {
-            leftDiffRight.add (v)
-            intersection.add (v)
-        })
-        right.foreach (v => rightDiffLeft.add (v))
-        intersection.retainAll (rightDiffLeft)
-        leftDiffRight.removeAll (intersection)
-        rightDiffLeft.removeAll (intersection)
     }
 
     /**
@@ -132,9 +109,6 @@ class DifferenceView[Domain](val left: Relation[Domain],
     object LeftObserver extends Observer[Domain]
     {
 
-        override def endTransaction() {
-            notify_endTransaction ()
-        }
 
         /**
          * Δleft+ - (right - left)
@@ -209,9 +183,6 @@ class DifferenceView[Domain](val left: Relation[Domain],
 
     object RightObserver extends Observer[Domain]
     {
-        override def endTransaction() {
-            notify_endTransaction ()
-        }
 
         def added(v: Domain) {
             if (leftDiffRight.count (v) > 0) {

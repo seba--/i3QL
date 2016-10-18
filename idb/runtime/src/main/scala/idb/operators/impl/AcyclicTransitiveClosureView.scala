@@ -83,8 +83,6 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
     // (u,v)(w, v)
     // (v, x)
 
-    lazyInitialize ()
-
     /**
      *
      * access in O(1)
@@ -127,13 +125,6 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
                 f ((x._1, y), 1)
             })
         })
-    }
-
-
-    def lazyInitialize() {
-        source.foreach (
-            x => internal_add (x)
-        )
     }
 
 
@@ -327,7 +318,4 @@ class AcyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 	def size: Int =
 		throw new UnsupportedOperationException
 
-	def endTransaction() {
-		notify_endTransaction()
-	}
 }

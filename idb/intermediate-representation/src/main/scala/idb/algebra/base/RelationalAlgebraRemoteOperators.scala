@@ -32,18 +32,26 @@
  */
 package idb.algebra.base
 
+import akka.actor.ActorPath
 import idb.query.{Host, QueryEnvironment}
 import idb.query.colors.{Color, ColorId}
 
 /**
  *
- * @author Ralf Mitschke
+ * @author mirko
  *
  */
 
 trait RelationalAlgebraRemoteOperators
     extends RelationalAlgebraBase
 {
+
+	/**
+	  * The reference to a query for remote connections
+	  * @tparam Domain The domain of the referenced query.
+	  */
+	//type QueryRef[Domain]
+
 	/**
 	  * Creates a new remote link.
 	  * @param relation The relation on the remote location.
@@ -54,15 +62,21 @@ trait RelationalAlgebraRemoteOperators
 		host : Host
     )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
-  def reclassification[Domain : Manifest] (
-    relation : Rep[Query[Domain]],
-    newColor : Color
-  )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+	def reclassification[Domain : Manifest] (
+	relation : Rep[Query[Domain]],
+	newColor : Color
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
 	def declassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
 		colors : Set[ColorId]
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+
+	def actorDef[Domain : Manifest](
+		actorPath : ActorPath,
+		host : Host
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+
 
 
 

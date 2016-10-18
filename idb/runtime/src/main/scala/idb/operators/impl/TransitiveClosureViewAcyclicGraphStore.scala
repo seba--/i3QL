@@ -59,8 +59,6 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
 
   private val graphOutgoingEdges = mutable.HashMap[Vertex, List[Edge]]()
 
-  lazyInitialize()
-
   private def transitiveClosureApplyForward[U](start: Vertex, f: (Vertex, Vertex) => U) {
     transitiveClosureRecurseForward(start, start, f)
   }
@@ -131,7 +129,7 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
     throw new UnsupportedOperationException
   }
 
-  def foreach[T](f: ((Vertex, Vertex)) => T) {
+  override def foreach[T](f: ((Vertex, Vertex)) => T) {
     graphOutgoingEdges.keys.foreach(v =>
       transitiveClosureApplyForward[Unit](
         v,
@@ -168,13 +166,6 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
       graphOutgoingEdges.getOrElse(tail, return false).contains(edge)
   }
 
-  def lazyInitialize() {
-    source.foreach(addGraphEdge)
-  }
-
-  override def endTransaction() {
-    notify_endTransaction()
-  }
 
   def internal_add(edge: Edge): Seq[(Vertex, Vertex)] = {
     var added = Seq[(Vertex,Vertex)]()

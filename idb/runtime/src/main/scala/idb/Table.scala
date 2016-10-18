@@ -98,11 +98,7 @@ trait Table[V]
   }
 
 
-  def endTransaction() {
-    notify_endTransaction()
-  }
-
-  def foreach[T](f: (V) => T) {}
+  override def foreach[T](f: (V) => T) {}
 
   def foreachWithCount[T](f: (V, Int) => T) {}
 
@@ -112,9 +108,7 @@ trait Table[V]
 
   def size: Int = 0
 
-  def lazyInitialize() {}
-
-  def children() = Nil
+  override def children() = Nil
 
   override def prettyprint(implicit prefix: String) = prefix + this
 }

@@ -2,9 +2,9 @@ package idb.syntax.iql.compilation
 
 import akka.actor.{Actor, ActorRef, ActorSystem}
 import idb.Relation
-import idb.algebra.compiler.util.BoxedFunction
+import idb.algebra.compiler.util.{BoxedEquiJoin, BoxedFunction}
 import idb.observer.Observable
-import idb.operators.impl.{ProjectionView, SelectionView}
+import idb.operators.impl.{EquiJoinView, ProjectionView, SelectionView, UnNestView}
 import idb.remote._
 
 /**
@@ -23,7 +23,7 @@ class RemoteActor[T](var hosted: Relation[T] = null) extends Actor {
 			sender() ! true
 
 		case ResetMsg =>
-			if (hosted != null) hosted._reset()
+			if (hosted != null) hosted.reset()
 	}
 
 	def this() = this(null)
@@ -39,22 +39,20 @@ object RemoteActor {
 				remoteHost ! ForwardMsg(receive.receiveActor)
 
 			case r : SelectionView[_] =>
-				r.filter match {
-					case b@BoxedFunction(_) =>
-						b.compile(CompilerBinding)
-					case _ =>
-				}
-				r.children.foreach(child => forward(system, child))
+				BoxedFunction.compile(r.filter, CompilerBinding)
 
 			case r : ProjectionView[_, _] =>
-				r.projection match {
-					case b@BoxedFunction(_) =>
-						b.compile(CompilerBinding)
-					case _ =>
-				}
-				r.children.foreach(child => forward(system, child))
+				BoxedFunction.compile(r.projection, CompilerBinding)
 
-			case _ => rel.children.foreach(r => forward(system, r))
+			case r : BoxedEquiJoin[_, _] =>
+				r.compile(CompilerBinding)
+
+			case r : UnNestView[_, _] =>
+				BoxedFunction.compile(r.unNestFunction, CompilerBinding)
+
+			case _ =>
 		}
+
+		rel.children.foreach(r => forward(system, r))
 	}
 }

@@ -34,7 +34,6 @@ package idb.observer
 
 
 trait Observer[-V] {
-
   def updated(oldV: V, newV: V)
 
   def removed(v: V)
@@ -44,6 +43,4 @@ trait Observer[-V] {
   def added(v: V)
 
   def addedAll(vs: Seq[V])
-
-  def endTransaction()
 }

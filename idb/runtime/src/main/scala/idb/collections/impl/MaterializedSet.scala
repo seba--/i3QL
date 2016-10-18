@@ -45,10 +45,6 @@ class MaterializedSet[V](val relation: Relation[V])
 
   relation addObserver this
 
-  def endTransaction() {
-    notify_endTransaction()
-  }
-
   override def children() = List(relation)
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
@@ -57,13 +53,6 @@ class MaterializedSet[V](val relation: Relation[V])
     }
     Nil
   }
-
-  def lazyInitialize() {
-    relation.foreach(
-      v => add_element(v)
-    )
-  }
-
 
   def updated(oldV: V, newV: V) {
     update_element(oldV, newV)

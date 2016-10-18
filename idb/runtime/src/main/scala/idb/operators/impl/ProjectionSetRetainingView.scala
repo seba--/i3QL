@@ -62,14 +62,6 @@ class ProjectionSetRetainingView[Domain, Range](val relation: Relation[Domain],
     Nil
   }
 
-  override def lazyInitialize() {
-
-  }
-
-  override def endTransaction() {
-    notify_endTransaction()
-  }
-
   /**
    * Applies f to all elements of the view.
    */

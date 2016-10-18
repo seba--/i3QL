@@ -64,10 +64,6 @@ trait Index[K, V]
 
   def keyFunction: V => K
 
-  override def endTransaction() {
-    notify_endTransaction()
-  }
-
 
   override def children() = List(relation)
 
@@ -95,15 +91,6 @@ trait Index[K, V]
             }
         }
     }    */
-
-  // an index is lazy isInitialized by calling build
-  def lazyInitialize() {
-    relation.foreach(
-      v => {
-        put(keyFunction(v), v)
-      }
-    )
-  }
 
   /**
    * Returns the size of the view in terms of elements.

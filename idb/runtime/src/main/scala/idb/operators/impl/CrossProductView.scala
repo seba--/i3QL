@@ -21,10 +21,6 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 	private val leftSet : Multiset[DomainA] = ConcurrentHashMultiset.create()
 	private val rightSet : Multiset[DomainB] = ConcurrentHashMultiset.create()
 
-	override protected def lazyInitialize() {
-		/* do nothing */
-	}
-
 	override protected def resetInternal(): Unit = {
 		leftSet.clear()
 		rightSet.clear()
@@ -58,10 +54,6 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 
 	//TODO: Reactivate exceptions in remove and update
 	object LeftObserver extends Observer[DomainA] {
-
-		override def endTransaction() {
-			notify_endTransaction()
-		}
 
 		// update operations on left relation
 		override def updated(oldA: DomainA, newA: DomainA) {
@@ -126,10 +118,6 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 	}
 
 	object RightObserver extends Observer[DomainB] {
-
-		override def endTransaction() {
-			notify_endTransaction()
-		}
 
 		// update operations on right relation
 		override def updated(oldB: DomainB, newB: DomainB) {

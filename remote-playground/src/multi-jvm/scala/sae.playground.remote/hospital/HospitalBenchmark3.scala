@@ -167,7 +167,7 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				Console.out.println("Wait for warmup...")
 				Thread.sleep(waitForWarmup * 1000)
-				r._reset()
+				r.reset()
 				Console.out.println("Wait for reset...")
 				Thread.sleep(3000)
 

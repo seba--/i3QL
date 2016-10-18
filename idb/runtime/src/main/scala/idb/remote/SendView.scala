@@ -28,7 +28,4 @@ class SendView[Domain](val relation : Relation[Domain], val actor : ActorRef) ex
 
 	override def removedAll(vs: Seq[Domain]) =
 		actor ! RemovedAll(vs)
-
-	override def endTransaction() =
-		actor ! EndTransaction
 }

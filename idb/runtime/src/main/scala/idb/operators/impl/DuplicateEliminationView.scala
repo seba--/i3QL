@@ -54,12 +54,6 @@ class DuplicateEliminationView[Domain](val relation: Relation[Domain],
 
 	private val data: HashMultiset[Domain] = HashMultiset.create[Domain]()
 
-	lazyInitialize()
-
-
-	override def endTransaction() {
-		notify_endTransaction()
-	}
 
 	override protected def resetInternal(): Unit = {
 		data.clear()
@@ -73,11 +67,6 @@ class DuplicateEliminationView[Domain](val relation: Relation[Domain],
 		Nil
 	}
 
-	def lazyInitialize() {
-		relation.foreach(
-			t => data.add(t)
-		)
-	}
 
 	def foreach[U](f: Domain => U) {
 		val it = data.elementSet().iterator()

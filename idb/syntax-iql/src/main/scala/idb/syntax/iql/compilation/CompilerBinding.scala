@@ -90,7 +90,7 @@ case object CompilerBinding
 		import akka.pattern.ask //imports the ?
 		import scala.concurrent.duration._
 		//Long timeout because query compilation may take some time (on low-end machines)
-		implicit val timeout = Timeout(120 seconds)
+		implicit val timeout = Timeout(60 seconds)
 		val res = remoteHost ? HostMsg(compiledPartition)
 		Await.result(res, timeout.duration)
 

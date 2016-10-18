@@ -92,7 +92,6 @@ class TestVariances
             def added (v: TestVariances.this.type#Student) {}
             def addedAll (vs: Seq[TestVariances.this.type#Student]) {}
 
-            def endTransaction () {}
         })
 
         val o2: Observable[Person] = o1

@@ -32,6 +32,7 @@
  */
 package idb.algebra.ir
 
+import akka.actor.ActorPath
 import idb.algebra.base.{RelationalAlgebraBasicOperators, RelationalAlgebraRemoteOperators}
 import idb.query.{Host, QueryEnvironment}
 import idb.query.colors.{Color, ColorId}
@@ -46,7 +47,7 @@ trait RelationalAlgebraIRRemoteOperators
     extends RelationalAlgebraIRBase with RelationalAlgebraRemoteOperators
 {
     case class Remote[Domain : Manifest] (
-        var relation: Rep[Query[Domain]],
+        relation: Rep[Query[Domain]],
 		host : Host
     ) extends Def[Query[Domain]] with QueryBaseOps {
 		override def isMaterialized: Boolean = relation.isMaterialized
@@ -58,7 +59,7 @@ trait RelationalAlgebraIRRemoteOperators
     }
 
 	case class Reclassification[Domain : Manifest] (
-		var relation : Rep[Query[Domain]],
+		relation : Rep[Query[Domain]],
 		newColor : Color
 	) extends Def[Query[Domain]] with QueryBaseOps {
 		override def isMaterialized: Boolean = relation.isMaterialized
@@ -70,7 +71,7 @@ trait RelationalAlgebraIRRemoteOperators
 	}
 
 	case class Declassification[Domain : Manifest] (
-		var relation : Rep[Query[Domain]],
+		relation : Rep[Query[Domain]],
 		colors : Set[ColorId]
 	) extends Def[Query[Domain]] with QueryBaseOps {
 		override def isMaterialized: Boolean = relation.isMaterialized
@@ -79,6 +80,17 @@ trait RelationalAlgebraIRRemoteOperators
 
 		override def color = relation.color - colors
 		override def host = relation.host
+	}
+
+	case class ActorDef[Domain : Manifest] (
+		actorPath : ActorPath,
+		host : Host
+	) extends Def[Query[Domain]] with QueryBaseOps {
+		override def isMaterialized: Boolean = false
+		override def isSet = false
+		override def isIncrementLocal = false
+
+		override def color = Color.NO_COLOR
 	}
 
 
@@ -100,6 +112,12 @@ trait RelationalAlgebraIRRemoteOperators
 		colors : Set[ColorId]
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
 		Declassification(relation, colors)
+
+	override def actorDef[Domain : Manifest](
+		actorPath : ActorPath,
+		host : Host
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+		ActorDef[Domain](actorPath, host)
 
 
 

@@ -14,10 +14,6 @@ class CountingObserver extends Observer[Any] {
     _dataCount += 2
   }
 
-  override def endTransaction() = {
-    _msgCount += 1
-  }
-
   override def removed(v: V) = {
     _msgCount += 1
     _dataCount += 1

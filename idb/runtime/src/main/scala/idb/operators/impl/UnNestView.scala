@@ -48,13 +48,6 @@ class UnNestView[Domain, Range](
 
   relation.addObserver(this)
 
-  override def lazyInitialize() {
-
-  }
-
-  override def endTransaction() {
-    notify_endTransaction()
-  }
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == relation) {

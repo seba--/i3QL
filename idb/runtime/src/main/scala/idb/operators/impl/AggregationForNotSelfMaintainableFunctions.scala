@@ -51,12 +51,6 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     val groups = mutable
         .Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
-    // aggregation need to be isInitialized for update and remove events
-    lazyInitialize ()
-
-    override def endTransaction () {
-        notify_endTransaction ()
-    }
 
 	override protected def resetInternal(): Unit = ???
 
@@ -68,20 +62,11 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
     }
 
 
-    /**
-     *
-     */
-    def lazyInitialize () {
-        source.foreach ((v: Domain) => {
-            intern_added (v)
-        })
-
-    }
 
     /**
      *
      */
-    def foreach[T] (f: (Result) => T) {
+    override def foreach[T] (f: (Result) => T) {
         groups.foreach (x => f (x._2._3))
     }
 

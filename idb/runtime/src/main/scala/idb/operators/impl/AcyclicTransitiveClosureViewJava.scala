@@ -76,7 +76,7 @@ class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
     // (u,v)(w, v)
     // (v, x)
 
-    lazyInitialize ()
+
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == source) {
@@ -140,12 +140,6 @@ class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
         })
     }
 
-
-    def lazyInitialize() {
-        source.foreach (
-            x => internal_add (x)
-        )
-    }
 
 
     private def transitiveClosureGet(v: Vertex) = {
@@ -328,7 +322,4 @@ class AcyclicTransitiveClosureViewJava[Edge, Vertex](val source: Relation[Edge],
 
     override def resetInternal(): Unit = ???
 
-	override def endTransaction() {
-		notify_endTransaction()
-	}
 }

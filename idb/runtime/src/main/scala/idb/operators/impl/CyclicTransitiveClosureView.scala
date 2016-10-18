@@ -69,8 +69,6 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 	private val sccRepresentatives = mutable.HashMap[Vertex, Vertex]()
 
 
-	lazyInitialize()
-
 	private def descendants(v: Vertex): mutable.HashSet[Vertex] = {
 		if (nonSCCDescendants.isDefinedAt(v))
 			return nonSCCDescendants(v)
@@ -143,7 +141,7 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 		}
 	}
 
-	def foreach[T](f: ((Vertex, Vertex)) => T) {
+	override def foreach[T](f: ((Vertex, Vertex)) => T) {
 		for ((start, descendants) <- transitiveClosure) {
 			for (end <- descendants) {
 				f(start, end)
@@ -160,9 +158,6 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 	}
 
 
-	def lazyInitialize() {
-		source.foreach(edge => computeAdditions(edge))
-	}
 
 	/**
 	 * create an SCC for the start vertex, by removing all entries of the SCC from transitive closure
@@ -466,7 +461,4 @@ class CyclicTransitiveClosureView[Edge, Vertex](val source: Relation[Edge],
 	def size: Int =
 		throw new UnsupportedOperationException
 
-	def endTransaction() {
-		notify_endTransaction()
-	}
 }

@@ -52,10 +52,6 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
 
     right addObserver RightObserver
 
-	override def lazyInitialize() {
-
-	}
-
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
             return List (LeftObserver)
@@ -89,9 +85,6 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
     object LeftObserver extends Observer[Domain]
     {
 
-		override def endTransaction() {
-			notify_endTransaction()
-		}
 
         /**
          * We have just added to left (left.count(v) >= 1).
@@ -146,9 +139,6 @@ class IntersectionView[Domain](val left: MaterializedView[Domain],
     object RightObserver extends Observer[Domain]
     {
 
-		override def endTransaction() {
-			notify_endTransaction()
-		}
 
         /**
          * We have just added to right (right.count(v) >= 1).

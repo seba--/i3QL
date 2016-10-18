@@ -59,7 +59,7 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 
 	//override protected def children = List(leftIndex, rightIndex)
 
-	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+	override def childObservers(o: Observable[_]): Seq[Observer[_]] = {
 		if (o == leftIndex) {
 			return List(LeftObserver)
 		}
@@ -69,9 +69,9 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 		Nil
 	}
 
-	override protected def resetInternal(): Unit = {
-		leftIndex._reset()
-		rightIndex._reset()
+	override def resetInternal(): Unit = {
+		leftIndex.reset()
+		rightIndex.reset()
 	}
 
 
@@ -125,9 +125,6 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 
 	object LeftObserver extends Observer[(Key, DomainA)] {
 
-		override def endTransaction() {
-			notify_endTransaction()
-		}
 
 		// update operations on left relation
 		def updated(oldKV: (Key, DomainA), newKV: (Key, DomainA)) {
@@ -218,9 +215,6 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 
 	object RightObserver extends Observer[(Key, DomainB)] {
 
-		override def endTransaction() {
-			notify_endTransaction()
-		}
 
 		// update operations on right relation
 		def updated(oldKV: (Key, DomainB), newKV: (Key, DomainB)) {
@@ -311,20 +305,21 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 
 	}
 
-	protected def lazyInitialize() {}
 }
 
 object EquiJoinView {
-	def apply[DomainA, DomainB](left: Relation[DomainA],
-								right: Relation[DomainB],
-								leftEq: Seq[(DomainA => Any)],
-								rightEq: Seq[(DomainB => Any)],
-								isSet: Boolean): Relation[(DomainA, DomainB)] = {
+
+	def apply[DomainA, DomainB](
+		left: Relation[DomainA],
+		right: Relation[DomainB],
+		leftEq: Seq[(DomainA => Any)],
+		rightEq: Seq[(DomainB => Any)],
+		isSet: Boolean
+	): EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]] = {
 
 		val leftKey: DomainA => Seq[Any] = x => leftEq.map( f => f(x))
 		val rightKey: DomainB => Seq[Any] = x => rightEq.map( f => f(x))
 
-    // TODO why materialize the left and right relations?
 		val leftMaterialized = left //if (left.isInstanceOf[MaterializedView[DomainA]]) left else left.asMaterialized
 		val rightMaterialized = right //if (right.isInstanceOf[MaterializedView[DomainA]]) right else right.asMaterialized
 

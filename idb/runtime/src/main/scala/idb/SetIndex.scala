@@ -10,7 +10,6 @@ class SetIndex[K, V](val relation: Relation[V],
 	val isSet = true
 	private val map = com.google.common.collect.ArrayListMultimap.create[K, V]()
 
-	lazyInitialize ()
 
 	def foreachKey[U](f: (K) => U) {
 		val it = map.keys ().iterator ()

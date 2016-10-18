@@ -35,14 +35,10 @@ package idb.algebra.compiler
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.{FunctionUtils, ScalaCodegenExt}
 import idb.operators.impl._
-import idb.operators.impl.opt._
 import idb.query.QueryEnvironment
 
 import scala.virtualization.lms.common._
-import idb.MaterializedView
-import idb.algebra.compiler.util.BoxedFunction
-import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
+import idb.algebra.compiler.util.{BoxedEquiJoin, BoxedFunction}
 
 /**
  *
@@ -75,29 +71,33 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
 				new ProjectionView (compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false)
 
 			case Def (e@CrossProduct (a, b)) =>
-				if (e.isIncrementLocal)
-					TransactionalCrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]
-                else
-					CrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]
-			case Def (e@EquiJoin (a, b, eq)) => {
-				if (e.isIncrementLocal)
-					TransactionalEquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
-						eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
-				else
-                	EquiJoinView (compile (a), compile (b), eq.map ((x) => compileFunctionWithDynamicManifests (x._1)),
-                    	eq.map ((x) => compileFunctionWithDynamicManifests (x._2)), false).asInstanceOf[Relation[Domain]]
-            }
+				CrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]
 
-			case Def (e@DuplicateElimination (a)) => {
-				if(e.isIncrementLocal)
-					new TransactionalDuplicateEliminationView (compile (a), false)
-				else
-					new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
-			}
+			case Def (e@EquiJoin (a, b, eq)) =>
+				val relA = compile (a)
+				val relB = compile (b)
 
-			case Def (Unnest (r, f)) => {
-				UnNestView(compile (r), compileFunctionWithDynamicManifests(f), false).asInstanceOf[Relation[Domain]]
-			}
+				BoxedEquiJoin(
+					relA,
+					relB,
+					eq.map ((x) => BoxedFunction(functionToScalaCodeWithDynamicManifests(x._1))),
+					eq.map ((x) => BoxedFunction(functionToScalaCodeWithDynamicManifests(x._2))),
+					false
+				).asInstanceOf[Relation[Domain]]
+
+//					EquiJoinView (, , ),
+//						, false)
+
+
+
+
+			case Def (e@DuplicateElimination (a)) =>
+				new DuplicateEliminationView(compile (a), false).asInstanceOf[Relation[Domain]]
+
+
+			case Def (Unnest (r, f)) =>
+				UnNestView(compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false).asInstanceOf[Relation[Domain]]
+
 
 
 

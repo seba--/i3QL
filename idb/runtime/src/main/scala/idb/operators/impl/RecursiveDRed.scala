@@ -97,10 +97,6 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
   // delete supports
   private var rederivations: Seq[Domain] = Seq()
 
-  override def lazyInitialize() {
-
-  }
-
   override protected def resetInternal(): Unit = ???
 
   def added(v: Domain) {
@@ -264,20 +260,6 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
       removed(oldV)
       added(newV)
     }
-  }
-
-
-  var isNotifyingEndTransaction = false
-
-  override def endTransaction() {
-    if (transactional) {
-      supportedElements = mutable.HashMap.empty
-    }
-    if (!isNotifyingEndTransaction) {
-      isNotifyingEndTransaction = true
-      notify_endTransaction()
-    }
-    isNotifyingEndTransaction = false
   }
 }
 

@@ -101,11 +101,6 @@ trait NotifyObservers[V] {
     observers.foreach(_.updated(oldV, newV))
   }
 
-  protected def notify_endTransaction() {
-    observers.foreach(_.endTransaction())
-  }
-
-
   def printed[T](size: Int, obs: Any)(f: => T): T = {
     if (!DEBUG)
       f

@@ -58,10 +58,6 @@ case class ProjectionView[Domain, Range] (
     relation addObserver this
 
 
-    protected def lazyInitialize () {
-        /* do nothing */
-    }
-
 
     override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
         if (o == relation) {
@@ -74,10 +70,6 @@ case class ProjectionView[Domain, Range] (
 
     }
 
-
-    override def endTransaction () {
-        notify_endTransaction ()
-    }
 
     /**
      * Applies f to all elements of the view.

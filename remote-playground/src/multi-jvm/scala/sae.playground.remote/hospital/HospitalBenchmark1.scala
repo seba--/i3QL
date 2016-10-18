@@ -32,8 +32,8 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	override val benchmarkName = "hospital1"
 
-	val warmupIterations = 10000
-	val measureIterations = 30000
+	val warmupIterations = 1
+	val measureIterations = 5
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -162,7 +162,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				Console.out.println("Wait for warmup...")
 				Thread.sleep(waitForWarmup * 1000)
-				r._reset()
+				r.reset()
 				Console.out.println("Wait for reset...")
 				Thread.sleep(3000)
 

@@ -54,10 +54,6 @@ class WaitingTransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: R
 
     override def children() = List (left, right)
 
-	override def lazyInitialize() {
-
-	}
-
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
         if (o == left) {
             return List (LeftObserver)
@@ -144,23 +140,6 @@ class WaitingTransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: R
 
     object LeftObserver extends TransactionKeyValueObserver[Key, DomainA]
     {
-
-        override def endTransaction() {
-            // println (this + ".endTransaction() with " + observers)
-            // println ("waiting : " + !rightFinished)
-
-            leftFinished = true
-            if (rightFinished) {
-                doJoinAndCleanup ()
-
-                notify_endTransaction ()
-
-
-                leftFinished = false
-                rightFinished = false
-            }
-        }
-
         def keyFunc = leftKey
 
         override def toString: String = WaitingTransactionalEquiJoinView.this.toString + "$LeftObserver"
@@ -168,21 +147,6 @@ class WaitingTransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: R
 
     object RightObserver extends TransactionKeyValueObserver[Key, DomainB]
     {
-
-        override def endTransaction() {
-            //  println(this + ".endTransaction() with " + observers)
-            //  println("waiting : " + !leftFinished)
-
-            rightFinished = true
-            if (leftFinished) {
-                doJoinAndCleanup ()
-                notify_endTransaction ()
-
-                leftFinished = false
-                rightFinished = false
-            }
-        }
-
         def keyFunc = rightKey
 
         override def toString: String = WaitingTransactionalEquiJoinView.this.toString + "$RightObserver"

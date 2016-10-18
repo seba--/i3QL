@@ -79,5 +79,5 @@ class BenchmarkEvaluator[T](
 		vs foreach handleEvent
 	}
 
-	override def endTransaction(): Unit = ???
+
 }

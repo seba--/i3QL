@@ -57,11 +57,6 @@ case class SelectionView[Domain](
   relation addObserver this
 
 
-  protected def lazyInitialize() {
-    /* do nothing */
-  }
-
-
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == relation) {
       return List(this)
@@ -71,11 +66,6 @@ case class SelectionView[Domain](
 
   override protected def resetInternal(): Unit = {
 
-  }
-
-
-  override def endTransaction() {
-    notify_endTransaction()
   }
 
   /**

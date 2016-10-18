@@ -83,11 +83,11 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 				val parentHost = host
 
 				parentHost match {
-					case LocalHost =>
+					case LocalHost => ???
 						//TODO: Send to local host
 						compile(r)
 
-					case NamedHost(_) =>
+					case NamedHost(_) => ???
 						//TODO: Send to local host
 						compile(r)
 
@@ -102,6 +102,13 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 
 			case Def (Reclassification(r, _)) =>
 				compile (r)
+
+            case Def (ActorDef (path, host)) =>
+	            host match {
+		            case RemoteHost(name, hostPath) =>
+			            ReceiveView[Domain](queryEnvironment.system, path)
+	            }
+
 
             case _ => super.compile (query)
         }

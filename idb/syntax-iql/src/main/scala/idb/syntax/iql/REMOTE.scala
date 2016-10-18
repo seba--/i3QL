@@ -20,12 +20,14 @@ object REMOTE {
 	def GET[Domain : Manifest](host : RemoteHost, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
 		val remoteHostPath: ActorPath = host.path / "user" / id
 
-		//FIXME: This should be changed to not be added on the compiling node
-		relation[Domain](
-			ReceiveView[Domain](queryEnvironment.system, remoteHostPath, false),
-			color = color,
-			host = host
-		)
+		actorDef[Domain](remoteHostPath, host)
+
+//		//FIXME: This should be changed to not be added on the compiling node
+//		relation[Domain](
+//			ReceiveView[Domain](queryEnvironment.system, remoteHostPath, false),
+//			color = color,
+//			host = host
+//		)
 	}
 
 }
