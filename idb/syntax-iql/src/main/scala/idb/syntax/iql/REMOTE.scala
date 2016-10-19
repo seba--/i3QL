@@ -1,11 +1,11 @@
 package idb.syntax.iql
 
-import akka.actor.{ActorPath, ActorRef, Props}
+import akka.actor.{ActorPath, ActorRef}
 import idb.query.colors.Color
-import idb.{BagTable, Table}
-import idb.query.{Host, QueryEnvironment, RemoteHost}
-import idb.remote.RelationActor
+import idb.query.{QueryEnvironment, RemoteHost}
+import idb.remote
 import idb.syntax.iql.IR._
+
 
 /**
   * Created by Mirko on 06.09.2016.
@@ -13,20 +13,12 @@ import idb.syntax.iql.IR._
 object REMOTE {
 
 	def DEFINE[V](table : Relation[V], id : String)(implicit queryEnvironment : QueryEnvironment) : ActorRef = {
-		queryEnvironment.system.actorOf(Props(classOf[RelationActor[_]], table), id)
+		idb.remote.create(queryEnvironment.system)(id, table)
 	}
 
-	def GET[Domain : Manifest](host : RemoteHost, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
-		val remoteHostPath: ActorPath = host.path / "user" / id
-
-		actorDef[Domain](remoteHostPath, host)
-
-//		//FIXME: This should be changed to not be added on the compiling node
-//		relation[Domain](
-//			ReceiveView[Domain](queryEnvironment.system, remoteHostPath, false),
-//			color = color,
-//			host = host
-//		)
+	def GET[Domain : Manifest](host : ActorPath, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Relation[Domain] = {
+		val remoteHostPath: ActorPath = host / "user" / id
+		idb.remote.from[Int](remoteHostPath)
 	}
 
 }
