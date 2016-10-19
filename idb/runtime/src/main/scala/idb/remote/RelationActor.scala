@@ -19,11 +19,10 @@ class RelationActor[Domain](
 
 	override def receive: Receive = {
 		case SendTo(ref) =>
-			println(s"RELATIONACTOR:SendTo($ref)")
+			println(s"[RelationActor] Adding link: ${this.self.path} ---> ${ref.path}")
 			registeredActors += ref
-			println(registeredActors)
 		case Initialize =>
-			println("RELATIONACTOR:Initialize")
+			println(s"[RelationActor] Initialize ${this.self}")
 			initialize(relation)
 	}
 
@@ -31,8 +30,8 @@ class RelationActor[Domain](
 	private def initialize(r : Relation[_]): Unit = {
 		r match {
 			case recv : RemoteReceiver[_] =>
-				println("RELATIONACTOR:Deploy RemoteReceiver")
-				recv.deploy(context.system)
+				val ref = recv.deploy(context.system)
+				println(s"[RelationActor] Deployed $ref on ${this.self}")
 			case _ =>
 		}
 

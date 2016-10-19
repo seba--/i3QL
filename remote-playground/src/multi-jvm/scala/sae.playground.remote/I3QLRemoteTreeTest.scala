@@ -3,7 +3,7 @@ package sae.playground.remote
 import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.BagTable
+import idb.{BagTable, remote}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.operators.impl.{ProjectionView, SelectionView}
@@ -41,18 +41,15 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 			runOn(node1) {
 				// will run the Table and the Selection (sent from node2)
-
-				//system.actorOf(Props(classOf[ObservableHost[Int]], db), "db") // TODO: provide easier way to create a remotely observable data source
-				import idb.syntax.iql._
-
 				val db = BagTable.empty[Int]
-//				env.system.actorOf(Props(classOf[LinkActor[Int]], db), "db")
+				val ref = remote.create(system)("db", db)
 
 				enterBarrier("deployed")
+				println("### DEPLOYED ###")
 
 				enterBarrier("sending")
-				Thread.sleep(100) // wait until ObservableHost has its observer registered
-				println("has observers: " + db.hasObservers+ ", sending now ...")
+				println("### SENDING ###")
+
 
 				db += 1
 				db += 2
@@ -65,10 +62,12 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 			runOn(node2) {
 				// will send the Selection to node 1 and receive the final results
 				enterBarrier("deployed")
+				println("### DEPLOYED ###")
 
-				import idb.Relation
+				val remoteHostPath: ActorPath = node(node1) / "user" / "db"
+				val table = remote.from[Int](remoteHostPath)
 
-//				//FIXME: Why do we have to explicitly specify the type here?
+				//				//FIXME: Why do we have to explicitly specify the type here?
 //				val table  = ReceiveView[Int](env.system, node(node1) / "user" / "db", false)
 //				//		REMOTE FROM[Int] (host1, "db", Color("red"))
 //
@@ -118,6 +117,8 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 //				)    */
 //
 //				new RemoteSender[Int](relation, testActor)
+
+				Thread.sleep(100) // wait until ObservableHost has its observer registered
 
 				enterBarrier("sending")
 

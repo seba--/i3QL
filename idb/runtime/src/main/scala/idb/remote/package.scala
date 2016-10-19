@@ -2,7 +2,7 @@ package idb
 
 import akka.actor.{ActorPath, ActorRef, ActorSystem, Deploy, Props}
 import akka.remote.RemoteScope
-import idb.remote.receive.{PathRemoteReceiver, RemoteReceiver}
+import idb.remote.receive.{PathRemoteReceiver, RefRemoteReceiver, RemoteReceiver}
 
 import scala.concurrent.duration.FiniteDuration
 import scala.concurrent.duration._
@@ -34,20 +34,26 @@ package object remote {
 		system.actorOf(Props(classOf[RelationActor[_]], relation), id)
 	}
 
-	def from[Domain](system : ActorSystem)(path : ActorPath, timeout : FiniteDuration = 10 seconds) : RemoteReceiver[Domain] = {
-//		val actorSelection = system.actorSelection(path).resolveOne(timeout)
-//		val actorRef = Await.result(actorSelection, timeout)
-
+	def from[Domain](path : ActorPath) : RemoteReceiver[Domain] = {
 		PathRemoteReceiver[Domain](path)
 	}
 
-	def fromWithDeploy[Domain](system : ActorSystem)(path : ActorPath, timeout : FiniteDuration = 10 seconds) : RemoteReceiver[Domain] = {
-//		val actorSelection = system.actorSelection(path).resolveOne(timeout)
-//		val actorRef = Await.result(actorSelection, timeout)
-
-		val r = PathRemoteReceiver[Domain](path)
+	def fromWithDeploy[Domain](system : ActorSystem, path : ActorPath) : RemoteReceiver[Domain] = {
+		val r = from[Domain](path)
 		r.deploy(system)
 		r
 	}
+
+	def from[Domain](ref : ActorRef) : RemoteReceiver[Domain] = {
+		RefRemoteReceiver[Domain](ref)
+	}
+
+	def fromWithDeploy[Domain](system : ActorSystem, ref : ActorRef) : RemoteReceiver[Domain] = {
+		val r = from[Domain](ref)
+		r.deploy(system)
+		r
+	}
+
+
 
 }

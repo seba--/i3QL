@@ -28,7 +28,7 @@ case class PrintRows[Domain](relation : Relation[Domain], tag : String = null) e
 		println(s"$prefix addedAll $vs")
 
 
-	val sdf = new SimpleDateFormat("hh:mm:ss,SSS")
+	val sdf = new SimpleDateFormat("hh:mm:ss.SSS")
 	private def prefix : String = {
 		val tagString = if (tag != null) s"[$tag]" else ""
 		s"[${sdf.format(new Date())}]$tagString:"
