@@ -33,19 +33,11 @@
 package idb.algebra.compiler
 
 import akka.actor.{Actor, ActorPath, ActorRef, ActorSystem, Deploy, Props}
-import akka.remote.RemoteScope
-import akka.util.Timeout
-import idb.algebra.compiler.util.BoxedFunction
 import idb.algebra.exceptions.{NoServerAvailableException, UnknownHostDeployException}
 import idb.algebra.ir._
 import idb.lms.extensions.ScalaCodegenExt
-import idb.observer.Observable
-import idb.operators.impl._
-import idb.operators.impl.opt._
-import idb.query._
-import idb.remote._
 
-import scala.concurrent.Await
+import idb.query._
 import scala.virtualization.lms.common._
 import scala.language.postfixOps
 
@@ -106,7 +98,8 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
             case Def (ActorDef (path, host)) =>
 	            host match {
 		            case RemoteHost(name, hostPath) =>
-			            ReceiveView[Domain](queryEnvironment.system, path)
+			            null
+			            //ReceiveView[Domain](queryEnvironment.system, path)
 	            }
 
 

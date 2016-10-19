@@ -13,7 +13,6 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
-import idb.syntax.iql.compilation.RemoteActor
 import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
 
@@ -160,13 +159,13 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				//Compile the LMS tree and then materialize for further testing purposes
 				val r : Relation[_] = q
-				RemoteActor.forward(system, r) //TODO: Add this to ROOT
+//				LinkActor.forward(system, r) //TODO: Add this to ROOT
 				val relation = r.asMaterialized
 				//Print the runtime class representation
 				Predef.println(relation.prettyprint(" "))
 
 				//Add observer for testing purposes
-				new SendView(relation, testActor)
+				//new RemoteSender(relation, testActor)
 
 
 				enterBarrier("compiled")

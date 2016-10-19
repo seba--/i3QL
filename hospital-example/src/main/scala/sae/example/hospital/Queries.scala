@@ -6,7 +6,6 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.observer.Observer
 import idb.query.colors.{Color, StringColor}
 import idb.query.{LocalHost, QueryEnvironment, RemoteHost}
-import idb.remote.ReceiveView$
 import idb.syntax.iql.DISTINCT
 import sae.example.hospital.data.Patient
 import sae.example.hospital.data.Person

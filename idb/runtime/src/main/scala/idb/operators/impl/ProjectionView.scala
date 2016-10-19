@@ -47,9 +47,9 @@ import idb.Relation
  *
  */
 case class ProjectionView[Domain, Range] (
-    val relation: Relation[Domain],
-    val projection: Domain => Range,
-    val isSet: Boolean
+    relation: Relation[Domain],
+    projection: Domain => Range,
+    isSet: Boolean
 )
     extends Projection[Domain, Range]
     with Observer[Domain]

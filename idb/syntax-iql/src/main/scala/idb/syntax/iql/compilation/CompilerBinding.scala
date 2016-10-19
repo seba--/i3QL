@@ -42,7 +42,6 @@ import idb.lms.extensions.{ScalaGenDateOps, ScalaGenFlightOps}
 import scala.virtualization.lms.common._
 import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenOptionOps, ScalaGenSeqOpsExt, ScalaGenStringOpsExt}
 import idb.query.QueryEnvironment
-import idb.remote.{HostMsg, ReceiveView}
 
 import scala.concurrent.Await
 import scala.language.postfixOps
@@ -79,21 +78,22 @@ case object CompilerBinding
 
 
 	override def compileRemote[Domain](partition: IR.Rep[IR.Query[Domain]], path: ActorPath)(implicit queryEnvironment: QueryEnvironment): IR.Relation[Domain] = {
-		val compiledPartition = compile (partition)
-		val remoteAddr = path.address
-
-		val remoteHost = queryEnvironment.system.actorOf(Props(classOf[RemoteActor[Domain]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
-
-		val receive = new ReceiveView[Domain](remoteHost, compiledPartition.isSet)
-
-		// synchronize Host message
-		import akka.pattern.ask //imports the ?
-		import scala.concurrent.duration._
-		//Long timeout because query compilation may take some time (on low-end machines)
-		implicit val timeout = Timeout(60 seconds)
-		val res = remoteHost ? HostMsg(compiledPartition)
-		Await.result(res, timeout.duration)
-
-		receive
+//		val compiledPartition = compile (partition)
+//		val remoteAddr = path.address
+//
+//		val remoteHost = queryEnvironment.system.actorOf(Props(classOf[LinkActor[Domain]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
+//
+//		val receive = new ReceiveView[Domain](remoteHost, compiledPartition.isSet)
+//
+//		// synchronize Host message
+//		import akka.pattern.ask //imports the ?
+//		import scala.concurrent.duration._
+//		//Long timeout because query compilation may take some time (on low-end machines)
+//		implicit val timeout = Timeout(60 seconds)
+//		val res = remoteHost ? HostMsg(compiledPartition)
+//		Await.result(res, timeout.duration)
+//
+//		receive
+		???
 	}
 }

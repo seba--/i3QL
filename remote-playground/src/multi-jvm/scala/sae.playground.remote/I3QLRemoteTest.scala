@@ -14,8 +14,6 @@ import idb.remote._
 import idb.query._
 import idb.query.colors._
 import idb.syntax.iql.RECLASS
-import idb.syntax.iql.compilation.RemoteActor
-
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
@@ -101,7 +99,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				Predef.println(printer.quoteRelation(q3))
 
 				val r : Relation[_] = q3
-				RemoteActor.forward(system, r)
+//				LinkActor.forward(system, r)
 				val relation = r.asMaterialized
 
 				Predef.println(relation.prettyprint(" "))
@@ -126,7 +124,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				)    */
 
 				//ObservableHost.forward(tree, system) // FIXME: always call this on the root node after tree construction (should happen automatically)
-				new SendView(relation, testActor)
+				//new RemoteSender(relation, testActor)
 
 				enterBarrier("sending")
 

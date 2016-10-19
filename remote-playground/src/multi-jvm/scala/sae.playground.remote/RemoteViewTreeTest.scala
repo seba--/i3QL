@@ -1,12 +1,11 @@
 package sae.playground.remote
 
-import akka.actor.{Address, ActorPath, Props}
+import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.BagTable
 import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.remote._
-import idb.syntax.iql.compilation.RemoteActor
 
 
 class RemoteViewTreeTestMultiJvmNode1 extends RemoteViewTreeTest
@@ -29,7 +28,7 @@ with STMultiNodeSpec with ImplicitSender {
         // will run the Table and the Selection (sent from node2)
         val db = BagTable.empty[Int]
 
-        system.actorOf(Props(classOf[RemoteActor[Int]], db), "db") // TODO: provide easier way to create a remotely observable data source
+//        system.actorOf(Props(classOf[LinkActor[Int]], db), "db") // TODO: provide easier way to create a remotely observable data source
         enterBarrier("deployed")
 
         enterBarrier("sending")
@@ -52,32 +51,32 @@ with STMultiNodeSpec with ImplicitSender {
         val fun: Int => Boolean = i => (i % 2) == 0
 
         // data flows from node1 (Table) -> node2 -> node1 -> node2
-        val tree = ReceiveView(
-          system,
-          node(node1).address,
-          new ProjectionView(
-            ReceiveView(
-              system,
-              node(node2).address,
-              new SelectionView(
-                ReceiveView[Int](system, remoteHostPath, false),
-                (i : Int) => (i % 2) == 0,
-                false
-              )
-            ),
-            (n:Int) => { n.toString * 2 },
-            false
-          )
-        )
-
-        RemoteActor.forward(system, tree) // FIXME: always call this on the root node after tree construction (should happen automatically)
-        new SendView[String](tree, testActor)
-
-        enterBarrier("sending")
-
-        Predef.println("SENDING....")
-        Predef.println(tree.prettyprint(" "))
-        Predef.println("...")
+//        val tree = ReceiveView(
+//          system,
+//          node(node1).address,
+//          new ProjectionView(
+//            ReceiveView(
+//              system,
+//              node(node2).address,
+//              new SelectionView(
+//                ReceiveView[Int](system, remoteHostPath, false),
+//                (i : Int) => (i % 2) == 0,
+//                false
+//              )
+//            ),
+//            (n:Int) => { n.toString * 2 },
+//            false
+//          )
+//        )
+//
+//        LinkActor.forward(system, tree) // FIXME: always call this on the root node after tree construction (should happen automatically)
+//        new RemoteSender[String](tree, testActor)
+//
+//        enterBarrier("sending")
+//
+//        Predef.println("SENDING....")
+//        Predef.println(tree.prettyprint(" "))
+//        Predef.println("...")
 
         import scala.concurrent.duration._
         expectMsg(10.seconds, Added("22"))

@@ -16,7 +16,6 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
-import idb.syntax.iql.compilation.RemoteActor
 import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
 

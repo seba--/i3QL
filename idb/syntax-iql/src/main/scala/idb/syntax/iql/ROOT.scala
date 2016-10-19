@@ -3,7 +3,6 @@ package idb.syntax.iql
 import idb.query.{Host, QueryEnvironment}
 import idb.query.colors.Color
 import idb.syntax.iql.IR._
-import idb.syntax.iql.compilation.RemoteActor
 
 /**
  * @author Mirko Köhler
@@ -21,7 +20,7 @@ object ROOT {
 	)(implicit queryEnvironment : QueryEnvironment) : Relation[Domain] = {
 		val q = root(relation, host)
 		val r = compile(q)
-		RemoteActor.forward(queryEnvironment.system, r)
+		//LinkActor.forward(queryEnvironment.system, r)
 		r
 	}
 

@@ -4,9 +4,8 @@ import akka.actor.{ActorPath, ActorRef, Props}
 import idb.query.colors.Color
 import idb.{BagTable, Table}
 import idb.query.{Host, QueryEnvironment, RemoteHost}
-import idb.remote.ReceiveView
+import idb.remote.RelationActor
 import idb.syntax.iql.IR._
-import idb.syntax.iql.compilation.RemoteActor
 
 /**
   * Created by Mirko on 06.09.2016.
@@ -14,7 +13,7 @@ import idb.syntax.iql.compilation.RemoteActor
 object REMOTE {
 
 	def DEFINE[V](table : Relation[V], id : String)(implicit queryEnvironment : QueryEnvironment) : ActorRef = {
-		queryEnvironment.system.actorOf(Props(classOf[RemoteActor[V]], table), id)
+		queryEnvironment.system.actorOf(Props(classOf[RelationActor[_]], table), id)
 	}
 
 	def GET[Domain : Manifest](host : RemoteHost, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {

@@ -7,11 +7,7 @@ import akka.actor.Actor.Receive
 import akka.actor.{Actor, ActorPath, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.BagTable
-import idb.observer.Observer
-import idb.remote._
-import idb.operators.impl.SelectionView
-import idb.syntax.iql.compilation.RemoteActor
+
 
 // change the number of BenchmarkTestMultiJvmNode classes here (by disabling some of the nodes)
 // as well as the number of roles in BenchmarkConfig to configure the benchmark
@@ -56,78 +52,79 @@ with STMultiNodeSpec with ImplicitSender {
   "A RemoteView" must {
     "run this Benchmark" in {
       runOn(nodes(0)) {
-        val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream("benchmark.txt", true));
-        out.println("Running benchmark with " + BenchmarkConfig.nodes.size + " nodes ...")
+//        val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream("benchmark.txt", true));
+//        out.println("Running benchmark with " + BenchmarkConfig.nodes.size + " nodes ...")
+//
+//        val beforeInitTime = System.nanoTime()
+//
+//        val db = BagTable.empty[D]
+//
+//        system.actorOf(Props(classOf[LinkActor[D]], db), "db")
+//
+//        val remoteHostPath = node(nodes(0)) / "user" / "db"
+//
+//        var tree = ReceiveView[D](system, remoteHostPath, false)
+//        val selectionFun: D => Boolean = { case (idx, time) => true /*Util.isPrime(303029)*/ }
+//
+//        for (i <- 1 to BenchmarkConfig.nodes.size - 1) {
+//          tree = ReceiveView[D](system, node(nodes(i)).address, new SelectionView(tree, selectionFun, false))
+//        }
+//
+//        tree = ReceiveView[D](system, node(nodes(0)).address, tree)
+//
+//        LinkActor.forward(system, tree)
+//        tree.addObserver(new Observer[D] {
+//          override def added(v: D) = {
+//            val (idx, time) = v
+//            if (idx == 1) {
+//              val currentTime = System.nanoTime()
+//              val timeElapsed = (currentTime - time).toDouble / 1000 / 1000
+//              out.print(s"${"=" * 50}\n** Roundtrip time (first): $timeElapsed")
+//            } else if (idx == 10) {
+//              val currentTime = System.nanoTime()
+//              val timeElapsed = (currentTime - time).toDouble / 1000 / 1000
+//              out.println(s"\t (last) $timeElapsed\n${"=" * 50}")
+//            }
+//          }
+//          override def removed(v: D) = {}
+//          override def updated(oldV: D, newV: D) = {}
+//          override def addedAll(vs: Seq[D]) = {}
+//          override def removedAll(vs: Seq[D]) = {}
+//          override def endTransaction() = {}
+//        })
 
-        val beforeInitTime = System.nanoTime()
-
-        val db = BagTable.empty[D]
-
-        system.actorOf(Props(classOf[RemoteActor[D]], db), "db")
-
-        val remoteHostPath = node(nodes(0)) / "user" / "db"
-
-        var tree = ReceiveView[D](system, remoteHostPath, false)
-        val selectionFun: D => Boolean = { case (idx, time) => true /*Util.isPrime(303029)*/ }
-
-        for (i <- 1 to BenchmarkConfig.nodes.size - 1) {
-          tree = ReceiveView[D](system, node(nodes(i)).address, new SelectionView(tree, selectionFun, false))
-        }
-
-        tree = ReceiveView[D](system, node(nodes(0)).address, tree)
-
-        RemoteActor.forward(system, tree)
-        tree.addObserver(new Observer[D] {
-          override def added(v: D) = {
-            val (idx, time) = v
-            if (idx == 1) {
-              val currentTime = System.nanoTime()
-              val timeElapsed = (currentTime - time).toDouble / 1000 / 1000
-              out.print(s"${"=" * 50}\n** Roundtrip time (first): $timeElapsed")
-            } else if (idx == 10) {
-              val currentTime = System.nanoTime()
-              val timeElapsed = (currentTime - time).toDouble / 1000 / 1000
-              out.println(s"\t (last) $timeElapsed\n${"=" * 50}")
-            }
-          }
-          override def removed(v: D) = {}
-          override def updated(oldV: D, newV: D) = {}
-          override def addedAll(vs: Seq[D]) = {}
-          override def removedAll(vs: Seq[D]) = {}
-          override def endTransaction() = {}
-        })
-
-        new SendView[D](tree, testActor)
-        Thread.sleep(100) // wait until setup complete
-
-        val afterInitTime = System.nanoTime()
-        out.println(s"${"="*50}\n** Initialization time: ${((afterInitTime - beforeInitTime).toDouble / 1000 / 1000)}ms\n${"="*50}")
-
-        val currentTime = System.nanoTime()
-        var countWarmup = 0
-        // warmup for 10 seconds
-        while(System.nanoTime() < currentTime + 10*1000*1000*1000) {
-          db +=(-1, currentTime) // -1 is marker for warmup
-          countWarmup += 1
-          import scala.concurrent.duration._
-          expectMsg(50.seconds, Added((-1, currentTime)))
-        }
-        out.println(s"${"="*50}\n** Ran $countWarmup warmup iterations.\n${"="*50}")
-
-        for (i <- 1 to 100) {
-          val currentTime = System.nanoTime()
-          for (n <- 1 to 10) {
-            db += (n, currentTime)
-          }
-          import scala.concurrent.duration._
-          for (n <- 1 to 10) {
-            expectMsg(50.seconds, Added((n, currentTime)))
-          }
-        }
+//        new RemoteSender[D](tree, testActor)
+//        Thread.sleep(100) // wait until setup complete
+//
+//        val afterInitTime = System.nanoTime()
+//        out.println(s"${"="*50}\n** Initialization time: ${((afterInitTime - beforeInitTime).toDouble / 1000 / 1000)}ms\n${"="*50}")
+//
+//        val currentTime = System.nanoTime()
+//        var countWarmup = 0
+//        // warmup for 10 seconds
+//        while(System.nanoTime() < currentTime + 10*1000*1000*1000) {
+//          db +=(-1, currentTime) // -1 is marker for warmup
+//          countWarmup += 1
+//          import scala.concurrent.duration._
+//          expectMsg(50.seconds, Added((-1, currentTime)))
+//        }
+//        out.println(s"${"="*50}\n** Ran $countWarmup warmup iterations.\n${"="*50}")
+//
+//        for (i <- 1 to 100) {
+//          val currentTime = System.nanoTime()
+//          for (n <- 1 to 10) {
+//            db += (n, currentTime)
+//          }
+//          import scala.concurrent.duration._
+//          for (n <- 1 to 10) {
+//            expectMsg(50.seconds, Added((n, currentTime)))
+//          }
+//        }
+//      }
+//
+//      // needed to keep other hosts running
+//      enterBarrier("finished")
       }
-
-      // needed to keep other hosts running
-      enterBarrier("finished")
     }
   }
 }

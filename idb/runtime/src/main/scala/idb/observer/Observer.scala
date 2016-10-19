@@ -34,13 +34,13 @@ package idb.observer
 
 
 trait Observer[-V] {
-  def updated(oldV: V, newV: V)
+	def added(v: V)
 
-  def removed(v: V)
+	def addedAll(vs: Seq[V])
 
-  def removedAll(vs: Seq[V])
+	def updated(oldV: V, newV: V)
 
-  def added(v: V)
+	def removed(v: V)
 
-  def addedAll(vs: Seq[V])
+	def removedAll(vs: Seq[V])
 }

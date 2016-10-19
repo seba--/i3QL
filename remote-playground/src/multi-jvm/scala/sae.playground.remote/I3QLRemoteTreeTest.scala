@@ -4,7 +4,6 @@ import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.BagTable
-
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.operators.impl.{ProjectionView, SelectionView}
@@ -12,8 +11,6 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
-import idb.syntax.iql.compilation.RemoteActor
-
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
@@ -49,7 +46,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 				import idb.syntax.iql._
 
 				val db = BagTable.empty[Int]
-				env.system.actorOf(Props(classOf[RemoteActor[Int]], db), "db")
+//				env.system.actorOf(Props(classOf[LinkActor[Int]], db), "db")
 
 				enterBarrier("deployed")
 
@@ -71,56 +68,56 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 				import idb.Relation
 
-				//FIXME: Why do we have to explicitly specify the type here?
-				val table  = ReceiveView[Int](env.system, node(node1) / "user" / "db", false)
-				//		REMOTE FROM[Int] (host1, "db", Color("red"))
-
-				val q1 = ReceiveView(env.system, node(node2).address,
-					SelectionView(table, (i : Int) => i > 2, false)
-				)
-//					RECLASS(
-//						SELECT (*) FROM table WHERE ((i : Rep[Int]) => i > 2),
-//						Color("blue")
+//				//FIXME: Why do we have to explicitly specify the type here?
+//				val table  = ReceiveView[Int](env.system, node(node1) / "user" / "db", false)
+//				//		REMOTE FROM[Int] (host1, "db", Color("red"))
+//
+//				val q1 = ReceiveView(env.system, node(node2).address,
+//					SelectionView(table, (i : Int) => i > 2, false)
+//				)
+////					RECLASS(
+////						SELECT (*) FROM table WHERE ((i : Rep[Int]) => i > 2),
+////						Color("blue")
+////					)
+//
+//				val q2 = ReceiveView(env.system, node(node1).address,
+//					ProjectionView(q1, (i : Int) => i + 2, false)
+//				)
+////					RECLASS(
+////						SELECT ((i : Rep[Int]) => i + 2) FROM q1,
+////						//SELECT (*) FROM q1,
+////						Color("red")
+////					)
+//
+//				val q3 = ReceiveView(env.system, node(node2).address, q2)
+//				LinkActor.forward(system, q3)
+//				//	ROOT(q2, host2)
+//
+//
+//				val relation : Relation[Int] = q3.asMaterialized
+//
+//				Predef.println(relation.prettyprint(" "))
+//
+//				// data flows from node1 (Table) -> node2 -> node1 -> node2
+//				/*val tree = RemoteView(
+//					system,
+//					node(node1).address,
+//					new ProjectionView(
+//						RemoteView(
+//							system,
+//							node(node2).address,
+//							new SelectionView(
+//								RemoteView[Int](system, remoteHostPath, false),
+//								fun,
+//								false
+//							)
+//						),
+//						(n:Int) => { n.toString * 2 },
+//						false
 //					)
-
-				val q2 = ReceiveView(env.system, node(node1).address,
-					ProjectionView(q1, (i : Int) => i + 2, false)
-				)
-//					RECLASS(
-//						SELECT ((i : Rep[Int]) => i + 2) FROM q1,
-//						//SELECT (*) FROM q1,
-//						Color("red")
-//					)
-
-				val q3 = ReceiveView(env.system, node(node2).address, q2)
-				RemoteActor.forward(system, q3)
-				//	ROOT(q2, host2)
-
-
-				val relation : Relation[Int] = q3.asMaterialized
-
-				Predef.println(relation.prettyprint(" "))
-
-				// data flows from node1 (Table) -> node2 -> node1 -> node2
-				/*val tree = RemoteView(
-					system,
-					node(node1).address,
-					new ProjectionView(
-						RemoteView(
-							system,
-							node(node2).address,
-							new SelectionView(
-								RemoteView[Int](system, remoteHostPath, false),
-								fun,
-								false
-							)
-						),
-						(n:Int) => { n.toString * 2 },
-						false
-					)
-				)    */
-
-				new SendView[Int](relation, testActor)
+//				)    */
+//
+//				new RemoteSender[Int](relation, testActor)
 
 				enterBarrier("sending")
 
@@ -132,7 +129,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 				Thread.sleep(7000)
 
-				relation.foreach(Predef.println)
+//				relation.foreach(Predef.println)
 
 			}
 
