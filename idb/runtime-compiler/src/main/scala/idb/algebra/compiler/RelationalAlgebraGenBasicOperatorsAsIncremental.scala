@@ -32,13 +32,13 @@
  */
 package idb.algebra.compiler
 
+import idb.algebra.compiler.boxing.{BoxedEquiJoin, BoxedFunction}
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.{FunctionUtils, ScalaCodegenExt}
 import idb.operators.impl._
 import idb.query.QueryEnvironment
 
 import scala.virtualization.lms.common._
-import idb.algebra.compiler.util.{BoxedEquiJoin, BoxedFunction}
 
 /**
  *
@@ -65,10 +65,12 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
         query match {
 
 			case Def (Selection (r, f)) =>
-				new SelectionView (compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false)
+				SelectionView (compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false)
+				//SelectionView (compile (r), compileFunctionWithDynamicManifests(f), false)
 
 			case Def (Projection (r, f)) =>
-				new ProjectionView (compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false)
+				ProjectionView (compile (r), BoxedFunction(functionToScalaCodeWithDynamicManifests(f)), false)
+				//ProjectionView (compile (r),  compileFunctionWithDynamicManifests(f), false)
 
 			case Def (e@CrossProduct (a, b)) =>
 				CrossProductView (compile(a), compile(b), false).asInstanceOf[Relation[Domain]]

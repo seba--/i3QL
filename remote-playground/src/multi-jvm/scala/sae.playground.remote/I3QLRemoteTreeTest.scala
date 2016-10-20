@@ -6,11 +6,13 @@ import akka.testkit.ImplicitSender
 import idb.{BagTable, remote}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.evaluator.PrintRows
 import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
+import idb.syntax.iql.compilation.{CompilerBinding, RemoteUtils}
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
@@ -37,19 +39,21 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 	"A manually generated remote tree" must {
 		"work the same as the automatically generated tree" in {
-			//enterBarrier("startup") // TODO: is this necessary?
 
 			runOn(node1) {
+				import idb.syntax.iql._
+
 				// will run the Table and the Selection (sent from node2)
 				val db = BagTable.empty[Int]
-				val ref = remote.create(system)("db", db)
+				REMOTE DEFINE (db, "db")
 
 				enterBarrier("deployed")
 				println("### DEPLOYED ###")
 
+				Thread.sleep(10000)
+
 				enterBarrier("sending")
 				println("### SENDING ###")
-
 
 				db += 1
 				db += 2
@@ -57,19 +61,44 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 				db += 4
 				db += 5
 				db += 6
+
+				enterBarrier("finished")
+				Predef.println("### FINISHED ###")
 			}
 
 			runOn(node2) {
+				import idb.syntax.iql._
+				import idb.syntax.iql.IR._
+
 				// will send the Selection to node 1 and receive the final results
 				enterBarrier("deployed")
-				println("### DEPLOYED ###")
+				Predef.println("### DEPLOYED ###")
+				val table : Rep[Query[Int]] = REMOTE GET [Int] (host1, "db", Color("red"))
 
-				val remoteHostPath: ActorPath = node(node1) / "user" / "db"
-				val table = remote.from[Int](remoteHostPath)
+				val q1 : Rep[Query[Int]] = SELECT (*) FROM RECLASS (table, Color("blue")) WHERE ((i : Rep[Int]) => i > 4)
+				val q2 : Rep[Query[Int]] = SELECT ((i : Rep[Int]) => i * 10) FROM RECLASS (q1, Color("red"))
 
-				//				//FIXME: Why do we have to explicitly specify the type here?
-//				val table  = ReceiveView[Int](env.system, node(node1) / "user" / "db", false)
-//				//		REMOTE FROM[Int] (host1, "db", Color("red"))
+				val compiledQ : Relation[Int] = q2
+
+				//Deploy r
+				val ref = RemoteUtils.deploy(system, node(node1))(compiledQ)
+				val r = RemoteUtils.fromWithDeploy(system, ref)
+
+
+				PrintRows(r, "result")
+				Predef.println(r.prettyprint(" "))
+
+				Thread.sleep(10000) // wait until ObservableHost has its observer registered
+
+				enterBarrier("sending")
+				Predef.println("### SENDING ###")
+
+				Thread.sleep(2000)
+
+				enterBarrier("finished")
+				Predef.println("### FINISHED ###")
+
+
 //
 //				val q1 = ReceiveView(env.system, node(node2).address,
 //					SelectionView(table, (i : Int) => i > 2, false)
@@ -95,7 +124,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 //
 //				val relation : Relation[Int] = q3.asMaterialized
 //
-//				Predef.println(relation.prettyprint(" "))
+//
 //
 //				// data flows from node1 (Table) -> node2 -> node1 -> node2
 //				/*val tree = RemoteView(
@@ -116,25 +145,12 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 //					)
 //				)    */
 //
-//				new RemoteSender[Int](relation, testActor)
 
-				Thread.sleep(100) // wait until ObservableHost has its observer registered
 
-				enterBarrier("sending")
-
-				import scala.concurrent.duration._
-				expectMsg(10.seconds, Added(5))
-				expectMsg(10.seconds, Added(6))
-				expectMsg(10.seconds, Added(7))
-				expectMsg(10.seconds, Added(8))
-
-				Thread.sleep(7000)
-
-//				relation.foreach(Predef.println)
 
 			}
 
-			//enterBarrier("finished")
+			//
 		}
 	}
 }

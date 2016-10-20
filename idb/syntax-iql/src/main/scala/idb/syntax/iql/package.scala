@@ -3,7 +3,8 @@ package idb.syntax
 import idb.query.QueryEnvironment
 import idb.syntax.iql.IR._
 import idb.syntax.iql.compilation.CompilerBinding
-import idb.syntax.iql.planning.{SubQueryToAlgebra, ClauseToAlgebra}
+import idb.syntax.iql.planning.{ClauseToAlgebra, SubQueryToAlgebra}
+
 import scala.language.implicitConversions
 import scala.reflect.SourceContext
 

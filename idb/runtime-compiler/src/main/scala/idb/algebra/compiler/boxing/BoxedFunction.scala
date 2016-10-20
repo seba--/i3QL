@@ -1,4 +1,4 @@
-package idb.algebra.compiler.util
+package idb.algebra.compiler.boxing
 
 import idb.lms.extensions.ScalaCodegenExt
 

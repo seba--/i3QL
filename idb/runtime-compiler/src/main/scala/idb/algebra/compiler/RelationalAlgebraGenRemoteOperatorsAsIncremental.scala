@@ -61,47 +61,27 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 
     import IR._
 
-
-	val useBoxing = false
-
-	def compileRemote[Domain] (partition : Rep[Query[Domain]], path : ActorPath)(implicit queryEnvironment : QueryEnvironment): Relation[Domain]
+	def remoteFromPath[Domain](path : ActorPath) : Relation[Domain]
+	def remoteDeploy[Domain](system : ActorSystem, rel : Relation[Domain], path : ActorPath) : Relation[Domain]
 
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
 
-            case Def (Remote (r, host)) =>
-				//The hosts can be obtained like this:
-				val childHost = r.host
-				val parentHost = host
+	        case Def (Remote (Def (ActorDef (path, _)), _)) =>
+		        remoteFromPath[Domain](path)
 
-				parentHost match {
-					case LocalHost => ???
-						//TODO: Send to local host
-						compile(r)
-
-					case NamedHost(_) => ???
-						//TODO: Send to local host
-						compile(r)
-
-					case UnknownHost =>
-						throw new UnknownHostDeployException()
-
-					case RemoteHost(name, path) =>
-						compileRemote(r, path)
-				}
+            case Def (Remote (r, _)) =>
+	            val RemoteHost(_, childHostPath) = r.host
+	            val compiled = compile (r)
+	            remoteDeploy(queryEnvironment.system, compiled, childHostPath)
 
 
+            case Def (ActorDef (path, _)) =>
+	            remoteFromPath[Domain](path)
 
-			case Def (Reclassification(r, _)) =>
-				compile (r)
 
-            case Def (ActorDef (path, host)) =>
-	            host match {
-		            case RemoteHost(name, hostPath) =>
-			            null
-			            //ReceiveView[Domain](queryEnvironment.system, path)
-	            }
-
+            case Def (Reclassification(r, _)) =>
+	            compile (r)
 
             case _ => super.compile (query)
         }

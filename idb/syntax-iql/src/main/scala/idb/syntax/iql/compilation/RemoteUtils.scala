@@ -1,17 +1,15 @@
-package idb
+package idb.syntax.iql.compilation
 
 import akka.actor.{ActorPath, ActorRef, ActorSystem, Deploy, Props}
 import akka.remote.RemoteScope
+import idb.Relation
+import idb.remote.Initialize
 import idb.remote.receive.{PathRemoteReceiver, RefRemoteReceiver, RemoteReceiver}
 
-import scala.concurrent.duration.FiniteDuration
-import scala.concurrent.duration._
-import scala.language.postfixOps
-
 /**
-  * Created by mirko on 19.10.16.
+  * Created by mirko on 20.10.16.
   */
-package object remote {
+object RemoteUtils {
 
 	/**
 	  * Deploys a relation on the given node.
@@ -27,7 +25,7 @@ package object remote {
 	}
 
 	/**
-	  * Creates an for a relation, so that it can be referenced by other remotes.
+	  * Creates an actor for a relation, so that it can be referenced by other remotes.
 	  * @return A reference to an access actor that controls the given relation.
 	  */
 	def create(system : ActorSystem)(id : String, relation : Relation[_]) : ActorRef = {
@@ -53,7 +51,4 @@ package object remote {
 		r.deploy(system)
 		r
 	}
-
-
-
 }

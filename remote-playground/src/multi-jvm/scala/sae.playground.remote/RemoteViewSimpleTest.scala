@@ -8,6 +8,7 @@ import idb.evaluator.PrintRows
 import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.remote
 import idb.remote.receive.{RefRemoteReceiver, RemoteReceiver}
+import idb.syntax.iql.compilation.RemoteUtils
 
 import scala.concurrent.Await
 
@@ -27,8 +28,9 @@ with STMultiNodeSpec with ImplicitSender {
 	"A RemoteView" must {
 		"receive from a simple ObservableHost" in {
 			runOn(node1) {
+
 				val db = BagTable.empty[Int]
-				val ref = remote.create(system)("db", db)
+				val ref = RemoteUtils.create(system)("db", db)
 				enterBarrier("deployed")
 				println("### DEPLOYED ###")
 
@@ -51,28 +53,29 @@ with STMultiNodeSpec with ImplicitSender {
 				Thread.sleep(1000)
 				//Build connection to the table
 				val remoteHostPath: ActorPath = node(node1) / "user" / "db"
-				val remoteTable = remote.from[Int](remoteHostPath)
+				val remoteTable = RemoteUtils.from[Int](remoteHostPath)
 				//Define local relation...
-				val q1 = ProjectionView (
+				val q1 = SelectionView (
 					remoteTable,
+					(x : Int) => x > 2,
+					false
+				)
+
+				//and deploy it on the desired node
+				val q1Ref = RemoteUtils.deploy(system, node(node2))(q1)
+
+				//Repeat as often as you want...
+				val remoteQ1 = RemoteUtils.from[Int](q1Ref)
+				val q2 = ProjectionView (
+					remoteQ1,
 					(x : Int) => x * 2,
 					false
 				)
-				//and deploy it on the desired node
-				val q1Ref = remote.deploy(system, node(node2))(q1)
-
-				//Repeat as often as you want...
-				val remoteQ1 = remote.from[Int](q1Ref)
-				val q2 = SelectionView (
-					remoteQ1,
-					(x : Int) => x > 4,
-					false
-				)
-				val q2Ref = remote.deploy(system, node(node1))(q2)
+				val q2Ref = RemoteUtils.deploy(system, node(node1))(q2)
 
 
 				//Build connection to the result
-				val recv = remote.fromWithDeploy(system, q2Ref)
+				val recv = RemoteUtils.fromWithDeploy(system, q2Ref)
 				PrintRows(recv, "result")
 
 				Thread.sleep(1000) //Wait until all observers have been registered.

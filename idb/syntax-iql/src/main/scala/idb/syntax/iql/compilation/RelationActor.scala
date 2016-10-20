@@ -1,8 +1,12 @@
-package idb.remote
+package idb.syntax.iql.compilation
 
-import akka.actor.{Actor, ActorRef, Props}
+import akka.actor.{Actor, ActorRef}
 import idb.Relation
+import idb.algebra.compiler.boxing.BoxedFunction
+import idb.algebra.compiler.boxing.BoxedEquiJoin
 import idb.observer.Observer
+import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
+import idb.remote._
 import idb.remote.receive.RemoteReceiver
 
 import scala.collection.mutable
@@ -10,6 +14,7 @@ import scala.collection.mutable
 /**
   * Created by mirko on 18.10.16.
   */
+//TODO: Is there a way to move this class to idb-runtime instead?
 class RelationActor[Domain](
 	val relation : Relation[Domain]
 ) extends Actor with Observer[Domain] {
@@ -27,15 +32,27 @@ class RelationActor[Domain](
 	}
 
 
-	private def initialize(r : Relation[_]): Unit = {
-		r match {
+	private def initialize(relation : Relation[_]): Unit = {
+		relation match {
+			case r : SelectionView[_] =>
+				BoxedFunction.compile(r.filter, CompilerBinding)
+
+			case r : ProjectionView[_, _] =>
+				BoxedFunction.compile(r.projection, CompilerBinding)
+
+			case r : BoxedEquiJoin[_, _] =>
+				r.compile(CompilerBinding)
+
+			case r : UnNestView[_, _] =>
+				BoxedFunction.compile(r.unNestFunction, CompilerBinding)
+
 			case recv : RemoteReceiver[_] =>
 				val ref = recv.deploy(context.system)
 				println(s"[RelationActor] Deployed $ref on ${this.self}")
 			case _ =>
 		}
 
-		r.children.foreach(initialize)
+		relation.children.foreach(initialize)
 	}
 
 	override def updated(oldV: Domain, newV: Domain): Unit =

@@ -7,7 +7,7 @@ import scala.tools.nsc.{Global, Settings}
 import scala.tools.nsc.reporters.ConsoleReporter
 import java.io.{PrintWriter, StringWriter}
 
-import idb.algebra.compiler.util.ClassCode
+import idb.algebra.compiler.boxing.ClassCode
 
 import scala.reflect.io.{File, VirtualDirectory}
 import scala.tools.nsc.interpreter.AbstractFileClassLoader

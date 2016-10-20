@@ -32,19 +32,14 @@
  */
 package idb.syntax.iql.compilation
 
-import akka.actor.{ActorPath, Deploy, Props}
-import akka.remote.RemoteScope
-import akka.util.Timeout
+import akka.actor.{ActorPath, ActorSystem}
 import idb.Relation
 import idb.algebra.compiler._
-import idb.lms.extensions.{ScalaGenDateOps, ScalaGenFlightOps}
-
-import scala.virtualization.lms.common._
+import idb.lms.extensions.ScalaGenDateOps
 import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenOptionOps, ScalaGenSeqOpsExt, ScalaGenStringOpsExt}
-import idb.query.QueryEnvironment
 
-import scala.concurrent.Await
 import scala.language.postfixOps
+import scala.virtualization.lms.common._
 
 /**
  *
@@ -55,11 +50,11 @@ case object CompilerBinding
     with RelationalAlgebraGenSetTheoryOperatorsAsIncremental
     with RelationalAlgebraGenAggregationOperatorsAsIncremental
     with RelationalAlgebraGenRecursiveOperatorsAsIncremental
-		with RelationalAlgebraGenRemoteOperatorsAsIncremental
+	with RelationalAlgebraGenRemoteOperatorsAsIncremental
     with RelationalAlgebraGenCacheAll
     with ScalaGenStaticData
     with ScalaGenOptionOps
-		with ScalaGenEitherOps
+	with ScalaGenEitherOps
     with ScalaGenStringOpsExt
     with ScalaGenSeqOpsExt
     with ScalaCodeGenPkg
@@ -76,24 +71,11 @@ case object CompilerBinding
       super.reset
     }
 
+	override def remoteFromPath[Domain](path: ActorPath): Relation[Domain] =
+		RemoteUtils.from[Domain](path)
 
-	override def compileRemote[Domain](partition: IR.Rep[IR.Query[Domain]], path: ActorPath)(implicit queryEnvironment: QueryEnvironment): IR.Relation[Domain] = {
-//		val compiledPartition = compile (partition)
-//		val remoteAddr = path.address
-//
-//		val remoteHost = queryEnvironment.system.actorOf(Props(classOf[LinkActor[Domain]]).withDeploy(Deploy(scope=RemoteScope(remoteAddr))))
-//
-//		val receive = new ReceiveView[Domain](remoteHost, compiledPartition.isSet)
-//
-//		// synchronize Host message
-//		import akka.pattern.ask //imports the ?
-//		import scala.concurrent.duration._
-//		//Long timeout because query compilation may take some time (on low-end machines)
-//		implicit val timeout = Timeout(60 seconds)
-//		val res = remoteHost ? HostMsg(compiledPartition)
-//		Await.result(res, timeout.duration)
-//
-//		receive
-		???
+	override def remoteDeploy[Domain](system: ActorSystem, rel: Relation[Domain], path: ActorPath): Relation[Domain] = {
+		val ref = RemoteUtils.deploy(system, path)(rel)
+		RemoteUtils.from[Domain](ref)
 	}
 }

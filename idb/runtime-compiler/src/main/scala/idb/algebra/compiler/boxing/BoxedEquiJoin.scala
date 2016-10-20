@@ -1,8 +1,7 @@
-package idb.algebra.compiler.util
+package idb.algebra.compiler.boxing
 
 import idb.Relation
 import idb.lms.extensions.ScalaCodegenExt
-import idb.operators.EquiJoin
 import idb.operators.impl.EquiJoinView
 
 /**

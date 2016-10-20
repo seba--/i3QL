@@ -63,8 +63,8 @@ trait RelationalAlgebraRemoteOperators
     )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
 	def reclassification[Domain : Manifest] (
-	relation : Rep[Query[Domain]],
-	newColor : Color
+		relation : Rep[Query[Domain]],
+		newColor : Color
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
 
 	def declassification[Domain : Manifest] (

@@ -2,9 +2,10 @@ package idb.syntax.iql
 
 import akka.actor.{ActorPath, ActorRef}
 import idb.query.colors.Color
-import idb.query.{QueryEnvironment, RemoteHost}
+import idb.query.{Host, QueryEnvironment, RemoteHost}
 import idb.remote
 import idb.syntax.iql.IR._
+import idb.syntax.iql.compilation.RemoteUtils
 
 
 /**
@@ -13,12 +14,19 @@ import idb.syntax.iql.IR._
 object REMOTE {
 
 	def DEFINE[V](table : Relation[V], id : String)(implicit queryEnvironment : QueryEnvironment) : ActorRef = {
-		idb.remote.create(queryEnvironment.system)(id, table)
+		//The created actor has the path host.path / "user" / id
+		RemoteUtils.create(queryEnvironment.system)(id, table)
 	}
 
-	def GET[Domain : Manifest](host : ActorPath, id : String, color : Color)(implicit queryEnvironment : QueryEnvironment) : Relation[Domain] = {
-		val remoteHostPath: ActorPath = host / "user" / id
-		idb.remote.from[Int](remoteHostPath)
+	def GET[Domain : Manifest](host : RemoteHost, id : String, color : Color = Color.NO_COLOR)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
+		val actorPath : ActorPath = host.path / "user" / id
+
+		reclassification(
+			actorDef[Domain](actorPath, host),
+			color
+		)
 	}
+
+
 
 }
