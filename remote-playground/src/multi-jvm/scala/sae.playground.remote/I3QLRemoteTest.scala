@@ -90,7 +90,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				val q3_0 = RECLASS(q2, Color("red"))
 					//q2
 
-				val q3 = ROOT (RECLASS(q3_0, Color("blue")), host2)
+				val q3 = ROOT (host2, RECLASS(q3_0, Color("blue")))
 
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR

@@ -20,11 +20,7 @@ object REMOTE {
 
 	def GET[Domain : Manifest](host : RemoteHost, id : String, color : Color = Color.NO_COLOR)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] = {
 		val actorPath : ActorPath = host.path / "user" / id
-
-		reclassification(
-			actorDef[Domain](actorPath, host),
-			color
-		)
+		actorDef[Domain](actorPath, host, color)
 	}
 
 

@@ -46,72 +46,73 @@ object NotifyObservers {
   var indent = 0
   def spaces = "| " * indent
 
-  var DEBUG = false
+  var DEBUG = true
 }
 import NotifyObservers._
 
 trait NotifyObservers[V] {
 
-  protected def observers: Iterable[Observer[Any]]
+	protected def observers: Iterable[Observer[Any]]
 
-  protected def notify_added(v: V) {
-    observers.foreach(obs =>
-      printed(1, obs) {
-        obs.added(v)
-      }
-    )
-  }
+	protected def notify_added(v: V) {
+		observers.foreach(obs =>
+			printed(1, obs) {
+				obs.added(v)
+			}
+		)
+	}
 
-  protected def notify_addedAll(vs: Seq[V]) {
-    if (vs.isEmpty) {
-    }
-    else if (vs.size == 1) {
-      val v = vs.head
-      observers.foreach(obs =>
-        printed(1, obs) {
-          obs.added(v)
-        }
-      )
-    }
-    else {
-      observers.foreach(obs =>
-        printed(vs.size, obs) {
-          obs.addedAll(vs)
-        }
-      )
-    }
-  }
+	protected def notify_addedAll(vs: Seq[V]) {
+		println(s"$this: obs = $observers, vs = $vs")
+		if (vs.isEmpty) {
+		}
+		else if (vs.size == 1) {
+			val v = vs.head
+			observers.foreach(obs =>
+				printed(1, obs) {
+					obs.added(v)
+				}
+			)
+		}
+		else {
+			observers.foreach(obs =>
+				printed(vs.size, obs) {
+					obs.addedAll(vs)
+				}
+			)
+		}
+	}
 
-  protected def notify_removed(v: V) {
-    observers.foreach(_.removed(v))
-  }
+	protected def notify_removed(v: V) {
+		observers.foreach(_.removed(v))
+	}
 
-  protected def notify_removedAll(vs: Seq[V]) {
-    if (vs.isEmpty) {
-    }
-    else if (vs.size == 1) {
-      val v = vs.head
-      observers.foreach(_.removed(v))
-    }
-    else
-      observers.foreach(_.removedAll(vs))
-  }
+	protected def notify_removedAll(vs: Seq[V]) {
+		if (vs.isEmpty) {
+		}
+		else if (vs.size == 1) {
+			val v = vs.head
+			observers.foreach(_.removed(v))
+		}
+		else
+			observers.foreach(_.removedAll(vs))
+	}
 
-  protected def notify_updated(oldV: V, newV: V) {
-    observers.foreach(_.updated(oldV, newV))
-  }
+	protected def notify_updated(oldV: V, newV: V) {
+		observers.foreach(_.updated(oldV, newV))
+	}
 
-  def printed[T](size: Int, obs: Any)(f: => T): T = {
-    if (!DEBUG)
-      f
-    else {
-      println(s"${spaces}size $size \t${this} -> \t${obs}")
-      indent = indent + 1
-      val t = f
-      indent = indent - 1
-      println(s"${spaces}size $size \t${this} <- \t${obs}")
-      t
-    }
-  }
+	def printed[T](size: Int, obs: Any)(f: => T): T = {
+		if (!DEBUG)
+			f
+		else {
+			println(s"${spaces}size $size \t${this} -> \t${obs}")
+			indent = indent + 1
+			val t = f
+			indent = indent - 1
+			println(s"${spaces}size $size \t${this} <- \t${obs}")
+			t
+		}
+	}
 
 }

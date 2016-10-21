@@ -42,9 +42,10 @@ import idb.observer.{NotifyObservers, Observable, Observer}
  * The set projection removes duplicates from the results set.
  * We use the same Multiset as in Bag, but directly increment/decrement counts
  */
-class DuplicateEliminationView[Domain](val relation: Relation[Domain],
-									  override val isSet : Boolean)
-	extends DuplicateElimination[Domain]
+case class DuplicateEliminationView[Domain](
+	relation: Relation[Domain],
+	isSet : Boolean
+) extends DuplicateElimination[Domain]
 	with Observer[Domain]
 	with NotifyObservers[Domain] {
 
@@ -146,19 +147,22 @@ class DuplicateEliminationView[Domain](val relation: Relation[Domain],
 	}
 
 	def added(v: Domain) {
+		println("[DuplicateElimination] ADDED " + v)
+
 		if (add_element(v)) {
 			notify_added(v)
 		}
 	}
 
-  def addedAll(vs: Seq[Domain]) {
-    val added = vs filter (add_element(_))
-    notify_addedAll(added)
-  }
+	def addedAll(vs: Seq[Domain]) {
+		println("[DuplicateElimination] ADDEDALL " + vs)
+		val added = vs filter (add_element(_))
+		notify_addedAll(added)
+	}
 
-  def removedAll(vs: Seq[Domain]) {
-    val removed = vs filter (remove_element(_))
-    notify_removedAll(removed)
-  }
+	def removedAll(vs: Seq[Domain]) {
+		val removed = vs filter (remove_element(_))
+		notify_removedAll(removed)
+	}
 
 }

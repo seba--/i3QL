@@ -1,6 +1,6 @@
 package idb.syntax.iql.compilation
 
-import akka.actor.{Actor, ActorRef}
+import akka.actor.{Actor, ActorRef, ActorSystem}
 import idb.Relation
 import idb.algebra.compiler.boxing.BoxedFunction
 import idb.algebra.compiler.boxing.BoxedEquiJoin
@@ -27,12 +27,13 @@ class RelationActor[Domain](
 			println(s"[RelationActor] Adding link: ${this.self.path} ---> ${ref.path}")
 			registeredActors += ref
 		case Initialize =>
-			println(s"[RelationActor] Initialize ${this.self}")
 			initialize(relation)
+			println(s"[RelationActor] Initialized ${this.self}")
+			println(relation.prettyprint(" "))
 	}
 
+	def initialize(relation : Relation[_]): Unit = {
 
-	private def initialize(relation : Relation[_]): Unit = {
 		relation match {
 			case r : SelectionView[_] =>
 				BoxedFunction.compile(r.filter, CompilerBinding)
@@ -47,16 +48,19 @@ class RelationActor[Domain](
 				BoxedFunction.compile(r.unNestFunction, CompilerBinding)
 
 			case recv : RemoteReceiver[_] =>
-				val ref = recv.deploy(context.system)
-				println(s"[RelationActor] Deployed $ref on ${this.self}")
+				recv.deploy(context.system)
+
 			case _ =>
 		}
 
-		relation.children.foreach(initialize)
+		relation.children.foreach(c => initialize(c))
 	}
 
-	override def updated(oldV: Domain, newV: Domain): Unit =
+	override def updated(oldV: Domain, newV: Domain): Unit ={
+
 		registeredActors foreach (a => a ! Updated(oldV, newV))
+	}
+
 
 	override def removed(v: Domain): Unit =
 		registeredActors foreach (a => a ! Removed(v))
@@ -64,9 +68,20 @@ class RelationActor[Domain](
 	override def removedAll(vs: Seq[Domain]): Unit =
 		registeredActors foreach (a => a ! RemovedAll(vs))
 
-	override def added(v: Domain): Unit =
-		registeredActors foreach (a => a ! Added(v))
+	override def added(v: Domain): Unit = {
 
-	override def addedAll(vs: Seq[Domain]): Unit =
-		registeredActors foreach (a => a ! addedAll(vs))
+		registeredActors foreach (a => {
+			println(s"$this#Added[$v]--${context.self}-->${a}")
+			a ! Added(v)
+		})
+	}
+
+
+	override def addedAll(vs: Seq[Domain]): Unit = {
+		registeredActors foreach (a => {
+			println(s"$this#AddedAll[$vs]--${context.self}-->${a}")
+			a ! AddedAll(vs)
+		})
+	}
+
 }

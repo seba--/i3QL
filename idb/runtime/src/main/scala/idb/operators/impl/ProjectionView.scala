@@ -55,8 +55,8 @@ case class ProjectionView[Domain, Range] (
     with Observer[Domain]
     with NotifyObservers[Range]
 {
-    relation addObserver this
-
+    println("[Projection] CREATE " + relation)
+	relation addObserver this
 
 
     override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
@@ -74,31 +74,33 @@ case class ProjectionView[Domain, Range] (
     /**
      * Applies f to all elements of the view.
      */
-    def foreach[T] (f: (Range) => T) {
+    override def foreach[T] (f: (Range) => T) {
         relation.foreach ((v: Domain) => f (projection (v)))
     }
 
-    def updated (oldV: Domain, newV: Domain) {
+	override def updated (oldV: Domain, newV: Domain) {
         notify_updated (projection (oldV), projection (newV))
     }
 
-    def removed (v: Domain) {
+	override def removed (v: Domain) {
         notify_removed (projection (v))
     }
 
-    def added (v: Domain) {
+	override def added (v: Domain) {
+        println("[Projection] ADDED " + v)
         notify_added (projection (v))
     }
 
 
-  override def removedAll(vs: Seq[Domain]) {
-    val removed = vs map (projection(_))
-    notify_removedAll(removed)
-  }
+	override def removedAll(vs: Seq[Domain]) {
+		val removed = vs map (projection(_))
+		notify_removedAll(removed)
+	}
 
-  override def addedAll(vs: Seq[Domain]) {
-    val added = vs map (projection(_))
-    notify_addedAll(added)
-  }
+	override def addedAll(vs: Seq[Domain]) {
+		println("[Projection] ADDEDALL " + vs)
+		val added = vs map (projection(_))
+		notify_addedAll(added)
+	}
 
 }

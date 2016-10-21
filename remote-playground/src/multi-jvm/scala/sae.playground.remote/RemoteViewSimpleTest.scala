@@ -5,7 +5,7 @@ import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.{BagTable, remote}
 import idb.evaluator.PrintRows
-import idb.operators.impl.{ProjectionView, SelectionView}
+import idb.operators.impl.{DuplicateEliminationView, EquiJoinView, ProjectionView, SelectionView}
 import idb.remote
 import idb.remote.receive.{RefRemoteReceiver, RemoteReceiver}
 import idb.syntax.iql.compilation.RemoteUtils
@@ -51,6 +51,8 @@ with STMultiNodeSpec with ImplicitSender {
 				println("### DEPLOYED ###")
 
 				Thread.sleep(1000)
+				//Local db
+				val db = BagTable.empty[Int]
 				//Build connection to the table
 				val remoteHostPath: ActorPath = node(node1) / "user" / "db"
 				val remoteTable = RemoteUtils.from[Int](remoteHostPath)
@@ -60,7 +62,6 @@ with STMultiNodeSpec with ImplicitSender {
 					(x : Int) => x > 2,
 					false
 				)
-
 				//and deploy it on the desired node
 				val q1Ref = RemoteUtils.deploy(system, node(node2))(q1)
 
@@ -73,15 +74,31 @@ with STMultiNodeSpec with ImplicitSender {
 				)
 				val q2Ref = RemoteUtils.deploy(system, node(node1))(q2)
 
+				val remoteQ2 = RemoteUtils.from[Int](q2Ref)
+				val join = EquiJoinView(remoteQ2, db, Seq((i : Int) => i), Seq((i : Int) => i), false)
+				val q3 = DuplicateEliminationView(join, false)
+				val q3Ref = RemoteUtils.deploy(system, node(node2))(q3)
 
 				//Build connection to the result
-				val recv = RemoteUtils.fromWithDeploy(system, q2Ref)
+				val recv = RemoteUtils.fromWithDeploy(system, q3Ref)
 				PrintRows(recv, "result")
 
 				Thread.sleep(1000) //Wait until all observers have been registered.
 
 				enterBarrier("sending")
 				println("### SENDING ###")
+
+				Thread.sleep(8000)
+
+				db += 1
+				db += 2
+				db += 3
+				db += 4
+				db += 5
+				db += 6
+				db += 7
+				db += 8
+
 
 				Thread.sleep(1000) //Wait until sending has finished
 

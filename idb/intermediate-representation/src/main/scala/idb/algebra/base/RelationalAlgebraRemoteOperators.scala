@@ -50,7 +50,7 @@ trait RelationalAlgebraRemoteOperators
 	  * The reference to a query for remote connections
 	  * @tparam Domain The domain of the referenced query.
 	  */
-	//type QueryRef[Domain]
+//	type QueryRef[Domain]
 
 	/**
 	  * Creates a new remote link.
@@ -74,10 +74,9 @@ trait RelationalAlgebraRemoteOperators
 
 	def actorDef[Domain : Manifest](
 		actorPath : ActorPath,
-		host : Host
+		host : Host,
+		color : Color
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
-
-
 
 
 }

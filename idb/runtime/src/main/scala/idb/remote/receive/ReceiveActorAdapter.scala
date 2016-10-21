@@ -15,19 +15,19 @@ class ReceiveActorAdapter[Domain](observers : Seq[Observer[Domain]]) extends Act
 
 	override def receive = {
 		case Added(v: Domain) =>
-			println(s"$this#Added[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+//			println(s"$this#Added[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			notify_added(v)
 		case Removed(v: Domain) =>
-			println(s"$this#Removed[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+//			println(s"$this#Removed[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			notify_removed(v)
 		case Updated(oldV: Domain, newV: Domain) =>
-			println(s"$this#Updated[$oldV=>$newV]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+//			println(s"$this#Updated[$oldV=>$newV]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			notify_updated(oldV, newV)
 		case AddedAll(vs: Seq[Domain]) =>
-			println(s"$this#AddedAll[$vs]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+//			println(s"$this#AddedAll[$vs]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			notify_addedAll(vs)
 		case RemovedAll(vs: Seq[Domain]) =>
-			println(s"$this#RemovedAll[$vs]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+//			println(s"$this#RemovedAll[$vs]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			notify_removedAll(vs)
 	}
 

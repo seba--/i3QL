@@ -2,7 +2,7 @@ package idb.algebra.remote
 
 import idb.algebra.exceptions.{NoServerAvailableException, NonMatchingHostsException}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
-import idb.lms.extensions.RemoteUtils
+import idb.lms.extensions.ColorUtils
 import idb.query.colors.{Color, ColorId}
 import idb.query.{Host, QueryEnvironment}
 
@@ -13,7 +13,7 @@ import scala.collection.mutable
 trait RelationalAlgebraIRRemoteCreateRemotes
 	extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRRemoteOperators
-	with RemoteUtils
+	with ColorUtils
 {
 
 	override def root[Domain : Manifest] (

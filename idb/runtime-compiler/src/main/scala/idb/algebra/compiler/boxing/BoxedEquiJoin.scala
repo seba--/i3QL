@@ -15,7 +15,7 @@ case class BoxedEquiJoin[DomainA, DomainB](
 	isSet : Boolean
 ) extends Relation[(DomainA, DomainB)] {
 
-	@transient var equiJoin : EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]] = null
+	@transient var equiJoin : EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Any] = null
 
 	def compile(compiler : ScalaCodegenExt): Unit = {
 
@@ -29,6 +29,8 @@ case class BoxedEquiJoin[DomainA, DomainB](
 			compiledEqsB,
 			isSet
 		)
+
+		observers.foreach(o => equiJoin.addObserver(o))
 	}
 
 	override def foreach[T](f: ((DomainA, DomainB)) => T): Unit = equiJoin.foreach(f)

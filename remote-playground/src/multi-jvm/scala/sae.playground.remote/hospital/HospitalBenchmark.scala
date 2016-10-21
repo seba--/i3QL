@@ -13,14 +13,14 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 	implicit val env : QueryEnvironment
 
-	val waitForWarmup = 5 //seconds
-	val waitForMeasure = 5 //seconds
+	val waitForWarmup = 5000 //ms
+	val waitForMeasure = 5000 //ms
 
-	val waitForSendPerson = 5 //seconds
+	val waitForSendPerson = 5000 //ms
 
-	val waitForGc = 8 //seconds
+	val waitForGc = 8000 //ms
 
-	val cpuTimeMeasurements = 100 //ms
+	val cpuTimeMeasurements = 50 //ms
 
 
 	object BaseHospital extends HospitalSchema {
@@ -32,7 +32,7 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 	protected def barrier(name : String)
 
 	protected def gc(): Unit = {
-		Thread.sleep(waitForGc * 1000)
+		Thread.sleep(waitForGc)
 		System.gc()
 	}
 
@@ -58,12 +58,15 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 			barrier("deployed")
 
+			Thread.sleep(20000)
 			//The query gets compiled here...
 			barrier("compiled")
 			Thread.sleep(waitBeforeSend)
 			(1 to _warmupIterations).foreach(i => iteration(db, i))
 
 			barrier("sent-warmup")
+			Console.out.println("Wait for warmup...")
+			Thread.sleep(waitForWarmup)
 
 			barrier("resetted")
 
@@ -90,7 +93,7 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 			barrier("sent-measure")
 			Console.out.println("Wait for measure...")
-			Thread.sleep(waitForMeasure * 1000)
+			Thread.sleep(waitForMeasure)
 			finished = true
 			gc()
 			val memAfter = rt.totalMemory() - rt.freeMemory()

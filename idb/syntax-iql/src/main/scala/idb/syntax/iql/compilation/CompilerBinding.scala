@@ -61,6 +61,7 @@ case object CompilerBinding
     with ScalaGenStruct
     with ScalaGenTupledFunctions
     with ScalaGenDateOps
+    with ScalaGenEqual
     //with ScalaGenFlightOps
 {
     override val IR = idb.syntax.iql.IR
@@ -77,5 +78,9 @@ case object CompilerBinding
 	override def remoteDeploy[Domain](system: ActorSystem, rel: Relation[Domain], path: ActorPath): Relation[Domain] = {
 		val ref = RemoteUtils.deploy(system, path)(rel)
 		RemoteUtils.from[Domain](ref)
+	}
+
+	override def initialize(system: ActorSystem, relation: Relation[_]): Unit = {
+		//RemoteUtils.initialize(system, relation)
 	}
 }

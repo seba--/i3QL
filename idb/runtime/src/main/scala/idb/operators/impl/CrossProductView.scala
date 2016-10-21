@@ -53,7 +53,7 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 	}
 
 	//TODO: Reactivate exceptions in remove and update
-	object LeftObserver extends Observer[DomainA] {
+	case object LeftObserver extends Observer[DomainA] {
 
 		// update operations on left relation
 		override def updated(oldA: DomainA, newA: DomainA) {
@@ -82,19 +82,19 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 			}
 		}
 
-    override def removedAll(vs: Seq[DomainA]) {
-      vs foreach (v => if(!leftSet.remove(v)) throw new IllegalStateException("Removed element not in relation: " + v))
+		override def removedAll(vs: Seq[DomainA]) {
+			vs foreach (v => if(!leftSet.remove(v)) throw new IllegalStateException("Removed element not in relation: " + v))
 
-      var removed = Seq[Range]()
-      val it = rightSet.iterator()
-      while(it.hasNext) {
-        val b = it.next
-        removed = removed ++ vs.map(projection(_, b))
-      }
-      notify_removedAll(removed)
-    }
+			var removed = Seq[Range]()
+			val it = rightSet.iterator()
+			while(it.hasNext) {
+				val b = it.next
+				removed = removed ++ vs.map(projection(_, b))
+			}
+			notify_removedAll(removed)
+		}
 
-    override def added(v: DomainA) {
+		override def added(v: DomainA) {
 			leftSet.add(v)
 			val it = rightSet.iterator()
 			while(it.hasNext) {
@@ -103,21 +103,21 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 			}
 		}
 
-    override def addedAll(vs: Seq[DomainA]) {
-      for (v <- vs)
-        leftSet.add(v)
+		override def addedAll(vs: Seq[DomainA]) {
+			for (v <- vs)
+				leftSet.add(v)
 
-      var added = Seq[Range]()
-      val it = rightSet.iterator()
-      while(it.hasNext) {
-        val b = it.next
-        added = added ++ vs.map(projection(_,b))
-      }
-      notify_addedAll(added)
-    }
+			var added = Seq[Range]()
+			val it = rightSet.iterator()
+			while(it.hasNext) {
+				val b = it.next
+				added = added ++ vs.map(projection(_,b))
+			}
+			notify_addedAll(added)
+		}
 	}
 
-	object RightObserver extends Observer[DomainB] {
+	case object RightObserver extends Observer[DomainB] {
 
 		// update operations on right relation
 		override def updated(oldB: DomainB, newB: DomainB) {
@@ -146,19 +146,19 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 			}
 		}
 
-    override def removedAll(vs: Seq[DomainB]) {
-      vs foreach (v => if(!rightSet.remove(v)) throw new IllegalStateException("Removed element not in relation: " + v))
+		override def removedAll(vs: Seq[DomainB]) {
+			vs foreach (v => if(!rightSet.remove(v)) throw new IllegalStateException("Removed element not in relation: " + v))
 
-      var removed = Seq[Range]()
-      val it = leftSet.iterator()
-      while(it.hasNext) {
-        val a = it.next
-        removed = removed ++ vs.map(projection(a,_))
-      }
-      notify_removedAll(removed)
-    }
+			var removed = Seq[Range]()
+			val it = leftSet.iterator()
+			while(it.hasNext) {
+				val a = it.next
+				removed = removed ++ vs.map(projection(a,_))
+			}
+			notify_removedAll(removed)
+		}
 
-    override def added(v: DomainB) {
+		override def added(v: DomainB) {
 			rightSet.add(v)
 			val it = leftSet.iterator()
 			while(it.hasNext) {
@@ -167,18 +167,18 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 			}
 		}
 
-    override def addedAll(vs: Seq[DomainB]) {
-      for (v <- vs)
-        rightSet.add(v)
+		override def addedAll(vs: Seq[DomainB]) {
+			for (v <- vs)
+				rightSet.add(v)
 
-      var added = Seq[Range]()
-      val it = leftSet.iterator()
-      while(it.hasNext) {
-        val a = it.next
-        added = added ++ vs.map(projection(a,_))
-      }
-      notify_addedAll(added)
-    }
+			var added = Seq[Range]()
+			val it = leftSet.iterator()
+			while(it.hasNext) {
+				val a = it.next
+				added = added ++ vs.map(projection(a,_))
+			}
+			notify_addedAll(added)
+		}
 	}
 
 

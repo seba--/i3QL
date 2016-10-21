@@ -16,12 +16,15 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 	import scala.concurrent.duration._
 	val timeout = 10 seconds
 
+	private var receiveActorRef : ActorRef = null
+
 	def deploy(system : ActorSystem): ActorRef
 
 	protected def internalDeploy(system : ActorSystem, remoteRef : ActorRef): ActorRef = {
-		val ref = system.actorOf(Props(classOf[ReceiveActorAdapter[Domain]], this))
-		remoteRef ! SendTo(ref)
-		ref
+		receiveActorRef = system.actorOf(Props(classOf[ReceiveActorAdapter[Domain]], this))
+		println(s"[RemoteReceiver] Adding link: ${remoteRef.path} ---> ${receiveActorRef.path}")
+		remoteRef ! SendTo(receiveActorRef)
+		receiveActorRef
 	}
 
 	/**
@@ -37,7 +40,11 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 
 	override protected def resetInternal(): Unit = {}
 
-	override def prettyprint(implicit prefix: String): String = s"Receiver{$this}"
+	override def prettyprint(implicit prefix: String): String = {
+		val s = s"Receiver{actor=$receiveActorRef\n, this=$this)}"
+		s
+	}
+
 
 
 	override def updated(oldV: Domain, newV: Domain): Unit = {

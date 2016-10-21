@@ -34,7 +34,7 @@ package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBasicOperators
 import idb.algebra.exceptions.NonMatchingHostsException
-import idb.lms.extensions.{FunctionUtils, RemoteUtils}
+import idb.lms.extensions.{FunctionUtils, ColorUtils}
 import idb.query.{Host, QueryEnvironment}
 import idb.query.colors.{ClassColor, Color, FieldColor, FieldName}
 
@@ -47,7 +47,7 @@ import idb.query.colors.{ClassColor, Color, FieldColor, FieldName}
 trait RelationalAlgebraIRBasicOperators
     extends RelationalAlgebraIRBase
 		with RelationalAlgebraBasicOperators
-		with RemoteUtils
+		with ColorUtils
 {
 
     case class Projection[Domain : Manifest, Range : Manifest] (

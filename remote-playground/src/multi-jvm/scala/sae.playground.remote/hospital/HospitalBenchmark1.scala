@@ -7,13 +7,11 @@ import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.{BagTable, Table}
-
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
-
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.query.colors._
-
+import idb.syntax.iql.compilation.RemoteUtils
 import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
 
@@ -69,7 +67,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	object PersonDBNode extends DBNode[PersonType] {
 		override val dbName: String = "person-db"
-		override val waitBeforeSend: Long = waitForSendPerson * 1000
+		override val waitBeforeSend: Long = waitForSendPerson
 
 		override val _warmupIterations: Int = warmupIterations
 		override val _measureIterations: Int = measureIterations
@@ -82,7 +80,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	object PatientDBNode extends DBNode[PatientType] {
 		override val dbName: String = "patient-db"
-		override val waitBeforeSend: Long = waitForSendPerson * 1000
+		override val waitBeforeSend: Long = 0
 
 		override val _warmupIterations: Int = warmupIterations
 		override val _measureIterations: Int = measureIterations
@@ -94,7 +92,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	object KnowledgeDBNode extends DBNode[KnowledgeType] {
 		override val dbName: String = "knowledge-db"
-		override val waitBeforeSend: Long = waitForSendPerson * 1000
+		override val waitBeforeSend: Long = 0
 
 		override val _warmupIterations: Int = 1
 		override val _measureIterations: Int = 1
@@ -125,7 +123,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				val knowledgeDB : Rep[Query[(Long, KnowledgeData)]] =
 					REMOTE GET (knowledgeHost, "knowledge-db", Color("purple"))
 
-				val q1 =SELECT DISTINCT (
+				val q1 = SELECT DISTINCT (
 					(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) => (person._1, patientSymptom._1._1, knowledgeData._1, person._2.personId, knowledgeData._2.diagnosis)
 				) FROM (
 					personDB, UNNEST(patientDB, (x: Rep[(Long, Patient)]) => x._2.symptoms), knowledgeDB
@@ -134,9 +132,11 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 						person._2.personId == patientSymptom._1._2.personId AND
 							patientSymptom._2 == knowledgeData._2.symptom AND
 							knowledgeData._2.symptom == Symptoms.cough AND
-							person._2.name == "John Doe"
+							"John Doe" == person._2.name
 
 					)
+
+				val q2 = RECLASS(q1, Color("white"))
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
@@ -144,13 +144,17 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				}
 				Predef.println("Relation.tree#" + printer.quoteRelation(q1))
 
-				import idb.syntax.iql._
-				import idb.syntax.iql.IR._
+
+				val compiled : Relation[(Long, Long, Long, Int, String)] = q2
+				Thread.sleep(10000)
 
 				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-				val r : Relation[(Long, Long, Long, Int, String)] =
-				ROOT(RECLASS(q1, Color("white")), clientHost)
+//				val ref = RemoteUtils.deploy(system, node(node2))(compiled)
+//				Thread.sleep(10000)
+//				val r : Relation[(Long, Long, Long, Int, String)] = RemoteUtils.fromWithDeploy(system, ref)
 
+				val r : Relation[(Long, Long, Long, Int, String)] =
+					ROOT(clientHost, q2)
 
 				//Print the runtime class representation
 				Predef.println("Relation.compiled#" + r.prettyprint(" "))
@@ -161,7 +165,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				enterBarrier("sent-warmup")
 
 				Console.out.println("Wait for warmup...")
-				Thread.sleep(waitForWarmup * 1000)
+				Thread.sleep(waitForWarmup)
 				r.reset()
 				Console.out.println("Wait for reset...")
 				Thread.sleep(3000)
@@ -198,7 +202,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				enterBarrier("sent-measure")
 
 				Console.out.println("Wait for measure...")
-				Thread.sleep(waitForMeasure * 1000)
+				Thread.sleep(waitForMeasure)
 				clientFinished = true
 				gc()
 				val memAfter = rt.totalMemory() - rt.freeMemory()

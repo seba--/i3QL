@@ -38,13 +38,14 @@ import idb.operators.EquiJoin
 import idb.observer.{NotifyObservers, Observer, Observable}
 
 
-case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA],
-												 val right: Relation[DomainB],
-												 val leftIndex: Index[Key, DomainA],
-												 val rightIndex: Index[Key, DomainB],
-												 val projection: (DomainA, DomainB) => Range,
-												 override val isSet: Boolean)
-	extends EquiJoin[DomainA, DomainB, Range, Key]
+case class EquiJoinView[DomainA, DomainB, Range, Key](
+	left: Relation[DomainA],
+	right: Relation[DomainB],
+	leftIndex: Index[Key, DomainA],
+	rightIndex: Index[Key, DomainB],
+	projection: (DomainA, DomainB) => Range,
+	isSet: Boolean
+) extends EquiJoin[DomainA, DomainB, Range, Key]
 	with NotifyObservers[Range] {
 
 	val leftKey: DomainA => Key = leftIndex.keyFunction
@@ -123,7 +124,7 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 	}
 
 
-	object LeftObserver extends Observer[(Key, DomainA)] {
+	case object LeftObserver extends Observer[(Key, DomainA)] {
 
 
 		// update operations on left relation
@@ -157,7 +158,7 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 		}
 
 		def removed(kv: (Key, DomainA)) {
-      var removed = Seq[Range]()
+			var removed = Seq[Range]()
 			rightIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
@@ -166,25 +167,26 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 				}
 				case _ => // do nothing
 			}
-      notify_removedAll(removed)
+			notify_removedAll(removed)
 		}
 
-    def removedAll(kvs: Seq[(Key, DomainA)]) {
-      var removed = Seq[Range]()
-      for (kv <- kvs)
-        rightIndex.get(kv._1) match {
-          case Some(col) => {
-            col.foreach(u =>
-              removed = projection(kv._2, u) +: removed
-            )
-          }
-          case _ => // do nothing
-        }
-      notify_removedAll(removed)
-    }
+		def removedAll(kvs: Seq[(Key, DomainA)]) {
+			var removed = Seq[Range]()
+			for (kv <- kvs)
+				rightIndex.get(kv._1) match {
+					case Some(col) => {
+						col.foreach(u =>
+							removed = projection(kv._2, u) +: removed
+						)
+					}
+					case _ => // do nothing
+				}
+			notify_removedAll(removed)
+		}
 
-    def added(kv: (Key, DomainA)) {
-      var added = Seq[Range]()
+		def added(kv: (Key, DomainA)) {
+			println("[EquiJoin][Left] ADDED " + kv)
+			var added = Seq[Range]()
 			rightIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
@@ -193,27 +195,28 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 				}
 				case _ => // do nothing
 			}
-      notify_addedAll(added)
+			println("[EquiJoin][Left] NOTIFY_ADDEDALL " + added)
+			notify_addedAll(added)
 		}
 
-    def addedAll(kvs: Seq[(Key, DomainA)]) {
-      var added = Seq[Range]()
-      for (kv <- kvs)
-        rightIndex.get(kv._1) match {
-          case Some(col) => {
-            col.foreach(u =>
+		def addedAll(kvs: Seq[(Key, DomainA)]) {
+			var added = Seq[Range]()
+			for (kv <- kvs)
+				rightIndex.get(kv._1) match {
+					case Some(col) => {
+						col.foreach(u =>
 
-              added = projection(kv._2, u) +: added
-            )
-          }
-          case _ => // do nothing
-        }
-      notify_addedAll(added)
-    }
+							added = projection(kv._2, u) +: added
+						)
+					}
+					case _ => // do nothing
+				}
+			notify_addedAll(added)
+		}
 
 	}
 
-	object RightObserver extends Observer[(Key, DomainB)] {
+	case object RightObserver extends Observer[(Key, DomainB)] {
 
 
 		// update operations on right relation
@@ -250,7 +253,7 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 		}
 
 		def removed(kv: (Key, DomainB)) {
-      var removed = Seq[Range]()
+			var removed = Seq[Range]()
 			leftIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
@@ -259,25 +262,26 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 				}
 				case _ => // do nothing
 			}
-      notify_removedAll(removed)
+			notify_removedAll(removed)
 		}
 
-    def removedAll(kvs: Seq[(Key, DomainB)]) {
-      var removed = Seq[Range]()
-      for (kv <- kvs)
-        leftIndex.get(kv._1) match {
-          case Some(col) => {
-            col.foreach(u =>
-              removed = projection(u, kv._2) +: removed
-            )
-          }
-          case _ => // do nothing
-        }
-      notify_removedAll(removed)
-    }
+		def removedAll(kvs: Seq[(Key, DomainB)]) {
+			var removed = Seq[Range]()
+			for (kv <- kvs)
+				leftIndex.get(kv._1) match {
+					case Some(col) => {
+						col.foreach(u =>
+							removed = projection(u, kv._2) +: removed
+						)
+					}
+					case _ => // do nothing
+				}
+			notify_removedAll(removed)
+		}
 
 		def added(kv: (Key, DomainB)) {
-      var added = Seq[Range]()
+			println("[EquiJoin][Right] ADDED " + kv)
+			var added = Seq[Range]()
 			leftIndex.get(kv._1) match {
 				case Some(col) => {
 					col.foreach(u =>
@@ -286,22 +290,23 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](val left: Relation[DomainA
 				}
 				case _ => // do nothing
 			}
-      notify_addedAll(added)
+			println("[EquiJoin][Right] NOTIFY_ADDEDALL " + added)
+			notify_addedAll(added)
 		}
 
-    def addedAll(kvs: Seq[(Key, DomainB)]) {
-      var added = Seq[Range]()
-      for (kv <- kvs)
-        leftIndex.get(kv._1) match {
-          case Some(col) => {
-            col.foreach(u =>
-              added = projection(u, kv._2) +: added
-            )
-          }
-          case _ => // do nothing
-        }
-      notify_addedAll(added)
-    }
+		def addedAll(kvs: Seq[(Key, DomainB)]) {
+			var added = Seq[Range]()
+			for (kv <- kvs)
+				leftIndex.get(kv._1) match {
+					case Some(col) => {
+						col.foreach(u =>
+							added = projection(u, kv._2) +: added
+						)
+					}
+					case _ => // do nothing
+				}
+			notify_addedAll(added)
+		}
 
 	}
 
@@ -315,7 +320,8 @@ object EquiJoinView {
 		leftEq: Seq[(DomainA => Any)],
 		rightEq: Seq[(DomainB => Any)],
 		isSet: Boolean
-	): EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]] = {
+	): EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Any] = {
+
 
 		val leftKey: DomainA => Seq[Any] = x => leftEq.map( f => f(x))
 		val rightKey: DomainB => Seq[Any] = x => rightEq.map( f => f(x))
@@ -323,11 +329,10 @@ object EquiJoinView {
 		val leftMaterialized = left //if (left.isInstanceOf[MaterializedView[DomainA]]) left else left.asMaterialized
 		val rightMaterialized = right //if (right.isInstanceOf[MaterializedView[DomainA]]) right else right.asMaterialized
 
+		val leftIndex: Index[Any, DomainA] = IndexService.getIndex(leftMaterialized, leftKey)
+		val rightIndex: Index[Any, DomainB] = IndexService.getIndex(rightMaterialized, rightKey)
 
-		val leftIndex: Index[Seq[Any], DomainA] = IndexService.getIndex(leftMaterialized, leftKey)
-		val rightIndex: Index[Seq[Any], DomainB] = IndexService.getIndex(rightMaterialized, rightKey)
-
-		return new EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Seq[Any]](
+		return new EquiJoinView[DomainA, DomainB, (DomainA, DomainB), Any](
 			leftMaterialized,
 			rightMaterialized,
 			leftIndex,

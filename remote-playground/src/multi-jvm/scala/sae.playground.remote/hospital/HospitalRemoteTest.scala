@@ -6,13 +6,16 @@ import akka.testkit.ImplicitSender
 import idb.BagTable
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.evaluator.PrintRows
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
-import idb.operators.impl.{ProjectionView, SelectionView}
+import idb.operators.DuplicateElimination
+import idb.operators.impl.{DuplicateEliminationView, EquiJoinView, ProjectionView, SelectionView}
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
+import idb.syntax.iql.compilation.RemoteUtils
 import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
 
@@ -68,14 +71,23 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				val db = BagTable.empty[Person]
 				REMOTE DEFINE (db, "person-db")
 
+				Thread.sleep(5000)
+
 				enterBarrier("deployed")
+				Predef.println("### DEPLOYED ###")
 				//The query gets compiled here...
 				enterBarrier("compiled")
+				Predef.println("### COMPILED ###")
 
 				db += johnDoe
 				db += sallyFields
 				db += johnCarter
 				db += janeDoe
+
+				Thread.sleep(10000)
+
+				enterBarrier("finished")
+				Predef.println("### FINISHED ###")
 			}
 
 			/*
@@ -87,15 +99,24 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				val db = BagTable.empty[Patient]
 				REMOTE DEFINE (db, "patient-db")
 
+				Thread.sleep(5000)
+
 				enterBarrier("deployed")
+				Predef.println("### DEPLOYED ###")
 				//The query gets compiled here...
 				enterBarrier("compiled")
+				Predef.println("### COMPILED ###")
 
 				db += patientJohnDoe2
 				db += patientSallyFields1
 				db += patientJohnCarter1
 				db += patientJaneDoe1
 				db += patientJaneDoe2
+
+				Thread.sleep(10000)
+
+				enterBarrier("finished")
+				Predef.println("### FINISHED ###")
 			}
 
 			/*
@@ -107,14 +128,23 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				val db = BagTable.empty[KnowledgeData]
 				REMOTE DEFINE (db, "knowledge-db")
 
+				Thread.sleep(5000)
+
 				enterBarrier("deployed")
+				Predef.println("### DEPLOYED ###")
 				//The query gets compiled here...
 				enterBarrier("compiled")
+				Predef.println("### COMPILED ###")
 
 				db += lungCancer1
 				db += lungCancer2
 				db += commonCold1
 				db += panicDisorder1
+
+				Thread.sleep(10000)
+
+				enterBarrier("finished")
+				Predef.println("### FINISHED ###")
 			}
 
 			/*
@@ -122,6 +152,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 			 */
 			runOn(node4) {
 				enterBarrier("deployed")
+				Predef.println("### DEPLOYED ###")
 
 				import idb.syntax.iql._
 				import idb.syntax.iql.IR._
@@ -143,44 +174,58 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 					) WHERE	(
 						(person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) =>
 								person.personId == patientSymptom._1.personId AND
-								patientSymptom._2 == knowledgeData.symptom AND
-								knowledgeData.symptom == Symptoms.cough
+								patientSymptom._2 == knowledgeData.symptom //AND
+								//knowledgeData.symptom == Symptoms.cough
 					)
 
-				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-				val q = ROOT(RECLASS(q1, Color("white")), clientHost)
+//				val q1 =
+//					SELECT DISTINCT (
+//						(person: Rep[Person], patient: Rep[Patient]) => (person.personId, person.name)
+//					) FROM (
+//						personDB, patientDB
+//					) WHERE	(
+//						(person: Rep[Person], patient: Rep[Patient]) =>
+//								person.personId == patient.personId
+//					)
 
+//				val personPath: ActorPath = node(node1) / "user" / "person-db"
+//				val persons = RemoteUtils.from[Person](personPath)
+//
+//				val patientPath: ActorPath = node(node2) / "user" / "patient-db"
+//				val patients = RemoteUtils.from[Patient](patientPath)
+//
+//				val r1 = EquiJoinView(persons, patients, Seq((p : Person) => p.personId), Seq((p : Patient) => p.personId),false)
+//				val r2 = DuplicateEliminationView(r1, false)
+//
+//				val q1 = r2
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR
 				}
-				Predef.println(printer.quoteRelation(q))
+				Predef.println(printer.quoteRelation(q1))
+
+				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
+				Thread.sleep(10000)
+				val q = ROOT(clientHost, RECLASS(q1, Color("white")))
+
 
 				//Compile the LMS tree and then materialize for further testing purposes
-				val r : Relation[_] = q
-//				LinkActor.forward(system, r) //TODO: Add this to ROOT
-				val relation = r.asMaterialized
-				//Print the runtime class representation
-				Predef.println(relation.prettyprint(" "))
+				val r : idb.Relation[_] = q
+				PrintRows(r, "result")
+				Thread.sleep(5000)
 
-				//Add observer for testing purposes
-				//new RemoteSender(relation, testActor)
 
 
 				enterBarrier("compiled")
+				Predef.println("### COMPILED ###")
 				//The tables are now sending data
 
-				try {
-					import scala.concurrent.duration._
-					expectMsg(10.seconds, AddedAll(scala.List((0,"John Doe","common cold"), (0,"John Doe","lung cancer"))))
-					expectMsg(10.seconds, AddedAll(scala.List((3,"Jane Doe","common cold"), (3,"Jane Doe","lung cancer"))))
+				Thread.sleep(10000)
 
-				} finally {
-					Thread.sleep(3000) //Wait some time until data has been sent
-					Predef.println("RELATION:")
-					relation.foreach(Predef.println)
-				}
+				enterBarrier("finished")
+				Predef.println("### FINISHED ###")
+
 			}
 
 		}

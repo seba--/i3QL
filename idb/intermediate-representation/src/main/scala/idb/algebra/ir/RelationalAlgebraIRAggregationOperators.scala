@@ -37,7 +37,7 @@ import idb.query.QueryEnvironment
 import idb.query.colors.{ClassColor, Color}
 
 import scala.virtualization.lms.common.LiftAll
-import idb.lms.extensions.{FunctionUtils, RemoteUtils, ScalaOpsExpOptExtensions}
+import idb.lms.extensions.{FunctionUtils, ColorUtils, ScalaOpsExpOptExtensions}
 
 
 /**
@@ -46,7 +46,7 @@ import idb.lms.extensions.{FunctionUtils, RemoteUtils, ScalaOpsExpOptExtensions}
  *
  */
 trait RelationalAlgebraIRAggregationOperators
-    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators with RemoteUtils
+    extends RelationalAlgebraIRBase with RelationalAlgebraAggregationOperators with ColorUtils
 {
 
     case class AggregationSelfMaintained[Domain: Manifest, Key: Manifest, RangeA, RangeB, Range : Manifest] (

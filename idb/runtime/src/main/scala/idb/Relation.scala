@@ -107,6 +107,7 @@ trait Relation[+V]
     protected def resetInternal()
 
 
+
     def prettyprint(implicit prefix: String): String
     def nested(rel: Relation[_])(implicit prefix: String): String = "\n" + rel.prettyprint(prefix + "  ")
 }

@@ -75,14 +75,25 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 				Predef.println("### DEPLOYED ###")
 				val table : Rep[Query[Int]] = REMOTE GET [Int] (host1, "db", Color("red"))
 
-				val q1 : Rep[Query[Int]] = SELECT (*) FROM RECLASS (table, Color("blue")) WHERE ((i : Rep[Int]) => i > 4)
-				val q2 : Rep[Query[Int]] = SELECT ((i : Rep[Int]) => i * 10) FROM RECLASS (q1, Color("red"))
+				val q1 : Rep[Query[Int]] = SELECT (*) FROM RECLASS (table, Color("red")) WHERE ((i : Rep[Int]) => i > 4)
+				val q2 : Rep[Query[Int]] = SELECT ((i : Rep[Int]) => i * 10) FROM RECLASS (q1, Color("blue"))
+				val q3 : Rep[Query[Int]] = RECLASS(q2, Color("blue"))
 
-				val compiledQ : Relation[Int] = q2
+				//Print the LMS tree representation
+				val printer = new RelationalAlgebraPrintPlan {
+					override val IR = idb.syntax.iql.IR
+				}
+				Predef.println("### Relation.tree ###\n" + printer.quoteRelation(root(q3, host2)))
 
-				//Deploy r
-				val ref = RemoteUtils.deploy(system, node(node1))(compiledQ)
-				val r = RemoteUtils.fromWithDeploy(system, ref)
+				/*
+					TODO: Get current host automatically? The host is only used to check colors and can thus be arbitrarily
+					chosen, if you want a different color.
+				*/
+//				val ref = RemoteUtils.deploy(system, node(node2))(q3)
+//				val r : Relation[Int] = RemoteUtils.fromWithDeploy(system, ref) //ROOT (host2, q3)
+
+				val r : Relation[Int] = ROOT (host2, q3)
+
 
 
 				PrintRows(r, "result")

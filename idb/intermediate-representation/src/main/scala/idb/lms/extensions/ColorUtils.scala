@@ -12,7 +12,7 @@ import scala.virtualization.lms.common.{BooleanOpsExp, StaticDataExp, TupledFunc
 /**
   * @author Mirko Köhler
   */
-trait RemoteUtils
+trait ColorUtils
 	extends TupledFunctionsExp
 	with BooleanOpsExp
 	with StaticDataExp

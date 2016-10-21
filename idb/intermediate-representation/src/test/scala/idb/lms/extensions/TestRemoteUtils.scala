@@ -52,7 +52,7 @@ class TestRemoteUtils
     with TupleOpsExp
     with BooleanOpsExp
     with LiftAll
-    with RemoteUtils
+    with ColorUtils
 	with PrimitiveOpsExp
 	with StringOpsExpExt
 {

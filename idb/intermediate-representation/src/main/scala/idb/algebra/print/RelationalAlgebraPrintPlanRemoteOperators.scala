@@ -67,12 +67,12 @@ trait RelationalAlgebraPrintPlanRemoteOperators
             case Def (rel@Reclassification(r, newColor)) =>
 				withIndent (s"reclass[${rel.host.name}](\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
-					withMoreIndent (newColor + "\n") +
+					withMoreIndent (newColor.toString + "\n") +
 					withIndent (")")
 
-            case Def (rel@ActorDef (path, host)) =>
-	            withIndent (s"actor[$host]") +
-		            path.toString + "\n" +
+            case Def (rel@ActorDef (path, host, color)) =>
+	            withIndent (s"actor[${host.name}](\n") +
+		            withMoreIndent(path.toString + "\n") +
 		            withIndent (")")
 
 

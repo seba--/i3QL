@@ -84,13 +84,12 @@ trait RelationalAlgebraIRRemoteOperators
 
 	case class ActorDef[Domain : Manifest] (
 		actorPath : ActorPath,
-		host : Host
+		host : Host,
+		color : Color
 	) extends Def[Query[Domain]] with QueryBaseOps {
 		override def isMaterialized: Boolean = false
 		override def isSet = false
 		override def isIncrementLocal = false
-
-		override def color = Color.NO_COLOR
 	}
 
 
@@ -115,9 +114,10 @@ trait RelationalAlgebraIRRemoteOperators
 
 	override def actorDef[Domain : Manifest](
 		actorPath : ActorPath,
-		host : Host
+		host : Host,
+		color : Color
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
-		ActorDef[Domain](actorPath, host)
+		ActorDef[Domain](actorPath, host, color)
 
 
 

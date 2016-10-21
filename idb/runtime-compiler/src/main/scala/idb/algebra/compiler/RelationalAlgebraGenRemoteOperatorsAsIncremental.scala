@@ -67,7 +67,7 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
 
-	        case Def (Remote (Def (ActorDef (path, _)), _)) =>
+	        case Def (Remote (Def (ActorDef (path, _, _)), _)) =>
 		        remoteFromPath[Domain](path)
 
             case Def (Remote (r, _)) =>
@@ -76,7 +76,7 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 	            remoteDeploy(queryEnvironment.system, compiled, childHostPath)
 
 
-            case Def (ActorDef (path, _)) =>
+            case Def (ActorDef (path, _, _)) =>
 	            remoteFromPath[Domain](path)
 
 

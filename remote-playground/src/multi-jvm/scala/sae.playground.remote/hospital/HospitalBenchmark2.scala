@@ -152,7 +152,7 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 				val r : Relation[(Long, Long, Long, Int, String)] =
-				ROOT(RECLASS(q1, Color("white")), clientHost)
+					ROOT(clientHost, RECLASS(q1, Color("white")))
 
 
 				//Print the runtime class representation
