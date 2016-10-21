@@ -46,7 +46,7 @@ object NotifyObservers {
   var indent = 0
   def spaces = "| " * indent
 
-  var DEBUG = true
+  var DEBUG = false
 }
 import NotifyObservers._
 
@@ -63,7 +63,6 @@ trait NotifyObservers[V] {
 	}
 
 	protected def notify_addedAll(vs: Seq[V]) {
-		println(s"$this: obs = $observers, vs = $vs")
 		if (vs.isEmpty) {
 		}
 		else if (vs.size == 1) {

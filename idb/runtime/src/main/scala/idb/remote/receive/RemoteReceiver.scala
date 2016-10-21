@@ -3,7 +3,7 @@ package idb.remote.receive
 import akka.actor.{ActorRef, ActorSystem, Props}
 import idb.Relation
 import idb.observer.{NotifyObservers, Observer}
-import idb.remote.SendTo
+import idb.remote.{Reset, SendTo}
 
 import scala.language.postfixOps
 
@@ -17,13 +17,15 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 	val timeout = 10 seconds
 
 	private var receiveActorRef : ActorRef = null
+	private var sendActorRef : ActorRef = null
 
 	def deploy(system : ActorSystem): ActorRef
 
 	protected def internalDeploy(system : ActorSystem, remoteRef : ActorRef): ActorRef = {
+		sendActorRef = remoteRef
 		receiveActorRef = system.actorOf(Props(classOf[ReceiveActorAdapter[Domain]], this))
-		println(s"[RemoteReceiver] Adding link: ${remoteRef.path} ---> ${receiveActorRef.path}")
-		remoteRef ! SendTo(receiveActorRef)
+		println(s"[RemoteReceiver] Adding link: ${sendActorRef.path} ---> ${receiveActorRef.path}")
+		sendActorRef ! SendTo(receiveActorRef)
 		receiveActorRef
 	}
 
@@ -38,7 +40,9 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 
 	override def children: Seq[Relation[_]] = Nil
 
-	override protected def resetInternal(): Unit = {}
+	override protected def resetInternal(): Unit = {
+		sendActorRef ! Reset
+	}
 
 	override def prettyprint(implicit prefix: String): String = {
 		val s = s"Receiver{actor=$receiveActorRef\n, this=$this)}"

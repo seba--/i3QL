@@ -180,8 +180,6 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
         import scala.collection.JavaConversions.collectionAsScalaIterable
         val key = groupingFunction (v)
         if (!groups.contains (key)) {
-            println ()
-            System.err.println (v + " => " + key)
             return None
         }
         val (data, aggregationFunction, oldResult) = groups (key)

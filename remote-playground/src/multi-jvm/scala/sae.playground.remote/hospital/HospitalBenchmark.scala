@@ -18,7 +18,7 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 	val waitForSendPerson = 5000 //ms
 
-	val waitForGc = 8000 //ms
+	val waitForGc = 5000 //ms
 
 	val cpuTimeMeasurements = 50 //ms
 

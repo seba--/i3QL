@@ -30,8 +30,8 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	override val benchmarkName = "hospital1"
 
-	val warmupIterations = 1
-	val measureIterations = 5
+	val warmupIterations = 20000
+	val measureIterations = 20000
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -51,7 +51,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			personHost -> Set("red"),
 			patientHost -> Set("red", "green", "purple"),
 			knowledgeHost -> Set("purple"),
-			clientHost -> Set("white") //For now: Client has its own permission to simulate pushing queries down
+			clientHost -> Set("white", "green", "red") //For now: Client has its own permission to simulate pushing queries down
 		)
 	)
 
@@ -74,7 +74,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
 			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
-			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index * 2, "Jane Doe", 1960)))
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(-index, "Jane Doe", 1960)))
 		}
 	}
 
@@ -131,12 +131,10 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 					(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) =>
 						person._2.personId == patientSymptom._1._2.personId AND
 							patientSymptom._2 == knowledgeData._2.symptom AND
-							knowledgeData._2.symptom == Symptoms.cough AND
-							"John Doe" == person._2.name
+							knowledgeData._2.symptom != Symptoms.chestPain AND
+							"Jane Doe" != person._2.name
 
 					)
-
-				val q2 = RECLASS(q1, Color("white"))
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
@@ -144,17 +142,9 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				}
 				Predef.println("Relation.tree#" + printer.quoteRelation(q1))
 
-
-				val compiled : Relation[(Long, Long, Long, Int, String)] = q2
-				Thread.sleep(10000)
-
 				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-//				val ref = RemoteUtils.deploy(system, node(node2))(compiled)
-//				Thread.sleep(10000)
-//				val r : Relation[(Long, Long, Long, Int, String)] = RemoteUtils.fromWithDeploy(system, ref)
-
 				val r : Relation[(Long, Long, Long, Int, String)] =
-					ROOT(clientHost, q2)
+					ROOT(clientHost, RECLASS(q1, Color("white")))
 
 				//Print the runtime class representation
 				Predef.println("Relation.compiled#" + r.prettyprint(" "))

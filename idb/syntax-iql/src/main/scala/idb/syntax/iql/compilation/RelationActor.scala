@@ -4,7 +4,7 @@ import akka.actor.{Actor, ActorRef, ActorSystem}
 import idb.Relation
 import idb.algebra.compiler.boxing.BoxedFunction
 import idb.algebra.compiler.boxing.BoxedEquiJoin
-import idb.observer.Observer
+import idb.observer.{NotifyObservers, Observer}
 import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
 import idb.remote._
 import idb.remote.receive.RemoteReceiver
@@ -30,6 +30,9 @@ class RelationActor[Domain](
 			initialize(relation)
 			println(s"[RelationActor] Initialized ${this.self}")
 			println(relation.prettyprint(" "))
+		case Reset =>
+			println(s"[RelationActor] Reset ${this.self}")
+			relation.reset()
 	}
 
 	def initialize(relation : Relation[_]): Unit = {
@@ -71,7 +74,6 @@ class RelationActor[Domain](
 	override def added(v: Domain): Unit = {
 
 		registeredActors foreach (a => {
-			println(s"$this#Added[$v]--${context.self}-->${a}")
 			a ! Added(v)
 		})
 	}
@@ -79,7 +81,6 @@ class RelationActor[Domain](
 
 	override def addedAll(vs: Seq[Domain]): Unit = {
 		registeredActors foreach (a => {
-			println(s"$this#AddedAll[$vs]--${context.self}-->${a}")
 			a ! AddedAll(vs)
 		})
 	}

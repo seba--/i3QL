@@ -34,8 +34,8 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	override val benchmarkName = "hospital3"
 
-	val warmupIterations = 10000
-	val measureIterations = 30000
+	val warmupIterations = 20000
+	val measureIterations = 20000
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -71,20 +71,20 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	object PersonDBNode extends DBNode[PersonType] {
 		override val dbName: String = "person-db"
-		override val waitBeforeSend: Long = waitForSendPerson * 1000
+		override val waitBeforeSend: Long = waitForSendPerson
 
 		override val _warmupIterations: Int = warmupIterations
 		override val _measureIterations: Int = measureIterations
 
 		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
 			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
-			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index * 2, "Jane Doe", 1960)))
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(-index, "Jane Doe", 1960)))
 		}
 	}
 
 	object PatientDBNode extends DBNode[PatientType] {
 		override val dbName: String = "patient-db"
-		override val waitBeforeSend: Long = waitForSendPerson * 1000
+		override val waitBeforeSend: Long = waitForSendPerson
 
 		override val _warmupIterations: Int = warmupIterations
 		override val _measureIterations: Int = measureIterations
@@ -96,7 +96,7 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	object KnowledgeDBNode extends DBNode[KnowledgeType] {
 		override val dbName: String = "knowledge-db"
-		override val waitBeforeSend: Long = waitForSendPerson * 1000
+		override val waitBeforeSend: Long = waitForSendPerson
 
 		override val _warmupIterations: Int = 1
 		override val _measureIterations: Int = 1
@@ -137,8 +137,8 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 					(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) =>
 						person._2.personId == patientSymptom._1._2.personId AND
 							patientSymptom._2 == knowledgeData._2.symptom AND
-							knowledgeData._2.symptom == Symptoms.cough AND
-							person._2.name == "John Doe"
+							knowledgeData._2.symptom != Symptoms.chestPain AND
+							"Jane Doe" != person._2.name
 					)
 
 
@@ -147,9 +147,6 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 					override val IR = idb.syntax.iql.IR
 				}
 				Predef.println("Relation.tree#" + printer.quoteRelation(q1))
-
-				import idb.syntax.iql._
-				import idb.syntax.iql.IR._
 
 				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 				val r : Relation[(Long, Long, Long, Int, String)] =
@@ -165,7 +162,7 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				enterBarrier("sent-warmup")
 
 				Console.out.println("Wait for warmup...")
-				Thread.sleep(waitForWarmup * 1000)
+				Thread.sleep(waitForWarmup)
 				r.reset()
 				Console.out.println("Wait for reset...")
 				Thread.sleep(3000)
@@ -202,7 +199,7 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 				enterBarrier("sent-measure")
 
 				Console.out.println("Wait for measure...")
-				Thread.sleep(waitForMeasure * 1000)
+				Thread.sleep(waitForMeasure)
 				clientFinished = true
 				gc()
 				val memAfter = rt.totalMemory() - rt.freeMemory()

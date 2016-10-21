@@ -141,7 +141,6 @@ case class CrossProductView[DomainA, DomainB, Range](val left: Relation[DomainA]
 					notify_removed(projection(a,v))
 				}
 			} else {
-				println(rightSet)
 				throw new IllegalStateException("Removed element not in relation: " + v)
 			}
 		}

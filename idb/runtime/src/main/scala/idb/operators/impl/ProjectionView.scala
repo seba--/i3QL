@@ -55,7 +55,6 @@ case class ProjectionView[Domain, Range] (
     with Observer[Domain]
     with NotifyObservers[Range]
 {
-    println("[Projection] CREATE " + relation)
 	relation addObserver this
 
 
@@ -87,7 +86,6 @@ case class ProjectionView[Domain, Range] (
     }
 
 	override def added (v: Domain) {
-        println("[Projection] ADDED " + v)
         notify_added (projection (v))
     }
 
@@ -98,7 +96,6 @@ case class ProjectionView[Domain, Range] (
 	}
 
 	override def addedAll(vs: Seq[Domain]) {
-		println("[Projection] ADDEDALL " + vs)
 		val added = vs map (projection(_))
 		notify_addedAll(added)
 	}

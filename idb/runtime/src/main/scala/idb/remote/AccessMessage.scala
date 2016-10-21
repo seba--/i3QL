@@ -8,4 +8,4 @@ import akka.actor.ActorRef
 trait AccessMessage
 case class SendTo(ref : ActorRef) extends AccessMessage
 case object Initialize extends AccessMessage
-case object Print extends AccessMessage
+case object Reset extends AccessMessage

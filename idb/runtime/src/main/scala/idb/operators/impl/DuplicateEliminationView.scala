@@ -147,15 +147,12 @@ case class DuplicateEliminationView[Domain](
 	}
 
 	def added(v: Domain) {
-		println("[DuplicateElimination] ADDED " + v)
-
 		if (add_element(v)) {
 			notify_added(v)
 		}
 	}
 
 	def addedAll(vs: Seq[Domain]) {
-		println("[DuplicateElimination] ADDEDALL " + vs)
 		val added = vs filter (add_element(_))
 		notify_addedAll(added)
 	}

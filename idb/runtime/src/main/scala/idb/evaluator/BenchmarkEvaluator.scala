@@ -25,7 +25,7 @@ class BenchmarkEvaluator[T](
 		countEvents = countEvents + 1
 
 		if (countEvents > warmup) {
-			println(s"Benchmark.handle($currTime, $countEvents)#$v")
+			//println(s"Benchmark.handle($currTime, $countEvents)#$v")
 
 			if (firstEvent == -1)
 				firstEvent = currTime
@@ -35,7 +35,7 @@ class BenchmarkEvaluator[T](
 			if (countEvents == expectedNumberOfResults)
 				lastEvent = currTime
 		} else {
-			println(s"Benchmark.warmup($currTime, $countEvents)...")
+			//println(s"Benchmark.warmup($currTime, $countEvents)...")
 		}
 	}
 

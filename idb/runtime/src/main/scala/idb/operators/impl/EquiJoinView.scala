@@ -185,7 +185,6 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 		}
 
 		def added(kv: (Key, DomainA)) {
-			println("[EquiJoin][Left] ADDED " + kv)
 			var added = Seq[Range]()
 			rightIndex.get(kv._1) match {
 				case Some(col) => {
@@ -195,7 +194,6 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 				}
 				case _ => // do nothing
 			}
-			println("[EquiJoin][Left] NOTIFY_ADDEDALL " + added)
 			notify_addedAll(added)
 		}
 
@@ -280,7 +278,6 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 		}
 
 		def added(kv: (Key, DomainB)) {
-			println("[EquiJoin][Right] ADDED " + kv)
 			var added = Seq[Range]()
 			leftIndex.get(kv._1) match {
 				case Some(col) => {
@@ -290,7 +287,6 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 				}
 				case _ => // do nothing
 			}
-			println("[EquiJoin][Right] NOTIFY_ADDEDALL " + added)
 			notify_addedAll(added)
 		}
 
