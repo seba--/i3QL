@@ -2,9 +2,10 @@ package sae.playground.remote.hospital
 
 import java.lang.management.ManagementFactory
 
-import idb.{BagTable, Table}
+import idb.query.colors.Color
+import idb.{BagTable, Relation, Table}
 import idb.query.{QueryEnvironment, RemoteHost}
-import sae.example.hospital.data.{HospitalSchema, HospitalTestData}
+import sae.example.hospital.data._
 
 /**
   * Created by mirko on 06.10.16.
@@ -50,8 +51,6 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 		def exec(): Unit = {
 			import idb.syntax.iql._
-
-
 
 			val db = BagTable.empty[Domain]
 			REMOTE DEFINE (db, dbName)
@@ -102,6 +101,82 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 			appendMemory(dbName,System.currentTimeMillis(),memBefore,memAfter)
 
 
+		}
+	}
+
+	trait ReceiveNode[Domain] {
+
+		def relation() : Relation[Domain]
+		def eventStartTime(e : Domain) : Long
+
+		var finished = false
+
+		def exec(): Unit = {
+			init()
+			appendTitle()
+			barrier("deployed")
+
+			//Write an i3ql query...
+
+
+			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
+			val r : Relation[Domain] = relation
+
+
+			//Print the runtime class representation
+			Predef.println("Relation.compiled#" + r.prettyprint(" "))
+
+
+			barrier("compiled")
+			//The tables are now sending data
+			barrier("sent-warmup")
+
+			Console.out.println("Wait for warmup...")
+			Thread.sleep(waitForWarmup)
+			r.reset()
+			Console.out.println("Wait for reset...")
+			Thread.sleep(3000)
+
+			barrier("resetted")
+			val thr = new Thread(new Runnable {
+				override def run(): Unit = {
+					val myOsBean= ManagementFactory.getOperatingSystemMXBean.asInstanceOf[com.sun.management.OperatingSystemMXBean]
+
+					while (!finished) {
+						Thread.sleep(cpuTimeMeasurements)
+						appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime(), myOsBean.getProcessCpuLoad())
+					}
+				}
+			})
+
+			gc()
+
+			val rt = Runtime.getRuntime
+			val memBefore = rt.totalMemory() - rt.freeMemory()
+
+			thr.start()
+
+
+			//Add observer for testing purposes
+			import idb.evaluator.BenchmarkEvaluator
+			val benchmark = new BenchmarkEvaluator[Domain](r, eventStartTime, measureIterations, 0)
+
+			barrier("ready-measure")
+
+			// /The tables are now sending data
+			barrier("sent-measure")
+
+			Console.out.println("Wait for measure...")
+			Thread.sleep(waitForMeasure)
+			finished = true
+
+			gc()
+			val memAfter = rt.totalMemory() - rt.freeMemory()
+
+			appendSummary(benchmark)
+
+			barrier("finished")
+			appendMemory("client",System.currentTimeMillis(),memBefore,memAfter)
 		}
 	}
 

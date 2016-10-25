@@ -2,6 +2,7 @@ package sae.playground.remote.hospital
 
 import java.io.FileOutputStream
 import java.lang.management.ManagementFactory
+import java.util.Date
 
 import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
@@ -30,12 +31,12 @@ object HospitalBenchmark3 {} // this object is necessary for multi-node testing
 
 //Selection is NOT pushed down == events do NOT get filtered before getting sent
 class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
-	with STMultiNodeSpec with ImplicitSender with HospitalBenchmark {
+	with STMultiNodeSpec with ImplicitSender with HospitalBenchmark
+	//Specifies the number of measurements/warmups
+	with BenchmarkConfig1 {
 
 	override val benchmarkName = "hospital3"
-
-	val warmupIterations = 20000
-	val measureIterations = 20000
+	override val benchmarkNumber: Int = 1
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -106,109 +107,57 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 		}
 	}
 
+	object ClientNode extends ReceiveNode[(Long, Long, Long, Int, String)] {
+		override def relation(): idb.Relation[(Long, Long, Long, Int, String)] = {
+			//Write an i3ql query...
+			import idb.syntax.iql._
+			import idb.syntax.iql.IR._
+
+			val personDB : Rep[Query[(Long, Person)]] =
+				REMOTE GET (personHost, "person-db", Color("red"))
+			val patientDB : Rep[Query[(Long, Patient)]] =
+				REMOTE GET (patientHost, "patient-db", Color("green"))
+			val knowledgeDB : Rep[Query[(Long, KnowledgeData)]] =
+				REMOTE GET (knowledgeHost, "knowledge-db", Color("purple"))
+
+			//Write an i3ql query...
+			val q1 =
+			SELECT DISTINCT (
+				(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) => (person._1, patientSymptom._1._1, knowledgeData._1, person._2.personId, knowledgeData._2.diagnosis)
+				) FROM (
+				RECLASS(personDB, Color("white")), UNNEST(RECLASS(patientDB, Color("white")), (x: Rep[(Long, Patient)]) => x._2.symptoms), RECLASS(knowledgeDB, Color("white"))
+				) WHERE	(
+				(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) =>
+					person._2.personId == patientSymptom._1._2.personId AND
+						patientSymptom._2 == knowledgeData._2.symptom AND
+						knowledgeData._2.symptom != Symptoms.chestPain AND
+						"Jane Doe" != person._2.name
+				)
+
+
+			//Print the LMS tree representation
+			val printer = new RelationalAlgebraPrintPlan {
+				override val IR = idb.syntax.iql.IR
+			}
+			Predef.println("Relation.tree#" + printer.quoteRelation(q1))
+
+			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
+			val r : Relation[(Long, Long, Long, Int, String)] =
+				ROOT(clientHost, q1)
+			r
+		}
+
+		override def eventStartTime(e: (Long, Long, Long, Int, String)): Long = {
+			scala.math.max(e._1, scala.math.max(e._2, e._3))
+		}
+	}
+
 	"Hospital Benchmark" must {
 		"run benchmark" in {
 			runOn(node1) { PersonDBNode.exec() }
 			runOn(node2) { PatientDBNode.exec()	}
 			runOn(node3) { KnowledgeDBNode.exec() }
-
-			runOn(node4) {
-				appendTitle()
-				enterBarrier("deployed")
-
-				//Write an i3ql query...
-				import idb.syntax.iql._
-				import idb.syntax.iql.IR._
-
-				val personDB : Rep[Query[(Long, Person)]] =
-					REMOTE GET (personHost, "person-db", Color("red"))
-				val patientDB : Rep[Query[(Long, Patient)]] =
-					REMOTE GET (patientHost, "patient-db", Color("green"))
-				val knowledgeDB : Rep[Query[(Long, KnowledgeData)]] =
-					REMOTE GET (knowledgeHost, "knowledge-db", Color("purple"))
-
-				//Write an i3ql query...
-				val q1 =
-				SELECT DISTINCT (
-					(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) => (person._1, patientSymptom._1._1, knowledgeData._1, person._2.personId, knowledgeData._2.diagnosis)
-				) FROM (
-					RECLASS(personDB, Color("white")), UNNEST(RECLASS(patientDB, Color("white")), (x: Rep[(Long, Patient)]) => x._2.symptoms), RECLASS(knowledgeDB, Color("white"))
-				) WHERE	(
-					(person: Rep[(Long, Person)], patientSymptom: Rep[((Long, Patient), String)], knowledgeData: Rep[(Long, KnowledgeData)]) =>
-						person._2.personId == patientSymptom._1._2.personId AND
-							patientSymptom._2 == knowledgeData._2.symptom AND
-							knowledgeData._2.symptom != Symptoms.chestPain AND
-							"Jane Doe" != person._2.name
-					)
-
-
-				//Print the LMS tree representation
-				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = idb.syntax.iql.IR
-				}
-				Predef.println("Relation.tree#" + printer.quoteRelation(q1))
-
-				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-				val r : Relation[(Long, Long, Long, Int, String)] =
-					ROOT(clientHost, RECLASS(q1, Color("white")))
-
-
-				//Print the runtime class representation
-				Predef.println("Relation.compiled#" + r.prettyprint(" "))
-
-
-				enterBarrier("compiled")
-				//The tables are now sending data
-				enterBarrier("sent-warmup")
-
-				Console.out.println("Wait for warmup...")
-				Thread.sleep(waitForWarmup)
-				r.reset()
-				Console.out.println("Wait for reset...")
-				Thread.sleep(3000)
-
-				var clientFinished = false
-
-				enterBarrier("resetted")
-				val thr = new Thread(new Runnable {
-					override def run(): Unit = {
-						val myOsBean= ManagementFactory.getOperatingSystemMXBean.asInstanceOf[com.sun.management.OperatingSystemMXBean]
-
-						while (!clientFinished) {
-							Thread.sleep(cpuTimeMeasurements)
-							appendCpu("client", System.currentTimeMillis(), myOsBean.getProcessCpuTime(), myOsBean.getProcessCpuLoad())
-						}
-					}
-				})
-
-				gc()
-
-				val rt = Runtime.getRuntime
-				val memBefore = rt.totalMemory() - rt.freeMemory()
-
-				thr.start()
-
-
-				//Add observer for testing purposes
-				import idb.evaluator.BenchmarkEvaluator
-				val benchmark = new BenchmarkEvaluator[(Long, Long, Long, Int, String)](r, t => scala.math.max(t._1, scala.math.max(t._2, t._3)), measureIterations, 0)
-
-				enterBarrier("ready-measure")
-
-				// /The tables are now sending data
-				enterBarrier("sent-measure")
-
-				Console.out.println("Wait for measure...")
-				Thread.sleep(waitForMeasure)
-				clientFinished = true
-				gc()
-				val memAfter = rt.totalMemory() - rt.freeMemory()
-
-				appendSummary(benchmark)
-
-				enterBarrier("finished")
-				appendMemory("client",System.currentTimeMillis(),memBefore,memAfter)
-			}
+			runOn(node4) { ClientNode.exec() }
 		}
 	}
 }

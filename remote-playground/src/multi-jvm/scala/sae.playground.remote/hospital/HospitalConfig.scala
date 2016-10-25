@@ -9,3 +9,11 @@ trait HospitalConfig {
 	val warmupIterations : Int
 	val measureIterations : Int
 }
+
+trait BenchmarkConfig1 {
+
+	val benchmarkType : String = "measure_20000"
+
+	val warmupIterations : Int = 20000
+	val measureIterations : Int = 20000
+}
