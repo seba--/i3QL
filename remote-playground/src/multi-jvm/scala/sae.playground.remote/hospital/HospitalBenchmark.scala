@@ -1,12 +1,8 @@
 package sae.playground.remote.hospital
 
-import java.lang.management.ManagementFactory
-
 import idb.benchmark.Measurement
-import idb.query.colors.Color
 import idb.{BagTable, Relation, Table}
-import idb.query.{QueryEnvironment, RemoteHost}
-import idb.util.PrintRows
+import idb.query.QueryEnvironment
 import sae.example.hospital.data._
 
 /**
@@ -53,6 +49,7 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 	}
 
 	object Data extends HospitalTestData
+	import Data._
 
 	protected def internalBarrier(name : String)
 
@@ -60,6 +57,56 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 		internalBarrier(name : String)
 		println(s"### Enter barrier __${name}__ ###")
 	}
+
+	type PersonType = (Long, Person)
+	type PatientType = Patient
+	type KnowledgeType = KnowledgeData
+
+	type ResultType = (Long, Int, String, String)
+
+
+
+	object PersonDBNode extends DBNode[PersonType] {
+		override val dbName: String = "person-db"
+
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = false
+
+		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "Jane Doe", 1960)))
+		}
+	}
+
+	object PatientDBNode extends DBNode[PatientType] {
+		override val dbName: String = "patient-db"
+
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = true
+
+		override def iteration(db : Table[Patient], index : Int): Unit = {
+			db += sae.example.hospital.data.Patient(index, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))
+		}
+	}
+
+	object KnowledgeDBNode extends DBNode[KnowledgeType] {
+		override val dbName: String = "knowledge-db"
+
+		override val nodeWarmupIterations: Int = 1
+		override val nodeMeasureIterations: Int = 1
+
+		override val isPredata : Boolean = true
+
+		override def iteration(db : Table[KnowledgeData], index : Int): Unit = {
+			db += lungCancer1
+		}
+	}
+
+
 
 	trait DBNode[Domain] {
 
@@ -150,16 +197,11 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 			r.reset()
 			Thread.sleep(waitForReset)
 
-			val p1 = PrintRows(r, tag = "predata")
-
 			section("measure-predata")
 			//The tables are now sending data
 			Thread.sleep(waitForData)
 
 			section("measure-init")
-			//Change printer
-			p1.stop()
-			val p2 = PrintRows(r, tag = "data")
 			//Add observer for testing purposes
 			import idb.benchmark._
 			val count = new CountEvaluator(r)

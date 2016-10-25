@@ -1,22 +1,12 @@
 package sae.playground.remote.hospital
 
-import java.io.FileOutputStream
-import java.lang.management.ManagementFactory
-import java.util.Date
-
-import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.{Relation, Table}
+import idb.Relation
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.query.colors._
-import idb.syntax.iql.compilation.RemoteUtils
-import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
-
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
 class HospitalBenchmark1MultiJvmNode1 extends HospitalBenchmark1
 class HospitalBenchmark1MultiJvmNode2 extends HospitalBenchmark1
@@ -34,13 +24,10 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	with BenchmarkConfig1 {
 
 	override val benchmarkName = "hospital1"
-	override val benchmarkNumber: Int = 1
+	override val benchmarkNumber: Int = 3
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
-
-	import BaseHospital._
-	import Data._
 
 	//Setup query environment
 	val personHost = RemoteHost("personHost", node(node1))
@@ -58,61 +45,18 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 		)
 	)
 
-	type PersonType = (Long, Person)
-	type PatientType = Patient
-	type KnowledgeType = KnowledgeData
-
-	import Data._
-
 	def internalBarrier(name : String): Unit = {
 		enterBarrier(name)
 	}
 
-	object PersonDBNode extends DBNode[PersonType] {
-		override val dbName: String = "person-db"
-
-		override val nodeWarmupIterations: Int = warmupIterations
-		override val nodeMeasureIterations: Int = measureIterations
-
-		override val isPredata : Boolean = false
-
-		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
-			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
-			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "Jane Doe", 1960)))
-		}
-	}
-
-	object PatientDBNode extends DBNode[PatientType] {
-		override val dbName: String = "patient-db"
-
-		override val nodeWarmupIterations: Int = warmupIterations
-		override val nodeMeasureIterations: Int = measureIterations
-
-		override val isPredata : Boolean = true
-
-		override def iteration(db : Table[Patient], index : Int): Unit = {
-			db += sae.example.hospital.data.Patient(index, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))
-		}
-	}
-
-	object KnowledgeDBNode extends DBNode[KnowledgeType] {
-		override val dbName: String = "knowledge-db"
-
-		override val nodeWarmupIterations: Int = 1
-		override val nodeMeasureIterations: Int = 1
-
-		override val isPredata : Boolean = true
-
-		override def iteration(db : Table[KnowledgeData], index : Int): Unit = {
-			db += lungCancer1
-		}
-	}
-
-	object ClientNode extends ReceiveNode[(Long, Int, String, String)] {
-		override def relation(): Relation[(Long, Int, String, String)] = {
+	object ClientNode extends ReceiveNode[ResultType] {
+		override def relation(): Relation[ResultType] = {
 			//Write an i3ql query...
 			import idb.syntax.iql._
 			import idb.syntax.iql.IR._
+
+			import BaseHospital._
+			import Data._
 
 			val personDB : Rep[Query[PersonType]] =
 				REMOTE GET (personHost, "person-db", Color("red"))
@@ -141,12 +85,12 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			Predef.println("Relation.tree#" + printer.quoteRelation(q1))
 
 			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-			val r : idb.syntax.iql.IR.Relation[(Long, Int, String, String)] =
+			val r : idb.syntax.iql.IR.Relation[ResultType] =
 				ROOT(clientHost, RECLASS(q1, Color("white")))
 			r
 		}
 
-		override def eventStartTime(e: (Long, Int, String, String)): Long = {
+		override def eventStartTime(e: ResultType): Long = {
 			e._1
 		}
 	}

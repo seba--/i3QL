@@ -1,0 +1,2 @@
+type,benchmarkName,time,measureIterations,warmupIterations,receivedEvents,averageDelay,timeToReceive,eventsPerSecond
+benchmark,hospital3,19:35:02.452,20000,20000,20000,405.80555,689,29027.57619738752
