@@ -17,3 +17,11 @@ trait BenchmarkConfig1 {
 	val warmupIterations : Int = 20000
 	val measureIterations : Int = 20000
 }
+
+trait TestConfig1 {
+
+	val benchmarkType : String = "test"
+
+	val warmupIterations : Int = 3
+	val measureIterations : Int = 10
+}

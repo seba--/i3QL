@@ -4,7 +4,7 @@ import java.io.{File, FileOutputStream}
 import java.text.SimpleDateFormat
 import java.util.Date
 
-import idb.evaluator.BenchmarkEvaluator
+import idb.benchmark.{CountEvaluator, DelayEvaluator, ThroughputEvaluator}
 
 /**
   * Created by mirko on 06.10.16.
@@ -36,28 +36,40 @@ trait CSVPrinter extends HospitalConfig {
 			f.createNewFile()
 		})
 
+		val h1 = s"type,benchmarkName,time,measureIterations,warmupIterations,receivedEvents,averageDelay,timeToReceive,eventsPerSecond"
+		addToFile(summaryFile, h1)
+
+		val h2 = s"type,host,time,memoryBefore,memoryAfter"
+		addToFile(memoryFile, h2)
+
+		val h3 = s"type,host,time,cpuTime,cpuLoad"
+		addToFile(cpuFile, h3)
+
 
 	}
 
 	def appendTitle(): Unit = {
-		addToFile(summaryFile, s"benchmark,$benchmarkName,$measureIterations,$warmupIterations")
+		//addToFile(summaryFile, s"benchmark,$benchmarkName,$measureIterations,$warmupIterations")
 	}
 
-	def appendSummary(eval : BenchmarkEvaluator[_]): Unit = {
+	def appendSummary(countEvaluator: CountEvaluator[_], throughputEvaluator : ThroughputEvaluator[_], delayEvaluator : DelayEvaluator[_]): Unit = {
 
-		val summary@(totalEvents, measuredEvents, timeToReceive, messageDelay) = eval.getSummary
+		val eventCount = countEvaluator.result()
+		val averageDelay = delayEvaluator.result()
+		val throughput = throughputEvaluator.result()
 
 
 		val s = s"### Benchmark $benchmarkTime ###\n" +
-			s"iterations=$measureIterations (of which warmup=$warmupIterations), received events=$totalEvents\n" +
-			s"Measurement: measured events=$measuredEvents, avg delay=${messageDelay}ms, time to receive=${timeToReceive}ms"
+			s"iterations=$measureIterations (of which warmup=$warmupIterations), received events=$eventCount\n" +
+			s"avg delay=${averageDelay}ms, time to receive=${throughput._2}ms, events per second=${throughput._1}"
 
 		Predef.println(s)
 
 
 		//Append to summary file
 		{
-			val csv = s"result,$benchmarkTime,$totalEvents,$measuredEvents,$messageDelay,$timeToReceive"
+
+			val csv = s"benchmark,$benchmarkName,$benchmarkTime,$measureIterations,$warmupIterations,$eventCount,$averageDelay,${throughput._2},${throughput._1}"
 			addToFile(summaryFile, csv)
 		}
 
@@ -65,8 +77,9 @@ trait CSVPrinter extends HospitalConfig {
 		{
 			val fileName = s"benchmark-msginfo.csv"
 
-			val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream(path + fileName, true))
-			eval.eventTimes.foreach(t => {
+			val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream(path + fileName, false))
+			out.println("sendingTime,receivingTime")
+			delayEvaluator.eventTimes.foreach(t => {
 				val csv = s"${t._1},${t._2}"
 				out.println(csv)
 			})
@@ -78,8 +91,8 @@ trait CSVPrinter extends HospitalConfig {
 		addToFile(memoryFile, s"mem,$node,$time,$memoryBefore,$memoryAfter")
 	}
 
-	def appendCpu(node : String, time : Long, cpu : Long, load : Double): Unit = {
-		addToFile(cpuFile, s"cpu,$node,$time,$cpu,$load")
+	def appendCpu(node : String, time : Long, cpuTime : Long, cpuLoad : Double): Unit = {
+		addToFile(cpuFile, s"cpu,$node,$time,$cpuTime,$cpuLoad")
 	}
 
 	private def addToFile(f : File, s : String): Unit = {

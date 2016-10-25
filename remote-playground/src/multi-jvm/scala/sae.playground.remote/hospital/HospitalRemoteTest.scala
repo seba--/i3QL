@@ -6,7 +6,6 @@ import akka.testkit.ImplicitSender
 import idb.BagTable
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.evaluator.PrintRows
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
 import idb.operators.DuplicateElimination
@@ -16,6 +15,7 @@ import idb.remote._
 import idb.query._
 import idb.query.colors._
 import idb.syntax.iql.compilation.RemoteUtils
+import idb.util.PrintRows
 import sae.example.hospital.data._
 import sae.playground.remote.STMultiNodeSpec
 

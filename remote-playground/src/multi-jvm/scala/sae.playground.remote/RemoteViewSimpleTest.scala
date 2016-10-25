@@ -4,11 +4,11 @@ import akka.actor.{ActorPath, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.{BagTable, remote}
-import idb.evaluator.PrintRows
 import idb.operators.impl.{DuplicateEliminationView, EquiJoinView, ProjectionView, SelectionView}
 import idb.remote
 import idb.remote.receive.{RefRemoteReceiver, RemoteReceiver}
 import idb.syntax.iql.compilation.RemoteUtils
+import idb.util.PrintRows
 
 import scala.concurrent.Await
 

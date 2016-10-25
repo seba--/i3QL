@@ -6,13 +6,13 @@ import akka.testkit.ImplicitSender
 import idb.{BagTable, remote}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.evaluator.PrintRows
 import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.colors._
 import idb.syntax.iql.compilation.{CompilerBinding, RemoteUtils}
+import idb.util.PrintRows
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 

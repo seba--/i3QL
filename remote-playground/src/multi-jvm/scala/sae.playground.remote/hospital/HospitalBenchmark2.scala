@@ -66,16 +66,17 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	import Data._
 
-	def barrier(name : String): Unit = {
+	def internalBarrier(name : String): Unit = {
 		enterBarrier(name)
 	}
 
 	object PersonDBNode extends DBNode[PersonType] {
 		override val dbName: String = "person-db"
-		override val waitBeforeSend: Long = waitForSendPerson
 
-		override val _warmupIterations: Int = warmupIterations
-		override val _measureIterations: Int = measureIterations
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = false
 
 		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
 			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
@@ -85,10 +86,11 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	object PatientDBNode extends DBNode[PatientType] {
 		override val dbName: String = "patient-db"
-		override val waitBeforeSend: Long = 0
 
-		override val _warmupIterations: Int = warmupIterations
-		override val _measureIterations: Int = measureIterations
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = true
 
 		override def iteration(db : Table[(Long, Patient)], index : Int): Unit = {
 			db += ((System.currentTimeMillis(),  sae.example.hospital.data.Patient(index, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))))
@@ -97,10 +99,11 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 	object KnowledgeDBNode extends DBNode[KnowledgeType] {
 		override val dbName: String = "knowledge-db"
-		override val waitBeforeSend: Long = 0
 
-		override val _warmupIterations: Int = 1
-		override val _measureIterations: Int = 1
+		override val nodeWarmupIterations: Int = 1
+		override val nodeMeasureIterations: Int = 1
+
+		override val isPredata : Boolean = true
 
 		override def iteration(db : Table[(Long, KnowledgeData)], index : Int): Unit = {
 			db += ((System.currentTimeMillis(), lungCancer1))
