@@ -32,7 +32,9 @@
  */
 package idb.operators
 
-import idb.{View, Relation}
+import java.io.PrintStream
+
+import idb.{Relation, View}
 
 
 /**
@@ -48,6 +50,9 @@ trait Selection[Domain]
 
     def children = List (relation)
 
-    override def prettyprint(implicit prefix: String) = prefix +
-      s"Selection($filter, ${nested(relation)})"
+    override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+        out.println(prefix + s"Selection($filter,")
+        printNested(out, relation)
+        out.println(prefix + ")")
+    }
 }

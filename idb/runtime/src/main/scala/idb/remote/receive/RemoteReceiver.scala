@@ -1,9 +1,11 @@
 package idb.remote.receive
 
+import java.io.PrintStream
+
 import akka.actor.{ActorRef, ActorSystem, Props}
 import idb.Relation
 import idb.observer.{NotifyObservers, Observer}
-import idb.remote.{Reset, SendTo}
+import idb.remote.{Print, Reset, SendTo}
 
 import scala.language.postfixOps
 
@@ -44,9 +46,10 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 		sendActorRef ! Reset
 	}
 
-	override def prettyprint(implicit prefix: String): String = {
-		val s = s"Receiver{actor=$receiveActorRef\n, this=$this)}"
-		s
+	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+		out.println(prefix + s"Receiver{sendRef=$sendActorRef, recvRef=$receiveActorRef, this=$this)}")
+		if (sendActorRef != null)
+			sendActorRef ! Print
 	}
 
 

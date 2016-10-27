@@ -39,17 +39,16 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 	val waitForCompile = 20000 //ms
 	val waitForData = 20000 //ms
-	val waitForReset = 5000 //ms
-	val waitForGc = 5000 //ms
+	val waitForReset = 10000 //ms
+	val waitForGc = 10000 //ms
 
-	val cpuMeasurementInterval = 50 //ms
+	val cpuMeasurementInterval = 20 //ms
 
 	object BaseHospital extends HospitalSchema {
 		override val IR = idb.syntax.iql.IR
 	}
 
 	object Data extends HospitalTestData
-	import Data._
 
 	protected def internalBarrier(name : String)
 
@@ -58,54 +57,10 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 		println(s"### Enter barrier __${name}__ ###")
 	}
 
-	type PersonType = (Long, Person)
-	type PatientType = Patient
-	type KnowledgeType = KnowledgeData
-
-	type ResultType = (Long, Int, String, String)
-
-
-
-	object PersonDBNode extends DBNode[PersonType] {
-		override val dbName: String = "person-db"
-
-		override val nodeWarmupIterations: Int = warmupIterations
-		override val nodeMeasureIterations: Int = measureIterations
-
-		override val isPredata : Boolean = false
-
-		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
-			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
-			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "Jane Doe", 1960)))
-		}
-	}
-
-	object PatientDBNode extends DBNode[PatientType] {
-		override val dbName: String = "patient-db"
-
-		override val nodeWarmupIterations: Int = warmupIterations
-		override val nodeMeasureIterations: Int = measureIterations
-
-		override val isPredata : Boolean = true
-
-		override def iteration(db : Table[Patient], index : Int): Unit = {
-			db += sae.example.hospital.data.Patient(index, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))
-		}
-	}
-
-	object KnowledgeDBNode extends DBNode[KnowledgeType] {
-		override val dbName: String = "knowledge-db"
-
-		override val nodeWarmupIterations: Int = 1
-		override val nodeMeasureIterations: Int = 1
-
-		override val isPredata : Boolean = true
-
-		override def iteration(db : Table[KnowledgeData], index : Int): Unit = {
-			db += lungCancer1
-		}
-	}
-
+	type PersonType
+	type PatientType
+	type KnowledgeType
+	type ResultType
 
 
 	trait DBNode[Domain] {
@@ -155,8 +110,9 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 			Measurement.Memory((memBefore, memAfter) => appendMemory(dbName,System.currentTimeMillis(),memBefore,memAfter), sleepAfterGc = waitForGc) {
 				Measurement.CPU((time, cpuTime, cpuLoad) => appendCpu(dbName, time, cpuTime, cpuLoad), interval = cpuMeasurementInterval) {
 					section("measure-data")
-					(1 to nodeMeasureIterations).foreach(i => iteration(db, i))
-
+					if (!isPredata) {
+						(1 to nodeMeasureIterations).foreach(i => iteration(db, i))
+					}
 					section("measure-finish")
 				}
 			}
@@ -180,8 +136,10 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 			section("compile")
 			val r : Relation[Domain] = relation()
 			//Print the runtime class representation
-			Predef.println("Relation.compiled#" + r.prettyprint(" "))
 			Thread.sleep(waitForCompile)
+
+			Predef.println("Relation.compiled#")
+			r.print()
 
 			section("warmup-predata")
 			//The tables are now sending data
@@ -222,5 +180,109 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 		}
 	}
+}
 
+trait DefaultHospitalBenchmark extends HospitalBenchmark {
+	override type PersonType = (Long, Person)
+	override type PatientType = Patient
+	override type KnowledgeType = KnowledgeData
+
+
+	object PersonDBNode extends DBNode[PersonType] {
+		override val dbName: String = "person-db"
+
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = false
+
+		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
+			db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "Jane Doe", 1960)))
+		}
+	}
+
+	object PatientDBNode extends DBNode[PatientType] {
+		import Data._
+
+		override val dbName: String = "patient-db"
+
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = true
+
+		override def iteration(db : Table[Patient], index : Int): Unit = {
+			db += sae.example.hospital.data.Patient(index, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))
+		}
+	}
+
+	object KnowledgeDBNode extends DBNode[KnowledgeType] {
+		import Data._
+
+		override val dbName: String = "knowledge-db"
+
+		override val nodeWarmupIterations: Int = 1
+		override val nodeMeasureIterations: Int = 1
+
+		override val isPredata : Boolean = true
+
+		override def iteration(db : Table[KnowledgeData], index : Int): Unit = {
+			db += lungCancer1
+		}
+	}
+}
+
+trait FewJohnDoeHospitalBenchmark extends HospitalBenchmark {
+	override type PersonType = (Long, Person)
+	override type PatientType = Patient
+	override type KnowledgeType = KnowledgeData
+
+	private val maximumJohnDoes = 1000
+
+	object PersonDBNode extends DBNode[PersonType] {
+		override val dbName: String = "person-db"
+
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = false
+
+		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
+			if (index <= maximumJohnDoes)
+				db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
+			else
+				db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "Jane Doe", 1960)))
+		}
+	}
+
+	object PatientDBNode extends DBNode[PatientType] {
+		import Data._
+
+		override val dbName: String = "patient-db"
+
+		override val nodeWarmupIterations: Int = warmupIterations
+		override val nodeMeasureIterations: Int = measureIterations
+
+		override val isPredata : Boolean = false
+
+		override def iteration(db : Table[Patient], index : Int): Unit = {
+			db += sae.example.hospital.data.Patient(index, 4, 2011, Seq(Symptoms.cough, Symptoms.chestPain))
+		}
+	}
+
+	object KnowledgeDBNode extends DBNode[KnowledgeType] {
+		import Data._
+
+		override val dbName: String = "knowledge-db"
+
+		override val nodeWarmupIterations: Int = 1
+		override val nodeMeasureIterations: Int = 1
+
+		override val isPredata : Boolean = true
+
+		override def iteration(db : Table[KnowledgeData], index : Int): Unit = {
+			db += lungCancer1
+		}
+	}
 }

@@ -32,6 +32,8 @@
  */
 package idb.collections.impl
 
+import java.io.PrintStream
+
 import idb.Relation
 import idb.observer.{Observable, Observer}
 import idb.collections.Bag
@@ -75,8 +77,11 @@ class MaterializedBag[V](val relation: Relation[V])
     this --= vs
   }
 
-  override def prettyprint(implicit prefix: String) = prefix +
-    s"MaterializedBag(${nested(relation)})"
+  override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+    out.println(prefix + s"MaterializedBag(")
+    printNested(out, relation)
+    out.println(prefix + ")")
+  }
 
   override protected def resetInternal(): Unit = clear()
 }

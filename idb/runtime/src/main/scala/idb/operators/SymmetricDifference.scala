@@ -1,6 +1,8 @@
 package idb.operators
 
-import idb.{View, Relation}
+import java.io.PrintStream
+
+import idb.{Relation, View}
 
 /**
  * The symmetric difference of two relations A and B only contains elements that are in either A or B but not in both.
@@ -11,6 +13,10 @@ trait SymmetricDifference[Domain] extends View[Domain] {
 
 	def right : Relation[Domain]
 
-	override def prettyprint(implicit prefix: String) = prefix +
-		s"SymmetricDifference(${nested(left)}, ${nested(right)})"
+	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+		out.println(prefix + s"SymmetricDifference(")
+		printNested(out, left)
+		printNested(out, right)
+		out.println(prefix + ")")
+	}
 }

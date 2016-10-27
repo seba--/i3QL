@@ -97,7 +97,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 
 				PrintRows(r, "result")
-				Predef.println(r.prettyprint(" "))
+				r.print()
 
 				Thread.sleep(10000) // wait until ObservableHost has its observer registered
 

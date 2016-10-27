@@ -11,8 +11,7 @@ import idb.benchmark.{CountEvaluator, DelayEvaluator, ThroughputEvaluator}
   */
 trait CSVPrinter extends HospitalConfig {
 
-	val benchmarkType : String
-	val benchmarkNumber : Int
+
 
 	private val currentDate : Date = new Date()
 	private val dayFormat = new SimpleDateFormat("yyyy-MM-dd")
@@ -97,7 +96,7 @@ trait CSVPrinter extends HospitalConfig {
 
 	private def addToFile(f : File, s : String): Unit = {
 		val out: java.io.PrintStream = new java.io.PrintStream(new FileOutputStream(f, true))
-		out.println(s)
+		out.print(s + "\n")
 		out.close()
 	}
 }

@@ -29,10 +29,12 @@ class RelationActor[Domain](
 		case Initialize =>
 			initialize(relation)
 			println(s"[RelationActor] Initialized ${this.self}")
-			println(relation.prettyprint(" "))
+
 		case Reset =>
 			println(s"[RelationActor] Reset ${this.self}")
 			relation.reset()
+		case Print =>
+			relation.print()
 	}
 
 	def initialize(relation : Relation[_]): Unit = {

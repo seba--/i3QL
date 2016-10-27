@@ -29,14 +29,16 @@ class HospitalBenchmark3MultiJvmNode4 extends HospitalBenchmark3
 
 object HospitalBenchmark3 {} // this object is necessary for multi-node testing
 
-//Selection is NOT pushed down == events do NOT get filtered before getting sent
+//Everything (except the tables) is on the client
 class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
-	with STMultiNodeSpec with ImplicitSender with HospitalBenchmark
+	with STMultiNodeSpec with ImplicitSender
+	//Specifies the table setup
+	with FewJohnDoeHospitalBenchmark
 	//Specifies the number of measurements/warmups
 	with BenchmarkConfig1 {
 
-	override val benchmarkName = "hospital3"
-	override val benchmarkNumber: Int = 3
+	override val benchmarkName = "hospital3-fjd"
+	override val benchmarkNumber: Int = 2
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -60,6 +62,8 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	def internalBarrier(name : String): Unit = {
 		enterBarrier(name)
 	}
+
+	override type ResultType = (Long, Int, String, String)
 
 	object ClientNode extends ReceiveNode[ResultType] {
 		override def relation(): idb.Relation[ResultType] = {

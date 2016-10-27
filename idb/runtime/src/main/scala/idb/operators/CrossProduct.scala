@@ -32,7 +32,9 @@
  */
 package idb.operators
 
-import idb.{View, Relation}
+import java.io.PrintStream
+
+import idb.{Relation, View}
 
 
 /**
@@ -65,9 +67,13 @@ trait CrossProduct[DomainA, DomainB, Range]
 
     def projection: (DomainA, DomainB) => Range
 
-    override def children() = List (left, right)
+    override def children = List (left, right)
 
-    override def prettyprint(implicit prefix: String) = prefix +
-      s"CrossProduct($projection, ${nested(left)}, ${nested(right)})"
+    override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+        out.println(prefix + s"CrossProduct($projection,")
+        printNested(out, left)
+        printNested(out, right)
+        out.println(prefix + ")")
+    }
 
 }

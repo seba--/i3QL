@@ -1,5 +1,7 @@
 package idb.algebra.compiler.boxing
 
+import java.io.PrintStream
+
 import idb.Relation
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl.EquiJoinView
@@ -45,9 +47,10 @@ case class BoxedEquiJoin[DomainA, DomainB](
 	  * first add/delete/update events or foreach calls.
 	  */
 
-	override def children: Seq[Relation[_]] = equiJoin.children()
+	override def children: Seq[Relation[_]] = equiJoin.children
 
 	override protected def resetInternal(): Unit = equiJoin.resetInternal()
 
-	override def prettyprint(implicit prefix: String): String = equiJoin.prettyprint
+	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit =
+		equiJoin.printInternal(out)
 }

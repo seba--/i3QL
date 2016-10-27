@@ -15,7 +15,7 @@ class ReceiveActorAdapter[Domain](observers : Seq[Observer[Domain]]) extends Act
 
 	override def receive = {
 		case Added(v: Domain) =>
-//			println(s"$this#Added[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
+			//println(s"$this#Added[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")
 			notify_added(v)
 		case Removed(v: Domain) =>
 //			println(s"$this#Removed[$v]--${sender().path.toStringWithoutAddress}-->${context.self.path.toStringWithoutAddress}")

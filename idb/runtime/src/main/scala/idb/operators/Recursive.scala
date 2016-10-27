@@ -32,7 +32,9 @@
  */
 package idb.operators
 
-import idb.{View, Relation}
+import java.io.PrintStream
+
+import idb.{Relation, View}
 import idb.observer.Observer
 
 
@@ -50,8 +52,11 @@ trait Recursive[Domain]
 
     def foreach[T](f: (Domain) => T) {relation.foreach(f)}
 
-	def children() = List (relation)
+	def children = List (relation)
 
-    override def prettyprint(implicit prefix: String) = prefix +
-      s"Recursive(${nested(relation)})"
+	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+		out.println(prefix + s"Recursive(")
+		printNested(out, relation)
+		out.println(prefix + ")")
+	}
 }

@@ -1,6 +1,8 @@
 package idb.operators
 
-import idb.{View, MaterializedView, Relation}
+import java.io.PrintStream
+
+import idb.{MaterializedView, Relation, View}
 
 
 /**
@@ -21,10 +23,13 @@ trait TransitiveClosure[Edge, Vertex]
     def getTail: Edge => Vertex
     def getHead: Edge => Vertex
 
-    override def children() = List (source)
+    override def children = List (source)
 
-    override def prettyprint(implicit prefix: String) = prefix +
-      s"TransitiveClosure(${nested(source)})"
+    override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+        out.println(prefix + s"TransitiveClosure(")
+        printNested(out, source)
+        out.println(prefix + ")")
+    }
 }
 
 

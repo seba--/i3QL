@@ -5,12 +5,14 @@ package sae.playground.remote.hospital
   */
 trait HospitalConfig {
 	val benchmarkName = getClass.getSimpleName
+	val benchmarkType : String
+	val benchmarkNumber : Int
 
 	val warmupIterations : Int
 	val measureIterations : Int
 }
 
-trait BenchmarkConfig1 {
+trait BenchmarkConfig1 extends HospitalConfig {
 
 	val benchmarkType : String = "measure_20000"
 
@@ -18,7 +20,7 @@ trait BenchmarkConfig1 {
 	val measureIterations : Int = 20000
 }
 
-trait TestConfig1 {
+trait TestConfig1 extends HospitalConfig {
 
 	val benchmarkType : String = "test"
 

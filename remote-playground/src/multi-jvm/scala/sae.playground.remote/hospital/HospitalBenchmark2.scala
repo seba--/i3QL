@@ -31,12 +31,14 @@ object HospitalBenchmark2 {} // this object is necessary for multi-node testing
 
 //Selection is NOT pushed down == events do NOT get filtered before getting sent
 class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
-	with STMultiNodeSpec with ImplicitSender with HospitalBenchmark
+	with STMultiNodeSpec with ImplicitSender
+	//Specifies the table setup
+	with FewJohnDoeHospitalBenchmark
 	//Specifies the number of measurements/warmups
 	with BenchmarkConfig1 {
 
-	override val benchmarkName = "hospital2"
-	override val benchmarkNumber: Int = 3
+	override val benchmarkName = "hospital2-fjd"
+	override val benchmarkNumber: Int = 2
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -61,6 +63,8 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 		enterBarrier(name)
 	}
 
+	override type ResultType = (Long, Int, String, String)
+
 	object ClientNode extends ReceiveNode[ResultType] {
 		override def relation(): idb.Relation[ResultType] = {
 			//Write an i3ql query...
@@ -80,9 +84,9 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			val q1 =
 				SELECT DISTINCT (
 					(person: Rep[PersonType], patientSymptom: Rep[(PatientType, String)], knowledgeData: Rep[KnowledgeType]) => (person._1, person._2.personId, person._2.name, knowledgeData.diagnosis)
-					) FROM (
+				) FROM (
 					RECLASS(personDB, Color("green")), UNNEST(patientDB, (x: Rep[PatientType]) => x.symptoms), knowledgeDB
-					) WHERE	(
+				) WHERE	(
 					(person: Rep[PersonType], patientSymptom: Rep[(PatientType, String)], knowledgeData: Rep[KnowledgeType]) =>
 						person._2.personId == patientSymptom._1.personId AND
 							patientSymptom._2 == knowledgeData.symptom AND

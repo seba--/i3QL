@@ -32,6 +32,8 @@
  */
 package idb.collections.impl
 
+import java.io.PrintStream
+
 import idb.collections.Set
 import idb.Relation
 import idb.observer.{Observable, Observer}
@@ -74,8 +76,11 @@ class MaterializedSet[V](val relation: Relation[V])
     this --= vs
   }
 
-  override def prettyprint(implicit prefix: String) = prefix +
-    s"MaterializedSet(${nested(relation)})"
+  override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+    out.println(prefix + s"MaterializedSet(")
+    printNested(out, relation)
+    out.println(prefix + ")")
+  }
 
   override protected def resetInternal(): Unit = clear()
 }

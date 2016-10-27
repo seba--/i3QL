@@ -32,7 +32,9 @@
  */
 package idb
 
-import idb.observer.{NotifyObservers, Observer, Observable}
+import java.io.PrintStream
+
+import idb.observer.{NotifyObservers, Observable, Observer}
 
 
 /**
@@ -163,5 +165,6 @@ trait Index[K, V]
     notify_removedAll(kvs)
   }
 
-  override def prettyprint(implicit prefix: String) = prefix + this
+  override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit =
+    out.println(prefix + this)
 }

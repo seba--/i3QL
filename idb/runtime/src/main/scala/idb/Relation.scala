@@ -33,6 +33,8 @@
 package idb
 
 
+import java.io.PrintStream
+
 import idb.observer.Observable
 import idb.collections.impl.{MaterializedBag, MaterializedSet}
 
@@ -107,8 +109,14 @@ trait Relation[+V]
     protected def resetInternal()
 
 
+    def print(out : PrintStream = System.out): Unit = {
+        printInternal(out)
+    }
 
-    def prettyprint(implicit prefix: String): String
-    def nested(rel: Relation[_])(implicit prefix: String): String = "\n" + rel.prettyprint(prefix + "  ")
+    protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit
+    protected[idb] def printNested(out : PrintStream, rel: Relation[_])(implicit prefix: String): Unit = {
+	    rel.printInternal(out)(prefix + "  ")
+    }
+
 }
 

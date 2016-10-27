@@ -102,7 +102,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 //				LinkActor.forward(system, r)
 				val relation = r.asMaterialized
 
-				Predef.println(relation.prettyprint(" "))
+				relation.print()
 
 				// data flows from node1 (Table) -> node2 -> node1 -> node2
 				/*val tree = RemoteView(

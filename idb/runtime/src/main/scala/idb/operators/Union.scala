@@ -1,6 +1,8 @@
 package idb.operators
 
-import idb.{View, Relation}
+import java.io.PrintStream
+
+import idb.{Relation, View}
 
 
 /**
@@ -21,10 +23,14 @@ trait Union[Range, DomainA <: Range, DomainB <: Range]
 
     def right: Relation[DomainB]
 
-    override def children() = List (left, right)
+    override def children = List (left, right)
 
-    override def prettyprint(implicit prefix: String) = prefix +
-      s"Union(${nested(left)},${nested(right)}})"
+    override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+        out.println(prefix + s"Union(")
+        printNested(out, left)
+        printNested(out, right)
+        out.println(prefix + ")")
+    }
 }
 
 

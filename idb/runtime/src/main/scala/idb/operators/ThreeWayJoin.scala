@@ -1,6 +1,8 @@
 package idb.operators
 
-import idb.{View, Relation}
+import java.io.PrintStream
+
+import idb.{Relation, View}
 
 
 /**
@@ -31,10 +33,15 @@ trait ThreeWayJoin[DomainA, DomainB, DomainC, Range, KeyA, KeyC]
 
     def projection: (DomainA, DomainB, DomainC) => Range
 
-	  def children() = List(left,middle,right)
+    def children = List(left,middle,right)
 
-    override def prettyprint(implicit prefix: String) = prefix +
-      s"ThreeWayJoin(leftKey=$leftKey, rightKey=$rightKey, ${nested(left)}, ${nested(middle)}, ${nested(right)})"
+    override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+        out.println(prefix + s"ThreeWayJoin(leftKey=$leftKey, rightKey=$rightKey,")
+        printNested(out, left)
+        printNested(out, middle)
+        printNested(out, right)
+        out.println(prefix + ")")
+    }
 
 }
 

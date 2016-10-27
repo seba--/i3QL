@@ -1,7 +1,9 @@
 package idb.operators
 
-import impl.{AggregationForSelfMaintainableFunctions, AggregationForNotSelfMaintainableFunctions}
-import idb.{View, Relation, MaterializedView}
+import java.io.PrintStream
+
+import impl.{AggregationForNotSelfMaintainableFunctions, AggregationForSelfMaintainableFunctions}
+import idb.{MaterializedView, Relation, View}
 
 
 /**
@@ -29,10 +31,14 @@ trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: 
 
     def convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
 
-    override def children() = List (source)
+    override def children = List (source)
 
-  override def prettyprint(implicit prefix: String) = prefix +
-    s"Aggregation(grouping=$groupingFunction, aggregation=$aggregateFunctionFactory, ${nested(source)})"
+    override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+        out.println(prefix + s"Aggregation(grouping=$groupingFunction, aggregation=$aggregateFunctionFactory,")
+        printNested(out, source)
+        out.println(prefix + ")")
+    }
+
 }
 
 /**

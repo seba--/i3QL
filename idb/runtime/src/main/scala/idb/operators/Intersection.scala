@@ -1,6 +1,8 @@
 package idb.operators
 
-import idb.{View, MaterializedView, Relation}
+import java.io.PrintStream
+
+import idb.{MaterializedView, Relation, View}
 
 
 /**
@@ -22,10 +24,14 @@ trait Intersection[Domain]
 
     def right: Relation[Domain]
 
-    override def children() = List (left, right)
+    override def children = List (left, right)
 
-    override def prettyprint(implicit prefix: String) = prefix +
-      s"Intersection(${nested(left)},${nested(right)}})"
+    override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
+        out.println(prefix + s"Intersection(")
+        printNested(out, left)
+        printNested(out, right)
+        out.println(prefix + ")")
+    }
 
 }
 

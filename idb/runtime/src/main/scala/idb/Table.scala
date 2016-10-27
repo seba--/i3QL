@@ -32,6 +32,8 @@
  */
 package idb
 
+import java.io.PrintStream
+
 import idb.observer.NotifyObservers
 
 /**
@@ -110,5 +112,6 @@ trait Table[V]
 
   override def children() = Nil
 
-  override def prettyprint(implicit prefix: String) = prefix + this
+  override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit =
+    out.println(prefix + this)
 }
