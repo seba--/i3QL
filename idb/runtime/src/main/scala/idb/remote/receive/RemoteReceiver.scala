@@ -47,7 +47,8 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 	}
 
 	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
-		out.println(prefix + s"Receiver{sendRef=$sendActorRef, recvRef=$receiveActorRef, this=$this)}")
+		//out.println(prefix + s"Receiver{sendRef=$sendActorRef, recvRef=$receiveActorRef, this=$this)}")
+		out.println(prefix + s"Receiver(${sendActorRef.path.toStringWithoutAddress} --> ${receiveActorRef.path.toStringWithoutAddress})")
 		if (sendActorRef != null)
 			sendActorRef ! Print
 	}

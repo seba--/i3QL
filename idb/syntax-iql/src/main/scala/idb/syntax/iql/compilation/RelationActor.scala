@@ -34,7 +34,10 @@ class RelationActor[Domain](
 			println(s"[RelationActor] Reset ${this.self}")
 			relation.reset()
 		case Print =>
-			relation.print()
+			val out = System.out //TODO: How to choose the correct printstream here?
+			out.println(s"Actor[${self.path.toStringWithoutAddress}]{")
+			relation.printNested(out, relation)(" ")
+			out.println(s"}")
 	}
 
 	def initialize(relation : Relation[_]): Unit = {

@@ -34,6 +34,7 @@ package idb.algebra.ir
 
 import akka.actor.ActorPath
 import idb.algebra.base.{RelationalAlgebraBasicOperators, RelationalAlgebraRemoteOperators}
+import idb.algebra.exceptions.NoServerAvailableException
 import idb.query.{Host, QueryEnvironment}
 import idb.query.colors.{Color, ColorId}
 
@@ -116,8 +117,13 @@ trait RelationalAlgebraIRRemoteOperators
 		actorPath : ActorPath,
 		host : Host,
 		color : Color
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
+		val hostPermissions = queryEnvironment.permissionsOf(host)
+		if (!color.ids.subsetOf(hostPermissions))
+			throw new NoServerAvailableException(s"${host.name} has no permission for ${color.ids}. Only has permissions: $hostPermissions")
 		ActorDef[Domain](actorPath, host, color)
+	}
+
 
 
 

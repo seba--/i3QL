@@ -1,0 +1,46 @@
+[JVM-4] ### Relation.compiled ###
+
+[JVM-4]  Receiver(/user/$d --> /user/$e)
+
+[JVM-4] Actor[/user/$d]{
+[JVM-4]    Receiver(/remote/akka.tcp/HospitalBenchmark2@localhost:39356/user/$c --> /user/$f)
+[JVM-4] }
+
+[JVM-2] Actor[/remote/akka.tcp/HospitalBenchmark2@localhost:39356/user/$c]{
+[JVM-2]    DuplicateElimination(
+[JVM-2]      Projection(<function1>,
+[JVM-2]        EquiJoin(leftKey=<function1>, rightKey=<function1>,
+[JVM-2]          EquiJoin(leftKey=<function1>, rightKey=<function1>,
+[JVM-2]            Selection(<function1>,
+[JVM-2]              Receiver(/user/person-db --> /user/$b)
+[JVM-2]            )
+[JVM-2]            UnNest(<function1>,
+[JVM-2]              Receiver(/user/patient-db --> /user/$c)
+[JVM-2]            )
+[JVM-2]          )
+[JVM-2]          Receiver(/remote/akka.tcp/HospitalBenchmark2@localhost:39356/user/$b --> /user/$d)
+[JVM-2]        )
+[JVM-2]      )
+[JVM-2]    )
+[JVM-2] }
+
+[JVM-2] Actor[/user/patient-db]{
+[JVM-2]    idb.BagTable@16c6eb11
+[JVM-2] }
+
+[JVM-3] Actor[/remote/akka.tcp/HospitalBenchmark2@localhost:39356/user/$b]{
+[JVM-3]    Selection(<function1>,
+[JVM-3]      Receiver(/user/knowledge-db --> /user/$b)
+[JVM-3]    )
+[JVM-3] }
+
+[JVM-3] Actor[/user/knowledge-db]{
+[JVM-3]    idb.BagTable@19529046
+[JVM-3] }
+
+[JVM-1] Actor[/user/person-db]{
+[JVM-1]    idb.BagTable@6c50dbd3
+[JVM-1] }
+
+[JVM-4] ### ###
+

@@ -1,0 +1,39 @@
+[JVM-4] ### Relation.compiled ###
+
+[JVM-4]  Receiver(/user/$b --> /user/$c)
+
+[JVM-4] Actor[/user/$b]{
+[JVM-4]    DuplicateElimination(
+[JVM-4]      Projection(<function1>,
+[JVM-4]        EquiJoin(leftKey=<function1>, rightKey=<function1>,
+[JVM-4]          EquiJoin(leftKey=<function1>, rightKey=<function1>,
+[JVM-4]            Selection(<function1>,
+[JVM-4]              Receiver(/user/person-db --> /user/$d)
+[JVM-4]            )
+[JVM-4]            UnNest(<function1>,
+[JVM-4]              Receiver(/user/patient-db --> /user/$e)
+[JVM-4]            )
+[JVM-4]          )
+[JVM-4]          Selection(<function1>,
+[JVM-4]            Receiver(/user/knowledge-db --> /user/$f)
+[JVM-4]          )
+[JVM-4]        )
+[JVM-4]      )
+[JVM-4]    )
+[JVM-4] }
+
+[JVM-2] Actor[/user/patient-db]{
+[JVM-2]    idb.BagTable@d600ee5
+[JVM-2] }
+
+[JVM-3] Actor[/user/knowledge-db]{
+[JVM-3]    idb.BagTable@4f081de7
+[JVM-3] }
+
+[JVM-1] Actor[/user/person-db]{
+[JVM-1]    idb.BagTable@305969f3
+[JVM-1] }
+
+[JVM-4] ### ###
+
+

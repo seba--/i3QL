@@ -138,8 +138,10 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 			//Print the runtime class representation
 			Thread.sleep(waitForCompile)
 
-			Predef.println("Relation.compiled#")
+			Predef.println("### Relation.compiled ###")
 			r.print()
+			Thread.sleep(2000)
+			Predef.println("### ###")
 
 			section("warmup-predata")
 			//The tables are now sending data
