@@ -1,5 +1,5 @@
 #INPUT
-datafiles <- c(file.path("2016-10-27", "hospital2-fjd-measure_20000-1","benchmark-mem.csv"))
+datafiles <- c(file.path("2016-11-03", "hospital3-fjd-measure_20000-2","benchmark-mem.csv"))
               # file.path("hospital3-measure_20000-2","benchmark-mem.csv"),
                #file.path("hospital3-measure_20000-3","benchmark-mem.csv"))
 
@@ -28,7 +28,7 @@ barplot(
 	col = "darkslategray3",
 	ylab = "memory consumption (MiB)", 
 	#xlim = c(0, 4), # width of bars
-	ylim = c(-5, 10), 
+	ylim = c(-10, 10), 
 	axes = TRUE,
 	space = 0.2, #space between bars
 	las = 1 #label rotation

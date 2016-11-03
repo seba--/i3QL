@@ -1,6 +1,6 @@
-datafile <- c(file.path("2016-10-27", "hospital1-fjd-measure_20000-1","benchmark-summary.csv"),
-			  file.path("2016-10-27", "hospital2-fjd-measure_20000-1","benchmark-summary.csv"),
-			  file.path("2016-10-27", "hospital3-fjd-measure_20000-1","benchmark-summary.csv"))
+datafile <- c(file.path("2016-11-03", "hospital1-fjd-measure_20000-2","benchmark-summary.csv"),
+			  file.path("2016-11-03", "hospital2-fjd-measure_20000-2","benchmark-summary.csv"),
+			  file.path("2016-11-03", "hospital3-fjd-measure_20000-2","benchmark-summary.csv"))
 
 delay <- numeric(3)
 throughput <- numeric(3)
@@ -17,10 +17,10 @@ for (i in 1:3) {
 
 par(cex=1.6)
 #Plot delay
-barplot(height = delay, names.arg = c("Config 1", "Config 2", "Config 3"), col = "darkslategray3", ylab = "time (ms)", ylim = c(0,200))
+barplot(height = delay, names.arg = c("Config 1", "Config 2", "Config 3"), col = "darkslategray3", ylab = "time (ms)", ylim = c(0,600))
 
 #Plot throughput
-barplot(height = throughput, names.arg = c("Config 1", "Config 2", "Config 3"), col = "darkslategray3", ylab = "events per second", ylim = c(0,10000))
+barplot(height = throughput, names.arg = c("Config 1", "Config 2", "Config 3"), col = "darkslategray3", ylab = "events per second", ylim = c(0,12000))
 
 #Plot runtime
-barplot(height = runtime, names.arg = c("Config 1", "Config 2", "Config 3"), col = "darkslategray3", ylab = "time to receive (ms)", ylim = c(0,250))
+barplot(height = runtime, names.arg = c("Config 1", "Config 2", "Config 3"), col = "darkslategray3", ylab = "time to receive (ms)", ylim = c(0,1000))

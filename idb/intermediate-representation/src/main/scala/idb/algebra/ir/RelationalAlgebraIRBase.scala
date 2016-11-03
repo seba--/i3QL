@@ -35,7 +35,6 @@ package idb.algebra.ir
 
 import idb.algebra.base.RelationalAlgebraBase
 import idb.algebra.exceptions.NoServerAvailableException
-import idb.annotations.LocalIncrement
 import idb.query._
 import idb.query.colors.Color
 
@@ -140,7 +139,8 @@ trait RelationalAlgebraIRBase
 //	}
 
 	protected def isIncrementLocal (m: Any) : Boolean = {
-		m.getClass.getAnnotation(classOf[LocalIncrement]) != null
+//		m.getClass.getAnnotation(classOf[LocalIncrement]) != null
+		false
 	}
 
 /*	protected def getRemote(m : Any) : (Color, Host) = {

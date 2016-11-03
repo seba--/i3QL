@@ -30,6 +30,7 @@ object HospitalMultiNodeConfig extends MultiNodeConfig {
 					myown = "idb.remote.TestSerializer"
 				}
 
+				# Change this setting to change the default serializer
 				serialization-bindings {
 					"idb.remote.DataMessage" = java
 	            }

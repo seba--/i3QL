@@ -67,7 +67,6 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 		val dbName : String
 
-		val nodeWarmupIterations : Int
 		val nodeMeasureIterations : Int
 
 		val isPredata : Boolean
@@ -88,12 +87,12 @@ trait HospitalBenchmark extends HospitalConfig with CSVPrinter {
 
 			section("warmup-predata")
 			if (isPredata) {
-				(1 to nodeWarmupIterations).foreach(i => iteration(db, i))
+				(1 to nodeMeasureIterations).foreach(i => iteration(db, i))
 			}
 
 			section("warmup-data")
 			if (!isPredata) {
-				(1 to nodeWarmupIterations).foreach(i => iteration(db, i))
+				(1 to nodeMeasureIterations).foreach(i => iteration(db, i))
 			}
 
 			section("warmup-finish")
@@ -193,7 +192,6 @@ trait DefaultHospitalBenchmark extends HospitalBenchmark {
 	object PersonDBNode extends DBNode[PersonType] {
 		override val dbName: String = "person-db"
 
-		override val nodeWarmupIterations: Int = warmupIterations
 		override val nodeMeasureIterations: Int = measureIterations
 
 		override val isPredata : Boolean = false
@@ -209,7 +207,6 @@ trait DefaultHospitalBenchmark extends HospitalBenchmark {
 
 		override val dbName: String = "patient-db"
 
-		override val nodeWarmupIterations: Int = warmupIterations
 		override val nodeMeasureIterations: Int = measureIterations
 
 		override val isPredata : Boolean = true
@@ -224,7 +221,6 @@ trait DefaultHospitalBenchmark extends HospitalBenchmark {
 
 		override val dbName: String = "knowledge-db"
 
-		override val nodeWarmupIterations: Int = 1
 		override val nodeMeasureIterations: Int = 1
 
 		override val isPredata : Boolean = true
@@ -240,21 +236,28 @@ trait FewJohnDoeHospitalBenchmark extends HospitalBenchmark {
 	override type PatientType = Patient
 	override type KnowledgeType = KnowledgeData
 
-	private val maximumJohnDoes = 1000
+	private val maximumJohnDoes = 10000
 
 	object PersonDBNode extends DBNode[PersonType] {
 		override val dbName: String = "person-db"
 
-		override val nodeWarmupIterations: Int = warmupIterations
 		override val nodeMeasureIterations: Int = measureIterations
 
 		override val isPredata : Boolean = false
 
+		private val interval = nodeMeasureIterations / maximumJohnDoes
+
+		private var count = 0
 		override def iteration(db : Table[(Long, Person)], index : Int): Unit = {
-			if (index <= maximumJohnDoes)
+			if (count == interval)
+				count = 0
+
+			if (count == 0)
 				db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "John Doe", 1973)))
 			else
 				db += ((System.currentTimeMillis(), sae.example.hospital.data.Person(index, "Jane Doe", 1960)))
+
+			count += 1
 		}
 	}
 
@@ -263,7 +266,6 @@ trait FewJohnDoeHospitalBenchmark extends HospitalBenchmark {
 
 		override val dbName: String = "patient-db"
 
-		override val nodeWarmupIterations: Int = warmupIterations
 		override val nodeMeasureIterations: Int = measureIterations
 
 		override val isPredata : Boolean = false
@@ -278,7 +280,6 @@ trait FewJohnDoeHospitalBenchmark extends HospitalBenchmark {
 
 		override val dbName: String = "knowledge-db"
 
-		override val nodeWarmupIterations: Int = 1
 		override val nodeMeasureIterations: Int = 1
 
 		override val isPredata : Boolean = true

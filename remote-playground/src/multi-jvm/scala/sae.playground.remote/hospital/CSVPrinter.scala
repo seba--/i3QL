@@ -59,7 +59,7 @@ trait CSVPrinter extends HospitalConfig {
 
 
 		val s = s"### Benchmark $benchmarkTime ###\n" +
-			s"iterations=$measureIterations (of which warmup=$warmupIterations), received events=$eventCount\n" +
+			s"iterations=$measureIterations (+ same amount of warmup), received events=$eventCount\n" +
 			s"avg delay=${averageDelay}ms, time to receive=${throughput._2}ms, events per second=${throughput._1}"
 
 		Predef.println(s)
@@ -68,7 +68,7 @@ trait CSVPrinter extends HospitalConfig {
 		//Append to summary file
 		{
 
-			val csv = s"benchmark,$benchmarkName,$benchmarkTime,$measureIterations,$warmupIterations,$eventCount,$averageDelay,${throughput._2},${throughput._1}"
+			val csv = s"benchmark,$benchmarkName,$benchmarkTime,$measureIterations,$measureIterations,$eventCount,$averageDelay,${throughput._2},${throughput._1}"
 			addToFile(summaryFile, csv)
 		}
 

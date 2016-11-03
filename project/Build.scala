@@ -6,17 +6,13 @@ object sae extends Build {
     Project IDB
   */
 	lazy val idb = Project(id = "idb", base = file("idb"))
-		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest)
+		.aggregate (runtime, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest)
 
 	lazy val runtime = Project(id = "idb-runtime", base = file("idb/runtime"))
 
-	lazy val annotations = Project(id = "idb-annotations", base = file("idb/annotations"))
-
 	lazy val intermediateRepresentation = Project(id = "idb-intermediate-representation", base = file("idb/intermediate-representation"))
-		.dependsOn (annotations % "compile;test")
 
 	lazy val schemaExamples = Project(id = "idb-schema-examples", base = file("idb/schema-examples"))
-		.dependsOn (annotations % "compile;test")
 
 	lazy val runtimeCompiler = Project(id = "idb-runtime-compiler", base = file("idb/runtime-compiler"))
 		.dependsOn (schemaExamples % "compile;test", runtime % "compile;test", intermediateRepresentation % "compile;test")
@@ -50,7 +46,7 @@ object sae extends Build {
     Root Project
   */  
   lazy val root = Project(id = "sae", base = file("."))
-		.aggregate (runtime, annotations, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, hospitalExample, testData, remotePlayground)
+		.aggregate (runtime, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, hospitalExample, testData, remotePlayground)
   
 
   val virtScala = Option(System.getenv("SCALA_VIRTUALIZED_VERSION")).getOrElse("2.11.2")
