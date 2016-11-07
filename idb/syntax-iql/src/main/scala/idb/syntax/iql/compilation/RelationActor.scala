@@ -43,6 +43,9 @@ class RelationActor[Domain](
 	def initialize(relation : Relation[_]): Unit = {
 
 		relation match {
+			case recv : RemoteReceiver[_] =>
+				recv.deploy(context.system)
+
 			case r : SelectionView[_] =>
 				BoxedFunction.compile(r.filter, CompilerBinding)
 
@@ -55,8 +58,6 @@ class RelationActor[Domain](
 			case r : UnNestView[_, _] =>
 				BoxedFunction.compile(r.unNestFunction, CompilerBinding)
 
-			case recv : RemoteReceiver[_] =>
-				recv.deploy(context.system)
 
 			case _ =>
 		}

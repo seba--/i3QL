@@ -11,6 +11,12 @@ object DECLASS {
 
 	def apply[Domain : Manifest](
 		relation : Rep[Query[Domain]] ,
+		colors : String*
+	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] =
+		DECLASS(relation, colors.toSet)
+
+	def apply[Domain : Manifest](
+		relation : Rep[Query[Domain]] ,
 		colors : Set[String]
 	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] =
 		declassification(relation, colors.map(s => StringColor(s)))

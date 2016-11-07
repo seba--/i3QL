@@ -83,6 +83,9 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
             case Def (Reclassification(r, _)) =>
 	            compile (r)
 
+	        case Def (Declassification(r, _)) =>
+		        compile (r)
+
             case _ => super.compile (query)
         }
     }

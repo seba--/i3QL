@@ -7,16 +7,15 @@ import idb.query.colors._
 import idb.query.{QueryEnvironment, RemoteHost}
 import sae.benchmark.{BenchmarkMultiNodeSpec, TestConfig1}
 
-class CompanyQuery1MultiJvmNode1 extends CompanyQuery1
-class CompanyQuery1MultiJvmNode2 extends CompanyQuery1
-class CompanyQuery1MultiJvmNode3 extends CompanyQuery1
-class CompanyQuery1MultiJvmNode4 extends CompanyQuery1
-class CompanyQuery1MultiJvmNode5 extends CompanyQuery1
+class CompanyBenchmark1MultiJvmNode1 extends CompanyBenchmark1
+class CompanyBenchmark1MultiJvmNode2 extends CompanyBenchmark1
+class CompanyBenchmark1MultiJvmNode3 extends CompanyBenchmark1
+class CompanyBenchmark1MultiJvmNode4 extends CompanyBenchmark1
+class CompanyBenchmark1MultiJvmNode5 extends CompanyBenchmark1
 
-object CompanyQuery1 {} // this object is necessary for multi-node testing
+object CompanyBenchmark1 {} // this object is necessary for multi-node testing
 
-//Selection is pushed down == events get filtered before getting sent
-class CompanyQuery1 extends MultiNodeSpec(CompanyMultiNodeConfig)
+class CompanyBenchmark1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
 	with TestCompanyBenchmark
@@ -61,13 +60,18 @@ class CompanyQuery1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			import idb.schema.company._
 			import BaseCompany._
 
+			val products : Rep[Query[Product]] = REMOTE GET (publicHost, "product-db", Color("lab:public"))
+			val factories : Rep[Query[Factory]] = REMOTE GET (publicHost, "factory-db", Color("lab:public"))
 
-			val products : Rep[Query[Product]] =
-				REMOTE GET (publicHost, "product-db", Color("lab:public"))
-			val pcs : Rep[Query[PC]] =
-				REMOTE GET (productionHost, "pc-db", Color("lab:production"))
-			val components : Rep[Query[Component]] =
-				REMOTE GET (productionHost, "component-db", Color("lab:production"))
+			val components : Rep[Query[Component]] = REMOTE GET (productionHost, "component-db", Color("lab:production"))
+			val pcs : Rep[Query[PC]] = REMOTE GET (productionHost, "pc-db", Color("lab:production"))
+			val fps : Rep[Query[FP]] = REMOTE GET (productionHost, "fp-db", Color("lab:production"))
+
+			val suppliers : Rep[Query[Supplier]] = REMOTE GET (purchasingHost, "supplier-db", Color("lab:purchasing"))
+			val scs : Rep[Query[SC]] = REMOTE GET (purchasingHost, "sc-db", Color("lab:purchasing"))
+
+			val employees : Rep[Query[Employee]] = REMOTE GET (employeesHost, "employee-db", Color("lab:employees"))
+			val fes : Rep[Query[FE]] = REMOTE GET (employeesHost, "fe-db", Color("lab:employees"))
 
 			val q1 =
 				SELECT ( (p : Rep[Product], pc : Rep[PC], c : Rep[Component]) =>
@@ -79,15 +83,16 @@ class CompanyQuery1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 						pc.componentId == c.id
 				)
 
+			//Compile to LMS representation (only needed for printing)
 			val query : Rep[Query[ResultType]] = q1
-
+			
 			//Print the LMS tree representation
 			val printer = new RelationalAlgebraPrintPlan {
 				override val IR = idb.syntax.iql.IR
 			}
 			Predef.println("Relation.tree#" + printer.quoteRelation(query))
 
-			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
+			//Define the root. The operators get distributed here.
 			val r : idb.syntax.iql.IR.Relation[ResultType] =
 				ROOT(clientHost, query)
 			r

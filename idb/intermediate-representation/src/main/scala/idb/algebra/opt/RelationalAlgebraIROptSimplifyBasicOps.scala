@@ -221,7 +221,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
 							super.projection(relation, function)
                     }
 
-                case -1 =>
+                case _ =>
                     super.projection (relation, function)
             }
         }).asInstanceOf[Rep[Query[Range]]]

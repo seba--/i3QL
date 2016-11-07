@@ -55,11 +55,6 @@ trait StringOpsExpExt
     def string_lastIndexOf (s: Rep[String], c: Rep[Char])(implicit pos: SourceContext): Rep[Int] =
         StringLastIndexOf (s, c)
 
-/*	def infix_endsWith (s: Rep[String], end: Rep[String])(implicit pos: SourceContext): Rep[Boolean] =
-		string_endsWith (s, end)
-
-	def string_endsWith (s: Rep[String], end: Rep[String])(implicit pos: SourceContext): Rep[Boolean] =
-		StringEndsWith (s, end)             */
 
 	def infix_toLowerCase (s: Rep[String])(implicit pos: SourceContext): Rep[String] =
 		string_toLowerCase (s)
@@ -75,7 +70,6 @@ trait StringOpsExpExt
 
 
 	case class StringToLowerCase (s : Exp[String]) extends Def[String]
-	//case class StringEndsWith (s: Exp[String], end: Exp[String]) extends Def[Boolean]
 	case class StringIndexOf (s: Exp[String], s1: Exp[String]) extends Def[Int]
     case class StringLastIndexOf (s: Exp[String], c: Exp[Char]) extends Def[Int]
 
