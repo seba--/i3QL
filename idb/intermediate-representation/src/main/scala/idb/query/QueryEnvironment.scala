@@ -28,15 +28,15 @@ trait QueryEnvironment {
 	def hosts : Set[Host]
 
 	/**
-	 * Maps the descriptions of tables (i.e. colors) to the hosts that have the right to read the tables.
+	 * Returns the access permissions of a host.
 	 */
 	def permissionsOf(host : Host) : Set[ColorId]
 
-	/*def permission(description : Color) : List[Host] = description match {
-		case  => Nil
-		case SingleColor(name) => permission(name)
-		case CompoundColor(set) => set.map(desc => permission(desc)).fold(hosts)((a, b) => a intersect b)
-	}    */
+	/**
+	  * Returns the priority of the host. Hosts with higher priority are preferred when distributing
+	  * the query.
+	  */
+	def priorityOf(host : Host) : Int
 
 	/**
 	 * Closes the environment. Queries with that environment should no longer be used.
@@ -46,7 +46,7 @@ trait QueryEnvironment {
 
 protected class QueryEnvironmentImpl (
 	val _system : Option[ActorSystem] = None,
-	val _permissions : Map[Host, Set[ColorId]] = Map()
+	val _hosts : Map[Host, (Int, Set[ColorId])] = Map()
 ) extends QueryEnvironment {
 
 	override def isLocal =
@@ -59,16 +59,21 @@ protected class QueryEnvironmentImpl (
 			throw new UnsupportedByQueryEnvironmentException("No actor system", this)
 
 	override def hosts =
-		_permissions.keySet
+		_hosts.keySet
 
-	def permissionsOf(host : Host) : Set[ColorId] = _permissions.get(host) match {
-		case Some(set) => set
-		case _ => Set()
+	def permissionsOf(host : Host) : Set[ColorId] = _hosts.get(host) match {
+		case Some(info) => info._2
+		case _ => throw new NoSuchElementException(s"Host $host is not specified in the query environment.")
+	}
+
+	def priorityOf(host : Host) : Int = _hosts.get(host) match {
+		case Some(info) => info._1
+		case _ => throw new NoSuchElementException(s"Host $host is not specified in the query environment.")
 	}
 
 	override def close(): Unit = {
 		if (_system.isDefined)
-			_system.get.shutdown()
+			_system.get.terminate()
 	}
 }
 
@@ -84,22 +89,24 @@ object QueryEnvironment {
 	 */
 	val Default = Local
 
-	/*def create(
-		actorSystem : ActorSystem = null,
-	    permissions : Map[Host, Set[ColorId]] = Map()
-	) : QueryEnvironment =
-		new QueryEnvironmentImpl (
-			_actorSystem = Option(actorSystem),
-		    _permissions = permissions
-		)    */
-
-	def create(
+	/**
+	  * Creates a new query environment with the given data.
+	  *
+	  * @param system The actor system that should be used.
+	  * @param hostInfo Provide information about the available hosts here. For each host you need to
+	  *                 specify the priority as well as the permissions that should be used.
+	  * @return A query environment with the given specifications.
+	  */
+	def create (
 		system : ActorSystem = null,
-		permissions : Map[Host, Set[String]] = Map()
+		hostInfo : Map[Host, (Int, Set[String])] = Map()
 	) : QueryEnvironment =
 		new QueryEnvironmentImpl (
 			_system = Option(system),
-			_permissions = permissions.mapValues(setString => setString.map(s => StringColor(s)))
+			_hosts = hostInfo.mapValues[(Int, Set[ColorId])](info =>
+				(info._1, info._2.map(s => StringColor(s)))
+			)
+
 		)
 
 

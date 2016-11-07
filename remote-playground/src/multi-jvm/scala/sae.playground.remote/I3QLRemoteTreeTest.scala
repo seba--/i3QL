@@ -34,7 +34,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 	implicit val env = QueryEnvironment.create(
 		system,
-		Map(host1 -> Set("red"), host2 -> Set("blue"))
+		Map(host1 -> (0, Set("red")), host2 -> (0, Set("blue")))
 	)
 
 	"A manually generated remote tree" must {

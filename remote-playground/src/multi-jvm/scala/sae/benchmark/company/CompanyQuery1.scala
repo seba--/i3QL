@@ -23,7 +23,7 @@ class CompanyQuery1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	//Specifies the number of measurements/warmups
 	with TestConfig1 {
 
-	override val benchmarkName = "query1"
+	override val benchmarkQuery = "query1"
 	override val benchmarkNumber: Int = 1
 
 	import CompanyMultiNodeConfig._
@@ -39,11 +39,11 @@ class CompanyQuery1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	implicit val env = QueryEnvironment.create(
 		system,
 		Map(
-			publicHost -> Set("lab:public"),
-			productionHost -> Set("lab:public", "lab:production"),
-			purchasingHost -> Set("lab:public", "lab:purchasing"),
-			employeesHost -> Set("lab:public", "lab:employees"),
-			clientHost -> Set("lab:client") //For now: Client has its own permission to simulate pushing queries down
+			publicHost -> (1, Set("lab:public")),
+			productionHost -> (1, Set("lab:public", "lab:production")),
+			purchasingHost -> (1, Set("lab:public", "lab:purchasing")),
+			employeesHost -> (1, Set("lab:public", "lab:employees")),
+			clientHost -> (0, Set("lab:public", "lab:production", "lab:purchasing", "lab:employees"))
 		)
 	)
 
@@ -79,15 +79,17 @@ class CompanyQuery1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 						pc.componentId == c.id
 				)
 
+			val query : Rep[Query[ResultType]] = q1
+
 			//Print the LMS tree representation
 			val printer = new RelationalAlgebraPrintPlan {
 				override val IR = idb.syntax.iql.IR
 			}
-			Predef.println("Relation.tree#" + printer.quoteRelation(q1))
+			Predef.println("Relation.tree#" + printer.quoteRelation(query))
 
 			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 			val r : idb.syntax.iql.IR.Relation[ResultType] =
-				ROOT(clientHost, RECLASS(q1, Color("lab:client")))
+				ROOT(clientHost, query)
 			r
 		}
 

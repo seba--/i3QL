@@ -113,30 +113,31 @@ trait ColorUtils
 			Color.empty
 	}
 
-	def findPossibleHosts(colorIds : Set[ColorId], env : QueryEnvironment) : Set[Host] = {
-		env.hosts.foldLeft(Set.empty[Host])((set, h) =>
-			if (colorIds subsetOf env.permissionsOf(h))
-				set + h
-			else
-				set
-		)
-	}
-
-
-	def findBestHostInCollection(hosts : Iterable[Host], queryEnvironment: QueryEnvironment) : Option[Host] = {
-
-		var bestHost : Option[Host] = None
-		var permissionCount : Int = 0
-		hosts.foreach(h => {
-			val c = queryEnvironment.permissionsOf(h).size
-			if (bestHost == null || (permissionCount < c && h != LocalHost)) {
-				bestHost = Some(h)
-				permissionCount = c
-			}
-		})
-
-		bestHost
-	}
+//	def findPossibleHosts(colorIds : Set[ColorId], env : QueryEnvironment) : Set[Host] = {
+//		env.hosts.foldLeft(Set.empty[Host])((set, h) =>
+//			if (colorIds subsetOf env.permissionsOf(h))
+//				set + h
+//			else
+//				set
+//		)
+//	}
+//
+//
+//	def findBestHostInCollection(hosts : Iterable[Host], queryEnvironment: QueryEnvironment) : Host = {
+//
+//		var bestHost : Option[Host] = None
+//		var permissionCount : Int = 0
+//		var priority : Int = Int.MinValue
+//		hosts.foreach(h => {
+//			val c = queryEnvironment.permissionsOf(h).size
+//			if (bestHost == null || priority < queryEnvironment.priorityOf(h) || permissionCount <= c) {
+//				bestHost = Some(h)
+//				permissionCount = c
+//			}
+//		})
+//
+//		bestHost.getOrElse(throw new NoServerAvailableException())
+//	}
 
 
 	def distributeRelations[DomainA : Manifest, DomainB : Manifest, Range : Manifest](
@@ -147,45 +148,36 @@ trait ColorUtils
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB =  implicitly[Manifest[DomainB]]
 
-		val hostA = relationA.host
-		val hostB = relationB.host
-		val colA = relationA.color
-		val colB = relationB.color
+		val hostA : Host = relationA.host
+		val hostB : Host = relationB.host
+		val colA : Color = relationA.color
+		val colB : Color = relationB.color
 
+
+		//The hosts are the same -> No need for distribution
 		if (hostA == hostB)
-		//If the operator can stay on the same host...
 			return constructor(relationA, relationB)
-		else {
-			//Find possible hosts for the operator
-			val newHostsA = findPossibleHosts(colA.ids, queryEnvironment)
-			val newHostsB = findPossibleHosts(colB.ids, queryEnvironment)
 
-			val newHosts = newHostsA intersect newHostsB
+		val allColors = colA.ids union colB.ids
+		val oldHost = idb.query.findHost(queryEnvironment, scala.collection.Seq(hostA, hostB), allColors)
 
-			//If there are no servers with the given permissions
-			if (newHosts.isEmpty)
-				throw new NoServerAvailableException
+		oldHost match {
+			case Some(a) if a == hostA =>
+				return constructor(relationA, remote(relationB, hostA))
+			case Some(b) if b == hostB =>
+				return constructor(remote(relationA, hostB), relationB)
+			case None =>
+				val newHost = idb.query.findHost(queryEnvironment, allColors)
+				newHost match {
+					case Some(h) =>
+						return constructor(remote(relationA, h), remote(relationB, h))
+					case None =>
+						throw new NoServerAvailableException(allColors)
+				}
 
-			//If host A is a possible host
-			if (newHosts contains hostA) {
-				return constructor(
-					relationA,
-					remote(relationB, hostA)
-				)
-			} else if (newHosts contains hostB) {
-				return constructor(
-					remote(relationA, hostB),
-					relationB
-				)
-			} else {
-				val Some(bestHost) = findBestHostInCollection(newHosts, queryEnvironment)
-
-				return constructor(
-					remote(relationA, bestHost),
-					remote(relationB, bestHost)
-				)
-			}
 		}
+
+		throw new UnsupportedOperationException("What's that?")
 	}
 
 }

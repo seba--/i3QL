@@ -1,6 +1,6 @@
 package idb.algebra.remote
 
-import idb.algebra.exceptions.{NoServerAvailableException, NonMatchingHostsException}
+import idb.algebra.exceptions.{InsufficientRootPermissionsException, NoServerAvailableException, NonMatchingHostsException}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
 import idb.lms.extensions.ColorUtils
 import idb.query.colors.{Color, ColorId}
@@ -27,7 +27,7 @@ trait RelationalAlgebraIRRemoteCreateRemotes
 			if (relation.color.ids subsetOf rootPermissions)
 				root(remote(relation, host), host)
 			else
-				throw new NoServerAvailableException(s"Root ${host.name} has no permission for ${relation.color.ids}. Only has permissions: $rootPermissions")
+				throw new InsufficientRootPermissionsException(host.name, rootPermissions, relation.color)
 		} else
 			super.root(relation, host)
 	}
@@ -41,11 +41,12 @@ trait RelationalAlgebraIRRemoteCreateRemotes
 		if (newColor.ids subsetOf queryEnvironment.permissionsOf(host))
 			super.reclassification(relation, newColor)
 		else {
-			val hosts = findPossibleHosts(newColor.ids, queryEnvironment)
-
-			findBestHostInCollection(hosts, queryEnvironment) match {
-				case Some(h) => super.reclassification(remote(relation, h), newColor)
-				case None => throw new NoServerAvailableException
+			val h = idb.query.findHost(queryEnvironment, newColor.ids)
+			h match {
+				case Some(x) =>
+					super.reclassification(remote(relation, x), newColor)
+				case None =>
+					throw new NoServerAvailableException(newColor.ids)
 			}
 		}
 	}

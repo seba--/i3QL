@@ -37,6 +37,8 @@ import sae.benchmark.{Benchmark, BenchmarkConfig, CSVPrinter}
   */
 trait HospitalBenchmark extends Benchmark {
 
+	override val benchmarkGroup = "hospital"
+
 	object BaseHospital extends HospitalSchema {
 		override val IR = idb.syntax.iql.IR
 	}
@@ -49,7 +51,9 @@ trait HospitalBenchmark extends Benchmark {
 	type ResultType
 }
 
-trait DefaultHospitalBenchmark extends HospitalBenchmark {
+trait DoublePersonHospitalBenchmark extends HospitalBenchmark {
+	override val benchmarkType = "double-person"
+
 	override type PersonType = (Long, Person)
 	override type PatientType = Patient
 	override type KnowledgeType = KnowledgeData
@@ -104,7 +108,9 @@ trait DefaultHospitalBenchmark extends HospitalBenchmark {
 	}
 }
 
-trait FewJohnDoeHospitalBenchmark extends HospitalBenchmark {
+trait DefaultHospitalBenchmark extends HospitalBenchmark {
+	override val benchmarkType = "default"
+
 	override type PersonType = (Long, Person)
 	override type PatientType = Patient
 	override type KnowledgeType = KnowledgeData

@@ -11,15 +11,13 @@ import idb.benchmark.{CountEvaluator, DelayEvaluator, ThroughputEvaluator}
   */
 trait CSVPrinter extends BenchmarkConfig {
 
-
-
 	private val currentDate : Date = new Date()
 	private val dayFormat = new SimpleDateFormat("yyyy-MM-dd")
 	private val timeFormat = new SimpleDateFormat("HH:mm:ss.SSS")
 	private val benchmarkDay = dayFormat.format(currentDate)
 	private val benchmarkTime =  timeFormat.format(currentDate)
 
-	private def path = s"./benchmark/hospital/$benchmarkDay/$benchmarkName-$benchmarkType-$benchmarkNumber/"
+	private def path = s"./benchmark/remote/$benchmarkGroup/$benchmarkDay/$benchmarkQuery/${benchmarkType}_${benchmarkConfig}_$benchmarkNumber/"
 	private def summaryFile = new File(path + s"benchmark-summary.csv")
 	private def memoryFile = new File(path + s"benchmark-mem.csv")
 	private def cpuFile = new File(path + s"benchmark-cpu.csv")
@@ -68,7 +66,7 @@ trait CSVPrinter extends BenchmarkConfig {
 		//Append to summary file
 		{
 
-			val csv = s"benchmark,$benchmarkName,$benchmarkTime,$measureIterations,$measureIterations,$eventCount,$averageDelay,${throughput._2},${throughput._1}"
+			val csv = s"benchmark,$benchmarkQuery,$benchmarkTime,$measureIterations,$measureIterations,$eventCount,$averageDelay,${throughput._2},${throughput._1}"
 			addToFile(summaryFile, csv)
 		}
 

@@ -41,10 +41,10 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 	implicit val env = QueryEnvironment.create(
 		system,
 		Map(
-			personHost -> Set("red"),
-			patientHost -> Set("red", "green", "purple"),
-			knowledgeHost -> Set("purple"),
-			clientHost -> Set("white") //For now: Client has its own permission to simulate pushing queries down
+			personHost -> (1, Set("red")),
+			patientHost -> (1, Set("red", "green", "purple")),
+			knowledgeHost -> (1, Set("purple")),
+			clientHost -> (0, Set("red", "green", "purple")) //For now: Client has its own permission to simulate pushing queries down
 		)
 	)
 
@@ -195,7 +195,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 				Thread.sleep(10000)
-				val q = ROOT(clientHost, RECLASS(q1, Color("white")))
+				val q = ROOT(clientHost, q1)
 
 
 				//Compile the LMS tree and then materialize for further testing purposes

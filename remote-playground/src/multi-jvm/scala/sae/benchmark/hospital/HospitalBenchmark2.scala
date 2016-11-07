@@ -20,11 +20,11 @@ object HospitalBenchmark2 {} // this object is necessary for multi-node testing
 class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with FewJohnDoeHospitalBenchmark
+	with DefaultHospitalBenchmark
 	//Specifies the number of measurements/warmups
 	with MeasureConfig1 {
 
-	override val benchmarkName = "hospital2-fjd"
+	override val benchmarkQuery = "query2"
 	override val benchmarkNumber: Int = 2
 
 	import HospitalMultiNodeConfig._
@@ -39,10 +39,10 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	implicit val env = QueryEnvironment.create(
 		system,
 		Map(
-			personHost -> Set("red"),
-			patientHost -> Set("red", "green", "purple"),
-			knowledgeHost -> Set("purple"),
-			clientHost -> Set("white") //For now: Client has its own permission to simulate pushing queries down
+			personHost -> (1, Set("red")),
+			patientHost -> (1, Set("red", "green", "purple")),
+			knowledgeHost -> (1, Set("purple")),
+			clientHost -> (0, Set("red", "green", "purple"))
 		)
 	)
 
@@ -88,7 +88,7 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 			val r : idb.syntax.iql.IR.Relation[ResultType] =
-			ROOT(clientHost, RECLASS(q1, Color("white")))
+			ROOT(clientHost, q1)
 			r
 		}
 

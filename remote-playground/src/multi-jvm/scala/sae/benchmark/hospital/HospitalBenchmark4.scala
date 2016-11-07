@@ -18,11 +18,11 @@ object HospitalBenchmark4 {} // this object is necessary for multi-node testing
 class HospitalBenchmark4 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with FewJohnDoeHospitalBenchmark
+	with DefaultHospitalBenchmark
 	//Specifies the number of measurements/warmups
 	with MeasureConfig1 {
 
-	override val benchmarkName = "hospital4-fjd"
+	override val benchmarkQuery = "query4"
 	override val benchmarkNumber: Int = 1
 
 	import HospitalMultiNodeConfig._
@@ -37,10 +37,10 @@ class HospitalBenchmark4 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	implicit val env = QueryEnvironment.create(
 		system,
 		Map(
-			personHost -> Set("red"),
-			patientHost -> Set("green", "red"),
-			knowledgeHost -> Set("purple", "red", "green"),
-			clientHost -> Set("white") //For now: Client has its own permission to simulate pushing queries down
+			personHost -> (1, Set("red")),
+			patientHost -> (1, Set("red", "green", "purple")),
+			knowledgeHost -> (1, Set("purple")),
+			clientHost -> (0, Set("red", "green", "purple"))
 		)
 	)
 

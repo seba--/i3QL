@@ -35,7 +35,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 	implicit val env = QueryEnvironment.create(
 		system,
-		Map(host1 -> Set("red"), host2 -> Set("blue"))
+		Map(host1 -> (0, Set("red")), host2 -> (0, Set("blue")))
 	)
 
 	"OOPS A RemoteView" must {

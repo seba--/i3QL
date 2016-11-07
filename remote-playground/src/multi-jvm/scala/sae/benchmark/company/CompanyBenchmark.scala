@@ -9,6 +9,8 @@ import sae.benchmark.Benchmark
   */
 trait CompanyBenchmark extends Benchmark {
 
+	override val benchmarkGroup = "company"
+
 	object BaseCompany extends CompanySchema {
 		override val IR = idb.syntax.iql.IR
 	}
@@ -17,6 +19,8 @@ trait CompanyBenchmark extends Benchmark {
 }
 
 trait TestCompanyBenchmark extends CompanyBenchmark {
+	override val benchmarkType = "test"
+
 	object PublicDBNode extends DBNode {
 
 		override val nodeName = "public-node"
