@@ -25,16 +25,10 @@ object sae extends Build {
 		
 
   /*
-    Project Hospital example
-   */
-  lazy val hospitalExample = Project(id = "hospital-example", base = file("hospital-example"))
-	  .dependsOn(syntax % "compile;test").dependsOn(runtime % "compile;test")
-
-  /*
     Project Remote playground
    */
   lazy val remotePlayground = Project(id = "remote-playground", base = file("remote-playground"))
-    .dependsOn(syntax % "compile;test").dependsOn(runtime % "compile;test").dependsOn(hospitalExample % "compile;test").dependsOn(intermediateRepresentation % "compile;test")
+    .dependsOn(syntax % "compile;test").dependsOn(runtime % "compile;test").dependsOn(schemaExamples % "compile;test").dependsOn(intermediateRepresentation % "compile;test")
 
   /*
     Project Test Data
@@ -46,7 +40,7 @@ object sae extends Build {
     Root Project
   */  
   lazy val root = Project(id = "sae", base = file("."))
-		.aggregate (runtime, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, hospitalExample, testData, remotePlayground)
+		.aggregate (runtime, intermediateRepresentation, schemaExamples, runtimeCompiler, syntax, integrationTest, testData, remotePlayground)
   
 
   val virtScala = Option(System.getenv("SCALA_VIRTUALIZED_VERSION")).getOrElse("2.11.2")

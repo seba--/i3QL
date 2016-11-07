@@ -12,7 +12,7 @@ import idb.remote._
 import idb.query._
 import idb.query.colors._
 import idb.syntax.iql.compilation.{CompilerBinding, RemoteUtils}
-import idb.util.PrintRows
+import idb.util.PrintEvents
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
@@ -96,7 +96,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 
 
-				PrintRows(r, "result")
+				idb.util.printEvents(r, "result")
 				r.print()
 
 				Thread.sleep(10000) // wait until ObservableHost has its observer registered

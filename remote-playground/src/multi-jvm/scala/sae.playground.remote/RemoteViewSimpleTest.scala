@@ -8,7 +8,7 @@ import idb.operators.impl.{DuplicateEliminationView, EquiJoinView, ProjectionVie
 import idb.remote
 import idb.remote.receive.{RefRemoteReceiver, RemoteReceiver}
 import idb.syntax.iql.compilation.RemoteUtils
-import idb.util.PrintRows
+import idb.util.PrintEvents
 
 import scala.concurrent.Await
 
@@ -81,7 +81,7 @@ with STMultiNodeSpec with ImplicitSender {
 
 				//Build connection to the result
 				val recv = RemoteUtils.fromWithDeploy(system, q3Ref)
-				PrintRows(recv, "result")
+				idb.util.printEvents(recv, "result")
 
 				Thread.sleep(1000) //Wait until all observers have been registered.
 

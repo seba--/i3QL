@@ -71,10 +71,7 @@ trait RelationalAlgebraPrintPlanRemoteOperators
 					withIndent (")")
 
             case Def (rel@ActorDef (path, host, color)) =>
-	            withIndent (s"actor[${host.name}](\n") +
-		            withMoreIndent(path.toString + "\n") +
-		            withIndent (")")
-
+	            withIndent (s"actor[${host.name}](${path.toString})")
 
             case _ => super.quoteRelation (x)
         }

@@ -326,22 +326,39 @@ trait FunctionUtils
 	 */
 	protected def functionHasParameterAccess(func : Rep[_ => _], accessIndex : Int) : Boolean = {
 		func match {
-			case Def(Lambda(f, x@UnboxedTuple(l), y)) =>
+			case Def(Lambda(_, x@UnboxedTuple(l), y)) =>
+				var result = false
+				val traverseResult = traverseExpTree(y.res)(
+					{
+						case Def(FieldApply(`x`, s)) if s == s"_${accessIndex + 1}" =>
+							result = true //x._1 has been found
+							false
+						case s@Sym(_) if s == l(accessIndex) =>
+							result = true //x._1 has been found
+							false
+						case _ => true
+					}
+				)
+				result
+
+			//if x == sym
+			case Def(Lambda(_, x, y)) =>
 				var result = false
 				val traverseResult = traverseExpTree(y.res)(
 				{
-					case Def(FieldApply(`x`, s)) if s == s"_${accessIndex + 1}" =>
-						result = true //x._1 has been found
-						false
-					case s@Sym(_) if s == l(accessIndex) =>
-						result = true //x._1 has been found
+					case s@Sym(_) if s == x =>
+						result = true
 						false
 					case _ => true
 				}
 				)
 				result
 			case _ =>
-				Predef.println(s"RelationalAlgebraIRDistReorderJoins: Warning! $func is not a lambda!")
+				Predef.println(s"FunctionUtils: Warning! $func is not a lambda!")
+				val Def(e) = func
+				Predef.println(e)
+				globalDefsCache.toList.sortBy(t => t._1.id).foreach(Predef.println)
+				Predef.println("###############################################")
 				false
 		}
 	}
