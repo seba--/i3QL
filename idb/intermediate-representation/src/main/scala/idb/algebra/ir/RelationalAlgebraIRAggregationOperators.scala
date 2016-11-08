@@ -81,52 +81,6 @@ trait RelationalAlgebraIRAggregationOperators
 		def host = relation.host
 	}
 
-	case class AggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Result : Manifest](
-		var relation : Rep[Query[Domain]],
-		start : Result,
-		added : Rep[((Domain, Result)) => Result],
-		removed : Rep[((Domain, Result)) => Result],
-		updated: Rep[( (Domain, Domain, Result) ) => Result]
-	) extends Def[Query[Result]] with QueryBaseOps {
-		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
-		def isSet = false
-		def isIncrementLocal = relation.isIncrementLocal
-
-		def color = {
-			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR))
-			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR))
-			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR))
-			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
-		}
-
-		def host = relation.host
-	}
-
-	case class AggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
-		var relation: Rep[Query[Domain]],
-		grouping: Rep[Domain => Key],
-		start : Range,
-		added : Rep[((Domain, Range)) => Range],
-		removed : Rep[((Domain, Range)) => Range],
-		updated: Rep[((Domain, Domain, Range)) => Range]
-	) extends  Def[Query[Range]] with QueryBaseOps {
-		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
-		def isSet = false
-		def isIncrementLocal = relation.isIncrementLocal
-
-		def color = {
-			val cGroup = colorsOfTFields(grouping, relation.color)
-
-			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR))
-			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR))
-			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR))
-
-			Color.fromIdsInColors(cGroup ++ cAdd ++ cRemove ++ cUpdate)
-		}
-
-		def host = relation.host
-	}
-
 	case class AggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		var relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
@@ -159,64 +113,6 @@ trait RelationalAlgebraIRAggregationOperators
 		def host = relation.host
 	}
 
-	case class AggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
-		var relation : Rep[Query[Domain]],
-		start : Range,
-		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
-	) extends Def[Query[Range]] with QueryBaseOps {
-		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
-		def isSet = false
-		def isIncrementLocal = relation.isIncrementLocal
-
-		def color = {
-			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
-			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
-			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
-			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
-		}
-
-		def host = relation.host
-	}
-
-	case class AggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
-		var relation: Rep[Query[Domain]],
-		grouping: Rep[Domain => Key],
-		start : Range,
-		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
-	) extends Def[Query[Range]] with QueryBaseOps {
-		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
-		def isSet = false
-		def isIncrementLocal = relation.isIncrementLocal
-
-		def color = {
-			val cGroup = colorsOfTFields(grouping, relation.color)
-
-
-			val cAdd = colorsOfTFields(added, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
-			val cRemove = colorsOfTFields(removed, Color.tupled(relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
-			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
-			Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate ++ cGroup)
-		}
-
-		def host = relation.host
-	}
-
-	case class Grouping[Domain : Manifest, Result : Manifest] (
-		var relation : Rep[Query[Domain]],
-		grouping : Rep[Domain => Result]
-	) extends Def[Query[Result]] with QueryBaseOps {
-		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
-		def isSet = false
-		def isIncrementLocal = relation.isIncrementLocal
-
-		def color = Color.fromIdsInColors(colorsOfTFields(grouping, relation.color))
-		def host = relation.host
-	}
-
 	def aggregationSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
@@ -241,47 +137,6 @@ trait RelationalAlgebraIRAggregationOperators
 		r
 	}
 
-
-	def aggregationSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
-		 relation: Rep[Query[Domain]],
-		 grouping: Rep[Domain => Key],
-		 start : Range,
-		 added : Rep[((Domain, Range)) => Range],
-		 removed : Rep[((Domain, Range)) => Range],
-		 updated: Rep[((Domain, Domain, Range)) => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
-		val r = AggregationSelfMaintainedWithoutConvert (
-			relation,
-			grouping,
-			start,
-			added,
-			removed,
-			updated
-		)
-
-		r
-	}
-
-
-	def aggregationSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
-		relation : Rep[Query[Domain]],
-		start : Range,
-		added : Rep[((Domain, Range)) => Range],
-		removed : Rep[((Domain, Range)) => Range],
-		updated: Rep[( (Domain, Domain, Range) ) => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
-		val r = AggregationSelfMaintainedWithoutGrouping (
-			relation,
-			start,
-			added,
-			removed,
-			updated
-		)
-
-		r
-	}
-
-
 	def aggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
 		grouping : Rep[Domain => Key],
@@ -305,57 +160,6 @@ trait RelationalAlgebraIRAggregationOperators
 
 		r
 	}
-
-
-	def aggregationNotSelfMaintainedWithoutGrouping[Domain : Manifest, Range : Manifest](
-		relation : Rep[Query[Domain]],
-		start : Range,
-		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
-		val r = AggregationNotSelfMaintainedWithoutGrouping (
-			relation,
-			start,
-			added,
-			removed,
-			updated
-		)
-
-		r
-	}
-
-
-	def aggregationNotSelfMaintainedWithoutConvert[Domain : Manifest, Key : Manifest, Range : Manifest] (
-		relation: Rep[Query[Domain]],
-		grouping: Rep[Domain => Key],
-		start : Range,
-		added : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		removed : Rep[( (Domain, Range, Seq[Domain]) ) => Range],
-		updated: Rep[( (Domain, Domain, Range, Seq[Domain]) ) => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
-		val r = AggregationNotSelfMaintainedWithoutConvert (
-			relation,
-			grouping,
-			start,
-			added,
-			removed,
-			updated
-		)
-
-		r
-	}
-
-
-	def grouping[Domain : Manifest, Range : Manifest] (
-		relation : Rep[Query[Domain]],
-		grouping : Rep[Domain => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
-		val r = Grouping (relation,grouping)
-
-		r
-	}
-
 }
 
 

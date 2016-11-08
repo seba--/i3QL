@@ -23,28 +23,28 @@ import idb.observer.{Observable, NotifyObservers, Observer}
  * @author Malte V
  * @author Ralf Mitschke
  */
-case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](val source: Relation[Domain],
-                                                                                   val groupingFunction: Domain => Key,
-                                                                                   val aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                                                   val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
-																				   override val isSet : Boolean)
-    extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
+case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](
+	relation: Relation[Domain],
+	groupingFunction: Domain => Key,
+	aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+	convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
+	isSet : Boolean
+) extends Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
     with Observer[Domain]
 	with NotifyObservers[Result]
-	with MaterializedView[Result]
-{
+	with MaterializedView[Result] {
 
-
-    source.addObserver (this)
-
+    relation.addObserver (this)
 
     val groups = mutable.Map[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
 
-	override protected def resetInternal(): Unit = ???
+	override def resetInternal(): Unit = {
+		groups.clear()
+	}
 
     override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
+        if (o == relation) {
             return List (this)
         }
         Nil
@@ -74,14 +74,8 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
         groups.count( _._2._3 == v)
     }
 
-    /**
-     *
-     */
      def size: Int = groups.size
 
-    /**
-     *
-     */
      def singletonValue: Option[Result] = {
         if (size != 1)
             None
@@ -89,23 +83,16 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
             Some (groups.head._2._3)
     }
 
-    /**
-     *
-     */
-     def contains[U >: Result](element: U) : Boolean = {
-        groups.foreach (g => {
-            if (g._2._3 == element)
-                return true
-        }
-        )
-        false
-    }
+	def contains[U >: Result](element: U) : Boolean = {
+		groups.foreach(g => {
+			if (g._2._3 == element)
+				return true
+		})
+		false
+	}
 
 
-    /**
-     *
-     */
-    def updated(oldV: Domain, newV: Domain) {
+     def updated(oldV: Domain, newV: Domain) {
         val oldKey = groupingFunction (oldV)
         val newKey = groupingFunction (newV)
         if (oldKey == newKey) {
@@ -128,13 +115,13 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
     }
 
 
-  def removed (v: Domain) {
-    intern_removed (v) match {
-      case None => {}
-      case Some((key, Left(removed))) => notify_removed(removed)
-      case Some((key, Right((old, res)))) => notify_updated(old, res)
-    }
-  }
+	def removed (v: Domain) {
+		intern_removed (v) match {
+			case None => {}
+			case Some((key, Left(removed))) => notify_removed(removed)
+			case Some((key, Right((old, res)))) => notify_updated(old, res)
+		}
+	}
 
   def removedAll (vs: Seq[Domain]) {
 
@@ -259,7 +246,7 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
 object AggregationForSelfMaintainableFunctions {
 
 	def apply[Domain, Key, AggregateValue, Result](
-		source : Relation[Domain],
+		relation : Relation[Domain],
 		grouping : Domain => Key,
 		start : AggregateValue,
 		added : ((Domain, AggregateValue)) => AggregateValue,
@@ -267,7 +254,7 @@ object AggregationForSelfMaintainableFunctions {
 		updated : ( (Domain, Domain, AggregateValue) ) => AggregateValue,
 		convert : ((Key,AggregateValue)) => Result,
 		isSet : Boolean
-	): Relation[Result] = {
+	): AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result] = {
 		val factory : SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] = new SelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] {
 			override def apply() : SelfMaintainableAggregateFunction[Domain,AggregateValue] = {
 				new SelfMaintainableAggregateFunction[Domain,AggregateValue] {
@@ -297,11 +284,11 @@ object AggregationForSelfMaintainableFunctions {
 			}
 		}
 
-		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](source,grouping,factory,(x,y) => convert((x,y)),isSet)
+		return new AggregationForSelfMaintainableFunctions[Domain,Key,AggregateValue,Result](relation,grouping,factory,(x,y) => convert((x,y)),isSet)
 	}
 
 	def apply[Domain, Key, Range] (
-		source: Relation[Domain],
+		relation: Relation[Domain],
 		grouping: Domain => Key,
 		start : Range,
 		added : ((Domain, Range)) => Range,
@@ -310,7 +297,7 @@ object AggregationForSelfMaintainableFunctions {
 		isSet : Boolean
 	): Relation[Range] = {
 		apply (
-			source,
+			relation,
 			grouping,
 			start,
 			added,
@@ -322,7 +309,7 @@ object AggregationForSelfMaintainableFunctions {
 	}
 
 	def applyTupled[Domain, Key, RangeA, RangeB, Range] (
-		source: Relation[Domain],
+		relation: Relation[Domain],
 		grouping: Domain => Key,
 		start : RangeB,
 		added : ((Domain, RangeB)) => RangeB,
@@ -331,9 +318,9 @@ object AggregationForSelfMaintainableFunctions {
 		convertKey : Key => RangeA,
 		convert : ((RangeA, RangeB)) => Range,
 		isSet : Boolean
-	): Relation[Range] = {
+	): AggregationForSelfMaintainableFunctions[Domain,Key,RangeB,Range] = {
 		apply[Domain, Key, RangeB, Range] (
-			source,
+			relation,
 			grouping,
 			start,
 			added,
@@ -347,14 +334,14 @@ object AggregationForSelfMaintainableFunctions {
 
 
 	def apply[Domain, Result](
-		source : Relation[Domain],
+		relation : Relation[Domain],
      	start : Result,
 		added : ((Domain, Result)) => Result,
 		removed : ((Domain, Result)) => Result,
 		updated : ((Domain, Domain, Result)) => Result,
 		isSet : Boolean
 	): Relation[Result] = {
-		apply(source,
+		apply(relation,
 		(x : Domain) => true,
 		start,
 		added,
@@ -365,12 +352,12 @@ object AggregationForSelfMaintainableFunctions {
 	}
 
 	def apply[Domain, Result](
-		source: Relation[Domain],
+		relation: Relation[Domain],
 		grouping: Domain => Result,
 		isSet: Boolean
 	): Relation[Result] = {
 		apply(
-			source,
+			relation,
 			grouping,
 			true,
 			Function.tupled((x : Domain, y : Boolean) => true),
@@ -386,11 +373,12 @@ class Count
 {
 	private var count: Int = 0
 
-	def inc() {
+	def inc() : Int = {
 		this.count += 1
+		this.count
 	}
 
-	def dec(): Int = {
+	def dec() : Int = {
 		this.count -= 1
 		this.count
 	}

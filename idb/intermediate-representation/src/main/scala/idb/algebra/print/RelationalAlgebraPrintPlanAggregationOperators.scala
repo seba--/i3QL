@@ -32,7 +32,7 @@
  */
 package idb.algebra.print
 
-import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRAggregationOperators}
+import idb.algebra.ir.RelationalAlgebraIRAggregationOperators
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.operations.{SeqOpsExpExt, OptionOpsExp, StringOpsExpExt}
 import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
@@ -53,23 +53,13 @@ trait RelationalAlgebraPrintPlanAggregationOperators
 
 
 	import IR.AggregationSelfMaintained
-	import IR.AggregationSelfMaintainedWithoutConvert
-	import IR.AggregationSelfMaintainedWithoutGrouping
 	import IR.AggregationNotSelfMaintained
-	import IR.AggregationNotSelfMaintainedWithoutConvert
-	import IR.AggregationNotSelfMaintainedWithoutGrouping
     import IR.Def
     import IR.Exp
-    import IR.Grouping
 
 
     override def quoteRelation (x: Exp[Any]): String =
         x match {
-            case Def (r@Grouping (relation, grouping)) =>
-                withIndent (s"grouping[${r.host.name}](\n") +
-                    withMoreIndent (quoteRelation (relation) + ",\n") +
-                    withMoreIndent (quoteFunction (grouping) + "\n") +
-                    withIndent (")")
 
 			case Def (r@AggregationSelfMaintained (relation, grouping, start, added, removed, updated, convertKey, convert)) =>
 				withIndent (s"aggregationSelfMaintained[${r.host}](" + "\n") +
@@ -83,24 +73,6 @@ trait RelationalAlgebraPrintPlanAggregationOperators
 					withMoreIndent (quoteFunction (convert) + "\n") +
 					withIndent (")")
 
-			case Def (r@AggregationSelfMaintainedWithoutConvert (relation, grouping, start, added, removed, updated)) =>
-				withIndent (s"aggregationSelfMaintained[${r.host}](" + "\n") +
-					withMoreIndent (quoteRelation (relation) + ",\n") +
-					withMoreIndent (quoteFunction (grouping) + ",\n") +
-					withMoreIndent (start + ",\n") +
-					withMoreIndent (quoteFunction (added) + ",\n") +
-					withMoreIndent (quoteFunction (removed) + ",\n") +
-					withMoreIndent (quoteFunction (updated) + ",\n") +
-					withIndent (")")
-
-            case Def (r@AggregationSelfMaintainedWithoutGrouping (relation, start, added, removed, updated)) =>
-                withIndent (s"aggregationSelfMaintained[${r.host}](" + "\n") +
-                    withMoreIndent (quoteRelation (relation) + ",\n") +
-                    withMoreIndent (start + "\n") +
-                    withMoreIndent (quoteFunction (added) + "\n") +
-                    withMoreIndent (quoteFunction (removed) + "\n") +
-                    withMoreIndent (quoteFunction (updated) + "\n") +
-                    withIndent (")")
 
 			case Def (r@AggregationNotSelfMaintained (relation, grouping, start, added, removed, updated, convertKey, convert)) =>
 				withIndent (s"aggregationNotSelfMaintained[${r.host}](\n") +
@@ -112,25 +84,6 @@ trait RelationalAlgebraPrintPlanAggregationOperators
 					withMoreIndent (quoteFunction (updated) + ",\n") +
 					withMoreIndent (quoteFunction (convertKey) + ",\n") +
 					withMoreIndent (quoteFunction (convert) + "\n") +
-					withIndent (")")
-
-			case Def (r@AggregationNotSelfMaintainedWithoutConvert (relation, grouping, start, added, removed, updated)) =>
-				withIndent (s"aggregationNotSelfMaintained[${r.host}](\n") +
-					withMoreIndent (quoteRelation (relation) + ",\n") +
-					withMoreIndent (quoteFunction (grouping) + ",\n") +
-					withMoreIndent (start + ",\n") +
-					withMoreIndent (quoteFunction (added) + ",\n") +
-					withMoreIndent (quoteFunction (removed) + ",\n") +
-					withMoreIndent (quoteFunction (updated) + ",\n") +
-					withIndent (")")
-
-			case Def (r@AggregationNotSelfMaintainedWithoutGrouping (relation, start, added, removed, updated)) =>
-				withIndent (s"aggregationNotSelfMaintained[${r.host}](\n") +
-					withMoreIndent (quoteRelation (relation) + ",\n") +
-					withMoreIndent (start + "\n") +
-					withMoreIndent (quoteFunction (added) + "\n") +
-					withMoreIndent (quoteFunction (removed) + "\n") +
-					withMoreIndent (quoteFunction (updated) + "\n") +
 					withIndent (")")
 
             case _ => super.quoteRelation (x)

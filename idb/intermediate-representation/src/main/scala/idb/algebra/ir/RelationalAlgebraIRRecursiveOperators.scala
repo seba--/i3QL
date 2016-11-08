@@ -196,19 +196,7 @@ trait RelationalAlgebraIRRecursiveOperators
             case Def (e@AggregationSelfMaintained (r, _, _, _, _, _, _, _)) =>
                 insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
 
-			case Def (e@AggregationSelfMaintainedWithoutGrouping (r, _, _, _, _)) =>
-				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-
-			case Def (e@AggregationSelfMaintainedWithoutConvert (r, _, _, _, _, _)) =>
-				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-
 			case Def (e@AggregationNotSelfMaintained (r, _, _, _, _, _, _, _)) =>
-				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-
-			case Def (e@AggregationNotSelfMaintainedWithoutGrouping (r, _, _, _, _)) =>
-				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
-
-			case Def (e@AggregationNotSelfMaintainedWithoutConvert (r, _, _, _, _, _)) =>
 				insertRecursionAtBase (r, base, result, (x: Rep[Query[Any]]) => e.relation = x)
 
             case Def (e@Recursion (r, _)) =>

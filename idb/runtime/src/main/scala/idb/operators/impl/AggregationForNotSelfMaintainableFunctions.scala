@@ -23,18 +23,18 @@ import scala.Some
  * register the whole aggregation as an observer of the aggregation function
  * -> (else) put the new value into the lazyview
  *
- * a further possible change could be to use an index view als source instead of a lazy view.  If aggregation use a
- * indexed view as source
+ * a further possible change could be to use an index view als relation instead of a lazy view.  If aggregation use a
+ * indexed view as relation
  * it could use the grouping function as the index function.
  *
  * @author Malte V
  * @author Ralf Mitschke
  */
-class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result] (val source: Relation[Domain],
-    val groupingFunction: Domain => Key,
-    val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-    val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
-    override val isSet: Boolean
+class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result] (val relation: Relation[Domain],
+                                                                                       val groupingFunction: Domain => Key,
+                                                                                       val aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
+                                                                                       val convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
+                                                                                       override val isSet: Boolean
 )
     extends Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain,
         AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]]
@@ -43,8 +43,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
 	with MaterializedView[Result]
 {
 
-    source.addObserver (this)
-
+    relation.addObserver (this)
 
     import com.google.common.collect._
 
@@ -52,10 +51,13 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
         .Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
 
 
-	override protected def resetInternal(): Unit = ???
+	override def resetInternal(): Unit = {
+		groups.clear()
+	}
+
 
     override protected def childObservers (o: Observable[_]): Seq[Observer[_]] = {
-        if (o == source) {
+        if (o == relation) {
             return List (this)
         }
         Nil
@@ -275,7 +277,7 @@ class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Re
 object AggregationForNotSelfMaintainableFunctions {
 
 	def apply[Domain, Key, AggregateValue, Range](
-		source : Relation[Domain],
+		relation : Relation[Domain],
 		grouping : Domain => Key,
 		start : AggregateValue,
 		added : ((Domain, AggregateValue, Seq[Domain])) => AggregateValue,
@@ -283,12 +285,12 @@ object AggregationForNotSelfMaintainableFunctions {
 		updated : ( (Domain, Domain, AggregateValue, Seq[Domain]) ) => AggregateValue,
 		convert : ((Key,AggregateValue)) => Range,
 		isSet : Boolean
-	): Relation[Range] = {
-		val factory : NotSelfMaintainableAggregateFunctionFactory[Domain,AggregateValue] =
+	): AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Range] = {
+		val factory : NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue] =
 			new NotSelfMaintainableAggregateFunctionFactory[Domain,AggregateValue]
 			{
-				override def apply() : NotSelfMaintainableAggregateFunction[Domain,AggregateValue] = {
-					new NotSelfMaintainableAggregateFunction[Domain,AggregateValue] {
+				override def apply() : NotSelfMaintainableAggregateFunction[Domain, AggregateValue] = {
+					new NotSelfMaintainableAggregateFunction[Domain, AggregateValue] {
 						private var aggregate : AggregateValue = start
 
 						def add(newD: Domain, data : Seq[Domain]): AggregateValue = {
@@ -315,8 +317,8 @@ object AggregationForNotSelfMaintainableFunctions {
 				}
 			}
 
-		return new AggregationForNotSelfMaintainableFunctions[Domain,Key,AggregateValue,Range](
-			source,
+		return new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Range](
+			relation,
 			grouping,
 			factory,
 			(x,y) => convert((x,y)),
@@ -325,7 +327,7 @@ object AggregationForNotSelfMaintainableFunctions {
 	}
 
 	def apply[Domain, Key, Range] (
-		source: Relation[Domain],
+		relation: Relation[Domain],
 		grouping: Domain => Key,
 		start : Range,
 		added : ((Domain, Range, Seq[Domain])) => Range,
@@ -334,7 +336,7 @@ object AggregationForNotSelfMaintainableFunctions {
 		isSet : Boolean
 	): Relation[Range] = {
 		apply (
-			source,
+			relation,
 			grouping,
 			start,
 			added,
@@ -346,7 +348,7 @@ object AggregationForNotSelfMaintainableFunctions {
 	}
 
 	def applyTupled[Domain, Key, RangeA, RangeB, Range] (
-		source: Relation[Domain],
+		relation: Relation[Domain],
 		grouping: Domain => Key,
 		start : RangeB,
 		added : ((Domain, RangeB, Seq[Domain])) => RangeB,
@@ -355,9 +357,9 @@ object AggregationForNotSelfMaintainableFunctions {
 		convertKey : Key => RangeA,
 		convert : ((RangeA, RangeB)) => Range,
 		isSet : Boolean
-	): Relation[Range] = {
+	): AggregationForNotSelfMaintainableFunctions[Domain, Key, RangeB, Range] = {
 		apply[Domain, Key, RangeB, Range] (
-			source,
+			relation,
 			grouping,
 			start,
 			added,
@@ -371,14 +373,14 @@ object AggregationForNotSelfMaintainableFunctions {
 
 
 	def apply[Domain, Range](
-		source : Relation[Domain],
+		relation : Relation[Domain],
 		start : Range,
 		added : ((Domain, Range, Seq[Domain])) => Range,
 		removed : ((Domain, Range, Seq[Domain])) => Range,
 		updated : ( (Domain, Domain, Range, Seq[Domain]) ) => Range,
 		isSet : Boolean
 	): Relation[Range] = {
-		apply(source,
+		apply(relation,
 			(x : Domain) => true,
 			start,
 			added,

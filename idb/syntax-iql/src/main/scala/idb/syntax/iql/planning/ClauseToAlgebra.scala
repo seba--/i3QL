@@ -440,24 +440,30 @@ object ClauseToAlgebra {
         select match {
             case SelectAggregateClause (aggregation : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
                 distinct (
-                    aggregationSelfMaintainedWithoutGrouping (
+                    aggregationSelfMaintained[Domain , Boolean, Boolean, Range, Range](
                         relation,
-                        aggregation.start,
-                        aggregation.added,
-                        aggregation.removed,
-                        aggregation.updated
+	                    grouping = (x : Rep[Domain]) => __anythingAsUnit(true),
+                        start = aggregation.start,
+                        added = aggregation.added,
+                        removed = aggregation.removed,
+                        updated = aggregation.updated,
+	                    convertKey = (x : Rep[Boolean]) => x,
+	                    convert = (t : Rep[(Boolean, Range)]) => t._2
                     ),
                     asDistinct
                 )
 
 			case SelectAggregateClause (aggregation : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
 				distinct (
-					aggregationNotSelfMaintainedWithoutGrouping (
+					aggregationNotSelfMaintained[Domain , Boolean, Boolean, Range, Range] (
 						relation,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
+						grouping = (x : Rep[Domain]) => __anythingAsUnit(true),
+						start = aggregation.start,
+						added = aggregation.added,
+						removed = aggregation.removed,
+						updated = aggregation.updated,
+						convertKey = (x : Rep[Boolean]) => x,
+						convert = (t : Rep[(Boolean, Range)]) => t._2
 					),
 					asDistinct
 				)
@@ -487,13 +493,15 @@ object ClauseToAlgebra {
 		select match {
 			case SelectAggregateClause (aggregation : AggregateFunctionSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
 				distinct (
-					aggregationSelfMaintainedWithoutConvert(
+					aggregationSelfMaintained[Domain , GroupRange, GroupRange, Range, Range](
 						relation,
-						group,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
+						grouping = group,
+						start = aggregation.start,
+						added = aggregation.added,
+						removed = aggregation.removed,
+						updated = aggregation.updated,
+						convertKey = (x : Rep[GroupRange]) => x,
+						convert = (t : Rep[(GroupRange, Range)]) => t._2
 					),
 					asDistinct
 				)
@@ -515,13 +523,15 @@ object ClauseToAlgebra {
 
 			case SelectAggregateClause (aggregation : AggregateFunctionNotSelfMaintained[Domain@unchecked, Range@unchecked], asDistinct) =>
 				distinct (
-					aggregationNotSelfMaintainedWithoutConvert (
+					aggregationNotSelfMaintained[Domain , GroupRange, GroupRange, Range, Range] (
 						relation,
-						group,
-						aggregation.start,
-						aggregation.added,
-						aggregation.removed,
-						aggregation.updated
+						grouping = group,
+						start = aggregation.start,
+						added = aggregation.added,
+						removed = aggregation.removed,
+						updated = aggregation.updated,
+						convertKey = (x : Rep[GroupRange]) => x,
+						convert = (t : Rep[(GroupRange, Range)]) => t._2
 					),
 					asDistinct
 				)
@@ -544,9 +554,15 @@ object ClauseToAlgebra {
 			case SelectProjectionClause (project, asDistinct) =>
 				distinct (
 					projection (
-						grouping (
+						aggregationSelfMaintained (
 							relation,
-							group
+							grouping = group,
+							start = true,
+							added = (t : Rep[(Domain, Boolean)]) => __anythingAsUnit(true),
+							removed = (t : Rep[(Domain, Boolean)]) => __anythingAsUnit(true),
+							updated = (t : Rep[(Domain, Domain, Boolean)]) => __anythingAsUnit(true),
+							convertKey = (x : Rep[GroupRange]) => x,
+							convert = (t : Rep[(GroupRange, Boolean)]) => t._1
 						),
 						project
 					),

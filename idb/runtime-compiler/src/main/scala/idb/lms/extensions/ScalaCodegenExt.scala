@@ -1,5 +1,6 @@
 package idb.lms.extensions
 
+import scala.language.existentials
 
 import scala.reflect.RefinedManifest
 import scala.virtualization.lms.internal.{ScalaCodegen, ScalaFatCodegen}
@@ -229,7 +230,6 @@ trait ScalaCodegenExt
             //Case class version
 //            stream.println("case class "+className+(if (staticData.isEmpty) "()" else "("+staticData.map(p=>"p"+quote(p._1)+":"+p._1.tp).mkString(",")+")")
 //                            + " extends (("+args.map(a => remap(a.tp)).mkString(", ") + ")=>(" + sA + ")) {")
-
 
 
             stream.println("def apply("+args.map(a => quote(a) + ":" + remap(a.tp)).mkString(", ")+"): "+sA+" = {")

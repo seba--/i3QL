@@ -23,7 +23,7 @@ import idb.{MaterializedView, Relation, View}
 trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: AggregateFunction[Domain, AggregateValue], AggregateFunctionFactoryType <: AggregateFunctionFactory[Domain, AggregateValue, AggregateFunctionType]]
     extends View[Result]
 {
-    def source: Relation[Domain]
+    def relation: Relation[Domain]
 
     def groupingFunction: Domain => Key
 
@@ -31,11 +31,11 @@ trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: 
 
     def convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
 
-    override def children = List (source)
+    override def children = List (relation)
 
     override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
         out.println(prefix + s"Aggregation(grouping=$groupingFunction, aggregation=$aggregateFunctionFactory,")
-        printNested(out, source)
+        printNested(out, relation)
         out.println(prefix + ")")
     }
 

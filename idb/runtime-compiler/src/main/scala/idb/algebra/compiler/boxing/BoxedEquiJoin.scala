@@ -33,19 +33,10 @@ case class BoxedEquiJoin[DomainA, DomainB](
 		)
 
 		observers.foreach(o => equiJoin.addObserver(o))
+		observers.clear()
 	}
 
 	override def foreach[T](f: ((DomainA, DomainB)) => T): Unit = equiJoin.foreach(f)
-
-	/**
-	  * Each view must be able to
-	  * materialize it's content from the underlying
-	  * views.
-	  * The laziness allows a query to be set up
-	  * on relations (tables) that are already filled.
-	  * The lazy initialization must be performed prior to processing the
-	  * first add/delete/update events or foreach calls.
-	  */
 
 	override def children: Seq[Relation[_]] = equiJoin.children
 

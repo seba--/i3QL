@@ -2,8 +2,7 @@ package idb.syntax.iql.compilation
 
 import akka.actor.{Actor, ActorRef, ActorSystem}
 import idb.Relation
-import idb.algebra.compiler.boxing.BoxedFunction
-import idb.algebra.compiler.boxing.BoxedEquiJoin
+import idb.algebra.compiler.boxing.{BoxedAggregationSelfMaintained, BoxedEquiJoin, BoxedFunction}
 import idb.observer.{NotifyObservers, Observer}
 import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
 import idb.remote._
@@ -53,6 +52,9 @@ class RelationActor[Domain](
 				BoxedFunction.compile(r.projection, CompilerBinding)
 
 			case r : BoxedEquiJoin[_, _] =>
+				r.compile(CompilerBinding)
+
+			case r : BoxedAggregationSelfMaintained[_, _, _, _, _] =>
 				r.compile(CompilerBinding)
 
 			case r : UnNestView[_, _] =>

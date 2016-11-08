@@ -32,11 +32,12 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators,
-RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.compiler.boxing.{BoxedAggregationNotSelfMaintained, BoxedAggregationSelfMaintained, BoxedFunction}
+import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
 import idb.query.QueryEnvironment
+
 import scala.virtualization.lms.common.ScalaGenEffect
 import scala.virtualization.lms.common.FunctionsExp
 
@@ -63,99 +64,35 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
     import IR.Query
     import IR.Relation
     import IR.AggregationSelfMaintained
-    import IR.AggregationSelfMaintainedWithoutGrouping
-	import IR.AggregationSelfMaintainedWithoutConvert
 	import IR.AggregationNotSelfMaintained
-	import IR.AggregationNotSelfMaintainedWithoutGrouping
-	import IR.AggregationNotSelfMaintainedWithoutConvert
-    import IR.Grouping
 
     override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
         query match {
-            case Def (e@AggregationSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) =>
-				AggregationForSelfMaintainableFunctions.applyTupled (
+            case Def (e@AggregationSelfMaintained (r, grouping, start, added, removed, updated, convertKey, convert)) =>
+				BoxedAggregationSelfMaintained (
 					compile (r),
-					compileFunctionWithDynamicManifests (fGroup),
-					start,
-					compileFunctionWithDynamicManifests (fAdd),
-					compileFunctionWithDynamicManifests (fRemove),
-					compileFunctionWithDynamicManifests (fUpdate),
-					compileFunctionWithDynamicManifests (fConvertKey),
-					compileFunctionWithDynamicManifests (fConvert),
-					false
+					grouping = BoxedFunction(functionToScalaCodeWithDynamicManifests(grouping)),
+					start = start,
+					added = BoxedFunction(functionToScalaCodeWithDynamicManifests(added)),
+					removed = BoxedFunction(functionToScalaCodeWithDynamicManifests(removed)),
+					updated = BoxedFunction(functionToScalaCodeWithDynamicManifests(updated)),
+					convertKey = BoxedFunction(functionToScalaCodeWithDynamicManifests(convertKey)),
+					convert = BoxedFunction(functionToScalaCodeWithDynamicManifests(convert)),
+					isSet = false
 				)//.asInstanceOf[Relation[Domain]]
 
-
-            case Def (e@AggregationSelfMaintainedWithoutGrouping (r, start, fAdd, fRemove, fUpdate)) =>
-				AggregationForSelfMaintainableFunctions (
+			case Def (e@AggregationNotSelfMaintained (r, grouping, start, added, removed, updated, convertKey, convert)) =>
+				BoxedAggregationNotSelfMaintained (
 					compile (r),
-					start,
-					compileFunctionWithDynamicManifests (fAdd),
-					compileFunctionWithDynamicManifests (fRemove),
-					compileFunctionWithDynamicManifests (fUpdate),
-					false
-				).asInstanceOf[Relation[Domain]]
-
-
-			case Def (e@AggregationSelfMaintainedWithoutConvert (r, fGroup, start, fAdd, fRemove, fUpdate)) =>
-				AggregationForSelfMaintainableFunctions (
-					compile (r),
-					compileFunctionWithDynamicManifests (fGroup),
-					start,
-					compileFunctionWithDynamicManifests (fAdd),
-					compileFunctionWithDynamicManifests (fRemove),
-					compileFunctionWithDynamicManifests (fUpdate),
-					false
-				).asInstanceOf[Relation[Domain]]
-
-
-
-			case Def (e@AggregationNotSelfMaintained (r, fGroup, start, fAdd, fRemove, fUpdate, fConvertKey, fConvert)) =>
-				AggregationForNotSelfMaintainableFunctions.applyTupled (
-					compile (r),
-					compileFunctionWithDynamicManifests (fGroup),
-					start,
-					compileFunctionWithDynamicManifests (fAdd),
-					compileFunctionWithDynamicManifests (fRemove),
-					compileFunctionWithDynamicManifests (fUpdate),
-					compileFunctionWithDynamicManifests (fConvertKey),
-					compileFunctionWithDynamicManifests (fConvert),
-					false
+					grouping = BoxedFunction(functionToScalaCodeWithDynamicManifests(grouping)),
+					start = start,
+					added = BoxedFunction(functionToScalaCodeWithDynamicManifests(added)),
+					removed = BoxedFunction(functionToScalaCodeWithDynamicManifests(removed)),
+					updated = BoxedFunction(functionToScalaCodeWithDynamicManifests(updated)),
+					convertKey = BoxedFunction(functionToScalaCodeWithDynamicManifests(convertKey)),
+					convert = BoxedFunction(functionToScalaCodeWithDynamicManifests(convert)),
+					isSet = false
 				)//.asInstanceOf[Relation[Domain]]
-
-
-			case Def (e@AggregationNotSelfMaintainedWithoutGrouping (r, start, fAdd, fRemove, fUpdate)) =>
-				AggregationForNotSelfMaintainableFunctions (
-					compile (r),
-					start,
-					compileFunctionWithDynamicManifests (fAdd),
-					compileFunctionWithDynamicManifests (fRemove),
-					compileFunctionWithDynamicManifests (fUpdate),
-					false
-				).asInstanceOf[Relation[Domain]]
-
-
-			case Def (e@AggregationNotSelfMaintainedWithoutConvert (r, fGroup, start, fAdd, fRemove, fUpdate)) =>
-				AggregationForNotSelfMaintainableFunctions (
-					compile (r),
-					compileFunctionWithDynamicManifests (fGroup),
-					start,
-					compileFunctionWithDynamicManifests (fAdd),
-					compileFunctionWithDynamicManifests (fRemove),
-					compileFunctionWithDynamicManifests (fUpdate),
-					false
-				).asInstanceOf[Relation[Domain]]
-
-
-
-
-
-            case Def (e@Grouping (r, fGroup)) =>
-				AggregationForSelfMaintainableFunctions (
-					compile (r),
-					compileFunctionWithDynamicManifests (fGroup),
-					false
-				)
 
 
             case _ => super.compile (query)
