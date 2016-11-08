@@ -140,18 +140,24 @@ trait ColorUtils
 //	}
 
 
+	/**
+	  * If true, then a new server will be found according to higher priority rather than if the
+	  * operator is already on the server.
+	  */
+	val PRIORITY_OVER_SAME_HOST = true
+
 	def distributeRelations[DomainA : Manifest, DomainB : Manifest, Range : Manifest](
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]],
 		constructor : (Rep[Query[DomainA]], Rep[Query[DomainB]]) => Rep[Query[Range]]
 	)(implicit queryEnvironment: QueryEnvironment) : Rep[Query[Range]] = {
 		val mDomA = implicitly[Manifest[DomainA]]
-		val mDomB =  implicitly[Manifest[DomainB]]
+		val mDomB = implicitly[Manifest[DomainB]]
 
-		val hostA : Host = relationA.host
-		val hostB : Host = relationB.host
-		val colA : Color = relationA.color
-		val colB : Color = relationB.color
+		val hostA: Host = relationA.host
+		val hostB: Host = relationB.host
+		val colA: Color = relationA.color
+		val colB: Color = relationB.color
 
 
 		//The hosts are the same -> No need for distribution
@@ -160,24 +166,22 @@ trait ColorUtils
 
 		val allColors = colA.ids union colB.ids
 		val oldHost = idb.query.findHost(queryEnvironment, scala.collection.Seq(hostA, hostB), allColors)
+		val newHost = idb.query.findHost(queryEnvironment, allColors)
 
-		oldHost match {
-			case Some(a) if a == hostA =>
-				return constructor(relationA, remote(relationB, hostA))
-			case Some(b) if b == hostB =>
-				return constructor(remote(relationA, hostB), relationB)
-			case None =>
-				val newHost = idb.query.findHost(queryEnvironment, allColors)
-				newHost match {
-					case Some(h) =>
+		import queryEnvironment._
+		newHost match {
+			case Some(h) =>
+				oldHost match {
+					case Some(a) if a == hostA && (!PRIORITY_OVER_SAME_HOST || priorityOf(a) >= priorityOf(h)) =>
+						return constructor(relationA, remote(relationB, hostA))
+					case Some(b) if b == hostB && (!PRIORITY_OVER_SAME_HOST || priorityOf(b) >= priorityOf(h)) =>
+						return constructor(remote(relationA, hostB), relationB)
+					case _ =>
 						return constructor(remote(relationA, h), remote(relationB, h))
-					case None =>
-						throw new NoServerAvailableException(allColors)
 				}
-
+			case None =>
+				throw new NoServerAvailableException(allColors)
 		}
-
-		throw new UnsupportedOperationException("What's that?")
 	}
 
 }

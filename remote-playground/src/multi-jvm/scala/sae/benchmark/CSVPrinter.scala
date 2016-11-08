@@ -33,7 +33,7 @@ trait CSVPrinter extends BenchmarkConfig {
 			f.createNewFile()
 		})
 
-		val h1 = s"type,benchmarkName,time,measureIterations,warmupIterations,receivedEvents,entries,averageDelay,timeToReceive,eventsPerSecond"
+		val h1 = s"type,benchmarkName,time,measureIterations,receivedEvents,entries,averageDelay,medianDelay,timeToReceive,eventsPerSecond"
 		addToFile(summaryFile, h1)
 
 		val h2 = s"type,host,time,memoryBefore,memoryAfter"
@@ -54,13 +54,14 @@ trait CSVPrinter extends BenchmarkConfig {
 		val eventCount = countEvaluator.countEvents
 		val entriesCount = countEvaluator.countEntries
 
-		val averageDelay = delayEvaluator.result()
+		val averageDelay = delayEvaluator.averageDelay
+		val medianDelay = delayEvaluator.medianDelay
 		val throughput = throughputEvaluator.result()
 
 
 		val s = s"### Benchmark $benchmarkTime ###\n" +
-			s"iterations=$measureIterations (+ same amount of warmup), received events=$eventCount, entries=$entriesCount\n" +
-			s"avg delay=${averageDelay}ms, time to receive=${throughput._2}ms, events per second=${throughput._1}"
+			s"iterations=$measureIterations, received events=$eventCount, entries=$entriesCount\n" +
+			s"avg delay=${averageDelay}ms, median delay=${medianDelay}ms, time to receive=${throughput._2}ms, events per second=${throughput._1}"
 
 		Predef.println(s)
 
@@ -68,7 +69,7 @@ trait CSVPrinter extends BenchmarkConfig {
 		//Append to summary file
 		{
 
-			val csv = s"benchmark,$benchmarkQuery,$benchmarkTime,$measureIterations,$measureIterations,$eventCount,$entriesCount,$averageDelay,${throughput._2},${throughput._1}"
+			val csv = s"benchmark,$benchmarkQuery,$benchmarkTime,$measureIterations,$eventCount,$entriesCount,$averageDelay,$medianDelay,${throughput._2},${throughput._1}"
 			addToFile(summaryFile, csv)
 		}
 

@@ -8,8 +8,8 @@ import scala.collection.mutable
 class DelayEvaluator[Domain](
 	val relation : Relation[Domain],
 	val sendTimeOf : Domain => Long,
-	val expectedBufferLength : Int = 0
-) extends Evaluator[Domain, Double] {
+	val expectedBufferLength : Int = 16
+) extends Evaluator[Domain, (Double, Long)] {
 	relation.addObserver(this)
 
 	val eventTimes : mutable.Buffer[(Long, Long)] = mutable.Buffer.fill[(Long, Long)](expectedBufferLength)((0,0))
@@ -21,13 +21,25 @@ class DelayEvaluator[Domain](
 		eventTimes.size
 	}
 
-	override def result(): Double = {
+	override def result(): (Double, Long) = {
+		(averageDelay, medianDelay)
+	}
+
+	def averageDelay : Double = {
 		val totalDelay : Long = eventTimes.foldLeft(0L)((res, t) =>
 			res + (t._2 - t._1)
 		)
 		val averageDelay = totalDelay.toDouble / eventTimes.size.toDouble
 
 		averageDelay
+	}
+
+	def medianDelay : Long = {
+		val delays = eventTimes.map(t =>
+			t._2 - t._1
+		)
+
+		delays.sorted.apply(delays.size / 2)
 	}
 
 	override def updated(oldV: Domain, newV: Domain): Unit = {

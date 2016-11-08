@@ -6,7 +6,7 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.colors._
 import idb.query.{QueryEnvironment, RemoteHost}
 import sae.benchmark
-import sae.benchmark.{BenchmarkMultiNodeSpec, Measure20000Config}
+import sae.benchmark.BenchmarkMultiNodeSpec
 import sae.playground.remote.STMultiNodeSpec
 
 class HospitalBenchmark2MultiJvmNode1 extends HospitalBenchmark2

@@ -5,7 +5,7 @@ import akka.testkit.ImplicitSender
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.colors._
 import idb.query.{QueryEnvironment, RemoteHost}
-import sae.benchmark.{BenchmarkMultiNodeSpec, Measure20000Config}
+import sae.benchmark.BenchmarkMultiNodeSpec
 
 class HospitalBenchmark4MultiJvmNode1 extends HospitalBenchmark4
 class HospitalBenchmark4MultiJvmNode2 extends HospitalBenchmark4

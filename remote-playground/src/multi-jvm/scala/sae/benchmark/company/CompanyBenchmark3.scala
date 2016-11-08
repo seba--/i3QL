@@ -5,7 +5,7 @@ import idb.Relation
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.colors._
 import idb.query.{QueryEnvironment, RemoteHost}
-import sae.benchmark.{BenchmarkMultiNodeSpec, TestConfig1}
+import sae.benchmark.BenchmarkMultiNodeSpec
 
 class CompanyBenchmark3MultiJvmNode1 extends CompanyBenchmark3
 class CompanyBenchmark3MultiJvmNode2 extends CompanyBenchmark3
@@ -20,7 +20,7 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
-	with TestConfig1 {
+	with Test10ClientPriorityConfig {
 
 	override val benchmarkQuery = "query3"
 	override val benchmarkNumber: Int = 1
@@ -38,11 +38,11 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	implicit val env = QueryEnvironment.create(
 		system,
 		Map(
-			publicHost -> (1, Set("lab:public")),
-			productionHost -> (1, Set("lab:public", "lab:production")),
-			purchasingHost -> (1, Set("lab:public", "lab:purchasing")),
-			employeesHost -> (1, Set("lab:public", "lab:employees")),
-			clientHost -> (0, Set("lab:public", "lab:production", "lab:purchasing", "lab:employees"))
+			publicHost -> (priorityPublic, permissionsPublic),
+			productionHost -> (priorityProduction, permissionsProduction),
+			purchasingHost -> (priorityPurchasing, permissionsPurchasing),
+			employeesHost -> (priorityEmployees, permissionsEmployees),
+			clientHost -> (priorityClient, permissionsClient)
 		)
 	)
 
@@ -61,18 +61,18 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			import idb.schema.company._
 
 
-			val products : Rep[Query[Product]] = REMOTE GET (publicHost, "product-db", Color("lab:public"))
-			val factories : Rep[Query[Factory]] = REMOTE GET (publicHost, "factory-db", Color("lab:public"))
+			val products : Rep[Query[Product]] = RECLASS (REMOTE GET (publicHost, "product-db"), labelPublic)
+			val factories : Rep[Query[Factory]] = RECLASS (REMOTE GET (publicHost, "factory-db"), labelPublic)
 
-			val components : Rep[Query[Component]] = REMOTE GET (productionHost, "component-db", Color("lab:production"))
-			val pcs : Rep[Query[PC]] = REMOTE GET (productionHost, "pc-db", Color("lab:production"))
-			val fps : Rep[Query[FP]] = REMOTE GET (productionHost, "fp-db", Color("lab:production"))
+			val components : Rep[Query[Component]] = RECLASS (REMOTE GET (productionHost, "component-db"), labelProduction)
+			val pcs : Rep[Query[PC]] = RECLASS (REMOTE GET (productionHost, "pc-db"), labelProduction)
+			val fps : Rep[Query[FP]] = RECLASS (REMOTE GET (productionHost, "fp-db"), labelProduction)
 
-			val suppliers : Rep[Query[Supplier]] = REMOTE GET (purchasingHost, "supplier-db", Color("lab:purchasing"))
-			val scs : Rep[Query[SC]] = REMOTE GET (purchasingHost, "sc-db", Color("lab:purchasing"))
+			val suppliers : Rep[Query[Supplier]] = RECLASS (REMOTE GET (purchasingHost, "supplier-db"), labelPurchasing)
+			val scs : Rep[Query[SC]] = RECLASS (REMOTE GET (purchasingHost, "sc-db"), labelPurchasing)
 
-			val employees : Rep[Query[Employee]] = REMOTE GET (employeesHost, "employee-db", Color("lab:employees"))
-			val fes : Rep[Query[FE]] = REMOTE GET (employeesHost, "fe-db", Color("lab:employees"))
+			val employees : Rep[Query[Employee]] = RECLASS (REMOTE GET (employeesHost, "employee-db"), labelEmployees)
+			val fes : Rep[Query[FE]] = RECLASS (REMOTE GET (employeesHost, "fe-db"), labelEmployees)
 
 			val productsWithWood : Rep[Query[Product]] =
 				SELECT ((c : Rep[Component], pc : Rep[PC], p : Rep[Product]) =>

@@ -20,20 +20,4 @@ trait BenchmarkConfig {
 		s"$benchmarkGroup.$benchmarkQuery.$benchmarkType.$benchmarkConfig.$benchmarkNumber"
 }
 
-trait Measure20000Config extends BenchmarkConfig {
-	override val benchmarkConfig : String = "measure-20000"
-	override val measureIterations : Int = 20000
-	override val warmup = true
-}
 
-trait Measure1000Config extends BenchmarkConfig {
-	override val benchmarkConfig : String = "measure-1000"
-	override val measureIterations : Int = 1000
-	override val warmup = true
-}
-
-trait TestConfig1 extends BenchmarkConfig {
-	override val benchmarkConfig : String = "test-10"
-	override val measureIterations : Int = 10
-	override val warmup = false
-}
