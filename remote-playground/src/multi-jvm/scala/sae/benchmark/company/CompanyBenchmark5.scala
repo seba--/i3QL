@@ -15,11 +15,10 @@ class CompanyBenchmark5MultiJvmNode5 extends CompanyBenchmark5
 
 object CompanyBenchmark5 {} // this object is necessary for multi-node testing
 
-//FIXME: Add boxed functions to aggregation
 class CompanyBenchmark5 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with TestCompanyBenchmark
+	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
 	with TestConfig1 {
 
@@ -80,12 +79,12 @@ class CompanyBenchmark5 extends MultiNodeSpec(CompanyMultiNodeConfig)
 					(fid : Rep[Int]) => fid, COUNT(*)
 				) FROM (fes) GROUP BY ((fe : Rep[FE]) => fe.factoryId)
 
-			val q = SELECT ((w : Rep[(Int, Int)], fp : Rep[FP], p : Rep[Product]) =>
-				w
+			val q = SELECT ((fw : Rep[(Int, Int)], fp : Rep[FP], p : Rep[Product]) =>
+				fw
 			) FROM (
 				workersInFactory, fps, products
-			) WHERE ((w : Rep[(Int, Int)], fp : Rep[FP], p : Rep[Product]) =>
-				p.name == "wood" AND fp.productId == p.id AND fp.factoryId == w._1
+			) WHERE ((fw : Rep[(Int, Int)], fp : Rep[FP], p : Rep[Product]) =>
+				p.name.startsWith("Billy") AND fp.productId == p.id AND fp.factoryId == fw._1
 			)
 
 

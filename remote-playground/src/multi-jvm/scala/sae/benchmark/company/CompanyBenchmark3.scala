@@ -18,7 +18,7 @@ object CompanyBenchmark3 {} // this object is necessary for multi-node testing
 class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with TestCompanyBenchmark
+	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
 	with TestConfig1 {
 
@@ -80,7 +80,7 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 				) FROM (
 					components, pcs, products
 				) WHERE ( (c, pc, p) =>
-					c.name == "wood" AND c.id == pc.componentId AND p.id == pc.productId
+					c.material == "Wood" AND c.id == pc.componentId AND p.id == pc.productId
 				)
 
 
@@ -100,7 +100,7 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 				) FROM (
 					DECLASS (factoriesWithWood, "lab:production"), fes, employees
 				) WHERE ((f, fe, e) =>
-					f.id == fe.factoryId AND e.id == fe.employeeId AND fe.job == "worker"
+					f.id == fe.factoryId AND e.id == fe.employeeId AND fe.job == "Worker"
 				)
 
 

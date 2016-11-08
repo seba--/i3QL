@@ -5,7 +5,7 @@ import akka.testkit.ImplicitSender
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.colors._
 import idb.query.{QueryEnvironment, RemoteHost}
-import sae.benchmark.{BenchmarkMultiNodeSpec, MeasureConfig1}
+import sae.benchmark.{BenchmarkMultiNodeSpec, Measure20000Config}
 
 class HospitalBenchmark4MultiJvmNode1 extends HospitalBenchmark4
 class HospitalBenchmark4MultiJvmNode2 extends HospitalBenchmark4
@@ -20,7 +20,7 @@ class HospitalBenchmark4 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultHospitalBenchmark
 	//Specifies the number of measurements/warmups
-	with MeasureConfig1 {
+	with Measure20000Config {
 
 	override val benchmarkQuery = "query4"
 	override val benchmarkNumber: Int = 1

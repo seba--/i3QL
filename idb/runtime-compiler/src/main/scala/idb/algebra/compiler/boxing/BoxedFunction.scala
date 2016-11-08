@@ -14,6 +14,11 @@ case class BoxedFunction[A, B](code : ClassCode[A,B]) extends (A => B) {
 	}
 
 	def apply(x : A) : B = {
+		if (f == null) {
+			Predef.println("[BoxedFunction] Warning! Function is not defined, x=" + x)
+			return null.asInstanceOf[B]
+		}
+
 		f.apply(x)
 	}
 

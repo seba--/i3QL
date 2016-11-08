@@ -29,7 +29,7 @@ class ThroughputEvaluator[Domain](
 	override def result(): (Double, Long) = {
 		val time = lastEventTime - firstEventTime
 		val timeInSec : Double = time.toDouble / 1000
-		val eventsPerSec : Double = countEvaluator.result().toDouble / timeInSec
+		val eventsPerSec : Double = countEvaluator.countEvents.toDouble / timeInSec
 
 		(eventsPerSec, time)
 	}

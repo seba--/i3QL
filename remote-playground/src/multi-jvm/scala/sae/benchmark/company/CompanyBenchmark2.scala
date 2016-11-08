@@ -18,7 +18,7 @@ object CompanyBenchmark2 {} // this object is necessary for multi-node testing
 class CompanyBenchmark2 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with TestCompanyBenchmark
+	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
 	with TestConfig1 {
 
@@ -103,7 +103,7 @@ class CompanyBenchmark2 extends MultiNodeSpec(CompanyMultiNodeConfig)
 				)
 
 			val q1 =
-				SELECT ((a : Rep[(Long, Int, Int)], b : Rep[(Long, Int, Int)]) =>
+				SELECT DISTINCT ((a : Rep[(Long, Int, Int)], b : Rep[(Long, Int, Int)]) =>
 					(a._1, b._1, a._2, b._2)
 				) FROM (
 					qa, qb

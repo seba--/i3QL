@@ -46,7 +46,7 @@ object NotifyObservers {
   var indent = 0
   def spaces = "| " * indent
 
-  var DEBUG = true
+  var DEBUG = false
 }
 import NotifyObservers._
 

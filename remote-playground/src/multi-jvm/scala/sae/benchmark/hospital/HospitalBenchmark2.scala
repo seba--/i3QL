@@ -6,7 +6,7 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.colors._
 import idb.query.{QueryEnvironment, RemoteHost}
 import sae.benchmark
-import sae.benchmark.{BenchmarkMultiNodeSpec, MeasureConfig1}
+import sae.benchmark.{BenchmarkMultiNodeSpec, Measure20000Config}
 import sae.playground.remote.STMultiNodeSpec
 
 class HospitalBenchmark2MultiJvmNode1 extends HospitalBenchmark2
@@ -22,7 +22,7 @@ class HospitalBenchmark2 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultHospitalBenchmark
 	//Specifies the number of measurements/warmups
-	with MeasureConfig1 {
+	with Measure20000Config {
 
 	override val benchmarkQuery = "query2"
 	override val benchmarkNumber: Int = 2

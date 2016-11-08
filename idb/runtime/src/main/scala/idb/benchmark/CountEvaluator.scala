@@ -10,32 +10,37 @@ import idb.observer.Observer
   */
 class CountEvaluator[Domain](
 	val relation : Relation[Domain]
-) extends Evaluator[Domain, Int] {
+) extends Evaluator[Domain, (Int, Int)] {
 	relation.addObserver(this)
 
-	var count = 0
+	var countEvents = 0
+	var countEntries = 0
 
-	override def result(): Int =
-		count
+	override def result(): (Int, Int) =
+		(countEvents, countEntries)
 
 	override def updated(oldV: Domain, newV: Domain): Unit = {
-		count = count + 1
+		countEvents = countEvents + 1
 	}
 
 	override def removed(v: Domain): Unit = {
-		count = count + 1
+		countEvents = countEvents + 1
+		countEntries = countEntries - 1
 	}
 
 	override def removedAll(vs: Seq[Domain]): Unit = {
-		count = count + vs.size
+		countEvents = countEvents + vs.size
+		countEntries = countEntries - vs.size
 	}
 
 	override def added(v: Domain): Unit = {
-		count = count + 1
+		countEvents = countEvents + 1
+		countEntries = countEntries + 1
 	}
 
 	override def addedAll(vs: Seq[Domain]): Unit = {
-		count = count + vs.size
+		countEvents = countEvents + vs.size
+		countEntries = countEntries + vs.size
 	}
 
 

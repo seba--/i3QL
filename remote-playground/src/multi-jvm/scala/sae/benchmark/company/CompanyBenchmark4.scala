@@ -19,7 +19,7 @@ object CompanyBenchmark4 {} // this object is necessary for multi-node testing
 class CompanyBenchmark4 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with TestCompanyBenchmark
+	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
 	with TestConfig1 {
 
@@ -81,10 +81,10 @@ class CompanyBenchmark4 extends MultiNodeSpec(CompanyMultiNodeConfig)
 				) FROM (
 					components, suppliers, scs, pcs
 				) WHERE ((c, s, sc, pc) =>
-					sc.price < 100.00 AND sc.inventory >= 10 AND c.id == sc.componentId AND
-						c.name == "wood" AND s.id == sc.supplierId AND (
-						s.city == "Darmstadt" OR s.city == "Frankfurt") AND
-						s.name != "Woody's Wood" AND pc.componentId == c.id
+					sc.price < 60.00 AND sc.inventory >= 4 AND c.id == sc.componentId AND
+						c.material == "Wood" AND s.id == sc.supplierId AND (
+						s.city == "Darmstadt" OR s.city == "Hanau") AND
+						s.name.startsWith("Bauhaus") AND pc.componentId == c.id
 				)
 
 

@@ -13,7 +13,7 @@ class TestSerializer(system : ExtendedActorSystem) extends JSerializer {
 
 	private val serializer = new JavaSerializer(system)
 
-	private var totalBytes = 0
+	private var totalBytes : Long = 0
 
 	override val identifier: Int =
 		144429

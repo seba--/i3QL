@@ -18,7 +18,7 @@ object CompanyBenchmark6 {} // this object is necessary for multi-node testing
 class CompanyBenchmark6 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with TestCompanyBenchmark
+	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
 	with TestConfig1 {
 
@@ -75,10 +75,10 @@ class CompanyBenchmark6 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			val fes : Rep[Query[FE]] = REMOTE GET (employeesHost, "fe-db", Color("lab:employees"))
 
 
-			val q = SELECT ((f : Rep[Factory], fp : Rep[FP], p : Rep[Product]) =>
+			val q = SELECT ((f : Rep[Factory], p : Rep[Product]) =>
 				(f.timestamp, p.timestamp, f.id, p.id)
 			) FROM (
-				factories, fps, products
+				factories, products
 			)
 
 			//Compile to LMS representation (only needed for printing)

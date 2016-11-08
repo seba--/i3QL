@@ -67,7 +67,7 @@ trait Index[K, V]
   def keyFunction: V => K
 
 
-  override def children() = List(relation)
+  override def children = List(relation)
 
   override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
     if (o == relation) {

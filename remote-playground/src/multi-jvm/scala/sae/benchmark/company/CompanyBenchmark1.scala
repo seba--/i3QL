@@ -18,7 +18,7 @@ object CompanyBenchmark1 {} // this object is necessary for multi-node testing
 class CompanyBenchmark1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with TestCompanyBenchmark
+	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
 	with TestConfig1 {
 
