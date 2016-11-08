@@ -82,7 +82,7 @@ class HospitalBenchmark4 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			val printer = new RelationalAlgebraPrintPlan {
 				override val IR = idb.syntax.iql.IR
 			}
-			Predef.println("Relation.tree#" + printer.quoteRelation(q1))
+			Predef.println(printer.quoteRelation(q1))
 
 			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 			val r : idb.syntax.iql.IR.Relation[ResultType] =

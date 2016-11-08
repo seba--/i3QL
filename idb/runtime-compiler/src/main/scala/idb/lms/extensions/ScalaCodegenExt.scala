@@ -80,7 +80,6 @@ trait ScalaCodegenExt
 
 
     def compileFunctionWithDynamicManifests[A, B] (f: IR.Rep[A => B]): A => B = {
-
         f.tp.typeArguments match {
             case List (mA, mB) =>
 				val mAUnsafe = mA.asInstanceOf[Manifest[A]]

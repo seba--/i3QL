@@ -21,20 +21,23 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 	private var receiveActorRef : ActorRef = null
 	private var sendActorRef : ActorRef = null
 
-	def deploy(system : ActorSystem): ActorRef
+	/**
+	  * Creates links to the children actors.
+	  */
+	def deploy(system : ActorSystem): Unit
 
-	protected def internalDeploy(system : ActorSystem, remoteRef : ActorRef): ActorRef = {
+	protected def internalDeploy(system : ActorSystem, remoteRef : ActorRef): Unit = {
+		if (sendActorRef != null) {
+			Predef.println("[RemoteReceiver] Warning! RemoteReceiver will not be deployed: Already deployed.")
+			return
+		}
+
 		sendActorRef = remoteRef
 		receiveActorRef = system.actorOf(Props(classOf[ReceiveActorAdapter[Domain]], this))
 		println(s"[RemoteReceiver] Adding link: ${sendActorRef.path} ---> ${receiveActorRef.path}")
 		sendActorRef ! SendTo(receiveActorRef)
-		receiveActorRef
+
 	}
-
-	/**
-	  * Deploys this receiver and returns the actor that is used to receive data events.
-	  */
-
 
 	override def isSet: Boolean = false
 
@@ -47,13 +50,9 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 	}
 
 	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
-		//out.println(prefix + s"Receiver{sendRef=$sendActorRef, recvRef=$receiveActorRef, this=$this)}")
 		out.println(prefix + s"Receiver(${sendActorRef.path.toStringWithoutAddress} --> ${receiveActorRef.path.toStringWithoutAddress})")
-		if (sendActorRef != null)
-			sendActorRef ! Print
+		sendActorRef ! Print
 	}
-
-
 
 	override def updated(oldV: Domain, newV: Domain): Unit = {
 		notify_updated(oldV, newV)

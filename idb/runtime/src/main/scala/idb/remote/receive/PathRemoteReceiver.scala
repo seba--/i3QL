@@ -9,7 +9,7 @@ import scala.concurrent.Await
   */
 case class PathRemoteReceiver[Domain](actorPath : ActorPath) extends RemoteReceiver[Domain] {
 
-	def deploy(system : ActorSystem): ActorRef = {
+	def deploy(system : ActorSystem): Unit = {
 		//Creates a new receive actor and adds this relation to be notified
 		val actorSelection = system.actorSelection(actorPath).resolveOne(timeout)
 		val actorRef = Await.result(actorSelection, timeout)

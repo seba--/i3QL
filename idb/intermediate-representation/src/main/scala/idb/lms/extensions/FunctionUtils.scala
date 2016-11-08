@@ -355,10 +355,6 @@ trait FunctionUtils
 				result
 			case _ =>
 				Predef.println(s"FunctionUtils: Warning! $func is not a lambda!")
-				val Def(e) = func
-				Predef.println(e)
-				globalDefsCache.toList.sortBy(t => t._1.id).foreach(Predef.println)
-				Predef.println("###############################################")
 				false
 		}
 	}

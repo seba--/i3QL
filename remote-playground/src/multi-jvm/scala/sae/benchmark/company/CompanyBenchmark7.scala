@@ -92,7 +92,7 @@ class CompanyBenchmark7 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			val printer = new RelationalAlgebraPrintPlan {
 				override val IR = idb.syntax.iql.IR
 			}
-			Predef.println("Relation.tree#" + printer.quoteRelation(query))
+			Predef.println(printer.quoteRelation(query))
 
 			//Define the root. The operators get distributed here.
 			val r : idb.syntax.iql.IR.Relation[ResultType] =

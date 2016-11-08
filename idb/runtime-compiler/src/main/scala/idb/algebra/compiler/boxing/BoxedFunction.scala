@@ -7,7 +7,7 @@ import idb.lms.extensions.ScalaCodegenExt
   */
 case class BoxedFunction[A, B](code : ClassCode[A,B]) extends (A => B) {
 
-	@transient var f : A => B = null
+	var f : A => B = null
 
 	def compile(compiler : ScalaCodegenExt): Unit = {
 		f = compiler.compileScalaCode[A,B](code)
@@ -16,6 +16,9 @@ case class BoxedFunction[A, B](code : ClassCode[A,B]) extends (A => B) {
 	def apply(x : A) : B = {
 		f.apply(x)
 	}
+
+	override def toString : String =
+		s"BoxedFunction[compiled=${f != null}]($f)"
 }
 
 object BoxedFunction {

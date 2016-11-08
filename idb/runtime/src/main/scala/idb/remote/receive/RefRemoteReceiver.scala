@@ -9,7 +9,7 @@ import scala.concurrent.Await
   */
 case class RefRemoteReceiver[Domain](actorRef : ActorRef) extends RemoteReceiver[Domain] {
 
-	def deploy(system : ActorSystem): ActorRef = {
+	def deploy(system : ActorSystem): Unit = {
 		internalDeploy(system, actorRef)
 	}
 
