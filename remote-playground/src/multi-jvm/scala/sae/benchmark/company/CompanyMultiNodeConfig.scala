@@ -30,8 +30,10 @@ object CompanyMultiNodeConfig extends MultiNodeConfig {
 
 				# Change this setting to change the default serializer
 				serialization-bindings {
-					"idb.remote.DataMessage" = java
+					"idb.remote.DataMessage" = myown
 	            }
+
+                warn-about-java-serializer-usage = false
 			}
         }
     """))

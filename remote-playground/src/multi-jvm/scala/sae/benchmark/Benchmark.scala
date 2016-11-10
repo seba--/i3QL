@@ -13,14 +13,14 @@ trait Benchmark extends BenchmarkConfig with CSVPrinter {
 	/*
 		Control Variables
 	 */
-	val waitForCompile = 20000 //ms
-	val waitForData = 20000 //ms
+	val waitForCompile = 10000 //ms
+	val waitForData = 12000 //ms
 	val waitForReset = 10000 //ms
 	val waitForGc = 10000 //ms
 
 	val cpuMeasurementInterval = 10 //ms
 
-	val DEBUG = true
+	val DEBUG = false
 
 	//Environment must be available everywhere
 	implicit val env : QueryEnvironment

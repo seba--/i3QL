@@ -40,12 +40,9 @@ object IndexService
 {
 
     def getIndex[K, V](relation:Relation[V], keyFunction: V=>K) : Index[K, V]  = {
-		if (relation.isSet)
-		{
+		if (relation.isSet)	{
 			new SetIndex[K, V](relation, keyFunction)
-		}
-		else
-		{
+		} else {
 			new BagIndex[K, V](relation, keyFunction)
 		}
 	}

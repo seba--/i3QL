@@ -20,10 +20,10 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultHospitalBenchmark
 	//Specifies the number of measurements/warmups
-	with Measure20000Config {
+	with Measure50000Config {
 
 	override val benchmarkQuery = "query1"
-	override val benchmarkNumber: Int = 2
+	override val benchmarkNumber: Int = 5
 
 	import HospitalMultiNodeConfig._
 	def initialParticipants = roles.size

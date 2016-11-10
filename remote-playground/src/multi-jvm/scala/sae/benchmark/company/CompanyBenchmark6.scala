@@ -20,10 +20,12 @@ class CompanyBenchmark6 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
-	with Test10DefaultPriorityConfig {
+	with Measure4000ClientPriorityConfig {
 
 	override val benchmarkQuery = "query6"
-	override val benchmarkNumber: Int = 1
+	override val benchmarkNumber: Int = 100
+
+	override val waitForData = 30000 //ms
 
 	import CompanyMultiNodeConfig._
 	def initialParticipants = roles.size

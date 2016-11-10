@@ -20,7 +20,7 @@ class HospitalBenchmark4 extends MultiNodeSpec(HospitalMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultHospitalBenchmark
 	//Specifies the number of measurements/warmups
-	with Measure20000Config {
+	with Measure25000Config {
 
 	override val benchmarkQuery = "query4"
 	override val benchmarkNumber: Int = 1

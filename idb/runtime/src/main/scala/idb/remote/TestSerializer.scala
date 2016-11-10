@@ -21,9 +21,21 @@ class TestSerializer(system : ExtendedActorSystem) extends JSerializer {
 	override def includeManifest: Boolean =
 		serializer.includeManifest
 
+	val t = new Thread(new Runnable {
+		override def run(): Unit = {
+			while (true) {
+				Thread.sleep(1000)
+				println(s"[TestSerializer][$this] $count events received: $totalBytes bytes")
+			}
+		}
+	})
+	t.start()
+
+
+	var count = 0
 	override def fromBinaryJava(bytes: Array[Byte], clazz: Class[_]): AnyRef = {
+		count = count + 1
 		totalBytes += bytes.length
-		println(s"[TestSerializer][$this] Received $totalBytes bytes")
 		serializer.fromBinary(bytes, clazz)
 	}
 

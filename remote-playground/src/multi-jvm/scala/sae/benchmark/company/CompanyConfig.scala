@@ -25,10 +25,10 @@ trait CompanyConfig extends BenchmarkConfig {
 	val labelEmployees : Color
 }
 
-trait Measure1000DefaultPriorityConfig extends CompanyConfig {
-	override val benchmarkConfig : String = "measure-1000-all"
-	override val measureIterations : Int = 1000
-	override val warmup = true
+trait Measure4000DefaultPriorityConfig extends CompanyConfig {
+	override val benchmarkConfig : String = "measure-4000-all"
+	override val measureIterations : Int = 4000
+	override val warmup = false
 
 	val priorityPublic : Int = 1
 	val priorityProduction : Int = 1
@@ -48,10 +48,10 @@ trait Measure1000DefaultPriorityConfig extends CompanyConfig {
 	val labelEmployees : Color = Color("lab:employees")
 }
 
-trait Measure1000ClientPriorityConfig extends CompanyConfig {
-	override val benchmarkConfig : String = "measure-1000-client"
-	override val measureIterations : Int = 1000
-	override val warmup = true
+trait Measure4000ClientPriorityConfig extends CompanyConfig {
+	override val benchmarkConfig : String = "measure-4000-client"
+	override val measureIterations : Int = 4000
+	override val warmup = false
 
 	val priorityPublic : Int = 0
 	val priorityProduction : Int = 0

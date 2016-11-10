@@ -32,6 +32,8 @@ object HospitalMultiNodeConfig extends MultiNodeConfig {
 				serialization-bindings {
 					"idb.remote.DataMessage" = java
 	            }
+
+				warn-about-java-serializer-usage = false
 			}
         }
     """))

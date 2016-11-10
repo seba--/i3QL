@@ -109,13 +109,15 @@ trait DoublePersonHospitalBenchmark extends HospitalBenchmark {
 }
 
 trait DefaultHospitalBenchmark extends HospitalBenchmark {
-	override val benchmarkType = "default"
+
 
 	override type PersonType = (Long, Person)
 	override type PatientType = Patient
 	override type KnowledgeType = KnowledgeData
 
-	private val maximumJohnDoes = 10000
+	val numberOfJohnDoes = 2500
+
+	override val benchmarkType = "default-" + numberOfJohnDoes
 
 	object PersonDBNode extends DBNode {
 		override val nodeName = "person-node"
@@ -125,7 +127,7 @@ trait DefaultHospitalBenchmark extends HospitalBenchmark {
 
 		override val isPredata : Boolean = false
 
-		private val interval = iterations / maximumJohnDoes
+		private val interval = iterations / numberOfJohnDoes
 
 		private var count = 0
 		override def iteration(dbs : Seq[Table[Any]], index : Int): Unit = {

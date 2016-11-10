@@ -1,0 +1,27 @@
+25000:
+Config 1:
+[JVM-2] [TestSerializer][idb.remote.TestSerializer@68dda140] Received 7600193 bytes
+[JVM-4] [TestSerializer][idb.remote.TestSerializer@3707f022] Received 7099432 bytes
+
+
+Config 2:
+[JVM-2] [TestSerializer][idb.remote.TestSerializer@1370b52f] Received 15200193 bytes
+[JVM-4] [TestSerializer][idb.remote.TestSerializer@db664ff] Received 7100000 bytes
+
+
+Config 3:
+32545332
+
+2500:
+Config 1:
+[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@112b6823] 2501 events received: 760193 bytes
+[JVM-4] [TestSerializer][idb.remote.TestSerializer$$anon$1@4c55fe99] 2499 events received: 709716 bytes
+
+
+Config 2:
+[JVM-2] [TestSerializer][idb.remote.TestSerializer@27f6b972] Received 15200193 bytes
+[JVM-4] [TestSerializer][idb.remote.TestSerializer@338eca17] Received 710000 bytes
+
+Config 3:
+32546591
+

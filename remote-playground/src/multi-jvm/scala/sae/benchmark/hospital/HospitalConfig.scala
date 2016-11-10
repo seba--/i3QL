@@ -9,9 +9,21 @@ trait HospitalConfig extends BenchmarkConfig {
 
 }
 
-trait Measure20000Config extends HospitalConfig {
-	override val benchmarkConfig : String = "measure-20000"
-	override val measureIterations : Int = 20000
+trait Measure25000Config extends HospitalConfig {
+	override val benchmarkConfig : String = "measure-25000"
+	override val measureIterations : Int = 25000
+	override val warmup = true
+}
+
+trait Measure50000Config extends HospitalConfig {
+	override val benchmarkConfig : String = "measure-50000"
+	override val measureIterations : Int = 50000
+	override val warmup = true
+}
+
+trait Measure100000Config extends HospitalConfig {
+	override val benchmarkConfig : String = "measure-100000"
+	override val measureIterations : Int = 100000
 	override val warmup = true
 }
 

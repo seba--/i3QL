@@ -42,6 +42,13 @@ class DelayEvaluator[Domain](
 		delays.sorted.apply(delays.size / 2)
 	}
 
+	def runtime : Long = {
+		val start = eventTimes.head._1
+		val end = eventTimes.last._2
+
+		end - start
+	}
+
 	override def updated(oldV: Domain, newV: Domain): Unit = {
 		handleEvent(newV)
 	}

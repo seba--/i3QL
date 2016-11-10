@@ -15,16 +15,15 @@ class CompanyBenchmark4MultiJvmNode5 extends CompanyBenchmark4
 
 object CompanyBenchmark4 {} // this object is necessary for multi-node testing
 
-//FIXME: Fix boxed function not working correctly
 class CompanyBenchmark4 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
 	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
-	with Test10DefaultPriorityConfig {
+	with Measure4000ClientPriorityConfig {
 
 	override val benchmarkQuery = "query4"
-	override val benchmarkNumber: Int = 1
+	override val benchmarkNumber: Int = 100
 
 	import CompanyMultiNodeConfig._
 	def initialParticipants = roles.size
@@ -61,7 +60,6 @@ class CompanyBenchmark4 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			import idb.syntax.iql._
 			import idb.schema.company._
 
-
 			val products : Rep[Query[Product]] = RECLASS (REMOTE GET (publicHost, "product-db"), labelPublic)
 			val factories : Rep[Query[Factory]] = RECLASS (REMOTE GET (publicHost, "factory-db"), labelPublic)
 
@@ -75,16 +73,40 @@ class CompanyBenchmark4 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			val employees : Rep[Query[Employee]] = RECLASS (REMOTE GET (employeesHost, "employee-db"), labelEmployees)
 			val fes : Rep[Query[FE]] = RECLASS (REMOTE GET (employeesHost, "fe-db"), labelEmployees)
 
+//			val q =
+//				SELECT ((c : Rep[Component], s : Rep[Supplier], sc : Rep[SC]) =>
+//					(c.timestamp, s.timestamp, c.id, s.id)
+//				) FROM (
+//					components, suppliers, scs
+//				) WHERE ((c, s, sc) =>
+//					sc.price < 60.00 AND sc.inventory >= 4 AND c.id == sc.componentId AND
+//						c.material == "Wood" AND s.id == sc.supplierId AND
+//						(s.city == "Darmstadt" OR s.city == "Hanau") AND
+//						s.name.startsWith("Bauhaus")
+//				)
+
+			val qSC =
+				SELECT (*) FROM scs WHERE (sc =>
+					sc.price < 60.00 AND sc.inventory >= 4
+				)
+
+			val qSupplier =
+				SELECT (*) FROM suppliers WHERE (s =>
+					(s.city == "Darmstadt" OR s.city == "Hanau") AND s.name.startsWith("Bauhaus")
+				)
+
+			val qa =
+				SELECT ((s : Rep[Supplier], sc : Rep[SC]) =>
+					(s.timestamp, s.id, sc.componentId)
+				) FROM (qSupplier, qSC) WHERE ((s, sc) =>
+					s.id == sc.supplierId
+				)
+
 			val q =
-				SELECT ((c : Rep[Component], s : Rep[Supplier], sc : Rep[SC], pc : Rep[PC]) =>
-					(c.timestamp, s.timestamp, c.id, s.id)
-				) FROM (
-					components, suppliers, scs, pcs
-				) WHERE ((c, s, sc, pc) =>
-					sc.price < 60.00 AND sc.inventory >= 4 AND c.id == sc.componentId AND
-						c.material == "Wood" AND s.id == sc.supplierId AND (
-						s.city == "Darmstadt" OR s.city == "Hanau") AND
-						s.name.startsWith("Bauhaus") AND pc.componentId == c.id
+				SELECT ((c : Rep[Component], e : Rep[(Long, Int, Int)]) =>
+					(c.timestamp, e._1, c.id, e._3)
+				) FROM (components, qa) WHERE ((c : Rep[Component], e : Rep[(Long, Int, Int)]) =>
+					c.id == e._3 AND c.material == "Wood"
 				)
 
 
