@@ -39,8 +39,7 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  */
 case object COUNT
-    extends AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Any, Int]
-{
+    extends AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Any, Int] {
 
 	def start : Int = 0
 

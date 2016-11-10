@@ -65,7 +65,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[(Domain, Domain, RangeB)]) =>
 								selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, Domain)]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -85,7 +85,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[(Domain, Domain, RangeB, Seq[Domain])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, Domain)]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -113,7 +113,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), RangeB)]) =>
 								selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -134,7 +134,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB), (DomainA, DomainB), RangeB, Seq[(DomainA, DomainB)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -165,7 +165,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), RangeB)]) =>
 								selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -187,7 +187,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB, DomainC), (DomainA, DomainB, DomainC), RangeB, Seq[(DomainA, DomainB, DomainC)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -219,7 +219,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), RangeB)]) =>
 								selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC, DomainD))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -242,7 +242,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB, DomainC, DomainD), (DomainA, DomainB, DomainC, DomainD), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC, DomainD))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -276,7 +276,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), RangeB)]) =>
 								selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC, DomainD, DomainE))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -300,7 +300,7 @@ case class SelectTupledAggregateClauseStar[Select : Manifest, RangeA : Manifest,
 							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC, DomainD, DomainE))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)

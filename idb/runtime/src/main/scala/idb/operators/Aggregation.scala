@@ -29,7 +29,10 @@ trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: 
 
     def aggregateFunctionFactory: AggregateFunctionFactoryType
 
-    def convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result
+	/**
+	  * Takes the key of a an element, its aggregate value and the last processed event to create a new result.
+	  */
+    def convertToResult: (Key, AggregateValue, Domain) => Result
 
     override def children = List (relation)
 
@@ -46,117 +49,65 @@ trait Aggregation[Domain, Key, AggregateValue, Result, AggregateFunctionType <: 
  *
  * @author Malte V
  */
-object Aggregation
-{
-    /**
-     * Construct a new Aggregation for NOT self maintainable aggregation functions
-     * {@see sae.operators.NotSelfMaintainableAggregateFunctionFactory}
-     * @param source: Source relation
-     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
-     * @param convertKeyAndAggregationValueToResult: function that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
-     * @return LazyInitializedQueryResult[Type of convertKeyAndAggregationValueToResult retrunvalue] aggregation as LazyInitializedQueryResult
-     */
-    def apply[Domain, Key, AggregateValue, Result](source: Relation[Domain],
-                                                   groupingFunction: Domain => Key,
-                                                   aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                   convertKeyAndAggregateValueToResult: (Key, AggregateValue) => Result,
-												   isSet : Boolean):
-    Aggregation[Domain, Key, AggregateValue, Result, NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
-    {
-        new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](source, groupingFunction, aggregateFunctionFactory, convertKeyAndAggregateValueToResult,isSet)
-    }
+object Aggregation {
 
+	def create[Domain, Key, RangeA, RangeB, Range](
+		relation : Relation[Domain],
+		grouping : Domain => Key,
+		start : RangeB,
+		added : (Domain, RangeB, Seq[Domain]) => RangeB,
+		removed : (Domain, RangeB, Seq[Domain]) => RangeB,
+		updated : ( Domain, Domain, RangeB, Seq[Domain]) => RangeB,
+		convertKey : Key => RangeA,
+		convert : (RangeA, RangeB, Domain) => Range,
+		isSet : Boolean
+	): AggregationForNotSelfMaintainableFunctions[Domain, Key, RangeB, Range] = {
 
-    /**
-     * Construct a new Aggregation for NOT self maintainable aggregation functions
-     *
-     * {@see sae.operators.NotSelfMaintainableAggregateFunctionFactory}
-     * @param source: Source relation
-     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}
-     * @return LazyInitializedQueryResult[(groupingFunction return type, aggregationFunction retun type] aggregation as LazyInitializedQueryResult
-     */
-    def apply[Domain, Key, AggregateValue](source: Relation[Domain],
-                                           groupingFunction: Domain => Key,
-                                           aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-										   isSet : Boolean):
-    Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), NotSelfMaintainableAggregateFunction[Domain, AggregateValue], NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
-    {
-        new AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
-                                                                                                                                                                b: AggregateValue) => (a, b),isSet)
-    }
+		val factory  = AggregateFunctionFactory.create(start, added, removed, updated)
+		val f = (k : Key, rB : RangeB, d : Domain) => convert(convertKey(k), rB, d)
 
-    /**
-     * Construct a new Aggregation for SELF maintainable aggregation functions
-     * {@see sae.operators.SelfMaintainableAggregateFunctionFactory}
-     * @param source: Source relation
-     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
-     * @param convertKeyAndAggregationValueToResult: fucntion that defines the return type of the aggregation. (x : Grouping key(s), y : aggregation function return value) => Aggregation return value
-     * @return LazyInitializedQueryResult[convertKeyAndAggregationValueToResult returnvalue type] aggregation as LazyInitializedQueryResult
-     */
-    def apply[Domain, Key, AggregateValue, Result](source: Relation[Domain],
-                                                   groupFunction: Domain => Key,
-                                                   aggregationFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-                                                   convertKeyAndAggregationValueToResult: (Key, AggregateValue) => Result,
-												   isSet : Boolean):
-    Aggregation[Domain, Key, AggregateValue, Result, SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
-    {
-        new AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, Result](source, groupFunction, aggregationFunctionFactory, convertKeyAndAggregationValueToResult,isSet)
-    }
+		new AggregationForNotSelfMaintainableFunctions[Domain, Key, RangeB, Range](
+			relation, grouping, factory, f, isSet
+		)
+	}
 
-    /**
-     * Construct a new Aggregation for SELF maintainable aggregation functions
-     * {@see sae.operators.SelfMaintainableAggregateFunctionFactory}
-     * @param source: Source relation
-     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
-     * @return LazyInitializedQueryResult[(groupingFunction return type,  aggregationFunctionFactory return type] aggregation as LazyInitializedQueryResult
-     */
-    def apply[Domain, Key, AggregateValue](source: Relation[Domain],
-                                           groupingFunction: Domain => Key,
-                                           aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-										   isSet : Boolean):
-    Aggregation[Domain, Key, AggregateValue, (Key, AggregateValue), SelfMaintainableAggregateFunction[Domain, AggregateValue], SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue]] =
-    {
-        new AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, (Key, AggregateValue)](source, groupingFunction, aggregateFunctionFactory, (a: Key,
-                                                                                                                                                                        b: AggregateValue) => (a, b),isSet)
-    }
+	def create[Domain, Key, RangeA, RangeB, Range](
+		relation : Relation[Domain],
+		grouping : Domain => Key,
+		start : RangeB,
+		added : (Domain, RangeB) => RangeB,
+		removed : (Domain, RangeB) => RangeB,
+		updated : (Domain, Domain, RangeB) => RangeB,
+		convertKey : Key => RangeA,
+		convert : (RangeA, RangeB, Domain) => Range,
+		isSet : Boolean
+	): AggregationForSelfMaintainableFunctions[Domain, Key, RangeB, Range] = {
 
-    /**
-     * Construct a new Aggregation for aggregation function that are NOT self maintainable without any grouping
-     * (the aggregation function is used on the whole source relation)
-     * {@see sae.operators.NotSelfMaintainableAggregateFunctionFactory}
-     * @param source: Source relation
-     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
-     * @return LazyInitializedQueryResult[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as LazyInitializedQueryResult
-     */
-    def apply[Domain, AggregateValue](source: Relation[Domain],
-                                      aggregateFunctionFactory: NotSelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-									  isSet : Boolean) =
-    {
-        new AggregationForNotSelfMaintainableFunctions (source, (x: Any) => 0, aggregateFunctionFactory, (x: Any,
-                                                                                                            y: AggregateValue) => Some (y),isSet)
-    }
+		val factory  = AggregateFunctionFactory.create(start, added, removed, updated)
+		val f = (k : Key, rB : RangeB, d : Domain) => convert(convertKey(k), rB, d)
 
-    /**
-     * Construct a new Aggregation for aggregation function that are SELF maintainable without any grouping
-     * (the aggregation function is used on the whole source relation)
-     * {@see sae.operators.SelfMaintainableAggregateFunctionFactory}
-     * @param source: Source relation
-     * @param groupingFunction: Grouping function for the Aggregation. The return value is used as a key in a hashmap.
-     * @param aggregationFunctionFactory: a factory that creates aggregatonFunctions  { @see sae.functions}.
-     * @return LazyInitializedQueryResult[(groupingFunction return type, Option[aggregationFunction return type])] aggregation as LazyInitializedQueryResult
-     */
-    def apply[Domain, AggregateValue](source: Relation[Domain],
-                                      aggregateFunctionFactory: SelfMaintainableAggregateFunctionFactory[Domain, AggregateValue],
-									  isSet : Boolean) =
-    {
-        new AggregationForSelfMaintainableFunctions (source, (x: Any) => 0, aggregateFunctionFactory, (x: Any,
-                                                                                                                    y: AggregateValue) => Some (y), isSet)
-    }
+		new AggregationForSelfMaintainableFunctions[Domain, Key, RangeB, Range](
+			relation, grouping, factory, f, isSet
+		)
+	}
+
+	def create[Domain, Result](
+		relation: Relation[Domain],
+		grouping: Domain => Result,
+		isSet: Boolean
+	): Relation[Result] = {
+		create[Domain, Result, Result, Boolean, Result] (
+			relation,
+			grouping,
+			true,
+			(d : Domain, rB : Boolean) => true,
+			(d : Domain, rB : Boolean) => true,
+			(d1 : Domain, d2 : Domain, rB : Boolean) => true,
+			(k : Result) => k,
+			(k : Result, rB : Boolean, d : Domain) => k,
+			isSet
+		)
+	}
 
 }
 

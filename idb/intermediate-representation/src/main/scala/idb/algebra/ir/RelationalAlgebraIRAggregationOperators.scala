@@ -57,7 +57,7 @@ trait RelationalAlgebraIRAggregationOperators
 		removed : Rep[( (Domain, RangeB) ) => RangeB],
 		updated: Rep[( (Domain, Domain, RangeB) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
-		convert : Rep[((RangeA, RangeB)) => Range]
+		convert : Rep[((RangeA, RangeB, Domain)) => Range]
     ) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
@@ -73,7 +73,7 @@ trait RelationalAlgebraIRAggregationOperators
 			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR))
 			val rangeBCol = Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
 
-			val cConvert = colorsOfTFields(convert, Color.tupled(rangeACol, rangeBCol))
+			val cConvert = colorsOfTFields(convert, Color.tupled(rangeACol, rangeBCol, relation.color))
 
 			Color.fromIdsInColors(cConvert)
 		}
@@ -89,7 +89,7 @@ trait RelationalAlgebraIRAggregationOperators
 		removed : Rep[( (Domain, RangeB, Seq[Domain]) ) => RangeB],
 		updated: Rep[( (Domain, Domain, RangeB, Seq[Domain]) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
-		convert : Rep[((RangeA, RangeB)) => Range]
+		convert : Rep[((RangeA, RangeB, Domain)) => Range]
 	) extends Def[Query[Range]] with QueryBaseOps {
 		def isMaterialized: Boolean = !isIncrementLocal //Aggregation is materialized
 		def isSet = false
@@ -105,7 +105,7 @@ trait RelationalAlgebraIRAggregationOperators
 			val cUpdate = colorsOfTFields(updated, Color.tupled(relation.color, relation.color, Color.NO_COLOR, ClassColor(relation.color.ids)))
 			val rangeBCol = Color.fromIdsInColors(cAdd ++ cRemove ++ cUpdate)
 
-			val cConvert = colorsOfTFields(convert, Color.tupled(rangeACol, rangeBCol))
+			val cConvert = colorsOfTFields(convert, Color.tupled(rangeACol, rangeBCol, relation.color))
 
 			Color.fromIdsInColors(cConvert)
 		}
@@ -121,7 +121,7 @@ trait RelationalAlgebraIRAggregationOperators
 		removed : Rep[( (Domain, RangeB) ) => RangeB],
 		updated: Rep[( (Domain, Domain, RangeB) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
-		convert : Rep[((RangeA, RangeB)) => Range]
+		convert : Rep[((RangeA, RangeB, Domain)) => Range]
 	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = {
 		val r = AggregationSelfMaintained[Domain, Key, RangeA, RangeB, Range] (
 			relation,
@@ -145,7 +145,7 @@ trait RelationalAlgebraIRAggregationOperators
 		removed : Rep[( (Domain, RangeB, Seq[Domain]) ) => RangeB],
 		updated: Rep[( (Domain, Domain, RangeB, Seq[Domain]) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
-		convert : Rep[((RangeA, RangeB)) => Range]
+		convert : Rep[((RangeA, RangeB, Domain)) => Range]
   	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =   {
 		val r = AggregationNotSelfMaintained[Domain, Key, RangeA, RangeB, Range] (
 			relation,

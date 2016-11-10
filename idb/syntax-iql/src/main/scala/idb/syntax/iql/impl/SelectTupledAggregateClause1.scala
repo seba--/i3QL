@@ -28,7 +28,7 @@ case class SelectTupledAggregateClause1[Select : Manifest, Domain : Manifest, Ra
 							(x : Rep[(Domain, RangeB)]) => selfMaintained.removed ((x._1, x._2)),
                             (x : Rep[(Domain, Domain, RangeB)]) => selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, Domain)]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -48,7 +48,7 @@ case class SelectTupledAggregateClause1[Select : Manifest, Domain : Manifest, Ra
 							(x : Rep[(Domain, Domain, RangeB, Seq[Domain])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, Domain)]) => (x._1, x._2) )
 						),
 						asDistinct
 					)

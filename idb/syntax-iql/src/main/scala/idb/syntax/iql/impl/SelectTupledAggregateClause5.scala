@@ -39,7 +39,7 @@ case class SelectTupledAggregateClause5[Select : Manifest, DomainA : Manifest, D
 							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), RangeB)]) =>
 								selfMaintained.updated ((x._1, x._2, x._3)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC, DomainD, DomainE))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)
@@ -63,7 +63,7 @@ case class SelectTupledAggregateClause5[Select : Manifest, DomainA : Manifest, D
 							(x : Rep[((DomainA, DomainB, DomainC, DomainD, DomainE), (DomainA, DomainB, DomainC, DomainD, DomainE), RangeB, Seq[(DomainA, DomainB, DomainC, DomainD, DomainE)])]) =>
 								notSelfMaintained.updated ((x._1, x._2, x._3, x._4)),
 							project,
-							fun ( (x : Rep[(RangeA, RangeB)]) => x )
+							fun ( (x : Rep[(RangeA, RangeB, (DomainA, DomainB, DomainC, DomainD, DomainE))]) => (x._1, x._2) )
 						),
 						asDistinct
 					)

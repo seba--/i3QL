@@ -4,6 +4,7 @@ import java.io.PrintStream
 
 import idb.Relation
 import idb.lms.extensions.ScalaCodegenExt
+import idb.operators.Aggregation
 import idb.operators.impl.{AggregationForNotSelfMaintainableFunctions, AggregationForSelfMaintainableFunctions}
 
 /**
@@ -17,7 +18,7 @@ case class BoxedAggregationNotSelfMaintained[Domain, Key, RangeA, RangeB, Range]
 	removed : ((Domain, RangeB, Seq[Domain])) => RangeB,
 	updated: ((Domain, Domain, RangeB, Seq[Domain])) => RangeB,
 	convertKey : Key => RangeA,
-	convert : ((RangeA, RangeB)) => Range,
+	convert : ((RangeA, RangeB, Domain)) => Range,
 	isSet : Boolean
 ) extends Relation[Range] {
 
@@ -25,15 +26,15 @@ case class BoxedAggregationNotSelfMaintained[Domain, Key, RangeA, RangeB, Range]
 
 	def compile(compiler : ScalaCodegenExt): Unit = {
 
-		aggregation = AggregationForNotSelfMaintainableFunctions.applyTupled[Domain, Key, RangeA, RangeB, Range] (
+		aggregation = Aggregation.create[Domain, Key, RangeA, RangeB, Range] (
 			relation,
 			grouping = BoxedFunction.compile(grouping, compiler),
 			start = start,
-			added = BoxedFunction.compile(added, compiler),
-			removed = BoxedFunction.compile(removed, compiler),
-			updated = BoxedFunction.compile(updated, compiler),
+			added = Function.untupled(BoxedFunction.compile(added, compiler)),
+			removed = Function.untupled(BoxedFunction.compile(removed, compiler)),
+			updated = Function.untupled(BoxedFunction.compile(updated, compiler)),
 			convertKey = BoxedFunction.compile(convertKey, compiler),
-			convert = BoxedFunction.compile(convert, compiler),
+			convert = Function.untupled(BoxedFunction.compile(convert, compiler)),
 			isSet = isSet
 		)
 

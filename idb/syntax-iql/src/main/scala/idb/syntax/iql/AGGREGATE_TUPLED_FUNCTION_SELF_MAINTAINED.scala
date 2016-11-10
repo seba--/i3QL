@@ -54,6 +54,6 @@ trait AGGREGATE_TUPLED_FUNCTION_SELF_MAINTAINED[Select, Domain, ProjectRange, Ag
 
 	def project : Rep[Select => ProjectRange]
 
-	def convert : Rep[((ProjectRange, AggregateRange)) => Range]
+	def convert : Rep[((ProjectRange, AggregateRange, Domain)) => Range]
 
 }

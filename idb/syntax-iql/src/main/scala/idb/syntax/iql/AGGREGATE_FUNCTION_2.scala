@@ -39,7 +39,6 @@ package idb.syntax.iql
  *
  */
 
-trait AGGREGATE_FUNCTION_2[Domain, AggregateRange] extends AGGREGATE_FUNCTION[Domain, AggregateRange]
-{
+trait AGGREGATE_FUNCTION_2[Domain, AggregateRange] extends AGGREGATE_FUNCTION[Domain, AggregateRange] {
 
 }

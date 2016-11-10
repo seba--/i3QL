@@ -48,9 +48,7 @@ import idb.syntax.iql.impl._
 object ClauseToAlgebra {
 
     val IR = idb.syntax.iql.IR
-
     import IR._
-
 
     def apply[
 		Select,
@@ -448,7 +446,7 @@ object ClauseToAlgebra {
                         removed = aggregation.removed,
                         updated = aggregation.updated,
 	                    convertKey = (x : Rep[Boolean]) => x,
-	                    convert = (t : Rep[(Boolean, Range)]) => t._2
+	                    convert = (t : Rep[(Boolean, Range, Domain)]) => t._2
                     ),
                     asDistinct
                 )
@@ -463,7 +461,7 @@ object ClauseToAlgebra {
 						removed = aggregation.removed,
 						updated = aggregation.updated,
 						convertKey = (x : Rep[Boolean]) => x,
-						convert = (t : Rep[(Boolean, Range)]) => t._2
+						convert = (t : Rep[(Boolean, Range, Domain)]) => t._2
 					),
 					asDistinct
 				)
@@ -501,7 +499,7 @@ object ClauseToAlgebra {
 						removed = aggregation.removed,
 						updated = aggregation.updated,
 						convertKey = (x : Rep[GroupRange]) => x,
-						convert = (t : Rep[(GroupRange, Range)]) => t._2
+						convert = (t : Rep[(GroupRange, Range, Domain)]) => t._2
 					),
 					asDistinct
 				)
@@ -531,7 +529,7 @@ object ClauseToAlgebra {
 						removed = aggregation.removed,
 						updated = aggregation.updated,
 						convertKey = (x : Rep[GroupRange]) => x,
-						convert = (t : Rep[(GroupRange, Range)]) => t._2
+						convert = (t : Rep[(GroupRange, Range, Domain)]) => t._2
 					),
 					asDistinct
 				)
@@ -562,7 +560,7 @@ object ClauseToAlgebra {
 							removed = (t : Rep[(Domain, Boolean)]) => __anythingAsUnit(true),
 							updated = (t : Rep[(Domain, Domain, Boolean)]) => __anythingAsUnit(true),
 							convertKey = (x : Rep[GroupRange]) => x,
-							convert = (t : Rep[(GroupRange, Boolean)]) => t._1
+							convert = (t : Rep[(GroupRange, Boolean, Domain)]) => t._1
 						),
 						project
 					),

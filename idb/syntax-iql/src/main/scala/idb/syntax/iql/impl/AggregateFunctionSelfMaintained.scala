@@ -12,7 +12,6 @@ case class AggregateFunctionSelfMaintained[Domain : Manifest, AggregateRange : M
 	added : Rep[((Domain, AggregateRange)) => AggregateRange],
 	removed : Rep[((Domain, AggregateRange)) => AggregateRange],
 	updated : Rep[((Domain, Domain, AggregateRange)) => AggregateRange]
-) extends AGGREGATE_FUNCTION_SELF_MAINTAINED[Domain, AggregateRange]
-{
+) extends AGGREGATE_FUNCTION_SELF_MAINTAINED[Domain, AggregateRange] {
 
 }

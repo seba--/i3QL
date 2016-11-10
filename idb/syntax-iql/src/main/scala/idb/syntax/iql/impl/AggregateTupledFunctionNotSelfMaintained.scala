@@ -12,7 +12,7 @@ case class AggregateTupledFunctionNotSelfMaintained[Select : Manifest, Domain : 
 	removed : Rep[((Domain, RangeB, Seq[Domain])) => RangeB],
 	updated : Rep[((Domain, Domain, RangeB, Seq[Domain])) => RangeB],
 	project : Rep[Select => RangeA],
-	convert : Rep[((RangeA, RangeB)) => Range]
+	convert : Rep[((RangeA, RangeB, Domain)) => Range]
 ) extends AGGREGATE_TUPLED_FUNCTION_NOT_SELF_MAINTAINED[Select, Domain, RangeA, RangeB, Range]
 {
 

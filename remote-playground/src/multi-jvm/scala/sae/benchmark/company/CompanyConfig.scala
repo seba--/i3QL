@@ -28,7 +28,7 @@ trait CompanyConfig extends BenchmarkConfig {
 trait Measure4000DefaultPriorityConfig extends CompanyConfig {
 	override val benchmarkConfig : String = "measure-4000-all"
 	override val measureIterations : Int = 4000
-	override val warmup = false
+	override val warmup = true
 
 	val priorityPublic : Int = 1
 	val priorityProduction : Int = 1
@@ -51,7 +51,7 @@ trait Measure4000DefaultPriorityConfig extends CompanyConfig {
 trait Measure4000ClientPriorityConfig extends CompanyConfig {
 	override val benchmarkConfig : String = "measure-4000-client"
 	override val measureIterations : Int = 4000
-	override val warmup = false
+	override val warmup = true
 
 	val priorityPublic : Int = 0
 	val priorityProduction : Int = 0
