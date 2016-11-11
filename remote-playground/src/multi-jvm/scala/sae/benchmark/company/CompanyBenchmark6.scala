@@ -81,6 +81,8 @@ class CompanyBenchmark6 extends MultiNodeSpec(CompanyMultiNodeConfig)
 				(f.timestamp, p.timestamp, f.id, p.id)
 			) FROM (
 				factories, products
+			) WHERE ((f, p) =>
+				f.city == "Darmstadt" AND p.name.startsWith("Knut") AND p.name.endsWith("0")
 			)
 
 			//Compile to LMS representation (only needed for printing)

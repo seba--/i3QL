@@ -26,6 +26,9 @@ class DelayEvaluator[Domain](
 	}
 
 	def averageDelay : Double = {
+		if (eventTimes.isEmpty)
+			return -1
+
 		val totalDelay : Long = eventTimes.foldLeft(0L)((res, t) =>
 			res + (t._2 - t._1)
 		)
@@ -35,14 +38,21 @@ class DelayEvaluator[Domain](
 	}
 
 	def medianDelay : Long = {
+		if (eventTimes.isEmpty)
+			return -1
+
 		val delays = eventTimes.map(t =>
 			t._2 - t._1
 		)
 
 		delays.sorted.apply(delays.size / 2)
+
 	}
 
 	def runtime : Long = {
+		if (eventTimes.isEmpty)
+			return -1
+
 		val start = eventTimes.head._1
 		val end = eventTimes.last._2
 

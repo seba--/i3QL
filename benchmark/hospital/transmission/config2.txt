@@ -1,3 +1,0 @@
-[JVM-4] [TestSerializer] Received 284000 bytes
-[JVM-2] [TestSerializer] Received 6200199 bytes
-

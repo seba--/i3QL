@@ -16,6 +16,71 @@ trait RelationalAlgebraIRRemoteReorderJoins
 	with FunctionUtils
 {
 
+	override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
+		relationA: Rep[Query[DomainA]],
+		relationB: Rep[Query[DomainB]]
+	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
+		val mDomA = implicitly[Manifest[DomainA]]
+		val mDomB =  implicitly[Manifest[DomainB]]
+
+		(relationA, relationB) match {
+			case (a, b) if isGreater(a.color, b.color, queryEnvironment) =>
+				//a x b --> b x a
+				projection (
+					crossProduct(b, a),
+					fun(
+						(bx : Rep[DomainB], ax : Rep[DomainA]) => make_tuple2(ax, bx)
+					)(
+						mDomB,
+						mDomA,
+						manifest[(DomainA, DomainB)]
+					)
+				)
+
+			case (a, Def(cross@CrossProduct(b, c))) if isGreater(a.color, b.color, queryEnvironment) =>
+				//a x (b x c) --> b x (a x c)
+				val mA = mDomA
+				val mB = cross.mDomA
+				val mC = cross.mDomB
+
+				projection(
+					crossProduct(b, crossProduct(a, c)),
+					fun(
+						(b : Rep[_], ac : Rep[(_, _)]) =>
+							make_tuple2((tuple2_get1[Any](ac),make_tuple2((b,tuple2_get2[Any](ac)))))
+					)(
+						mB,
+						tupledManifest(mA.asInstanceOf[Manifest[Any]], mC),
+						tupledManifest(mB, tupledManifest(mA.asInstanceOf[Manifest[Any]], mC))
+					)
+				).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
+
+			case (Def(cross@CrossProduct(a, b)), c)	if isGreater(b.color, c.color, queryEnvironment) =>
+				//(a x b) x c --> (a x c) x b
+				val mA = cross.mDomA
+				val mB = cross.mDomB
+				val mC = mDomB
+
+				projection(
+					crossProduct(crossProduct(a, c), b),
+					fun(
+						(ac : Rep[(_,_)], b : Rep[(_)]) =>
+							make_tuple2(
+								(make_tuple2((tuple2_get1[Any](ac), b)),
+									tuple2_get2[Any](ac)))
+					)(
+						tupledManifest(mA, mC.asInstanceOf[Manifest[Any]]),
+						mB,
+						tupledManifest(tupledManifest(mA, mB), mC.asInstanceOf[Manifest[Any]])
+					)
+				).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
+
+			case _ => super.crossProduct(relationA, relationB)
+
+		}
+
+	}
+
 	override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]],

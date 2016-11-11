@@ -83,8 +83,7 @@ trait RelationalAlgebraIRBasicOperators
     case class CrossProduct[DomainA: Manifest, DomainB: Manifest] (
         var relationA: Rep[Query[DomainA]],
         var relationB: Rep[Query[DomainB]]
-    ) extends Def[Query[(DomainA, DomainB)]] with QueryBaseOps
-    {
+    ) extends Def[Query[(DomainA, DomainB)]] with QueryBaseOps {
         val mDomA = implicitly[Manifest[DomainA]]
         val mDomB = implicitly[Manifest[DomainB]]
 
@@ -170,17 +169,11 @@ trait RelationalAlgebraIRBasicOperators
 		Selection (relation, function)
 	}
 
-
-
-
 	override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
     )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] =
 		CrossProduct (relationA, relationB)
-
-
-
 
 	override def equiJoin[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],

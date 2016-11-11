@@ -25,7 +25,7 @@ object CompanyMultiNodeConfig extends MultiNodeConfig {
 				serializers {
 					java = "akka.serialization.JavaSerializer"
 					proto = "akka.remote.serialization.ProtobufSerializer"
-					myown = "idb.remote.TestSerializer"
+					# test = "idb.remote.TestSerializer"
 				}
 
 				# Change this setting to change the default serializer

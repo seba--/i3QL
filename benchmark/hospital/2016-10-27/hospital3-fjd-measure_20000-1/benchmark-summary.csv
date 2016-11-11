@@ -1,2 +1,0 @@
-type,benchmarkName,time,measureIterations,warmupIterations,receivedEvents,averageDelay,timeToReceive,eventsPerSecond
-benchmark,hospital3-fjd,16:07:57.303,20000,20000,1000,141.973,118,8474.57627118644

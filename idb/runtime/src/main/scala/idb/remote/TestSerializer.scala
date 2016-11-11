@@ -21,15 +21,15 @@ class TestSerializer(system : ExtendedActorSystem) extends JSerializer {
 	override def includeManifest: Boolean =
 		serializer.includeManifest
 
-//	val t = new Thread(new Runnable {
-//		override def run(): Unit = {
-//			while (true) {
-//				Thread.sleep(1000)
-//				println(s"[TestSerializer][$this] $count events received: $totalBytes bytes")
-//			}
-//		}
-//	})
-//	t.start()
+	val t = new Thread(new Runnable {
+		override def run(): Unit = {
+			while (true) {
+				Thread.sleep(1000)
+				println(s"[TestSerializer][$this] $count events received: $totalBytes bytes")
+			}
+		}
+	})
+	t.start()
 
 
 	var count = 0

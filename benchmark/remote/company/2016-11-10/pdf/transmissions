@@ -24,12 +24,17 @@ Default distribution:
 		[JVM-3] [TestSerializer][idb.remote.TestSerializer$$anon$1@6e232e19] 0 events received: 0 bytes
 		[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@5a684255] 0 events received: 0 bytes
 	query 5:
-		[JVM-1] [TestSerializer][idb.remote.TestSerializer$$anon$1@5b33bcbb] 0 events received: 0 bytes
-		[JVM-3] [TestSerializer][idb.remote.TestSerializer$$anon$1@5c45009e] 0 events received: 0 bytes
-		[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@2af9d5c9] 0 events received: 0 bytes
-		[JVM-4] [TestSerializer][idb.remote.TestSerializer$$anon$1@72056279] 0 events received: 0 bytes
-		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@b215d26] 51988 events received: 11370502 bytes
-	query 6: NA
+		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@5a684255] 51985 events received: 17870276 bytes
+		[JVM-1] [TestSerializer][idb.remote.TestSerializer$$anon$1@395b7217] 0 events received: 0 bytes
+		[JVM-3] [TestSerializer][idb.remote.TestSerializer$$anon$1@5a684255] 0 events received: 0 bytes
+		[JVM-4] [TestSerializer][idb.remote.TestSerializer$$anon$1@233c94ed] 0 events received: 0 bytes
+		[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@6e232e19] 0 events received: 0 bytes
+	query 6: 
+		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@b215d26] 800000 events received: 226400000 bytes
+		[JVM-1] [TestSerializer][idb.remote.TestSerializer$$anon$1@449141fe] 0 events received: 0 bytes
+		[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@3becf3b6] 0 events received: 0 bytes
+		[JVM-4] [TestSerializer][idb.remote.TestSerializer$$anon$1@279ade21] 0 events received: 0 bytes
+		[JVM-3] [TestSerializer][idb.remote.TestSerializer$$anon$1@5ec430e3] 0 events received: 0 bytes
 	query 7:
 		[JVM-1] [TestSerializer][idb.remote.TestSerializer$$anon$1@72056279] 0 events received: 0 bytes
 		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@58926cc9] 3340 events received: 687610 bytes
@@ -62,8 +67,18 @@ Client distribution:
 		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@53d8e944] 19999 events received: 3875269 bytes
 		[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@453973ec] 0 events received: 0 bytes
 		[JVM-3] [TestSerializer][idb.remote.TestSerializer$$anon$1@53d8e944] 0 events received: 0 bytes
-	query 5: NA
-	query 6: NA
+	query 5: 
+		[JVM-4] [TestSerializer][idb.remote.TestSerializer$$anon$1@6ad987e9] 0 events received: 0 bytes
+		[JVM-3] [TestSerializer][idb.remote.TestSerializer$$anon$1@72056279] 0 events received: 0 bytes
+		[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@b215d26] 0 events received: 0 bytes
+		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@72056279] 55991 events received: 10176165 bytes
+		[JVM-1] [TestSerializer][idb.remote.TestSerializer$$anon$1@3becf3b6] 0 events received: 0 bytes
+	query 6: 
+		[JVM-1] [TestSerializer][idb.remote.TestSerializer$$anon$1@1eb4b16] 0 events received: 0 bytes
+		[JVM-2] [TestSerializer][idb.remote.TestSerializer$$anon$1@6ad987e9] 0 events received: 0 bytes
+		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@75228dd8] 12000 events received: 2081780 bytes
+		[JVM-4] [TestSerializer][idb.remote.TestSerializer$$anon$1@7300c50c] 0 events received: 0 bytes
+		[JVM-3] [TestSerializer][idb.remote.TestSerializer$$anon$1@13a4c970] 0 events received: 0 bytes
 	query 7:
 		[JVM-1] [TestSerializer][idb.remote.TestSerializer$$anon$1@4e4ccffc] 0 events received: 0 bytes
 		[JVM-5] [TestSerializer][idb.remote.TestSerializer$$anon$1@b215d26] 19996 events received: 3296936 bytes

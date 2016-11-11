@@ -1,7 +1,7 @@
 package sae.benchmark
 
 import idb.benchmark.Measurement
-import idb.{BagTable, Relation, Table}
+import idb.{BagTable, Relation, SetTable, Table}
 import idb.query.QueryEnvironment
 import idb.util.PrintEvents
 
@@ -147,23 +147,32 @@ trait Benchmark extends BenchmarkConfig with CSVPrinter {
 			section("measure-init")
 			//Add observer for testing purposes
 			import idb.benchmark._
-			val count = new CountEvaluator(r)
-			val delay = new DelayEvaluator(r, eventStartTime, measureIterations)
-			val throughput = new ThroughputEvaluator(r, count)
+
 
 			if (DEBUG)
 				idb.util.printEvents(r, "result")
 
-			Measurement.Memory((memBefore, memAfter) => appendMemory("client",System.currentTimeMillis(),memBefore,memAfter), sleepAfterGc = waitForGc)(
+			Measurement.Memory((memBefore, memAfter) => appendMemory("client",System.currentTimeMillis(),memBefore,memAfter), sleepAfterGc = waitForGc) {
+				var count = new CountEvaluator(r)
+				var delay = new DelayEvaluator(r, eventStartTime, measureIterations)
+				//val delay = new DelayEvaluator(SetTable.empty[Int], (i : Int) => i, measureIterations)
+				var throughput = new ThroughputEvaluator(r, count)
+
 				Measurement.CPU((time, cpuTime, cpuLoad) => appendCpu("client", time, cpuTime, cpuLoad), interval = cpuMeasurementInterval) {
 					section("measure-data")
 					Thread.sleep(waitForData)
 
 					section("measure-finish")
 				}
-			)
 
-			appendSummary(count, throughput, delay)
+				appendSummary(count, throughput, delay)
+				count = null
+				delay = null
+				throughput = null
+
+			}
+
+
 			section("finish")
 
 		}
