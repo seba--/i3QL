@@ -32,7 +32,7 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.RelationalAlgebraIROperatorsPackage
+import idb.algebra.{RelationalAlgebraIREssentialsPackage, RelationalAlgebraIROperatorsPackage}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators}
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
@@ -53,9 +53,8 @@ trait RelationalAlgebraGenRecursiveOperatorsAsIncremental
     with ScalaGenEffect
 {
 
-    val IR: RelationalAlgebraIROperatorsPackage
+    val IR: RelationalAlgebraIREssentialsPackage
         with RelationalAlgebraSAEBinding
-        with FunctionsExp
 
     import IR._
 

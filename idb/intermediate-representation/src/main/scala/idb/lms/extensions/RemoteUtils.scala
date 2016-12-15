@@ -38,6 +38,8 @@ trait RemoteUtils
 			return Set(taint)
 		}
 
+
+
 		exp match {
 			case Def(e) =>
 
@@ -78,8 +80,29 @@ trait RemoteUtils
 				Set()
 
 			case Sym(_) =>
+				//Sym has no Def -> look if parameter is a tuple and the exp is a sym in the tuple
+				parameter match {
+					case UnboxedTuple(l) =>
+						var i = 0
+						l.foreach(e =>  {
+							i = i + 1
+							if (exp == e) {
+								taint match {
+									case RecordTaint(fieldMap) =>
+										val fieldTaint = fieldMap.get(FieldName(s"_$i"))
+										fieldTaint match {
+											case Some(c) => return Set(c)
+											case None => return Set(taint)
+										}
+
+									case _ => return Set(taint)
+								}
+							}
+						})
+					case _ =>
+				}
 				//Sym was not found -> taint it in every way possible to avoid security risks
-				System.err.println("Sym was not found, taint with all colors possible: " + exp)
+				System.err.println(s"Sym was not found, taint with all colors possible: $exp, parameter = $parameter")
 				Set(taint)
 
 			case _ =>

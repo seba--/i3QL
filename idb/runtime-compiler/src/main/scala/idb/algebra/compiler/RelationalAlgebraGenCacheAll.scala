@@ -32,7 +32,7 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.RelationalAlgebraIROperatorsPackage
+import idb.algebra.{RelationalAlgebraIREssentialsPackage, RelationalAlgebraIROperatorsPackage}
 import idb.algebra.ir.RelationalAlgebraIRBase
 import idb.query.QueryEnvironment
 
@@ -48,7 +48,7 @@ trait RelationalAlgebraGenCacheAll
     with RelationalAlgebraGenQueryCache
 {
 
-    val IR: RelationalAlgebraIROperatorsPackage
+    val IR: RelationalAlgebraIREssentialsPackage
         with RelationalAlgebraSAEBinding
 
     import IR._

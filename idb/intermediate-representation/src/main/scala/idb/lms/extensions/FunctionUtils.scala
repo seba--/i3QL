@@ -67,9 +67,6 @@ trait FunctionUtils
         )
     }
 
-	//override def findDefinition[T](d: Def[T]): Option[Stm] = None
-
-	//TODO Is this right?
     def parametersAsList[A] (params: Exp[A]): Seq[Exp[Any]] = {
         params match {
             case UnboxedTuple (xs) => xs
@@ -78,30 +75,12 @@ trait FunctionUtils
         }
     }
 
-	/*
-	def parametersAsList[A] (params: Exp[A]): List[Exp[Any]] = {
-		params match {
-			case UnboxedTuple (xs) => xs
-			case Def (ETuple2 (a, b)) => List (a, b)
-			case Def (ETuple3 (a, b, c)) => List (a, b, c)
-			case Def (ETuple4 (a, b, c, d)) => List (a, b, c, d)
-			case Def (ETuple5 (a, b, c, d, e)) => List (a, b, c, d, e)
-			case x => List (x)
-		}
-	}
-	*/
-
     def parameterManifest[A] (a: Exp[A]): Manifest[A] = {
         a.tp.asInstanceOf[Manifest[A]]
     }
 
     def parameterManifest[A, B] (a: Exp[A], b: Exp[B]): Manifest[Any] = {
         tupledManifest (a.tp, b.tp).asInstanceOf[Manifest[Any]]
-        /*
-        implicit val ma = a.tp
-        implicit val mb = b.tp
-        manifest[(A, B)].asInstanceOf[Manifest[Any]]
-        */
     }
 
     def tupledManifest[A, B] (
@@ -324,7 +303,7 @@ trait FunctionUtils
 	 * @param accessIndex Parameter index of the parameter to be checked
 	 * @return True, if the function accesses the parameter
 	 */
-	protected def functionHasParameterAccess(func : Rep[_ => _], accessIndex : Int) : Boolean = {
+	def functionHasParameterAccess(func : Rep[_ => _], accessIndex : Int) : Boolean = {
 		func match {
 			case Def(Lambda(_, x@UnboxedTuple(l), y)) =>
 				var result = false
@@ -358,61 +337,6 @@ trait FunctionUtils
 				false
 		}
 	}
-
-    /**
-     * create a new conjunction.
-     * Types are checked dynamically to conform to Domain.
-     *
-     */
-    /*def createConjunction[A : Manifest , B : Manifest , Domain: Manifest] (
-        fa: Rep[A => Boolean],
-        fb: Rep[B => Boolean]
-    ): Rep[Domain => Boolean] = {
-
-        val mDomain = implicitly[Manifest[Domain]]
-        val mA : Manifest[A] = fa.tp.typeArguments (0).asInstanceOf[Manifest[A]]
-        val mB : Manifest[B] = fb.tp.typeArguments (0).asInstanceOf[Manifest[B]]
-
-        var tupledDomainWithA = false
-        var tupledDomainWithB = false
-
-        println(mDomain.runtimeClass.getName)
-       // println(Class[Tuple2[Any,Any]])
-
-        if (!(mA >:> mDomain)) {
-            if (mDomain.runtimeClass.getName.startsWith("scala.Tuple2") && (mDomain.typeArguments(0) equals mA)) {
-                tupledDomainWithA = true
-            } else {
-                throw new IllegalArgumentException (fa.tp.typeArguments (0) + " must conform to " + mDomain)
-            }
-        }
-        if (!(mB >:> mDomain)) {
-            if (mDomain.runtimeClass.getName.startsWith("scala.Tuple2") && (mDomain.typeArguments(1) equals mB)) {
-                tupledDomainWithB = true
-            } else {
-                throw new IllegalArgumentException (fb.tp.typeArguments (0) + " must conform to " + mDomain)
-            }
-        }
-
-        var faUnsafe : Rep[Domain => Boolean] = null
-        var fbUnsafe : Rep[Domain => Boolean] = null
-
-        if (tupledDomainWithA) {
-            faUnsafe = fun ((x : Rep[Domain]) => fa(tuple2_get1(x.asInstanceOf[Rep[(A,_)]])))(mDomain, manifest[Boolean])
-        } else {
-            faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]
-        }
-        if(tupledDomainWithB) {
-            fbUnsafe =
-                fun ((x : Rep[Domain]) =>
-                        fb(tuple2_get2(x.asInstanceOf[Rep[(_,B)]])))(mDomain, manifest[Boolean])
-        } else {
-            fbUnsafe = fb.asInstanceOf[Rep[Domain => Boolean]]
-        }
-
-        val result = fun ((x: Rep[Domain]) => faUnsafe (x) && fbUnsafe (x))(mDomain, manifest[Boolean])
-        result
-    }  */
 
     def createConjunction[A, B, Domain: Manifest] (
         fa: Rep[A => Boolean],

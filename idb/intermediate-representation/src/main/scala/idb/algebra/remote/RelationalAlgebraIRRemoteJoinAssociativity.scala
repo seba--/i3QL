@@ -15,7 +15,7 @@ trait RelationalAlgebraIRRemoteJoinAssociativity
 	with FunctionUtils
 {
 
-	override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
+/*	override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]]
 	)(implicit env : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
@@ -190,5 +190,5 @@ trait RelationalAlgebraIRRemoteJoinAssociativity
 				super.equiJoin(relationA, relationB, equalities)
 
 		}
-	}
+	}*/
 }

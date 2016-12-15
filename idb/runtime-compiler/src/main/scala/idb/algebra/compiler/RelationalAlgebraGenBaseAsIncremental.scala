@@ -33,7 +33,7 @@
 package idb.algebra.compiler
 
 import akka.actor.ActorSystem
-import idb.algebra.RelationalAlgebraIROperatorsPackage
+import idb.algebra.{RelationalAlgebraIREssentialsPackage, RelationalAlgebraIROperatorsPackage}
 import idb.algebra.ir.RelationalAlgebraIRBase
 import idb.algebra.remote.PlacementStrategy
 import idb.algebra.remote.placement.StandardPlacementTransformer
@@ -48,8 +48,8 @@ import idb.query.QueryEnvironment
  */
 trait RelationalAlgebraGenBaseAsIncremental extends PlacementStrategy {
 
-    val IR: RelationalAlgebraIROperatorsPackage
-        with RelationalAlgebraSAEBinding
+	val IR: RelationalAlgebraIREssentialsPackage
+		with RelationalAlgebraSAEBinding
 
     import IR._
 
@@ -57,13 +57,13 @@ trait RelationalAlgebraGenBaseAsIncremental extends PlacementStrategy {
 
     def compile[Domain : Manifest] (query: Rep[Query[Domain]])(implicit env : QueryEnvironment): Relation[Domain] =
         query match {
-            case QueryRelation (relation, _, _, _, _, _) => relation
+            case QueryRelation (relation, _, _, _) => relation
 
-            case QueryTable (tbl, _, _, _, _, _) => tbl
+            case QueryTable (tbl, _, _, _) => tbl
 
 			case r@Def (Root (q, host)) =>
-                val qp = transform(r)
-                val rel = compile (qp)
+               val qt = q //transform(q)
+                val rel = compile (qt)
 	           // initialize(env.system, rel)
 	            rel
 

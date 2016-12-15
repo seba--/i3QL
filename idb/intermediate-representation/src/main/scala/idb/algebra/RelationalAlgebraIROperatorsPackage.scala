@@ -17,5 +17,4 @@ trait RelationalAlgebraIROperatorsPackage
     with RelationalAlgebraIRMultiRelations
 	with RelationalAlgebraIRRemoteOperators
     with RelationalAlgebraDerivedOperators
-	with RemoteUtils
-	with FunctionUtils
+

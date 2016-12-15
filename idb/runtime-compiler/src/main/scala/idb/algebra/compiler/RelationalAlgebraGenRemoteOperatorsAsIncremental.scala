@@ -33,7 +33,7 @@
 package idb.algebra.compiler
 
 import akka.actor.{Actor, ActorPath, ActorRef, ActorSystem, Deploy, Props}
-import idb.algebra.RelationalAlgebraIROperatorsPackage
+import idb.algebra.{RelationalAlgebraIREssentialsPackage, RelationalAlgebraIROperatorsPackage}
 import idb.algebra.exceptions.{NoServerAvailableException, UnknownHostDeployException}
 import idb.algebra.ir._
 import idb.lms.extensions.ScalaCodegenExt
@@ -51,9 +51,8 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
     with ScalaGenEffect
 {
 
-	val IR: RelationalAlgebraIROperatorsPackage
+	val IR: RelationalAlgebraIREssentialsPackage
 		with RelationalAlgebraSAEBinding
-		with FunctionsExp
 
 
     import IR._

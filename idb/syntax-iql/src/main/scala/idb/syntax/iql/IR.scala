@@ -57,9 +57,9 @@ case object IR
     extends ScalaOpsExpOptExtensions
     with RelationalAlgebraIROperatorsPackage
 	with RelationalAlgebraIRFusionPackage
-	with RelationalAlgebraIRRemotePackage
 	with RelationalAlgebraIROptPackage
     with RelationalAlgebraIRNormalizePackage
+    with RelationalAlgebraIREssentialsPackage
     with TupledFunctionsExpDynamicLambda
     with RelationalAlgebraSAEBinding
     with StructExpAlphaEquivalence

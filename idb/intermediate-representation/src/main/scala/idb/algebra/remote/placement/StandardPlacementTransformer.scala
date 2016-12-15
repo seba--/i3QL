@@ -21,61 +21,63 @@ protected[remote] trait StandardPlacementTransformer
 	import IR._
 
 	override def transform[Domain : Manifest](relation : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Rep[Query[Domain]] = {
+		Predef.println(s"Transforming ~ $relation")
+
 		relation match {
 
 			case Def(Root(q, host)) =>
-				transform(q)
+				val transQ = transform(q)
 
 				//Adds a remote node as child of the root if the relation is on another server
-				if (q.host != host) {
-					val taintQ = taintOf(q)
+				if (transQ.host != host) {
+					val taintQ = taintOf(transQ)
 					val rootPermissions = env.permissionsOf(host)
 
 					if (taintQ.ids subsetOf rootPermissions)
-						root(remote(q, host), host)
+						super.transform(root(remote(transQ, host), host))
 					else
 						throw new InsufficientRootPermissionsException(host.name, rootPermissions, taintQ)
 				} else {
-					root(q, host)
+					super.transform(root(transQ, host))
 				}
 
 			case Def(Reclassification(q, newTaint)) =>
-				transform(q)
+				val transQ = transform(q)
 
-				val host = relation.host
+				val host = transQ.host
 
 				if (newTaint.ids subsetOf env.permissionsOf(host))
-					reclassification(relation, newTaint)
+					super.transform(reclassification(transQ, newTaint))
 				else {
 					val h = idb.query.findHost(env, newTaint.ids)
 					h match {
 						case Some(x) =>
-							reclassification(remote(relation, x), newTaint)
+							super.transform(reclassification(remote(transQ, x), newTaint))
 						case None =>
 							throw new NoServerAvailableException(newTaint.ids)
 					}
 				}
 
 			case Def(CrossProduct(qa, qb)) =>
-				distributeRelations(qa, qb, (a : Rep[Query[Any]], b : Rep[Query[Any]]) => crossProduct(a, b)).asInstanceOf[Rep[Query[Domain]]]
+				super.transform(distributeRelations(transform(qa), transform(qb), (a : Rep[Query[Any]], b : Rep[Query[Any]]) => crossProduct(a, b)).asInstanceOf[Rep[Query[Domain]]])
 
 			case Def(EquiJoin(qa, qb, eqs)) =>
-				distributeRelations(qa, qb, (a : Rep[Query[Any]], b : Rep[Query[Any]]) => equiJoin(a, b, eqs)).asInstanceOf[Rep[Query[Domain]]]
+				super.transform(distributeRelations(transform(qa), transform(qb), (a : Rep[Query[Any]], b : Rep[Query[Any]]) => equiJoin(a, b, eqs)).asInstanceOf[Rep[Query[Domain]]])
 
 			case Def(UnionMax(qa, qb)) =>
-				distributeRelations(qa, qb, (a : Rep[Query[Any]], b : Rep[Query[Any]]) => unionMax(a, b)).asInstanceOf[Rep[Query[Domain]]]
+				super.transform(distributeRelations(transform(qa), transform(qb), (a : Rep[Query[Any]], b : Rep[Query[Any]]) => unionMax(a, b)).asInstanceOf[Rep[Query[Domain]]])
 
 			case Def(UnionAdd(qa, qb)) =>
-				distributeRelations(qa, qb, (a : Rep[Query[Any]], b : Rep[Query[Any]]) => unionAdd(a, b)).asInstanceOf[Rep[Query[Domain]]]
+				super.transform(distributeRelations(transform(qa), transform(qb), (a : Rep[Query[Any]], b : Rep[Query[Any]]) => unionAdd(a, b)).asInstanceOf[Rep[Query[Domain]]])
 
 			case Def(Intersection(qa, qb)) =>
-				distributeRelations(qa, qb, (a : Rep[Query[Any]], b : Rep[Query[Any]]) => intersection(a, b)).asInstanceOf[Rep[Query[Domain]]]
+				super.transform(distributeRelations(transform(qa), transform(qb), (a : Rep[Query[Any]], b : Rep[Query[Any]]) => intersection(a, b)).asInstanceOf[Rep[Query[Domain]]])
 
 			case Def(Difference(qa, qb)) =>
-				distributeRelations(qa, qb, (a : Rep[Query[Any]], b : Rep[Query[Any]]) => difference(a, b)).asInstanceOf[Rep[Query[Domain]]]
+				super.transform(distributeRelations(transform(qa), transform(qb), (a : Rep[Query[Any]], b : Rep[Query[Any]]) => difference(a, b)).asInstanceOf[Rep[Query[Domain]]])
 
 			case _ =>
-				super.transform(relation)
+				super.transform(pushTransform(relation))
 		}
 	}
 
@@ -113,11 +115,11 @@ protected[remote] trait StandardPlacementTransformer
 			case Some(h) =>
 				oldHost match {
 					case Some(a) if a == hostA && (!PRIORITY_OVER_SAME_HOST || priorityOf(a) >= priorityOf(h)) =>
-						return constructor(relationA, remote(relationB, hostA))
+						return transform(constructor(relationA, remote(relationB, hostA)))
 					case Some(b) if b == hostB && (!PRIORITY_OVER_SAME_HOST || priorityOf(b) >= priorityOf(h)) =>
-						return constructor(remote(relationA, hostB), relationB)
+						return transform(constructor(remote(relationA, hostB), relationB))
 					case _ =>
-						return constructor(remote(relationA, h), remote(relationB, h))
+						return transform(constructor(remote(relationA, h), remote(relationB, h)))
 				}
 			case None =>
 				throw new NoServerAvailableException(allTaints)

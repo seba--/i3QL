@@ -32,7 +32,7 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.RelationalAlgebraIROperatorsPackage
+import idb.algebra.{RelationalAlgebraIREssentialsPackage, RelationalAlgebraIROperatorsPackage}
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
@@ -51,9 +51,8 @@ trait RelationalAlgebraGenSetTheoryOperatorsAsIncremental
     with ScalaGenEffect
 {
 
-	val IR: RelationalAlgebraIROperatorsPackage
+	val IR: RelationalAlgebraIREssentialsPackage
 		with RelationalAlgebraSAEBinding
-		with FunctionsExp
 
     import IR._
     // TODO for unionMax, intersection and set difference, there is a choice to materialize the underlying relations,

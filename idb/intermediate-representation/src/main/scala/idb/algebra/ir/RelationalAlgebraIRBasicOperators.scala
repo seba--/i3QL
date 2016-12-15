@@ -96,9 +96,13 @@ trait RelationalAlgebraIRBasicOperators
 		val mDomB = implicitly[Manifest[DomainB]]
 
 	    override def isSet = false
-		override def host = {
-			if (relationA.host != relationB.host)
-				throw new NonMatchingHostsException(relationA.host, relationB.host)
+		override def host : Host = {
+			if (relationA.host != relationB.host) {
+				Predef.println(relationA.host, relationB.host)
+				return Host.unknown
+			}
+
+				//throw new NonMatchingHostsException(relationA.host, relationB.host)
 			relationA.host
 		}
 	}

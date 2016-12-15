@@ -88,15 +88,17 @@ class CompanyBenchmark10 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			//Compile to LMS representation (only needed for printing)
 			val query : Rep[Query[ResultType]] = productsWithWood
 
+			//Define the root. The operators get distributed here.
+			val r : idb.syntax.iql.IR.Relation[ResultType] =
+				ROOT(clientHost, query).asMaterialized
+
 			//Print the LMS tree representation
 			val printer = new RelationalAlgebraPrintPlan {
 				override val IR = idb.syntax.iql.IR
 			}
 			Predef.println(printer.quoteRelation(query))
 
-			//Define the root. The operators get distributed here.
-			val r : idb.syntax.iql.IR.Relation[ResultType] =
-				ROOT(clientHost, query).asMaterialized
+
 			r
 		}
 

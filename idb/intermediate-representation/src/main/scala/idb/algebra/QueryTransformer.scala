@@ -6,11 +6,13 @@ import idb.query.QueryEnvironment
 
 protected[algebra] trait QueryTransformer {
 
-	val IR : RelationalAlgebraBase
+	val IR: RelationalAlgebraBase
+
 	import IR._
 
-	def transform[Domain : Manifest](relation : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Rep[Query[Domain]] =
-		throw new NoTransformationAvailableException
+	def transform[Domain: Manifest](relation: Rep[Query[Domain]])(implicit env: QueryEnvironment): Rep[Query[Domain]] =
+		relation
+
 }
 
 protected[algebra] trait QueryTransformerAdapter
@@ -23,7 +25,7 @@ protected[algebra] trait QueryTransformerAdapter
 		with RelationalAlgebraIRSetTheoryOperators
 	import IR._
 
-	override def transform[Domain : Manifest](relation : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Rep[Query[Domain]] = {
+	def pushTransform[Domain : Manifest](relation : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Rep[Query[Domain]] = {
 		relation match {
 			//Base
 			case QueryRelation(_, _, _, _) => relation
