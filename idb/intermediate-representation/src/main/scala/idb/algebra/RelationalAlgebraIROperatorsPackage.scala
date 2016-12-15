@@ -1,8 +1,9 @@
 package idb.algebra
 
-import idb.algebra.normalization.{RelationalAlgebraIRNormalizeSubQueries, RelationalAlgebraIRNormalizeBasicOperators}
+import idb.algebra.normalization.{RelationalAlgebraIRNormalizeBasicOperators, RelationalAlgebraIRNormalizeSubQueries}
 import idb.algebra.ir._
 import idb.algebra.base.RelationalAlgebraDerivedOperators
+import idb.lms.extensions.{FunctionUtils, RemoteUtils}
 
 /**
  * @author Mirko Köhler
@@ -16,3 +17,5 @@ trait RelationalAlgebraIROperatorsPackage
     with RelationalAlgebraIRMultiRelations
 	with RelationalAlgebraIRRemoteOperators
     with RelationalAlgebraDerivedOperators
+	with RemoteUtils
+	with FunctionUtils

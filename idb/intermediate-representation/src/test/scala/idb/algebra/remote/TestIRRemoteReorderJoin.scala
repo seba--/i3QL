@@ -37,7 +37,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.{RelationalAlgebraPrintPlan, RelationalAlgebraPrintPlanBasicOperators}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.lms.extensions.operations.StringOpsExpExt
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import idb.query.{QueryEnvironment}
 import org.junit.Assert._
 import org.junit.Test
@@ -88,8 +88,8 @@ class TestIRRemoteReorderJoin
 	def testReorderJoins1(): Unit = {
 		implicit val local = QueryEnvironment.Local
 
-		val tableA = table(scala.List.empty[String], color = Color("A"))
-		val tableB = table(scala.List.empty[String], color = Color("B"))
+		val tableA = table(scala.List.empty[String], taint = Taint("A"))
+		val tableB = table(scala.List.empty[String], taint = Taint("B"))
 
 		val eqBA = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(
@@ -120,9 +120,9 @@ class TestIRRemoteReorderJoin
 		//b >< (a >< c) --> a >< (b >< c)
 		implicit val local = QueryEnvironment.Local
 
-		val tableA = table(scala.List.empty[String], color = Color("A"))
-		val tableB = table(scala.List.empty[String], color = Color("B"))
-		val tableC = table(scala.List.empty[String], color = Color("C"))
+		val tableA = table(scala.List.empty[String], taint = Taint("A"))
+		val tableB = table(scala.List.empty[String], taint = Taint("B"))
+		val tableC = table(scala.List.empty[String], taint = Taint("C"))
 
 		val eqAC = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(
@@ -165,9 +165,9 @@ class TestIRRemoteReorderJoin
 		//(a >< c) >< b --> (a >< b) >< c
 		implicit val local = QueryEnvironment.Local
 
-		val tableA = table(scala.List.empty[String], color = Color("A"))
-		val tableB = table(scala.List.empty[String], color = Color("B"))
-		val tableC = table(scala.List.empty[String], color = Color("C"))
+		val tableA = table(scala.List.empty[String], taint = Taint("A"))
+		val tableB = table(scala.List.empty[String], taint = Taint("B"))
+		val tableC = table(scala.List.empty[String], taint = Taint("C"))
 
 		val eqAC = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(

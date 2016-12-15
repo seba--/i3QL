@@ -54,7 +54,7 @@ trait RelationalAlgebraIROptSelectionInSetTheoryOps
     override def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (Selection (_, fa)), Def (Selection (_, fb))) =>
                 super.intersection (
@@ -80,7 +80,7 @@ trait RelationalAlgebraIROptSelectionInSetTheoryOps
     override def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         relationA match {
             case Def (Selection (_, fa)) =>
                 withoutNormalization (

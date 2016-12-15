@@ -85,7 +85,7 @@ class SetIndex[K, V](val relation: Relation[V],
 		add_element (newKey, newV)
 	}
 
-	override protected def resetInternal(): Unit = {
+	override protected[idb] def resetInternal(): Unit = {
 		coll.clear()
 	}
 

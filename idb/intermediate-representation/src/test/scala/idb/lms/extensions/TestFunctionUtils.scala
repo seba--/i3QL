@@ -33,7 +33,7 @@
 package idb.lms.extensions
 
 
-import idb.query.colors._
+import idb.query.taint._
 
 import scala.virtualization.lms.common._
 import org.junit.Test

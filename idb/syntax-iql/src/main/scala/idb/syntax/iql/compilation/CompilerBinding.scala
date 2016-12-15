@@ -62,7 +62,6 @@ case object CompilerBinding
     with ScalaGenTupledFunctions
     with ScalaGenDateOps
     with ScalaGenEqual
-    //with ScalaGenFlightOps
 {
     override val IR = idb.syntax.iql.IR
 

@@ -7,9 +7,6 @@ import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.Aggregation
 import idb.operators.impl.{AggregationForNotSelfMaintainableFunctions, AggregationForSelfMaintainableFunctions}
 
-/**
-  * Created by mirko on 18.10.16.
-  */
 case class BoxedAggregationNotSelfMaintained[Domain, Key, RangeA, RangeB, Range](
 	relation: Relation[Domain],
 	grouping: Domain => Key,
@@ -46,7 +43,7 @@ case class BoxedAggregationNotSelfMaintained[Domain, Key, RangeA, RangeB, Range]
 
 	override def children: Seq[Relation[_]] = aggregation.children
 
-	override protected def resetInternal(): Unit = aggregation.resetInternal()
+	override protected[idb] def resetInternal(): Unit = aggregation.resetInternal()
 
 	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit =
 		aggregation.printInternal(out)

@@ -33,11 +33,12 @@
 package idb.algebra.compiler
 
 import akka.actor.{Actor, ActorPath, ActorRef, ActorSystem, Deploy, Props}
+import idb.algebra.RelationalAlgebraIROperatorsPackage
 import idb.algebra.exceptions.{NoServerAvailableException, UnknownHostDeployException}
 import idb.algebra.ir._
 import idb.lms.extensions.ScalaCodegenExt
-
 import idb.query._
+
 import scala.virtualization.lms.common._
 import scala.language.postfixOps
 
@@ -50,11 +51,7 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
     with ScalaGenEffect
 {
 
-    val IR: RelationalAlgebraIRBasicOperators
-		with RelationalAlgebraIRSetTheoryOperators
-		with RelationalAlgebraIRRecursiveOperators
-		with RelationalAlgebraIRAggregationOperators
-		with RelationalAlgebraIRRemoteOperators
+	val IR: RelationalAlgebraIROperatorsPackage
 		with RelationalAlgebraSAEBinding
 		with FunctionsExp
 
@@ -64,7 +61,7 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
 	def remoteFromPath[Domain](path : ActorPath) : Relation[Domain]
 	def remoteDeploy[Domain](system : ActorSystem, rel : Relation[Domain], path : ActorPath) : Relation[Domain]
 
-    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
+    override def compile[Domain : Manifest] (query: Rep[Query[Domain]])(implicit env : QueryEnvironment): Relation[Domain] = {
         query match {
 
 	        case Def (Remote (Def (ActorDef (path, _, _)), _)) =>
@@ -73,7 +70,7 @@ trait RelationalAlgebraGenRemoteOperatorsAsIncremental
             case Def (Remote (r, _)) =>
 	            val RemoteHost(_, childHostPath) = r.host
 	            val compiled = compile (r)
-	            remoteDeploy(queryEnvironment.system, compiled, childHostPath)
+	            remoteDeploy(env.system, compiled, childHostPath)
 
 
             case Def (ActorDef (path, _, _)) =>

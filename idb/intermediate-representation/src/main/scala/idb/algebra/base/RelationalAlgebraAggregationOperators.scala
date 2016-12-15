@@ -52,7 +52,7 @@ trait RelationalAlgebraAggregationOperators
 		updated: Rep[( (Domain, Domain, RangeB) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB, Domain)) => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]]
+	)(implicit env : QueryEnvironment): Rep[Query[Range]]
 
 	def aggregationNotSelfMaintained[Domain : Manifest, Key : Manifest, RangeA, RangeB, Range : Manifest](
 		relation : Rep[Query[Domain]],
@@ -63,6 +63,6 @@ trait RelationalAlgebraAggregationOperators
 		updated: Rep[( (Domain, Domain, RangeB, Seq[Domain]) ) => RangeB],
 		convertKey : Rep[Key => RangeA],
 		convert : Rep[((RangeA, RangeB, Domain)) => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]]
+	)(implicit env : QueryEnvironment): Rep[Query[Range]]
 
 }

@@ -10,9 +10,6 @@ import idb.remote.receive.RemoteReceiver
 
 import scala.collection.mutable
 
-/**
-  * Created by mirko on 18.10.16.
-  */
 //TODO: Is there a way to move this class to idb-runtime instead?
 class RelationActor[Domain](
 	val relation : Relation[Domain]

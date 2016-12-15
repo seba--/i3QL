@@ -63,22 +63,22 @@ trait RelationalAlgebraIROptPushSelection
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] = {
         (relation match {
             // pushing over projections
             case Def (Projection (r, f)) => {
                 val pushedFunction = fun ((x: Exp[Any]) => function (f (x)))(
                     parameterType (f), manifest[Boolean])
-                projection (selection (r, pushedFunction)(domainOf (r), queryEnvironment), f)
+                projection (selection (r, pushedFunction)(domainOf (r), env), f)
             }
             // pushing selections that only use their arguments partially over selections that need all arguments
             case Def (Selection (r, f)) if !freeVars (function).isEmpty && freeVars (f).isEmpty =>
-                selection (selection (r, function)(exactDomainOf (relation), queryEnvironment), f)
+                selection (selection (r, function)(exactDomainOf (relation), env), f)
 
             // pushing selections that use equalities over selections that do not
             case Def (Selection (r, f)) if isDisjunctiveParameterEquality (
                 function) && !isDisjunctiveParameterEquality (f) =>
-                selection (selection (r, function)(exactDomainOf (relation), queryEnvironment), f)
+                selection (selection (r, function)(exactDomainOf (relation), env), f)
 
             case Def (CrossProduct (a, b)) => {
                 pushedOverBinaryOperator (function) match {
@@ -86,21 +86,21 @@ trait RelationalAlgebraIROptPushSelection
                         super.selection (relation, function)
                     case (Some (f), None) =>
                         crossProduct (
-                            selection (a, f)(parameterType(f), queryEnvironment),
+                            selection (a, f)(parameterType(f), env),
                             b
-                        )(domainOf (a), domainOf (b), queryEnvironment)
+                        )(domainOf (a), domainOf (b), env)
 
                     case (None, Some (f)) =>
                         crossProduct (
                             a,
-                            selection (b, f)(parameterType(f), queryEnvironment)
-                        )(domainOf (a), domainOf (b), queryEnvironment)
+                            selection (b, f)(parameterType(f), env)
+                        )(domainOf (a), domainOf (b), env)
 
                     case (Some (fa), Some (fb)) =>
                         crossProduct (
-                            selection (a, fa)(parameterType(fa), queryEnvironment),
-                            selection (b, fb)(parameterType(fb), queryEnvironment)
-                        )(domainOf (a), domainOf (b), queryEnvironment)
+                            selection (a, fa)(parameterType(fa), env),
+                            selection (b, fb)(parameterType(fb), env)
+                        )(domainOf (a), domainOf (b), env)
                 }
             }
 
@@ -111,24 +111,24 @@ trait RelationalAlgebraIROptPushSelection
 
                     case (Some (f), None) =>
                         equiJoin (
-                            selection (a, f)(parameterType(f), queryEnvironment),
+                            selection (a, f)(parameterType(f), env),
                             b,
                             l
-                        )(domainOf (a), domainOf (b), queryEnvironment)
+                        )(domainOf (a), domainOf (b), env)
 
                     case (None, Some (f)) =>
                         equiJoin (
                             a,
-                            selection (b, f)(parameterType(f), queryEnvironment),
+                            selection (b, f)(parameterType(f), env),
                             l
-                        )(domainOf (a), domainOf (b), queryEnvironment)
+                        )(domainOf (a), domainOf (b), env)
 
                     case (Some (fa), Some (fb)) =>
                         equiJoin (
-                            selection (a, fa)(parameterType(fa), queryEnvironment),
-                            selection (b, fb)(parameterType(fb), queryEnvironment),
+                            selection (a, fa)(parameterType(fa), env),
+                            selection (b, fb)(parameterType(fb), env),
                             l
-                        )(domainOf (a), domainOf (b), queryEnvironment)
+                        )(domainOf (a), domainOf (b), env)
                 }
             }
 

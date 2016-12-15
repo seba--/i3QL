@@ -1,14 +1,8 @@
 package idb.remote
 
-import java.io.ByteArrayInputStream
-
 import akka.actor.ExtendedActorSystem
 import akka.serialization.{JSerializer, JavaSerializer}
-import akka.util.ClassLoaderObjectInputStream
 
-/**
-  * Created by mirko on 28.10.16.
-  */
 class TestSerializer(system : ExtendedActorSystem) extends JSerializer {
 
 	private val serializer = new JavaSerializer(system)

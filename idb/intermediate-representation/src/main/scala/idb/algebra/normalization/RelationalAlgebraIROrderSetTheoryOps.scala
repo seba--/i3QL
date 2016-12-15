@@ -51,7 +51,7 @@ trait RelationalAlgebraIROrderSetTheoryOps
     override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         ((relationA, relationB) match {
 
             case (Def (UnionMax (leftLeft, leftRight)), right) =>

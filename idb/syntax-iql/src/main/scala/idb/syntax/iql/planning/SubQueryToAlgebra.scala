@@ -49,7 +49,7 @@ object SubQueryToAlgebra
 
     import IR._
 
-    private def applyDistinct[Domain: Manifest] (query: Rep[Query[Domain]], asDistinct: Boolean)(implicit queryEnvironment : QueryEnvironment) =
+    private def applyDistinct[Domain: Manifest] (query: Rep[Query[Domain]], asDistinct: Boolean)(implicit env : QueryEnvironment) =
         asDistinct match {
             case true => duplicateElimination (query)
             case false => query
@@ -67,7 +67,7 @@ object SubQueryToAlgebra
         subQuery: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range],
         context: Rep[Query[ContextDomain]],
         contextParameter: Rep[ContextDomain]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[ContextDomain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[ContextDomain]] =
         subQuery match {
             // This clause is definitely not correlated to the context
             case FromClause1 (relation, SelectProjectionClause (_, asDistinct)) =>
@@ -118,7 +118,7 @@ object SubQueryToAlgebra
     ] (
         subQuery: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range],
         context: Rep[Query[ContextDomain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         subQuery match {
             case _ => throw new UnsupportedOperationException
         }

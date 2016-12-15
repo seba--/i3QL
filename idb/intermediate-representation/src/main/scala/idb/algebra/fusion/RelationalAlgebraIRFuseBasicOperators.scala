@@ -56,7 +56,7 @@ trait RelationalAlgebraIRFuseBasicOperators
     override def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         relation match {
             case Def (Projection (r, f)) =>
                 val mRangeUnsafe = function.tp.typeArguments (1).asInstanceOf[Manifest[Range]]
@@ -73,7 +73,7 @@ trait RelationalAlgebraIRFuseBasicOperators
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         relation match {
             case Def (Selection (r, f)) => {
                 withoutNormalization (

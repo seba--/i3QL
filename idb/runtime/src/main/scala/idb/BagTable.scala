@@ -44,7 +44,7 @@ class BagTable[V]
      */
     def isSet: Boolean = false
 
-    override protected def resetInternal(): Unit = {
+    override protected[idb] def resetInternal(): Unit = {
 
     }
 }

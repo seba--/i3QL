@@ -37,7 +37,7 @@ import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.{RelationalAlgebraPrintPlan, RelationalAlgebraPrintPlanBasicOperators}
 import idb.lms.extensions.ScalaOpsExpOptExtensions
 import idb.lms.extensions.operations.StringOpsExpExt
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import idb.query.{QueryEnvironment}
 import org.junit.Assert._
 import org.junit.Test
@@ -73,9 +73,9 @@ class TestIRRemoteJoinAssociativity
 		//a >< (b >< c) --> (a >< b) >< c
 		implicit val local = QueryEnvironment.Local
 
-		val tableA = table(scala.List.empty[String], color = Color("A"))
-		val tableB = table(scala.List.empty[String], color = Color("A"))
-		val tableC = table(scala.List.empty[String], color = Color("C"))
+		val tableA = table(scala.List.empty[String], taint = Taint("A"))
+		val tableB = table(scala.List.empty[String], taint = Taint("A"))
+		val tableC = table(scala.List.empty[String], taint = Taint("C"))
 
 		val eqBC = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(
@@ -119,9 +119,9 @@ class TestIRRemoteJoinAssociativity
 
 		implicit val local = QueryEnvironment.Local
 
-		val tableA = table(scala.List.empty[String], color = Color("A"))
-		val tableB = table(scala.List.empty[String], color = Color("C"))
-		val tableC = table(scala.List.empty[String], color = Color("C"))
+		val tableA = table(scala.List.empty[String], taint = Taint("A"))
+		val tableB = table(scala.List.empty[String], taint = Taint("C"))
+		val tableC = table(scala.List.empty[String], taint = Taint("C"))
 
 		val eqAB = // : List[(Rep[String => Any], Rep[String => Any])] =
 			scala.List(

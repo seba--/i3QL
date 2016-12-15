@@ -64,10 +64,10 @@ trait RelationalAlgebraIROptOrderSelections
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         relation match {
             case Def (Selection (r, f@Sym (id))) if id > function.asInstanceOf[Sym[_]].id =>
-                selection (selection (r, function)(exactDomainOf (relation), queryEnvironment), f)
+                selection (selection (r, function)(exactDomainOf (relation), env), f)
 
             case _ =>
                 super.selection (relation, function)

@@ -32,10 +32,10 @@
  */
 package idb.algebra.compiler
 
+import idb.algebra.RelationalAlgebraIROperatorsPackage
 import idb.algebra.compiler.boxing.{BoxedAggregationNotSelfMaintained, BoxedAggregationSelfMaintained, BoxedFunction}
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.ScalaCodegenExt
-import idb.operators.impl._
 import idb.query.QueryEnvironment
 
 import scala.virtualization.lms.common.ScalaGenEffect
@@ -51,11 +51,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
     with ScalaCodegenExt
     with ScalaGenEffect
 {
-
-    val IR: RelationalAlgebraIRBasicOperators
-        with RelationalAlgebraIRSetTheoryOperators
-        with RelationalAlgebraIRRecursiveOperators
-        with RelationalAlgebraIRAggregationOperators
+    val IR: RelationalAlgebraIROperatorsPackage
         with RelationalAlgebraSAEBinding
         with FunctionsExp
 
@@ -66,7 +62,7 @@ trait RelationalAlgebraGenAggregationOperatorsAsIncremental
     import IR.AggregationSelfMaintained
 	import IR.AggregationNotSelfMaintained
 
-    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
+    override def compile[Domain : Manifest] (query: Rep[Query[Domain]])(implicit env : QueryEnvironment): Relation[Domain] = {
         query match {
             case Def (e@AggregationSelfMaintained (r, grouping, start, added, removed, updated, convertKey, convert)) =>
 				BoxedAggregationSelfMaintained (

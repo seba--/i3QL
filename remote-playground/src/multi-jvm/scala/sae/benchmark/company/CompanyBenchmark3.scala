@@ -3,7 +3,7 @@ package sae.benchmark.company
 import akka.remote.testkit.MultiNodeSpec
 import idb.Relation
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.query.colors._
+import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import sae.benchmark.BenchmarkMultiNodeSpec
 
@@ -20,7 +20,7 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
-	with Measure4000ClientPriorityConfig {
+	with Test10ClientPriorityConfig {
 
 	override val benchmarkQuery = "query3"
 	override val benchmarkNumber: Int = 100

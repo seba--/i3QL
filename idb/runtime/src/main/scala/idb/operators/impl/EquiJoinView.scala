@@ -71,8 +71,8 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 	}
 
 	override def resetInternal(): Unit = {
-		leftIndex.reset()
-		rightIndex.reset()
+		leftIndex.resetInternal()
+		rightIndex.resetInternal()
 	}
 
 

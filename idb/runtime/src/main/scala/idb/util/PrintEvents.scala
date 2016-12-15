@@ -6,9 +6,6 @@ import java.util.Date
 import idb.Relation
 import idb.observer.Observer
 
-/**
-  * Created by mirko on 18.10.16.
-  */
 protected[util] case class PrintEvents[Domain](relation : Relation[Domain], tag : String = null) extends Observer[Domain] {
 	relation.addObserver(this)
 

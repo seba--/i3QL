@@ -6,9 +6,6 @@ import idb.Relation
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl.EquiJoinView
 
-/**
-  * Created by mirko on 18.10.16.
-  */
 case class BoxedEquiJoin[DomainA, DomainB](
 	relA : Relation[DomainA],
 	relB : Relation[DomainB],
@@ -40,7 +37,7 @@ case class BoxedEquiJoin[DomainA, DomainB](
 
 	override def children: Seq[Relation[_]] = equiJoin.children
 
-	override protected def resetInternal(): Unit = equiJoin.resetInternal()
+	override protected[idb] def resetInternal(): Unit = equiJoin.resetInternal()
 
 	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit =
 		equiJoin.printInternal(out)

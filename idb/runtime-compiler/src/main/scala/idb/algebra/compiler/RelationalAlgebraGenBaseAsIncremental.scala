@@ -32,9 +32,13 @@
  */
 package idb.algebra.compiler
 
-import akka.actor.{ActorPath, ActorSystem}
+import akka.actor.ActorSystem
+import idb.algebra.RelationalAlgebraIROperatorsPackage
 import idb.algebra.ir.RelationalAlgebraIRBase
-import idb.query.{QueryEnvironment, RemoteHost}
+import idb.algebra.remote.PlacementStrategy
+import idb.algebra.remote.placement.StandardPlacementTransformer
+import idb.lms.extensions.RemoteUtils
+import idb.query.QueryEnvironment
 
 
 
@@ -42,24 +46,25 @@ import idb.query.{QueryEnvironment, RemoteHost}
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraGenBaseAsIncremental
-{
+trait RelationalAlgebraGenBaseAsIncremental extends PlacementStrategy {
 
-    val IR: RelationalAlgebraIRBase with RelationalAlgebraSAEBinding
+    val IR: RelationalAlgebraIROperatorsPackage
+        with RelationalAlgebraSAEBinding
 
     import IR._
 
     def initialize(system : ActorSystem, relation : Relation[_]) : Unit
 
-    def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] =
+    def compile[Domain : Manifest] (query: Rep[Query[Domain]])(implicit env : QueryEnvironment): Relation[Domain] =
         query match {
             case QueryRelation (relation, _, _, _, _, _) => relation
 
-            case QueryTable (table, _, _, _, _, _) => table
+            case QueryTable (tbl, _, _, _, _, _) => tbl
 
-			case Def (Root (q, host)) =>
-                val rel = compile (q)
-	           // initialize(queryEnvironment.system, rel)
+			case r@Def (Root (q, host)) =>
+                val qp = transform(r)
+                val rel = compile (qp)
+	           // initialize(env.system, rel)
 	            rel
 
 

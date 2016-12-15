@@ -63,7 +63,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         relation match {
             case Def (select@Selection (r, f)) if isEquivalent (function, f) => select
             case _ => super.selection (relation, function)
@@ -75,7 +75,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
     override def projection[Domain: Manifest, Range: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Range]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         (if (isIdentity (function)) {
             relation
         } else
@@ -98,7 +98,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra,
                                             rb.relationB,
                                             rb.equalities
-                                        )(domainOf (ra), domainOf (rb.relationB), queryEnvironment),
+                                        )(domainOf (ra), domainOf (rb.relationB), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => x
                                         )(domainOf (ra), domainOf (rb.relationB), domainOf (ra))
@@ -110,7 +110,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra,
                                             rb.relationB,
                                             rb.equalities
-                                        )(domainOf (ra), domainOf (rb.relationB), queryEnvironment),
+                                        )(domainOf (ra), domainOf (rb.relationB), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => x
                                         )(domainOf (ra), domainOf (rb.relationB), domainOf (ra))
@@ -128,7 +128,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra,
                                             rb.relationA,
                                             rb.equalities
-                                        )(domainOf (ra), domainOf (rb.relationA), queryEnvironment),
+                                        )(domainOf (ra), domainOf (rb.relationA), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => x
                                         )(domainOf (ra), domainOf (rb.relationA), domainOf (ra))
@@ -140,7 +140,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra,
                                             rb.relationA,
                                             rb.equalities
-                                        )(domainOf (ra), domainOf (rb.relationA), queryEnvironment),
+                                        )(domainOf (ra), domainOf (rb.relationA), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => x
                                         )(domainOf (ra), domainOf (rb.relationA), domainOf (ra))
@@ -166,7 +166,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra.relationB,
                                             rb,
                                             ra.equalities
-                                        )(domainOf (ra.relationB), domainOf (rb), queryEnvironment),
+                                        )(domainOf (ra.relationB), domainOf (rb), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => y
                                         )(domainOf (ra.relationB), domainOf (rb), domainOf (rb))
@@ -178,7 +178,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra.relationB,
                                             rb,
                                             ra.equalities
-                                        )(domainOf (ra.relationB), domainOf (rb), queryEnvironment),
+                                        )(domainOf (ra.relationB), domainOf (rb), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => y
                                         )(domainOf (ra.relationB), domainOf (rb), domainOf (rb))
@@ -196,7 +196,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra.relationA,
                                             rb,
                                             ra.equalities
-                                        )(domainOf (ra.relationA), domainOf (rb), queryEnvironment),
+                                        )(domainOf (ra.relationA), domainOf (rb), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => y
                                         )(domainOf (ra.relationA), domainOf (rb), domainOf (rb))
@@ -208,7 +208,7 @@ trait RelationalAlgebraIROptSimplifyBasicOps
                                             ra.relationA,
                                             rb,
                                             ra.equalities
-                                        )(domainOf (ra.relationA), domainOf (rb), queryEnvironment),
+                                        )(domainOf (ra.relationA), domainOf (rb), env),
                                         fun (
                                             (x: Rep[Any], y: Rep[Any]) => y
                                         )(domainOf (ra.relationA), domainOf (rb), domainOf (rb))

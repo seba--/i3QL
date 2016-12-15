@@ -3,7 +3,7 @@ package sae.benchmark.hospital
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.query.colors._
+import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import sae.benchmark.BenchmarkMultiNodeSpec
 
@@ -59,11 +59,11 @@ class HospitalBenchmark4 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			import idb.syntax.iql._
 
 			val personDB : Rep[Query[PersonType]] =
-				REMOTE GET (personHost, "person-db", Color("red"))
+				REMOTE GET (personHost, "person-db", Taint("red"))
 			val patientDB : Rep[Query[PatientType]] =
-				REMOTE GET (patientHost, "patient-db", Color("green"))
+				REMOTE GET (patientHost, "patient-db", Taint("green"))
 			val knowledgeDB : Rep[Query[KnowledgeType]] =
-				REMOTE GET (knowledgeHost, "knowledge-db", Color("purple"))
+				REMOTE GET (knowledgeHost, "knowledge-db", Taint("purple"))
 
 			val q1 =
 				SELECT DISTINCT (
@@ -86,7 +86,7 @@ class HospitalBenchmark4 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
 			val r : idb.syntax.iql.IR.Relation[ResultType] =
-				ROOT(clientHost, RECLASS(q1, Color("white")))
+				ROOT(clientHost, RECLASS(q1, Taint("white")))
 			r
 		}
 

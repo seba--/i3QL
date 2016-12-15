@@ -9,17 +9,14 @@ import idb.remote.{Print, Reset, SendTo}
 
 import scala.language.postfixOps
 
-/**
-  * Created by mirko on 18.10.16.
-  */
 trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domain] with Observer[Domain] {
 
 
 	import scala.concurrent.duration._
 	val timeout = 10 seconds
 
-	private var receiveActorRef : ActorRef = null
-	private var sendActorRef : ActorRef = null
+	private var receiveActorRef : ActorRef = _
+	private var sendActorRef : ActorRef = _
 
 	/**
 	  * Creates links to the children actors.
@@ -45,7 +42,7 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 
 	override def children: Seq[Relation[_]] = Nil
 
-	override protected def resetInternal(): Unit = {
+	override protected[idb] def resetInternal(): Unit = {
 		sendActorRef ! Reset
 	}
 

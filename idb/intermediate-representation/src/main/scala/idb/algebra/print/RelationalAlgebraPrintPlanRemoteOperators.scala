@@ -64,19 +64,19 @@ trait RelationalAlgebraPrintPlanRemoteOperators
                     withMoreIndent (quoteRelation (relation) + "\n") +
                     withIndent (")")
 
-            case Def (rel@Reclassification(r, newColor)) =>
+            case Def (rel@Reclassification(r, newTaint)) =>
 				withIndent (s"reclass[${rel.host.name}](\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
-					withMoreIndent (newColor.toString + "\n") +
+					withMoreIndent (newTaint.toString + "\n") +
 					withIndent (")")
 
-            case Def (rel@Declassification(r, colors)) =>
+            case Def (rel@Declassification(r, taints)) =>
 	            withIndent (s"declass[${rel.host.name}](\n") +
 		            withMoreIndent (quoteRelation (r) + "\n") +
-		            withMoreIndent (colors.toString + "\n") +
+		            withMoreIndent (taints.toString + "\n") +
 		            withIndent (")")
 
-            case Def (rel@ActorDef (path, host, color)) =>
+            case Def (rel@ActorDef (path, host, taint)) =>
 	            withIndent (s"actor[${host.name}](${path.toString})")
 
             case _ => super.quoteRelation (x)

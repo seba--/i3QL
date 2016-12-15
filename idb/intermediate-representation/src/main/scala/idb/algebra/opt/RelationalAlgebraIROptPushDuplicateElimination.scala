@@ -56,7 +56,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
 
     override def duplicateElimination[Domain: Manifest] (
         relation: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         (relation match {
 
             // δ (Π {(x, y) => x} (a × b)) => δ (a)
@@ -66,8 +66,8 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                 val bodyIsParameterAtIndex = returnedParameter (f)
                 bodyIsParameterAtIndex match {
                     case -1 => super.duplicateElimination (relation)
-                    case 0 => duplicateElimination (cross.relationA)(domainOf (cross.relationA), queryEnvironment)
-                    case 1 => duplicateElimination (cross.relationB)(domainOf (cross.relationB), queryEnvironment)
+                    case 0 => duplicateElimination (cross.relationA)(domainOf (cross.relationA), env)
+                    case 1 => duplicateElimination (cross.relationB)(domainOf (cross.relationB), env)
                     case _ =>
                         throw new IllegalStateException (
                             "Expected a binary function as projection after cross product, " +
@@ -107,7 +107,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                     )
                                 ),
                                 scala.List ((equalityProjection, fun ((x: Rep[Any]) => x)))
-                            )(manifest[Domain], returnType (innerProjection), queryEnvironment)
+                            )(manifest[Domain], returnType (innerProjection), env)
 
                         projection (
                             newJoin,
@@ -132,7 +132,7 @@ trait RelationalAlgebraIROptPushDuplicateElimination
                                 ),
                                 duplicateElimination (relationB),
                                 scala.List ((fun ((x: Rep[Any]) => x), equalityProjection))
-                            )(returnType (innerProjection), manifest[Domain], queryEnvironment)
+                            )(returnType (innerProjection), manifest[Domain], env)
 
                         projection (
                             newJoin,

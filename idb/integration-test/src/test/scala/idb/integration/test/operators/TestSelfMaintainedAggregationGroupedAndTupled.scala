@@ -28,7 +28,7 @@ class TestSelfMaintainedAggregationGroupedAndTupled extends AbstractStudentOpera
 
 	@Before
 	def setUp() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		table = BagTable.empty[Student]
 		query = compile (

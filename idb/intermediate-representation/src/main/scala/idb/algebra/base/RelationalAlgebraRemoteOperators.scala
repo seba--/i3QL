@@ -34,7 +34,7 @@ package idb.algebra.base
 
 import akka.actor.ActorPath
 import idb.query.{Host, QueryEnvironment}
-import idb.query.colors.{Color, ColorId}
+import idb.query.taint.{Taint, TaintId}
 
 /**
  *
@@ -60,23 +60,23 @@ trait RelationalAlgebraRemoteOperators
     def remote[Domain: Manifest] (
         relation: Rep[Query[Domain]],
 		host : Host
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]]
 
 	def reclassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
-		newColor : Color
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+		newTaint : Taint
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]]
 
 	def declassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
-		colors : Set[ColorId]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+		taints : Set[TaintId]
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]]
 
 	def actorDef[Domain : Manifest](
 		actorPath : ActorPath,
 		host : Host,
-		color : Color
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+		taint : Taint
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]]
 
 
 }

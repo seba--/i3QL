@@ -4,7 +4,7 @@ import idb.algebra.TestUtils
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
 import idb.lms.extensions.{FunctionUtils, ScalaOpsExpOptExtensions}
 import idb.query.QueryEnvironment
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import org.junit.Assert._
 import org.junit.Test
 
@@ -30,7 +30,7 @@ trait CourseSchema
 /**
  * @author Mirko Köhler
  */
-class TestOperatorColoring
+class TestOperatorTaint
 	extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRAggregationOperators
 	with ScalaOpsExpOptExtensions
@@ -40,21 +40,21 @@ class TestOperatorColoring
 
 	@Test
 	def testCrossProduct(): Unit = {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
-		val table1 = table(scala.List.empty[String], color = Color("A"))
-		val table2 = table(scala.List.empty[String], color = Color("B"))
+		val table1 = table(scala.List.empty[String], taint = Taint("A"))
+		val table2 = table(scala.List.empty[String], taint = Taint("B"))
 
 		val rel = crossProduct(table1, table2)
 
-		assertEquals(Color.tupled(Color("A"), Color("B")), rel.color)
+		assertEquals(Taint.tupled(Taint("A"), Taint("B")), rel.taint)
 	}
 
 	@Test
 	def testAggregation(): Unit = {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
-		val table1 = table(scala.List.empty[Course], color = Color("number" -> Color("blue"), "title" -> Color("red"), "creditPoints" -> Color("green")))
+		val table1 = table(scala.List.empty[Course], taint = Taint("number" -> Taint("blue"), "title" -> Taint("red"), "creditPoints" -> Taint("green")))
 
 		val rel = aggregationSelfMaintainedWithoutGrouping[Course, Int](
 			table1,
@@ -65,7 +65,7 @@ class TestOperatorColoring
 
 		)
 
-		assertEquals(Color("green"), rel.color)
+		assertEquals(Taint("green"), rel.taint)
 	}
 
 

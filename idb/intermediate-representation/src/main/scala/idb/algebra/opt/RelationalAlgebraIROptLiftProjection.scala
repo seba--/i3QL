@@ -61,14 +61,14 @@ trait RelationalAlgebraIROptLiftProjection
     override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
+    )(implicit env : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
 		(relationA, relationB) match {
 			case (Def(p1@Projection(ra, fa)), Def(p2@Projection(rb, fb))) =>
 				projection(
 					crossProduct(
 						ra,
 						rb
-					)(domainOf(ra), domainOf(rb), queryEnvironment),
+					)(domainOf(ra), domainOf(rb), env),
 					fun(
 						(x: Rep[Any], y: Rep[Any]) => make_tuple2(fa(x), fb(y)) //(p1.mRan, p2.mRan)
 					)(
@@ -83,7 +83,7 @@ trait RelationalAlgebraIROptLiftProjection
 					crossProduct(
 						ra,
 						rb
-					)(domainOf(ra), manifest[DomainB], queryEnvironment),
+					)(domainOf(ra), manifest[DomainB], env),
 					fun(
 						(x: Rep[Any], y: Rep[DomainB]) => make_tuple2(fa(x), y) //(p1.mRan, manifest[DomainB])
 					)(
@@ -107,7 +107,7 @@ trait RelationalAlgebraIROptLiftProjection
 					crossProduct(
 						ra,
 						rb
-					)(manifest[DomainA], domainOf(rb), queryEnvironment),
+					)(manifest[DomainA], domainOf(rb), env),
 					newProjection
 
 				)

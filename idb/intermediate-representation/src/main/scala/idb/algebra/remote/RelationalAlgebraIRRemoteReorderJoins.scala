@@ -3,7 +3,7 @@ package idb.algebra.remote
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
 import idb.lms.extensions.FunctionUtils
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import idb.query.{QueryEnvironment}
 
 /**
@@ -19,12 +19,12 @@ trait RelationalAlgebraIRRemoteReorderJoins
 	override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
+	)(implicit env : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB =  implicitly[Manifest[DomainB]]
 
 		(relationA, relationB) match {
-			case (a, b) if isGreater(a.color, b.color, queryEnvironment) =>
+			case (a, b) if isGreater(a.taint, b.taint, env) =>
 				//a x b --> b x a
 				projection (
 					crossProduct(b, a),
@@ -37,7 +37,7 @@ trait RelationalAlgebraIRRemoteReorderJoins
 					)
 				)
 
-			case (a, Def(cross@CrossProduct(b, c))) if isGreater(a.color, b.color, queryEnvironment) =>
+			case (a, Def(cross@CrossProduct(b, c))) if isGreater(a.taint, b.taint, env) =>
 				//a x (b x c) --> b x (a x c)
 				val mA = mDomA
 				val mB = cross.mDomA
@@ -55,7 +55,7 @@ trait RelationalAlgebraIRRemoteReorderJoins
 					)
 				).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
 
-			case (Def(cross@CrossProduct(a, b)), c)	if isGreater(b.color, c.color, queryEnvironment) =>
+			case (Def(cross@CrossProduct(a, b)), c)	if isGreater(b.taint, c.taint, env) =>
 				//(a x b) x c --> (a x c) x b
 				val mA = cross.mDomA
 				val mB = cross.mDomB
@@ -85,13 +85,13 @@ trait RelationalAlgebraIRRemoteReorderJoins
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]],
 		equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
+	)(implicit env : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB =  implicitly[Manifest[DomainB]]
 
 		(relationA, relationB) match {
 
-			case (a, b) if isGreater(a.color, b.color, queryEnvironment) =>
+			case (a, b) if isGreater(a.taint, b.taint, env) =>
 				//a >< b --> b >< a
 				projection(
 					equiJoin(b, a, equalities.map(t => (t._2, t._1))),
@@ -104,7 +104,7 @@ trait RelationalAlgebraIRRemoteReorderJoins
 						)
 				)
 			case (a, Def(eqJoin@EquiJoin(b, c, eqs)))
-				if isGreater(a.color, b.color, queryEnvironment)
+				if isGreater(a.taint, b.taint, env)
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._2,0) && functionHasParameterAccess(t._2,1)) ) //Checks whether the equality functions can be reorder, ie there is no (b,c) => b.f + c.f, for example.
 			=>
 
@@ -155,7 +155,7 @@ trait RelationalAlgebraIRRemoteReorderJoins
 
 
 			case (Def(eqJoin@EquiJoin(a, b, eqs)), c)
-				if isGreater(b.color, c.color, queryEnvironment)
+				if isGreater(b.taint, c.taint, env)
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._1,0) && functionHasParameterAccess(t._1,1)) ) //Checks whether the equality functions can be reorder, ie there is no (a,b) => a.f + b.f, for example.
 			=>
 				//(a >< b) >< c --> (a >< c) >< b
@@ -213,16 +213,16 @@ trait RelationalAlgebraIRRemoteReorderJoins
 		}
 	}
 
-	private def isGreater(a : Color, b : Color, env : QueryEnvironment) : Boolean =
+	private def isGreater(a : Taint, b : Taint, env : QueryEnvironment) : Boolean =
 		isSmallerDef(b, a, env)
 
-	private def isSmaller(a : Color, b : Color, env : QueryEnvironment) : Boolean =
+	private def isSmaller(a : Taint, b : Taint, env : QueryEnvironment) : Boolean =
 		isSmallerDef(a, b, env)
 
-	val isSmallerDef : (Color, Color, QueryEnvironment) => Boolean =
+	val isSmallerDef : (Taint, Taint, QueryEnvironment) => Boolean =
 		isSmallerImpl1
 
-	private def isSmallerImpl1(a : Color, b : Color, env : QueryEnvironment) : Boolean =
+	private def isSmallerImpl1(a : Taint, b : Taint, env : QueryEnvironment) : Boolean =
 		false
 
 

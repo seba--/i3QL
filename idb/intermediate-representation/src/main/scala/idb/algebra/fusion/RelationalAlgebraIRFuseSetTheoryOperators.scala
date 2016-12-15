@@ -54,7 +54,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
     override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         (relationA, relationB) match {
             case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
                 withoutNormalization (
@@ -83,7 +83,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
     override def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
                 withoutNormalization (
@@ -101,7 +101,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
     override def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         (relationA, relationB) match {
             case (Def (Selection (ra, fa)), Def (Selection (rb, fb))) if ra == rb =>
                 withoutNormalization (

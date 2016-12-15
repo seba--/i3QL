@@ -32,6 +32,7 @@
  */
 package idb.algebra.compiler
 
+import idb.algebra.RelationalAlgebraIROperatorsPackage
 import idb.algebra.compiler.boxing.{BoxedEquiJoin, BoxedFunction}
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.{FunctionUtils, ScalaCodegenExt}
@@ -50,18 +51,14 @@ trait RelationalAlgebraGenBasicOperatorsAsIncremental
     with ScalaGenEffect
 {
 
-    val IR: RelationalAlgebraIRBasicOperators
-		with RelationalAlgebraIRSetTheoryOperators
-		with RelationalAlgebraIRRecursiveOperators
-		with RelationalAlgebraIRAggregationOperators
+	val IR: RelationalAlgebraIROperatorsPackage
 		with RelationalAlgebraSAEBinding
 		with FunctionsExp
-
 
     import IR._
 
     // TODO incorporate set semantics into ir
-    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
+    override def compile[Domain : Manifest] (query: Rep[Query[Domain]])(implicit env : QueryEnvironment): Relation[Domain] = {
         query match {
 
 			case Def (Selection (r, f)) =>

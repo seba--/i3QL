@@ -34,7 +34,7 @@ package idb.algebra.ir
 
 import idb.algebra.base.{RelationalAlgebraBasicOperators, RelationalAlgebraSetTheoryOperators}
 import idb.algebra.exceptions.NonMatchingHostsException
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import idb.query.QueryEnvironment
 
 
@@ -55,11 +55,7 @@ trait RelationalAlgebraIRSetTheoryOperators
         val mDomB = implicitly[Manifest[DomainB]]
         val mRan = implicitly[Manifest[Range]]
 
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized
 		def isSet = false
-		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-
-		def color = relationA.color union relationB.color
 		override def host = {
 			if (relationA.host != relationB.host)
 				throw new NonMatchingHostsException(relationA.host, relationB.host)
@@ -76,11 +72,7 @@ trait RelationalAlgebraIRSetTheoryOperators
         val mDomB = implicitly[Manifest[DomainB]]
         val mRan = implicitly[Manifest[Range]]
 
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
-		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-
-		def color = relationA.color union relationB.color
 		override def host = {
 			if (relationA.host != relationB.host)
 				throw new NonMatchingHostsException(relationA.host, relationB.host)
@@ -92,12 +84,7 @@ trait RelationalAlgebraIRSetTheoryOperators
         var relationA: Rep[Query[Domain]],
         var relationB: Rep[Query[Domain]]
     ) extends Def[Query[Domain]] with QueryBaseOps {
-
-		def isMaterialized: Boolean = relationA.isMaterialized && relationB.isMaterialized && !isIncrementLocal
 		def isSet = false
-		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-
-		def color = relationA.color union relationB.color
 		override def host = {
 			if (relationA.host != relationB.host)
 				throw new NonMatchingHostsException(relationA.host, relationB.host)
@@ -109,12 +96,7 @@ trait RelationalAlgebraIRSetTheoryOperators
         var relationA: Rep[Query[Domain]],
         var relationB: Rep[Query[Domain]]
     ) extends Def[Query[Domain]] with QueryBaseOps {
-
-		def isMaterialized: Boolean = !isIncrementLocal //Difference implements foreach
 		def isSet = false
-		def isIncrementLocal = relationA.isIncrementLocal && relationB.isIncrementLocal
-
-		def color = relationA.color union relationB.color
 		override def host = {
 			if (relationA.host != relationB.host)
 				throw new NonMatchingHostsException(relationA.host, relationB.host)
@@ -126,25 +108,25 @@ trait RelationalAlgebraIRSetTheoryOperators
     def unionAdd[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         UnionAdd (relationA, relationB)
 
     def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         UnionMax (relationA, relationB)
 
     def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         Intersection (relationA, relationB)
 
     def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         Difference (relationA, relationB)
 
 

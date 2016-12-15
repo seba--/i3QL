@@ -8,14 +8,8 @@ import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
 import idb.remote.Initialize
 import idb.remote.receive.{PathRemoteReceiver, RefRemoteReceiver, RemoteReceiver}
 
-/**
-  * Created by mirko on 20.10.16.
-  */
+
 object RemoteUtils {
-
-
-
-
 	/**
 	  * Deploys a relation on the given node.
 	  * @return A reference to an access actor that controls the given relation.

@@ -4,7 +4,7 @@ import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.BagTable
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.query.colors._
+import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.schema.hospital._
 import idb.util.PrintEvents
@@ -147,11 +147,11 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				//Create variables for all the remote tables
 				val personDB : Rep[Query[Person]] =
-					REMOTE GET [Person] (personHost, "person-db", Color("red"))
+					REMOTE GET [Person] (personHost, "person-db", Taint("red"))
 				val patientDB : Rep[Query[Patient]] =
-					REMOTE GET [Patient] (patientHost, "patient-db", Color("green"))
+					REMOTE GET [Patient] (patientHost, "patient-db", Taint("green"))
 				val knowledgeDB : Rep[Query[KnowledgeData]] =
-					REMOTE GET [KnowledgeData] (knowledgeHost, "knowledge-db", Color("purple"))
+					REMOTE GET [KnowledgeData] (knowledgeHost, "knowledge-db", Taint("purple"))
 
 				//Write an i3ql query...
 				val q1 =

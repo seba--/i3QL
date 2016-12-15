@@ -28,7 +28,7 @@ class TestSelfMaintainedAggregationUngrouped extends AbstractStudentOperatorTest
 
 	@Before
 	def setUp() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		table = BagTable.empty[Student]
 		query = compile (

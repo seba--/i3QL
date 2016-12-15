@@ -109,7 +109,7 @@ class BagIndex[K, V](val relation: Relation[V],
 		coll.putAll (newKey, newMap)
 	}
 
-	override protected def resetInternal(): Unit = {
+	override protected[idb] def resetInternal(): Unit = {
 		coll.clear()
 	}
 }

@@ -1,8 +1,5 @@
 package idb.schema.company
 
-/**
-  * Created by mirko on 07.11.16.
-  */
 trait CompanyTestData {
 
 	object ProductNames {

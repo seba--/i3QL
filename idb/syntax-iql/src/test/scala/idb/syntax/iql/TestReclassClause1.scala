@@ -33,7 +33,7 @@
 package idb.syntax.iql
 
 import idb.query.QueryEnvironment
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import idb.schema.university._
 import idb.syntax.iql.IR._
 import idb.syntax.iql.TestUtil.assertEqualStructure
@@ -53,24 +53,24 @@ class TestReclassClause1
 
     @Test
     def testTable () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = RECLASS (
             SELECT (*) FROM students,
-			Color.NO_COLOR
+			Taint.NO_TAINT
         )
 
-        assertEqualStructure (reclassification(table (students), Color.NO_COLOR), query)
+        assertEqualStructure (reclassification(table (students), Taint.NO_TAINT), query)
     }
 
 
 
     @Test
     def testSelection1ProjectTupleDirect () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = RECLASS (
             SELECT ((s: Rep[Student]) => (s.firstName, s.lastName)) FROM students WHERE ((s: Rep[Student]) =>
 				s.firstName == "Sally"),
-			Color.NO_COLOR
+			Taint.NO_TAINT
         )
 
         assertEqualStructure (
@@ -82,7 +82,7 @@ class TestReclassClause1
 					),
 					fun ((s: Rep[Student]) => (s.firstName, s.lastName))
 				),
-				Color.NO_COLOR
+				Taint.NO_TAINT
 			),
             query
         )

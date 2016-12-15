@@ -24,14 +24,26 @@ for (i in 1:3) {
 delayBars <- matrix(delays, ncol = 2, byrow = TRUE)
 runtimeBars <- matrix(runtimes, ncol = 2, byrow = TRUE)
 
-par(cex=1.6)
+color1 <- rgb(127, 205, 187, 255,  maxColorValue = 255)
+color2 <- rgb(44, 127, 184, 255,  maxColorValue = 255)
+color3 <- rgb(237, 248, 177, 255,  maxColorValue = 255)
+
 #Plot delay
-barplot(height = delayBars, names.arg = c("50%", "5%"), beside = TRUE, col = c("darkseagreen2", "darksalmon", "cornflowerblue"), ylab = "median latency (ms)", ylim = c(0,1200))
-legend(x = 6.33, y = 1500, col = c("darkseagreen2", "darksalmon", "cornflowerblue"), pch = 19, legend = c("Config1" , "Config2", "Config3"))
+pdf(file = "latency-plot.pdf", width = 4, height = 4)
+	par(cex=1.6, mar=c(1,2,1.3,0))
+	barplot(height = delayBars, beside = TRUE, col = c(color1, color2, color3), yaxt = "n", ylim = c(0,1200))
+	axis(2, at = seq(0.0, 1200, by = 300))
+	#legend(x = 6.33, y = 1500, bty = "n", col = c("darkseagreen2", "darksalmon", "cornflowerblue"), pch = 19, legend = c("Config1" , "Config2", "Config3"))
+dev.off()
 
 #Plot runtime
-barplot(height = runtimeBars, names.arg = c("50%", "5%"), beside = TRUE, col = c("darkseagreen2", "darksalmon", "cornflowerblue"), ylab = "runtime (ms)", ylim = c(0,2000))
-legend(x = 6.33, y = 2400, col = c("darkseagreen2", "darksalmon", "cornflowerblue"), pch = 19, legend = c("Config1" , "Config2", "Config3"))
+pdf(file = "runtime-plot.pdf", width = 7, height = 2.5)
+	par(cex=1.6, mar=c(2,0.3,0,1))
+	barplot(height = runtimeBars, horiz=TRUE, names.arg = c("50%", "5%"), beside = TRUE,
+			col = c(color1, color2, color3), xaxt = "n", xlim = c(0,1800))
+	axis(1, at = seq(0.0, 1800, by = 600))
+	#legend(x = 6.33, y = 2400, bty = "n", col = c("darkseagreen2", "darksalmon", "cornflowerblue"), pch = 19, legend = c("Config1" , "Config2", "Config3"))
+dev.off()
 
 
 #Plot throughput

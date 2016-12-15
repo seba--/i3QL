@@ -1,6 +1,6 @@
 package sae.benchmark.company
 
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import sae.benchmark.BenchmarkConfig
 
 /**
@@ -19,100 +19,82 @@ trait CompanyConfig extends BenchmarkConfig {
 	val permissionsEmployees : Set[String]
 	val permissionsClient : Set[String]
 
-	val labelPublic : Color
-	val labelProduction : Color
-	val labelPurchasing : Color
-	val labelEmployees : Color
+	val labelPublic : Taint
+	val labelProduction : Taint
+	val labelPurchasing : Taint
+	val labelEmployees : Taint
 }
 
-trait Measure4000DefaultPriorityConfig extends CompanyConfig {
+sealed trait DefaultPriorityConfig extends CompanyConfig {
+	override val priorityPublic : Int = 1
+	override val priorityProduction : Int = 1
+	override val priorityPurchasing : Int = 1
+	override val priorityEmployees : Int = 1
+	override val priorityClient : Int = 0
+
+	override val permissionsPublic : Set[String] = Set("lab:public")
+	override val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
+	override val permissionsPurchasing : Set[String] = Set("lab:public", "lab:purchasing")
+	override val permissionsEmployees : Set[String] = Set("lab:public", "lab:employees")
+	override val permissionsClient : Set[String] = Set("lab:public", "lab:production", "lab:purchasing", "lab:employees")
+
+	override val labelPublic : Taint = Taint("lab:public")
+	override val labelProduction : Taint = Taint("lab:production")
+	override val labelPurchasing : Taint = Taint("lab:purchasing")
+	override val labelEmployees : Taint = Taint("lab:employees")
+}
+
+sealed trait ClientPriorityConfig extends CompanyConfig {
+	override val priorityPublic : Int = 0
+	override val priorityProduction : Int = 0
+	override val priorityPurchasing : Int = 0
+	override val priorityEmployees : Int = 0
+	override val priorityClient : Int = 1
+
+	override val permissionsPublic : Set[String] = Set("lab:public")
+	override val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
+	override val permissionsPurchasing : Set[String] = Set("lab:public", "lab:purchasing")
+	override val permissionsEmployees : Set[String] = Set("lab:public", "lab:employees")
+	override val permissionsClient : Set[String] = Set("lab:client")
+
+	override val labelPublic : Taint = Taint("lab:client")
+	override val labelProduction : Taint = Taint("lab:client")
+	override val labelPurchasing : Taint = Taint("lab:client")
+	override val labelEmployees : Taint = Taint("lab:client")
+}
+
+trait Measure4000DefaultPriorityConfig extends DefaultPriorityConfig {
 	override val benchmarkConfig : String = "measure-4000-all"
 	override val measureIterations : Int = 4000
 	override val warmup = true
-
-	val priorityPublic : Int = 1
-	val priorityProduction : Int = 1
-	val priorityPurchasing : Int = 1
-	val priorityEmployees : Int = 1
-	val priorityClient : Int = 0
-
-	val permissionsPublic : Set[String] = Set("lab:public")
-	val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
-	val permissionsPurchasing : Set[String] = Set("lab:public", "lab:purchasing")
-	val permissionsEmployees : Set[String] = Set("lab:public", "lab:employees")
-	val permissionsClient : Set[String] = Set("lab:public", "lab:production", "lab:purchasing", "lab:employees")
-
-	val labelPublic : Color = Color("lab:public")
-	val labelProduction : Color = Color("lab:production")
-	val labelPurchasing : Color = Color("lab:purchasing")
-	val labelEmployees : Color = Color("lab:employees")
 }
 
-trait Measure4000ClientPriorityConfig extends CompanyConfig {
+trait Measure4000ClientPriorityConfig extends ClientPriorityConfig {
 	override val benchmarkConfig : String = "measure-4000-client"
 	override val measureIterations : Int = 4000
 	override val warmup = true
-
-	val priorityPublic : Int = 0
-	val priorityProduction : Int = 0
-	val priorityPurchasing : Int = 0
-	val priorityEmployees : Int = 0
-	val priorityClient : Int = 1
-
-	val permissionsPublic : Set[String] = Set("lab:public")
-	val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
-	val permissionsPurchasing : Set[String] = Set("lab:public", "lab:purchasing")
-	val permissionsEmployees : Set[String] = Set("lab:public", "lab:employees")
-	val permissionsClient : Set[String] = Set("lab:client")
-
-	val labelPublic : Color = Color("lab:client")
-	val labelProduction : Color = Color("lab:client")
-	val labelPurchasing : Color = Color("lab:client")
-	val labelEmployees : Color = Color("lab:client")
 }
 
-trait Test10DefaultPriorityConfig extends CompanyConfig {
+trait Test4000DefaultPriorityConfig extends DefaultPriorityConfig {
+	override val benchmarkConfig : String = "test-4000-all"
+	override val measureIterations : Int = 4000
+	override val warmup = false
+}
+
+trait Test4000ClientPriorityConfig extends ClientPriorityConfig {
+	override val benchmarkConfig : String = "test-4000-client"
+	override val measureIterations : Int = 4000
+	override val warmup = false
+}
+
+trait Test10DefaultPriorityConfig extends DefaultPriorityConfig {
 	override val benchmarkConfig : String = "test-10-all"
 	override val measureIterations : Int = 10
 	override val warmup = false
-
-	val priorityPublic : Int = 1
-	val priorityProduction : Int = 1
-	val priorityPurchasing : Int = 1
-	val priorityEmployees : Int = 1
-	val priorityClient : Int = 0
-
-	val permissionsPublic : Set[String] = Set("lab:public")
-	val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
-	val permissionsPurchasing : Set[String] = Set("lab:public", "lab:purchasing")
-	val permissionsEmployees : Set[String] = Set("lab:public", "lab:employees")
-	val permissionsClient : Set[String] = Set("lab:public", "lab:production", "lab:purchasing", "lab:employees")
-
-	val labelPublic : Color = Color("lab:public")
-	val labelProduction : Color = Color("lab:production")
-	val labelPurchasing : Color = Color("lab:purchasing")
-	val labelEmployees : Color = Color("lab:employees")
 }
 
-trait Test10ClientPriorityConfig extends CompanyConfig {
+trait Test10ClientPriorityConfig extends ClientPriorityConfig {
 	override val benchmarkConfig : String = "test-10-client"
 	override val measureIterations : Int = 10
 	override val warmup = false
-
-	val priorityPublic : Int = 0
-	val priorityProduction : Int = 0
-	val priorityPurchasing : Int = 0
-	val priorityEmployees : Int = 0
-	val priorityClient : Int = 1
-
-	val permissionsPublic : Set[String] = Set("lab:public")
-	val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
-	val permissionsPurchasing : Set[String] = Set("lab:public", "lab:purchasing")
-	val permissionsEmployees : Set[String] = Set("lab:public", "lab:employees")
-	val permissionsClient : Set[String] = Set("lab:client")
-
-	val labelPublic : Color = Color("lab:client")
-	val labelProduction : Color = Color("lab:client")
-	val labelPurchasing : Color = Color("lab:client")
-	val labelEmployees : Color = Color("lab:client")
 }

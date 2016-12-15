@@ -1,10 +1,7 @@
 package idb.query
 
 import akka.actor.ActorSystem
-import idb.query.colors.{Color, ColorId, StringColor}
-
-import scala.collection.mutable
-
+import idb.query.taint.TaintId
 
 /**
  * This class describes the environment in which a query should be compiled to.
@@ -30,7 +27,7 @@ trait QueryEnvironment {
 	/**
 	 * Returns the access permissions of a host.
 	 */
-	def permissionsOf(host : Host) : Set[ColorId]
+	def permissionsOf(host : Host) : Set[TaintId]
 
 	/**
 	  * Returns the priority of the host. Hosts with higher priority are preferred when distributing
@@ -46,7 +43,7 @@ trait QueryEnvironment {
 
 protected class QueryEnvironmentImpl (
 	val _system : Option[ActorSystem] = None,
-	val _hosts : Map[Host, (Int, Set[ColorId])] = Map()
+	val _hosts : Map[Host, (Int, Set[TaintId])] = Map()
 ) extends QueryEnvironment {
 
 	override def isLocal =
@@ -61,7 +58,7 @@ protected class QueryEnvironmentImpl (
 	override def hosts =
 		_hosts.keySet
 
-	def permissionsOf(host : Host) : Set[ColorId] = _hosts.get(host) match {
+	def permissionsOf(host : Host) : Set[TaintId] = _hosts.get(host) match {
 		case Some(info) => info._2
 		case _ => throw new NoSuchElementException(s"Host $host is not specified in the query environment.")
 	}
@@ -103,8 +100,8 @@ object QueryEnvironment {
 	) : QueryEnvironment =
 		new QueryEnvironmentImpl (
 			_system = Option(system),
-			_hosts = hostInfo.mapValues[(Int, Set[ColorId])](info =>
-				(info._1, info._2.map(s => StringColor(s)))
+			_hosts = hostInfo.mapValues[(Int, Set[TaintId])](info =>
+				(info._1, info._2.map(s => TaintId(s)))
 			)
 
 		)

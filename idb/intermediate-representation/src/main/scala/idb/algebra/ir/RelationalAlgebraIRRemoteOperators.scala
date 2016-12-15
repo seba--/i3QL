@@ -33,10 +33,10 @@
 package idb.algebra.ir
 
 import akka.actor.ActorPath
-import idb.algebra.base.{RelationalAlgebraBasicOperators, RelationalAlgebraRemoteOperators}
+import idb.algebra.base.RelationalAlgebraRemoteOperators
 import idb.algebra.exceptions.NoServerAvailableException
 import idb.query.{Host, QueryEnvironment}
-import idb.query.colors.{Color, ColorId}
+import idb.query.taint.{Taint, TaintId}
 
 
 /**
@@ -51,77 +51,62 @@ trait RelationalAlgebraIRRemoteOperators
         relation: Rep[Query[Domain]],
 		host : Host
     ) extends Def[Query[Domain]] with QueryBaseOps {
-		override def isMaterialized: Boolean = relation.isMaterialized
 		override def isSet = relation.isSet
-		override def isIncrementLocal = relation.isIncrementLocal
-
-		override def color = relation.color
-
     }
 
 	case class Reclassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
-		newColor : Color
+		newTaint : Taint
 	) extends Def[Query[Domain]] with QueryBaseOps {
-		override def isMaterialized: Boolean = relation.isMaterialized
 		override def isSet = relation.isSet
-		override def isIncrementLocal = relation.isIncrementLocal
-
-		override def color = newColor
 		override def host = relation.host
 	}
 
 	case class Declassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
-		colors : Set[ColorId]
+		taints : Set[TaintId]
 	) extends Def[Query[Domain]] with QueryBaseOps {
-		override def isMaterialized: Boolean = relation.isMaterialized
 		override def isSet = relation.isSet
-		override def isIncrementLocal = relation.isIncrementLocal
-
-		override def color = relation.color - colors
 		override def host = relation.host
 	}
 
 	case class ActorDef[Domain : Manifest] (
 		actorPath : ActorPath,
 		host : Host,
-		color : Color
+		taint : Taint
 	) extends Def[Query[Domain]] with QueryBaseOps {
-		override def isMaterialized: Boolean = false
 		override def isSet = false
-		override def isIncrementLocal = false
 	}
 
 
 	override def remote[Domain: Manifest] (
 		relation: Rep[Query[Domain]],
 		host : Host
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]] =
 		Remote(relation, host)
 
 
 	override def reclassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
-		newColor : Color
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
-		Reclassification(relation, newColor)
+		newTaint : Taint
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]] =
+		Reclassification(relation, newTaint)
 
 	override def declassification[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
-		colors : Set[ColorId]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
-		Declassification(relation, colors)
+		taints : Set[TaintId]
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]] =
+		Declassification(relation, taints)
 
 	override def actorDef[Domain : Manifest](
 		actorPath : ActorPath,
 		host : Host,
-		color : Color
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
-		val hostPermissions = queryEnvironment.permissionsOf(host)
-		if (!color.ids.subsetOf(hostPermissions))
-			throw new NoServerAvailableException(s"${host.name} has no permission for ${color.ids}. Only has permissions: $hostPermissions")
-		ActorDef[Domain](actorPath, host, color)
+		taint : Taint
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]] = {
+		val hostPermissions = env.permissionsOf(host)
+		if (!taint.ids.subsetOf(hostPermissions))
+			throw new NoServerAvailableException(s"${host.name} has no permission for ${taint.ids}. Only has permissions: $hostPermissions")
+		ActorDef[Domain](actorPath, host, taint)
 	}
 
 

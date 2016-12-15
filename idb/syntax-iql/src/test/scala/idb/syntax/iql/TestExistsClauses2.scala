@@ -52,7 +52,7 @@ class TestExistsClauses2
     @Test
 	@Ignore
     def testExists () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 EXISTS (
@@ -82,7 +82,7 @@ class TestExistsClauses2
 	@Test
 	@Ignore
     def testExistsWithOneOuterConjunction () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 s.lastName == "Fields" AND
@@ -113,7 +113,7 @@ class TestExistsClauses2
 	@Ignore
     @Test
     def testExistsWithMultipleOuterConjunctions () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 s.lastName == "Fields" AND
@@ -146,7 +146,7 @@ class TestExistsClauses2
 	@Ignore
     @Test
     def testExistsWithMultipleInterleavedOuterConjunctions () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 s.lastName == "Fields" AND
@@ -179,7 +179,7 @@ class TestExistsClauses2
     @Test
 	@Ignore
     def testNotExists () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 NOT (
@@ -212,7 +212,7 @@ class TestExistsClauses2
 	@Ignore
     @Test
     def testNotExistsWithOneOuterConjunction () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 s.lastName == "Fields" AND
@@ -245,7 +245,7 @@ class TestExistsClauses2
 	@Ignore
     @Test
     def testNotExistsWithMultipleOuterConjunctions () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 s.lastName == "Fields" AND
@@ -280,7 +280,7 @@ class TestExistsClauses2
 	@Ignore
     @Test
     def testNotExistsWithMultipleInterleavedOuterConjunctions () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, courses) WHERE ((s: Rep[Student], c: Rep[Course]) =>
                 s.lastName == "Fields" AND

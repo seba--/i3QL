@@ -3,9 +3,6 @@ package idb.schema.company
 import scala.language.implicitConversions
 import scala.virtualization.lms.common.StructExp
 
-/**
-  * Created by mirko on 07.11.16.
-  */
 trait Nameable {
 	val id : Int
 	val name : String

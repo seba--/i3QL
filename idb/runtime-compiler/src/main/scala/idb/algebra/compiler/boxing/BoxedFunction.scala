@@ -2,9 +2,6 @@ package idb.algebra.compiler.boxing
 
 import idb.lms.extensions.ScalaCodegenExt
 
-/**
-  * Created by Mirko on 13.09.2016.
-  */
 case class BoxedFunction[A, B](code : ClassCode[A,B]) extends (A => B) {
 
 	var f : A => B = null

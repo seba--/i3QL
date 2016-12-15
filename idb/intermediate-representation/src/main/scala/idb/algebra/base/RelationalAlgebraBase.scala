@@ -33,7 +33,7 @@
 package idb.algebra.base
 
 import idb.query._
-import idb.query.colors.Color
+import idb.query.taint.Taint
 
 import scala.language.higherKinds
 import scala.virtualization.lms.common.Base
@@ -53,32 +53,32 @@ trait RelationalAlgebraBase
     type Query[Domain]
 
     /**
-     * A concrete table
-     */
-    type Table[Domain]
-
-    /**
      * A concrete compiled relation
      */
     type Relation[+Domain]
 
+	/**
+	  * A concrete table
+	  */
+	type Table[Domain]
+
     /**
      * Wraps an table as a leaf in the query tree
      */
-    def table[Domain]  (table: Table[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR, host : Host = Host.local)(
+    def table[Domain](table: Table[Domain], isSet: Boolean = false, taint : Taint = Taint.NO_TAINT, host : Host = Host.local)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]],
-		queryEnvironment : QueryEnvironment
+		env : QueryEnvironment
     ): Rep[Query[Domain]]
 
 
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    def relation[Domain]  (relation: Relation[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR, host : Host = Host.local)(
+    def relation[Domain](relation: Relation[Domain], isSet: Boolean = false, taint : Taint = Taint.NO_TAINT, host : Host = Host.local)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]],
-		queryEnvironment : QueryEnvironment
+		env : QueryEnvironment
     ): Rep[Query[Domain]]
 
 	/**
@@ -86,7 +86,7 @@ trait RelationalAlgebraBase
 	 */
 	def materialize[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]]
 
 	/**
 	 * Defines a root node for a query tree. This node is used by remote optimizations.
@@ -94,6 +94,6 @@ trait RelationalAlgebraBase
 	def root[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
 		host : Host
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]]
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]]
 
 }

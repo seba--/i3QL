@@ -32,10 +32,12 @@
  */
 package idb.algebra.compiler
 
-import idb.algebra.ir.{RelationalAlgebraIRSetTheoryOperators, RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBasicOperators}
+import idb.algebra.RelationalAlgebraIROperatorsPackage
+import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.lms.extensions.ScalaCodegenExt
 import idb.operators.impl._
 import idb.query.QueryEnvironment
+
 import scala.virtualization.lms.common.ScalaGenEffect
 import scala.virtualization.lms.common.FunctionsExp
 
@@ -49,17 +51,14 @@ trait RelationalAlgebraGenSetTheoryOperatorsAsIncremental
     with ScalaGenEffect
 {
 
-    val IR: RelationalAlgebraIRBasicOperators
-		with RelationalAlgebraIRSetTheoryOperators
-		with RelationalAlgebraIRRecursiveOperators
-		with RelationalAlgebraIRAggregationOperators
+	val IR: RelationalAlgebraIROperatorsPackage
 		with RelationalAlgebraSAEBinding
 		with FunctionsExp
 
     import IR._
     // TODO for unionMax, intersection and set difference, there is a choice to materialize the underlying relations,
     // or to materialize data in an internal representation, as currently done by difference
-    override def compile[Domain] (query: Rep[Query[Domain]])(implicit queryEnvironment : QueryEnvironment): Relation[Domain] = {
+    override def compile[Domain : Manifest] (query: Rep[Query[Domain]])(implicit env : QueryEnvironment): Relation[Domain] = {
         query match {
 
 			case Def (e@UnionAdd (a, b)) =>

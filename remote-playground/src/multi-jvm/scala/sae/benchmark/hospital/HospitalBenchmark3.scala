@@ -3,7 +3,7 @@ package sae.benchmark.hospital
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.query.colors._
+import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import sae.benchmark
 import sae.benchmark.BenchmarkMultiNodeSpec
@@ -61,17 +61,17 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			import idb.syntax.iql._
 
 			val personDB : Rep[Query[PersonType]] =
-				REMOTE GET (personHost, "person-db", Color("red"))
+				REMOTE GET (personHost, "person-db", Taint("red"))
 			val patientDB : Rep[Query[PatientType]] =
-				REMOTE GET (patientHost, "patient-db", Color("green"))
+				REMOTE GET (patientHost, "patient-db", Taint("green"))
 			val knowledgeDB : Rep[Query[KnowledgeType]] =
-				REMOTE GET (knowledgeHost, "knowledge-db", Color("purple"))
+				REMOTE GET (knowledgeHost, "knowledge-db", Taint("purple"))
 
 			val q1 =
 				SELECT DISTINCT (
 					(person: Rep[PersonType], patientSymptom: Rep[(PatientType, String)], knowledgeData: Rep[KnowledgeType]) => (person._1, person._2.personId, person._2.name, knowledgeData.diagnosis)
 					) FROM (
-					RECLASS(personDB, Color("white")), UNNEST(RECLASS (patientDB, Color("white")), (x: Rep[PatientType]) => x.symptoms), RECLASS (knowledgeDB, Color("white"))
+					RECLASS(personDB, Taint("white")), UNNEST(RECLASS (patientDB, Taint("white")), (x: Rep[PatientType]) => x.symptoms), RECLASS (knowledgeDB, Taint("white"))
 					) WHERE	(
 					(person: Rep[PersonType], patientSymptom: Rep[(PatientType, String)], knowledgeData: Rep[KnowledgeType]) =>
 						person._2.personId == patientSymptom._1.personId AND

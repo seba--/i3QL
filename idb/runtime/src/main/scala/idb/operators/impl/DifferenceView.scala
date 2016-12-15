@@ -73,7 +73,7 @@ class DifferenceView[Domain](val left: Relation[Domain],
         Nil
     }
 
-    override protected def resetInternal(): Unit = {
+    override protected[idb] def resetInternal(): Unit = {
         leftDiffRight.clear()
         rightDiffLeft.clear()
     }

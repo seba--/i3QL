@@ -47,7 +47,7 @@ trait ASMInstructionsRelations
     with BytecodeInstructionsManifest
     with BytecodeInstructionsRelations
 {
-	private implicit val queryEnvironment = QueryEnvironment.Default
+	private implicit val env = QueryEnvironment.Default
 
     val basicInstructions =
         SetTable.empty[Instruction]

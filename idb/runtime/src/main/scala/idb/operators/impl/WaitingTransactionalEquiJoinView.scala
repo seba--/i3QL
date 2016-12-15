@@ -64,7 +64,7 @@ class WaitingTransactionalEquiJoinView[DomainA, DomainB, Range, Key](val left: R
         Nil
     }
 
-    override protected def resetInternal(): Unit = ???
+    override protected[idb] def resetInternal(): Unit = ???
 
 
     /**

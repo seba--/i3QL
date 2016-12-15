@@ -71,7 +71,7 @@ class NotExistsInSameDomainView[Domain](val left: MaterializedView[Domain],
         Nil
     }
 
-    override protected def resetInternal(): Unit = ???
+    override protected[idb] def resetInternal(): Unit = ???
 
     /**
      * Applies f to all elements of the view.

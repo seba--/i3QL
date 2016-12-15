@@ -10,7 +10,7 @@ import org.junit.Test
 import org.junit.Ignore
 import idb.syntax.iql._
 import UniversityDatabase._
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import org.hamcrest.CoreMatchers._
 
 
@@ -27,7 +27,7 @@ class TestRemote extends UniversityTestData {
 		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
-		implicit val queryEnvironment = QueryEnvironment.create(
+		implicit val env = QueryEnvironment.create(
 			system = ActorSystem("test1"),
 			permissions = Map(
 				LocalHost -> Set("registration", "students"),
@@ -44,14 +44,14 @@ class TestRemote extends UniversityTestData {
 		val remoteRegistrations = table(
 			table = registrationTable,
 			host = registrationHost,
-			color = Color("registration")
+			taint = Taint("registration")
 		)
 
 		val studentTable = BagTable.empty[Student]
 		val remoteStudents = table(
 			table = studentTable,
 			host = studentHost,
-			color = Color("students")
+			taint = Taint("students")
 		)
 
 		//Query
@@ -83,7 +83,7 @@ class TestRemote extends UniversityTestData {
 		assertThat (compiledQ.contains((johnDoe, johnTakesEise)), is (true))
 
 		//Close context
-		queryEnvironment.close()
+		env.close()
 	}
 
 
@@ -95,7 +95,7 @@ class TestRemote extends UniversityTestData {
 		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
-		implicit val queryEnvironment = QueryEnvironment.create(
+		implicit val env = QueryEnvironment.create(
 			system = ActorSystem("test2"),
 			permissions = Map(
 				LocalHost -> Set("registration", "students"),
@@ -112,14 +112,14 @@ class TestRemote extends UniversityTestData {
 		val remoteRegistrations = table(
 			table = registrationTable,
 			host = registrationHost,
-			color = Color("registration")
+			taint = Taint("registration")
 		)
 
 		val studentTable = BagTable.empty[Student]
 		val remoteStudents = table(
 			table = studentTable,
 			host = studentHost,
-			color = Color("students")
+			taint = Taint("students")
 		)
 
 
@@ -142,7 +142,7 @@ class TestRemote extends UniversityTestData {
 		assertThat (compiledQ.contains((johnDoe, johnDoe, johnTakesEise, johnDoe)), is (true))
 
 		//Close context
-		queryEnvironment.close()
+		env.close()
 	}
 
 	@Test
@@ -151,7 +151,7 @@ class TestRemote extends UniversityTestData {
 		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
-		implicit val queryEnvironment = QueryEnvironment.create(
+		implicit val env = QueryEnvironment.create(
 			system = ActorSystem("test1"),
 			permissions = Map(
 				LocalHost -> Set("registration", "students"),
@@ -168,14 +168,14 @@ class TestRemote extends UniversityTestData {
 		val remoteRegistrations = table(
 			table = registrationTable,
 			host = registrationHost,
-			color = Color("registration")
+			taint = Taint("registration")
 		)
 
 		val studentTable = BagTable.empty[Student]
 		val remoteStudents = table(
 			table = studentTable,
 			host = studentHost,
-			color = Color("students")
+			taint = Taint("students")
 		)
 
 		val q =
@@ -210,7 +210,7 @@ class TestRemote extends UniversityTestData {
 
 
 		//Close context
-		queryEnvironment.close()
+		env.close()
 	}
 
 	@Test
@@ -218,7 +218,7 @@ class TestRemote extends UniversityTestData {
 		val studentHost = NamedHost("StudentServer")
 
 		//Initialize query context as implicit value
-		implicit val queryEnvironment = QueryEnvironment.create(
+		implicit val env = QueryEnvironment.create(
 			system = ActorSystem("test1"),
 			permissions = Map(
 				LocalHost -> Set("students"),
@@ -233,7 +233,7 @@ class TestRemote extends UniversityTestData {
 		val remoteStudents = table(
 			table = studentTable,
 			host = studentHost,
-			color = Color("students")
+			taint = Taint("students")
 		)
 
 		val q =
@@ -260,7 +260,7 @@ class TestRemote extends UniversityTestData {
 
 
 		//Close context
-		queryEnvironment.close()
+		env.close()
 	}
 
 
@@ -269,7 +269,7 @@ class TestRemote extends UniversityTestData {
 /*	def testRemoteAirports(): Unit = {
 		import idb.syntax.iql.IR._
 
-		implicit val queryEnvironment = QueryEnvironment.create(
+		implicit val env = QueryEnvironment.create(
 			actorSystem = ActorSystem("test")
 		)
 

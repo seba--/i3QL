@@ -51,7 +51,7 @@ class TestBasicClauses3
 
     @Test
     def testCrossProduct3 () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT ((s : Rep[Student], r : Rep[Registration], c : Rep[Course]) => (s,r,c)) FROM (students, registrations, courses)
         )
@@ -72,7 +72,7 @@ class TestBasicClauses3
 
     @Test
     def testCrossProduct3Selection1st () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, registrations, courses) WHERE (
                 (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
@@ -100,7 +100,7 @@ class TestBasicClauses3
 
     @Test
     def testCrossProduct3Selection1stAnd2nd () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, registrations, courses) WHERE (
                 (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
@@ -136,7 +136,7 @@ class TestBasicClauses3
     @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rd () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (*) FROM(students, registrations, courses) WHERE (
                 (s: Rep[Student], r: Rep[Registration], c: Rep[Course]) => {
@@ -176,7 +176,7 @@ class TestBasicClauses3
     @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3rdInterleaved () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query =
             plan (
                 SELECT (*) FROM(students, registrations, courses) WHERE (
@@ -228,7 +228,7 @@ class TestBasicClauses3
     @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndCombined () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query =
             plan (
                 SELECT (*) FROM(students, registrations, courses) WHERE (
@@ -266,7 +266,7 @@ class TestBasicClauses3
     @Ignore
     @Test
     def testCrossProduct3Selection1stAnd2ndAnd3ndCombined () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query =
             plan (
                 SELECT (*) FROM(students, registrations, courses) WHERE (
@@ -300,7 +300,7 @@ class TestBasicClauses3
     @Ignore
     @Test
     def testJoin3On1stAnd2nd () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query =
             plan (
                 SELECT (*) FROM(students, registrations, courses) WHERE (
@@ -338,7 +338,7 @@ class TestBasicClauses3
     @Ignore
     @Test
     def testJoin3On1stAnd2ndPlusOn2ndAnd3rd () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query =
             plan (
                 SELECT (*) FROM(students, registrations, courses) WHERE (

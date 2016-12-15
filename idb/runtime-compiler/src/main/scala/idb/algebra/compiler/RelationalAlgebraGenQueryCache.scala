@@ -32,7 +32,10 @@
  */
 package idb.algebra.compiler
 
+import idb.algebra.RelationalAlgebraIROperatorsPackage
 import idb.algebra.ir.RelationalAlgebraIRBase
+
+import scala.virtualization.lms.common.FunctionsExp
 
 
 /**
@@ -43,7 +46,8 @@ trait RelationalAlgebraGenQueryCache
     extends RelationalAlgebraGenBaseAsIncremental
 {
 
-    val IR: RelationalAlgebraIRBase with RelationalAlgebraSAEBinding
+    val IR: RelationalAlgebraIROperatorsPackage
+        with RelationalAlgebraSAEBinding
 
     import IR._
 

@@ -2,9 +2,7 @@ package idb.benchmark
 
 import idb.Relation
 import scala.collection.mutable
-/**
-  * Created by mirko on 25.10.16.
-  */
+
 class DelayEvaluator[Domain](
 	val relation : Relation[Domain],
 	val sendTimeOf : Domain => Long,

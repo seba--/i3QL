@@ -10,7 +10,7 @@ import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
-import idb.query.colors._
+import idb.query.taint._
 import idb.syntax.iql.compilation.{CompilerBinding, RemoteUtils}
 import idb.util.PrintEvents
 
@@ -73,11 +73,11 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 				// will send the Selection to node 1 and receive the final results
 				enterBarrier("deployed")
 				Predef.println("### DEPLOYED ###")
-				val table : Rep[Query[Int]] = REMOTE GET [Int] (host1, "db", Color("red"))
+				val table : Rep[Query[Int]] = REMOTE GET [Int] (host1, "db", Taint("red"))
 
-				val q1 : Rep[Query[Int]] = SELECT (*) FROM RECLASS (table, Color("red")) WHERE ((i : Rep[Int]) => i > 4)
-				val q2 : Rep[Query[Int]] = SELECT ((i : Rep[Int]) => i * 10) FROM RECLASS (q1, Color("blue"))
-				val q3 : Rep[Query[Int]] = RECLASS(q2, Color("blue"))
+				val q1 : Rep[Query[Int]] = SELECT (*) FROM RECLASS (table, Taint("red")) WHERE ((i : Rep[Int]) => i > 4)
+				val q2 : Rep[Query[Int]] = SELECT ((i : Rep[Int]) => i * 10) FROM RECLASS (q1, Taint("blue"))
+				val q3 : Rep[Query[Int]] = RECLASS(q2, Taint("blue"))
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {

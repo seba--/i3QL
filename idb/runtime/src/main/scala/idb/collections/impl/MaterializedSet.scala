@@ -82,5 +82,5 @@ class MaterializedSet[V](val relation: Relation[V])
     out.println(prefix + ")")
   }
 
-  override protected def resetInternal(): Unit = clear()
+  override protected[idb] def resetInternal(): Unit = clear()
 }

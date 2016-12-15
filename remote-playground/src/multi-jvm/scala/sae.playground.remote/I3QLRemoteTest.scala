@@ -12,7 +12,7 @@ import idb.operators.impl.{ProjectionView, SelectionView}
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
-import idb.query.colors._
+import idb.query.taint._
 import idb.syntax.iql.RECLASS
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
@@ -75,22 +75,22 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 
 				//FIXME: Why do we have to explicitly specify the type here?
 				val table : Rep[Query[Int]] =
-						REMOTE GET [Int] (host1, "db", Color("red"))
+						REMOTE GET [Int] (host1, "db", Taint("red"))
 
-				val q1 = SELECT (*) FROM RECLASS(table, Color("red")) WHERE ((i : Rep[Int]) => i > 2)
+				val q1 = SELECT (*) FROM RECLASS(table, Taint("red")) WHERE ((i : Rep[Int]) => i > 2)
 					//SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS(table, Color("blue"))
 
 				val q2_0 = //RECLASS(q1, Color("blue"))
 					q1
 
-				val q2 = SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS (q2_0, Color("blue"))
+				val q2 = SELECT ((i : Rep[Int]) => i + 2) FROM RECLASS (q2_0, Taint("blue"))
 						//SELECT ((i : Rep[Int]) => i.doubleValue())
 						//SELECT (*)
 
-				val q3_0 = RECLASS(q2, Color("red"))
+				val q3_0 = RECLASS(q2, Taint("red"))
 					//q2
 
-				val q3 = ROOT (host2, RECLASS(q3_0, Color("blue")))
+				val q3 = ROOT (host2, RECLASS(q3_0, Taint("blue")))
 
 				val printer = new RelationalAlgebraPrintPlan {
 					override val IR = idb.syntax.iql.IR

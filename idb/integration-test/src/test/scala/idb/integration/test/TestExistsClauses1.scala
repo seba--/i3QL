@@ -55,7 +55,7 @@ class TestExistsClauses1
 	//@Ignore
     @Test
     def testExists () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
         val result = compile (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>
@@ -95,7 +95,7 @@ class TestExistsClauses1
 	@Ignore
     @Test
     def testNotExists () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
         val result = compile (
             SELECT (*) FROM students WHERE ((s: Rep[Student]) =>

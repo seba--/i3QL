@@ -50,7 +50,7 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
     override def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         (relationA, relationB) match {
             // a ∩ a = a
             case (a, b) if a == b =>
@@ -75,7 +75,7 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
     override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         ((relationA, relationB) match {
 
             // a ∪ a = a
@@ -114,7 +114,7 @@ trait RelationalAlgebraIROptSimplifySetTheoryOps
     override def difference[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         (relationA, relationB) match {
 
             // (a - b) - (c - d) = a - ((b ∪ c) - d)

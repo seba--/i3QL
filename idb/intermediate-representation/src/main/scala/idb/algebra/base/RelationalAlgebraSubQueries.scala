@@ -68,6 +68,6 @@ trait RelationalAlgebraSubQueries
         subQuery: SubQuery[Domain],
         planSubQueryWithContext: (SubQuery[Domain], Rep[Query[ContextDomain]],
             Rep[ContextDomain]) => Rep[Query[ContextDomain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Boolean]
+    )(implicit env : QueryEnvironment): Rep[Boolean]
 
 }

@@ -53,7 +53,7 @@ class TestRecursionClauses
 	@Ignore
     @Test
     def testTransitiveClosureAsRecursion () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
        	//Union is not recognized as recursion step
         val query =
             WITH RECURSIVE (

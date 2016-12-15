@@ -47,7 +47,7 @@ object UNNEST
     def apply[Domain: Manifest, Range: Manifest] (
         query: Rep[Query[Domain]],
         unnesting: Rep[Domain] => Rep[Traversable[Range]]
-    )(implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default) : Rep[Query[(Domain,Range)]] =
+    )(implicit env : QueryEnvironment = QueryEnvironment.Default) : Rep[Query[(Domain,Range)]] =
         unnest (query, unnesting)
 
 }

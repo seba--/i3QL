@@ -55,7 +55,7 @@ case class RecursiveBase[Domain](relation: Relation[Domain],
 
 
 
-  override protected def resetInternal(): Unit = ???
+  override protected[idb] def resetInternal(): Unit = ???
 
 
   override def added(v: Domain) {

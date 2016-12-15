@@ -36,7 +36,7 @@ package idb.algebra.ir
 import idb.algebra.base.RelationalAlgebraBase
 import idb.algebra.exceptions.NoServerAvailableException
 import idb.query._
-import idb.query.colors.Color
+import idb.query.taint.Taint
 
 import scala.language.higherKinds
 import scala.virtualization.lms.common.BaseExp
@@ -54,23 +54,9 @@ trait RelationalAlgebraIRBase
 {
     type Query[Domain] = QueryBase[Domain]
 
-    trait QueryBaseOps
-    {
-
+    trait QueryBaseOps {
         def isSet: Boolean
-
-        def isIncrementLocal: Boolean
-
-        /**
-         * A query is materialized, if the elements of the underlying relation are stored and can be accessed by
-         * foreach.
-         * @return True, if the query is materialized.
-         */
-        def isMaterialized: Boolean
-
-		def color : Color
-
-		def host : Host
+ 		def host : Host
     }
 
     abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps
@@ -90,11 +76,9 @@ trait RelationalAlgebraIRBase
 
 
 	case class QueryTable[Domain] (
-        table: Table[Domain],
-        isSet: Boolean = false,
-        isIncrementLocal: Boolean = false,
-        isMaterialized: Boolean = false,
-		color : Color,
+		table: Table[Domain],
+		isSet: Boolean = false,
+		taint : Taint,
 		host : Host
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
@@ -103,14 +87,11 @@ trait RelationalAlgebraIRBase
 	}
 
 	case class QueryRelation[Domain] (
-        relation: Relation[Domain],
-        isSet: Boolean = false,
-        isIncrementLocal: Boolean = false,
-        isMaterialized: Boolean = false,
-		color : Color,
+		relation: Relation[Domain],
+		isSet: Boolean = false,
+		taint : Taint,
 		host : Host
-    )
-            (implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
+	)(implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps
 
 	case class Materialize[Domain : Manifest] (
@@ -118,8 +99,6 @@ trait RelationalAlgebraIRBase
 	) extends Def[Query[Domain]] with QueryBaseOps {
 		def isMaterialized: Boolean = true //Materialization is always materialized
 		def isSet = false
-		def isIncrementLocal = false
-		def color = relation.color
 		def host = relation.host
 	}
 
@@ -127,10 +106,7 @@ trait RelationalAlgebraIRBase
 		relation : Rep[Query[Domain]],
 		host : Host
 	) extends Def[Query[Domain]] with QueryBaseOps {
-		def isMaterialized: Boolean = relation.isMaterialized
 		def isSet = relation.isSet
-		def isIncrementLocal = relation.isIncrementLocal
-		def color = Color.NO_COLOR //Root node never has any taints
 	}
 
 	//This version checks the type of the table for the annotation instead of the table itself
@@ -138,39 +114,22 @@ trait RelationalAlgebraIRBase
 //		m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
 //	}
 
-	protected def isIncrementLocal (m: Any) : Boolean = {
-//		m.getClass.getAnnotation(classOf[LocalIncrement]) != null
-		false
-	}
-
-/*	protected def getRemote(m : Any) : (Color, Host) = {
-		val annotation = m.getClass.getAnnotation(classOf[Remote])
-
-		if (annotation == null)
-			(Color.NO_COLOR, LocalHost)
-		else
-			(_, RemoteHost(annotation.host()))
-	}      */
-
-
 
     /**
      * Wraps an table as a leaf in the query tree
      */
-    override def table[Domain] (table: Table[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR, host : Host = Host.local)(
+    override def table[Domain](table: Table[Domain], isSet: Boolean = false, taint : Taint = Taint.NO_TAINT, host : Host = Host.local)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Table[Domain]],
-		queryEnvironment : QueryEnvironment
+		env : QueryEnvironment
     ): Rep[Query[Domain]] = {
 
-		//val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(table) else Color.NO_COLOR
+		//val c : Color = if (taint == Color.NO_TAINT) getColorAnnotation(table) else Color.NO_TAINT
 
 		val t = QueryTable (
 			table,
 			isSet = isSet,
-			isIncrementLocal = isIncrementLocal (mDom),
-			isMaterialized = false,
-			color = color,
+			taint = taint,
 			host = host
 		)
 		t
@@ -181,40 +140,31 @@ trait RelationalAlgebraIRBase
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
-    override def relation[Domain] (relation: Relation[Domain], isSet: Boolean = false, color : Color = Color.NO_COLOR, host : Host = Host.local)(
+    override def relation[Domain](relation: Relation[Domain], isSet: Boolean = false, taint : Taint = Taint.NO_TAINT, host : Host = Host.local)(
         implicit mDom: Manifest[Domain],
         mRel: Manifest[Relation[Domain]],
-		queryEnvironment : QueryEnvironment
+		env : QueryEnvironment
     ): Rep[Query[Domain]] = {
 
-		//val c : Color = if (color == Color.NO_COLOR) getColorAnnotation(relation) else Color.NO_COLOR
+		//val c : Color = if (taint == Color.NO_TAINT) getColorAnnotation(relation) else Color.NO_TAINT
 		val t = QueryRelation (
 			relation,
 			isSet = isSet,
-			isIncrementLocal = isIncrementLocal (mDom),
-			isMaterialized = false,
-			color = color,
+			taint = taint,
 			host = host
 		)
 		t
 	}
-		
-
 
 	override def materialize[Domain : Manifest] (
 		relation : Rep[Query[Domain]]
-	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] =
+	)(implicit env : QueryEnvironment) : Rep[Query[Domain]] =
 		Materialize(relation)
-
-
-
-
-
 
 	override def root[Domain : Manifest] (
 		relation : Rep[Query[Domain]],
 		host : Host
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]] =
 		Root(relation, host)
 
 

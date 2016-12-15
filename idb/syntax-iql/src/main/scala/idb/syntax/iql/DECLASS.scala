@@ -1,7 +1,7 @@
 package idb.syntax.iql
 
 import idb.query.QueryEnvironment
-import idb.query.colors.{Color, StringColor}
+import idb.query.taint.TaintId
 import idb.syntax.iql.IR._
 
 /**
@@ -10,14 +10,14 @@ import idb.syntax.iql.IR._
 object DECLASS {
 
 	def apply[Domain : Manifest](
-		relation : Rep[Query[Domain]] ,
-		colors : String*
-	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] =
-		DECLASS(relation, colors.toSet)
+		relation : Rep[Query[Domain]],
+		taints : String*
+	)(implicit env : QueryEnvironment) : Rep[Query[Domain]] =
+		DECLASS(relation, taints.toSet)
 
 	def apply[Domain : Manifest](
-		relation : Rep[Query[Domain]] ,
-		colors : Set[String]
-	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] =
-		declassification(relation, colors.map(s => StringColor(s)))
+		relation : Rep[Query[Domain]],
+		taints : Set[String]
+	)(implicit env : QueryEnvironment) : Rep[Query[Domain]] =
+		declassification(relation, taints.map(s => TaintId(s)))
 }

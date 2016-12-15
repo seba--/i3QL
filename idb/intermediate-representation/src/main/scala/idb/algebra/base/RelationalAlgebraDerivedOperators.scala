@@ -53,7 +53,7 @@ trait RelationalAlgebraDerivedOperators
     def naturalJoin[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         projection (
             selection (
                 crossProduct (relationA, relationB),
@@ -68,7 +68,7 @@ trait RelationalAlgebraDerivedOperators
         relationB: Rep[Query[DomainB]],
         keyA: Rep[DomainA => Any],
         keyB: Rep[DomainB => Any]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[DomainA]] =
+    )(implicit env : QueryEnvironment): Rep[Query[DomainA]] =
         projection (
             equiJoin (
                 relationA,
@@ -89,7 +89,7 @@ trait RelationalAlgebraDerivedOperators
         relationB: Rep[Query[DomainB]],
         keyA: Rep[DomainA => Any],
         keyB: Rep[DomainB => Any]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[DomainA]] =
+    )(implicit env : QueryEnvironment): Rep[Query[DomainA]] =
         difference (
             relationA,
             semiJoin (

@@ -4,9 +4,6 @@ import akka.actor.Actor
 import idb.observer.{NotifyObservers, Observable, Observer}
 import idb.remote._
 
-/**
-  * Created by mirko on 19.10.16.
-  */
 class ReceiveActorAdapter[Domain](observers : Seq[Observer[Domain]]) extends Actor with Observable[Domain] with NotifyObservers[Domain] {
 
 	def this(obs : Observer[Domain]) = this(Seq(obs))

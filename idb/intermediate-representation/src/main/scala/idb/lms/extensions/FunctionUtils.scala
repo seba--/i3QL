@@ -34,7 +34,7 @@ package idb.lms.extensions
 
 
 import idb.lms.extensions.print.QuoteFunction
-import idb.query.colors._
+import idb.query.taint._
 
 import scala.virtualization.lms.common._
 import scala.reflect.SourceContext

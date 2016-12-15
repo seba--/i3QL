@@ -4,9 +4,6 @@ import idb.schema.{Benchmarkable, BenchmarkableSchema}
 
 import scala.virtualization.lms.common.StructExp
 
-/**
-  * Created by mirko on 07.11.16.
-  */
 case class Component(id : Int, name : String, material : String)
 	extends Nameable with Benchmarkable
 

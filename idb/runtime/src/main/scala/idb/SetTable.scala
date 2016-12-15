@@ -44,7 +44,7 @@ class SetTable[V]
      */
     def isSet: Boolean = true
 
-    override protected def resetInternal(): Unit = {
+    override protected[idb] def resetInternal(): Unit = {
 
     }
 }

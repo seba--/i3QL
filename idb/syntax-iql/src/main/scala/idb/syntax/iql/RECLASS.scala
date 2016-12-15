@@ -1,7 +1,7 @@
 package idb.syntax.iql
 
 import idb.query.QueryEnvironment
-import idb.query.colors.Color
+import idb.query.taint.Taint
 import idb.syntax.iql.IR._
 
 /**
@@ -10,8 +10,8 @@ import idb.syntax.iql.IR._
 object RECLASS {
 
 	def apply[Domain : Manifest](
-		relation : Rep[Query[Domain]] ,
-		newColor : Color
-	)(implicit queryEnvironment : QueryEnvironment) : Rep[Query[Domain]] =
-		reclassification(relation, newColor)
+		relation : Rep[Query[Domain]],
+		newTaint : Taint
+	)(implicit env : QueryEnvironment) : Rep[Query[Domain]] =
+		reclassification(relation, newTaint)
 }

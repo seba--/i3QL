@@ -96,7 +96,7 @@ class TransitiveClosureViewAcyclicGraphStore[Edge, Vertex](val source: Relation[
     Nil
   }
 
-  override protected def resetInternal(): Unit = ???
+  override protected[idb] def resetInternal(): Unit = ???
 
 
   /**

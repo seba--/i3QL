@@ -45,7 +45,7 @@ import idb.syntax.iql.IR._
  */
 trait ClassDependencies
 {
-	private implicit val queryEnvironment = QueryEnvironment.Default
+	private implicit val env = QueryEnvironment.Default
 
     def classDependencies (database: BytecodeDatabase): Rep[Query[Dependency[database.ObjectType]]] = {
         import database._

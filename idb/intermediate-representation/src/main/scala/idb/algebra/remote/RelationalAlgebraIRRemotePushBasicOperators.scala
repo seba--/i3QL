@@ -13,7 +13,7 @@ trait RelationalAlgebraIRRemotePushBasicOperators
 	override def selection[Domain: Manifest] (
 		relation: Rep[Query[Domain]],
 		function: Rep[Domain => Boolean]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = relation match {
+	)(implicit env : QueryEnvironment): Rep[Query[Domain]] = relation match {
 		case Def(Remote(rel, newHost)) => remote(selection(rel, function), newHost)
 		case _ => super.selection(relation, function)
 	}
@@ -21,7 +21,7 @@ trait RelationalAlgebraIRRemotePushBasicOperators
 	override def projection[Domain: Manifest, Range: Manifest] (
 		relation: Rep[Query[Domain]],
 		function: Rep[Domain => Range]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] = relation match {
+	)(implicit env : QueryEnvironment): Rep[Query[Range]] = relation match {
 		case Def(Remote(rel, newHost)) => remote(projection(rel, function), newHost)
 		case _ => super.projection(relation, function)
 	}

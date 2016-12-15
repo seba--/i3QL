@@ -28,7 +28,7 @@ class TestEquiJoin extends UniversityTestData {
 
 	@Test
 	def testQuery2 () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		//Initialize query
 		val queryUncompiled = plan(

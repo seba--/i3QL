@@ -48,40 +48,40 @@ trait RelationalAlgebraIROptPushSetTheoryOps
     override def intersection[Domain: Manifest] (
         relationA: Rep[Query[Domain]],
         relationB: Rep[Query[Domain]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         ((relationA, relationB) match {
             // Π_f(a) ∩ Π_f(b) => Π_f(a ∩ b)
             case (Def (Projection (a, fa)), Def (Projection (b, fb))) if fa == fb =>
-                projection (intersection (a, b)(domainOf (a), queryEnvironment), fa)
+                projection (intersection (a, b)(domainOf (a), env), fa)
 
             //  (a × b) ∩ (c × d) => (a ∩ c) × (b ∩ d)
             case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
                 crossProduct (
-                    intersection (a, c)(domainOf (a), queryEnvironment),
-                    intersection (b, d)(domainOf (b), queryEnvironment)
+                    intersection (a, c)(domainOf (a), env),
+                    intersection (b, d)(domainOf (b), env)
                 )
 
             //  (a × b) ∩ (c ⋈ d) => (a ∩ c) ⋈ (b ∩ d)
             case (Def (CrossProduct (a, b)), Def (EquiJoin (c, d, l))) =>
                 equiJoin (
-                    intersection (a, c)(domainOf (a), queryEnvironment),
-                    intersection (b, d)(domainOf (b), queryEnvironment),
+                    intersection (a, c)(domainOf (a), env),
+                    intersection (b, d)(domainOf (b), env),
                     l
                 )
 
             //  (a ⋈ b) ∩ (c × d) => (a ∩ c) ⋈ (b ∩ d)
             case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
                 equiJoin (
-                    intersection (a, c)(domainOf (a), queryEnvironment),
-                    intersection (b, d)(domainOf (b), queryEnvironment),
+                    intersection (a, c)(domainOf (a), env),
+                    intersection (b, d)(domainOf (b), env),
                     l
                 )
 
             //  (a ⋈ b) ∩ (c ⋈ d) => (a ∩ c) ⋈ (b ∩ d)
             case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
                 equiJoin (
-                    intersection (a, c)(domainOf (a), queryEnvironment),
-                    intersection (b, d)(domainOf (b), queryEnvironment),
+                    intersection (a, c)(domainOf (a), env),
+                    intersection (b, d)(domainOf (b), env),
                     l1 ::: l2
                 )
 
@@ -94,7 +94,7 @@ trait RelationalAlgebraIROptPushSetTheoryOps
     override def unionMax[DomainA <: Range : Manifest, DomainB <: Range : Manifest, Range: Manifest] (
         relationA: Rep[Query[DomainA]],
         relationB: Rep[Query[DomainB]]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+    )(implicit env : QueryEnvironment): Rep[Query[Range]] =
         ((relationA, relationB) match {
             /*
             // Π_f(a) ∪ Π_f(b) => Π_f(a ∪ b)
@@ -107,31 +107,31 @@ trait RelationalAlgebraIROptPushSetTheoryOps
             //  (a × b) ∪ (c × d) => (a ∪ c) × (b ∪ d)
             case (Def (CrossProduct (a, b)), Def (CrossProduct (c, d))) =>
                 crossProduct (
-                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment),
-                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment)
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env)
                 )
 
             //  (a × b) ∪ (c ⋈ d) => (a ∪ c) ⋈ (b ∪ d)
             case (Def (CrossProduct (a, b)), Def (EquiJoin (c, d, l))) =>
                 equiJoin (
-                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment),
-                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment),
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env),
                     l
                 )
 
             //  (a ⋈ b) ∪ (c × d) => (a ∪ c) ⋈ (b ∪ d)
             case (Def (EquiJoin (a, b, l)), Def (CrossProduct (c, d))) =>
                 equiJoin (
-                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment),
-                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment),
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env),
                     l
                 )
 
             //  (a ⋈ b) ∪ (c ⋈ d) => (a ∪ c) ⋈ (b ∪ d)
             case (Def (EquiJoin (a, b, l1)), Def (EquiJoin (c, d, l2))) =>
                 equiJoin (
-                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment),
-                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], queryEnvironment),
+                    unionMax (a, c)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env),
+                    unionMax (b, d)(domainOf (a), domainOf (b), manifest[Range].asInstanceOf[Manifest[Any]], env),
                     l1 ::: l2
                 )
 

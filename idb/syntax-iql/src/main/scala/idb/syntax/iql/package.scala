@@ -51,50 +51,50 @@ package object iql
     implicit def tableToQuery[Domain] (ext: Table[Domain])(
         implicit mDom: Manifest[Domain],
         mExt: Manifest[Table[Domain]],
-	    queryEnvironment : QueryEnvironment
+	    env : QueryEnvironment
     ): Rep[Query[Domain]] = table (ext)
 
 
     implicit def relationToQuery[Domain] (rel: Relation[Domain])(
         implicit mDom: Manifest[Domain],
         mExt: Manifest[Relation[Domain]],
-		queryEnvironment : QueryEnvironment
+		env : QueryEnvironment
     ): Rep[Query[Domain]] = relation (rel)
 
 
     case class QueryInfixOps[Range: Manifest] (query: Rep[Query[Range]])
     {
 		//TODO No default parameter for environment because of nameclash with union all
-        def UNION[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]])(implicit queryEnvironment : QueryEnvironment): Rep[Query[Range]] =
+        def UNION[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]])(implicit env : QueryEnvironment): Rep[Query[Range]] =
             unionMax (query, other)
 
-		def INTERSECT[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]])(implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default): Rep[Query[Range]] =
+		def INTERSECT[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]])(implicit env : QueryEnvironment = QueryEnvironment.Default): Rep[Query[Range]] =
 			intersection (query, other)
 
-		def EXCEPT[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]])(implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default): Rep[Query[Range]] =
+		def EXCEPT[OtherRange <: Range : Manifest] (other: Rep[Query[OtherRange]])(implicit env : QueryEnvironment = QueryEnvironment.Default): Rep[Query[Range]] =
 			difference (query, other)
 
-        def UNION[OtherRange <: Range : Manifest]  (all: ALL_QUERY[OtherRange])(implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default): Rep[Query[Range]] =
+        def UNION[OtherRange <: Range : Manifest]  (all: ALL_QUERY[OtherRange])(implicit env : QueryEnvironment = QueryEnvironment.Default): Rep[Query[Range]] =
             unionAdd (query, all.query)
     }
 
     implicit def queryToInfixOps[Range: Manifest] (query: Rep[Query[Range]]) : QueryInfixOps[Range] =
         QueryInfixOps (query)
 
-    implicit def relationToInfixOps[Range: Manifest] (query: Relation[Range])(implicit queryEnvironment: QueryEnvironment = QueryEnvironment.Default) : QueryInfixOps[Range] =
+    implicit def relationToInfixOps[Range: Manifest] (query: Relation[Range])(implicit env: QueryEnvironment = QueryEnvironment.Default) : QueryInfixOps[Range] =
         QueryInfixOps (relation (query))
 
 
     implicit def clause1ToInfixOps[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
-    )(implicit queryEnvironment : QueryEnvironment) : QueryInfixOps[Range] = queryToInfixOps (plan (clause))
+    )(implicit env : QueryEnvironment) : QueryInfixOps[Range] = queryToInfixOps (plan (clause))
 
     implicit def clause2ToInfixOps[Select: Manifest, DomainA <: GroupDomainA : Manifest,
     DomainB <: GroupDomainB : Manifest, GroupDomainA: Manifest, GroupDomainB: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest] (
         clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
-    )(implicit queryEnvironment : QueryEnvironment) : QueryInfixOps[Range] = queryToInfixOps (plan (clause))
+    )(implicit env : QueryEnvironment) : QueryInfixOps[Range] = queryToInfixOps (plan (clause))
 
     def planWithContext[Select: Manifest, Domain <: GroupDomain : Manifest, GroupDomain: Manifest,
     GroupRange <: Select : Manifest, Range: Manifest, ContextRange] (
@@ -103,12 +103,12 @@ package object iql
         context: Rep[Query[ContextRange]],
         contextParameter: Rep[ContextRange],
         contextManifest: Manifest[ContextRange]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[ContextRange]] = {
+    )(implicit env : QueryEnvironment): Rep[Query[ContextRange]] = {
         SubQueryToAlgebra (
             clause, context, contextParameter
         )(
             implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[GroupDomain]],
-            implicitly[Manifest[GroupRange]], implicitly[Manifest[Range]], contextManifest, queryEnvironment
+            implicitly[Manifest[GroupRange]], implicitly[Manifest[Range]], contextManifest, env
         )
     }
 
@@ -122,13 +122,13 @@ package object iql
         subQuery: SubQuery[Range],
         context: Rep[Query[ContextRange]],
         contextParameter: Rep[ContextRange]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[ContextRange]] = subQuery match {
+    )(implicit env : QueryEnvironment): Rep[Query[ContextRange]] = subQuery match {
         case q1: IQL_QUERY_1[Select@unchecked, Domain@unchecked, GroupDomain@unchecked, GroupRange@unchecked,
             Range@unchecked] =>
             SubQueryToAlgebra (
                 q1, context, contextParameter
             )(
-                selectType, domainType, groupDomainType, groupRangeType, rangeType, contextParameter.tp, queryEnvironment
+                selectType, domainType, groupDomainType, groupRangeType, rangeType, contextParameter.tp, env
             )
         case _ => throw new UnsupportedOperationException
     }
@@ -149,7 +149,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Rep[Query[Range]] =
 		ClauseToAlgebra (clause)
 
@@ -164,7 +164,7 @@ package object iql
     ] (
         clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
     )(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
@@ -183,7 +183,7 @@ package object iql
         clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
             Range]
     )(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
@@ -203,7 +203,7 @@ package object iql
         clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
             GroupDomainD, GroupRange, Range]
     )(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
@@ -225,7 +225,7 @@ package object iql
         clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
             GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
     )(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Rep[Query[Range]] =
         ClauseToAlgebra (clause)
 
@@ -329,7 +329,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Rep[Query[Range]] =
 		plan(clause)
 
@@ -344,7 +344,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Rep[Query[Range]] =
 		plan(clause)
 
@@ -362,7 +362,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Rep[Query[Range]] =
 		plan(clause)
 
@@ -381,7 +381,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,GroupDomainD, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Rep[Query[Range]] =
 		plan(clause)
 
@@ -402,7 +402,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Rep[Query[Range]] =
 		plan(clause)
 
@@ -413,7 +413,7 @@ package object iql
 	def compile[Range: Manifest] (
 		query: Rep[Query[Range]]
 	)(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Relation[Range] = {
 		val res = CompilerBinding.compile (query)
 		res
@@ -428,7 +428,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Relation[Range] =
 		compile (plan (clause))
 
@@ -441,7 +441,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Relation[Range] =
 		compile (plan (clause))
 
@@ -459,7 +459,7 @@ package object iql
   		clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,
 			  Range]
   	)(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Relation[Range] =
 		compile (plan (clause))
 
@@ -479,7 +479,7 @@ package object iql
 		clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,
 			  GroupDomainD, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Relation[Range] =
 		compile (plan (clause))
 
@@ -501,7 +501,7 @@ package object iql
 		  clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,
 			  GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
   	)(
-		implicit queryEnvironment : QueryEnvironment
+		implicit env : QueryEnvironment
 	): Relation[Range] =
 		compile (plan (clause))
 
@@ -597,7 +597,7 @@ package object iql
 	implicit def implicitCompileRep[Range: Manifest] (
 		query: Rep[Query[Range]]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Relation[Range] = {
 		compile (query)
 	}
@@ -611,7 +611,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Relation[Range] =
 		compile (clause)
 
@@ -624,7 +624,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_2[Select, DomainA, DomainB, GroupDomainA, GroupDomainB, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Relation[Range] =
 		compile (clause)
 
@@ -641,7 +641,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_3[Select, DomainA, DomainB, DomainC, GroupDomainA, GroupDomainB, GroupDomainC, GroupRange,Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Relation[Range] =
 		compile (clause)
 
@@ -660,7 +660,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_4[Select, DomainA, DomainB, DomainC, DomainD, GroupDomainA, GroupDomainB, GroupDomainC,GroupDomainD, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Relation[Range] =
 		compile (clause)
 
@@ -681,7 +681,7 @@ package object iql
 	] (
 		clause: IQL_QUERY_5[Select, DomainA, DomainB, DomainC, DomainD, DomainE, GroupDomainA, GroupDomainB,GroupDomainC, GroupDomainD, GroupDomainE, GroupRange, Range]
 	)(
-		implicit queryEnvironment : QueryEnvironment = QueryEnvironment.Default
+		implicit env : QueryEnvironment = QueryEnvironment.Default
 	): Relation[Range] =
 		compile (clause)
 

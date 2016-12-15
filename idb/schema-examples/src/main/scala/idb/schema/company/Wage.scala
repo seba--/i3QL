@@ -5,9 +5,6 @@ import idb.schema.{Benchmarkable, BenchmarkableSchema}
 import scala.virtualization.lms.common.StructExp
 import scala.language.implicitConversions
 
-/**
-  * Created by mirko on 07.11.16.
-  */
 case class Wage(employeeId : Int, wagePerHour : Double, hoursPerMonth : Double)
 	extends Benchmarkable
 

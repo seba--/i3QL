@@ -54,11 +54,11 @@ trait RelationalAlgebraIROptCreateJoin
     override def selection[Domain: Manifest] (
         relation: Rep[Query[Domain]],
         function: Rep[Domain => Boolean]
-    )(implicit queryEnvironment : QueryEnvironment): Rep[Query[Domain]] = {
+    )(implicit env : QueryEnvironment): Rep[Query[Domain]] = {
         (relation match {
             // rewrite a selection with a function of the form (a, b) => exprOf(a) == exprOf(b) into a join
 			case Def(c@CrossProduct(a, b)) if isDisjunctiveParameterEquality(function)(c.mDomA, c.mDomB) => {
-					equiJoin(a, b, scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, queryEnvironment)
+					equiJoin(a, b, scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))(c.mDomA, c.mDomB, env)
 			}
 
 			// add further equality tests to the join
@@ -67,7 +67,7 @@ trait RelationalAlgebraIROptCreateJoin
 					a,
 					b,
 					xs.:::(scala.List(createEqualityFunctions(function)(c.mDomA, c.mDomB)))
-				)(c.mDomA, c.mDomB, queryEnvironment)
+				)(c.mDomA, c.mDomB, env)
 
             case _ => super.selection (relation, function)
         }).asInstanceOf[Rep[Query[Domain]]]

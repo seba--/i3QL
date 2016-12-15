@@ -50,7 +50,7 @@ class TestAggregateClauses1
 {
 	@Test
 	def testAggregateCountStudents () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
 			SELECT (COUNT ((s : Rep[Student]) => s.lastName)) FROM students
 		)
@@ -70,7 +70,7 @@ class TestAggregateClauses1
 
 	@Test
     def testAggregateCountStar () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
             SELECT (COUNT (*)) FROM students
         )
@@ -90,7 +90,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateSumCreditPoints () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
             SELECT (SUM ((c: Rep[Course]) => c.creditPoints)) FROM courses
         )
@@ -109,7 +109,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateCountStudentNames () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
             SELECT (COUNT ((s: Rep[Student]) => s.lastName)) FROM students
         )
@@ -129,7 +129,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateGroup1 () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
             SELECT ((s: Rep[String]) => s) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
@@ -146,7 +146,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateGroup2 () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
             SELECT (
                 (firstName : Rep[String], lastName : Rep[String]) => firstName + " " + lastName
@@ -168,7 +168,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateGroupCountStar () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
             SELECT (COUNT (*)) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
@@ -190,7 +190,7 @@ class TestAggregateClauses1
 
 	@Test
 	def testAggregateGroupCountWithGroup () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 		val query = plan (
 			SELECT ((s: Rep[String]) => s, COUNT ((s : Rep[Student]) => s) ) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
 		)
@@ -212,7 +212,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateGroupCountStarWithGroup () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
@@ -235,7 +235,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateSumMatriulationNumberWithGroup () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[String]) => s, SUM ( (s:Rep[Student]) => s.matriculationNumber)) FROM students GROUP BY ((s: Rep[Student]) => s.lastName)
         )
@@ -259,7 +259,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateGroupWithWhere () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[String]) => s) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
                 (s: Rep[Student]) => s.lastName)
@@ -280,7 +280,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateGroupCountStarWithWhere () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
                 (s: Rep[Student]) => s.lastName)
@@ -305,7 +305,7 @@ class TestAggregateClauses1
 
     @Test
     def testAggregateGroupCountStarWithGroupWithWhere () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[String]) => s, COUNT (*)) FROM students WHERE (_.matriculationNumber > 10000) GROUP BY (
                 (s: Rep[Student]) => s.lastName)

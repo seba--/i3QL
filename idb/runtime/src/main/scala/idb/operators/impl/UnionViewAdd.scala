@@ -40,87 +40,88 @@ import idb.observer.{Observable, NotifyObservers, Observer}
 /**
  * A self maintained union, that produces count(A) + count(B) duplicates for underlying relations A and B
  */
-class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](val left: Relation[DomainA],
-                                                              val right: Relation[DomainB],
-                                                              override val isSet: Boolean)
-  extends Union[Range, DomainA, DomainB]
-  with NotifyObservers[Range] {
+case class UnionViewAdd[Range, DomainA <: Range, DomainB <: Range](
+	left: Relation[DomainA],
+	right: Relation[DomainB],
+	override val isSet: Boolean
+) extends Union[Range, DomainA, DomainB]
+	with NotifyObservers[Range] {
 
-  left addObserver LeftObserver
-  right addObserver RightObserver
+	left addObserver LeftObserver
+	right addObserver RightObserver
 
-  override protected def resetInternal(): Unit = {
+	override protected[idb] def resetInternal(): Unit = {
 
-  }
-
-
-  override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
-    if (o == left) {
-      return List(LeftObserver)
-    }
-    if (o == right) {
-      return List(RightObserver)
-    }
-    Nil
-  }
-
-  /**
-   * Applies f to all elements of the view.
-   */
-  def foreach[T](f: (Range) => T) {
-    left.foreach(f)
-    right.foreach(f)
-  }
-
-  object LeftObserver extends Observer[DomainA] {
-
-    override def updated(oldV: DomainA, newV: DomainA) {
-      removed(oldV)
-      added(newV)
-    }
-
-    override def removed(v: DomainA) {
-      notify_removed(v)
-    }
-
-    override def removedAll(vs: Seq[DomainA]): Unit = {
-      notify_removedAll(vs)
-    }
-
-    override def added(v: DomainA) {
-      notify_added(v)
-    }
-
-    override def addedAll(vs: Seq[DomainA]) {
-      notify_addedAll(vs)
-    }
+	}
 
 
-  }
+	override protected def childObservers(o: Observable[_]): Seq[Observer[_]] = {
+		if (o == left) {
+			return List(LeftObserver)
+		}
+		if (o == right) {
+			return List(RightObserver)
+		}
+		Nil
+	}
 
-  object RightObserver extends Observer[DomainB] {
+	/**
+	  * Applies f to all elements of the view.
+	  */
+	def foreach[T](f: (Range) => T) {
+		left.foreach(f)
+		right.foreach(f)
+	}
 
-    override def updated(oldV: DomainB, newV: DomainB) {
-      removed(oldV)
-      added(newV)
-    }
+	case object LeftObserver extends Observer[DomainA] {
 
-    override def removed(v: DomainB) {
-      notify_removed(v)
-    }
+		override def updated(oldV: DomainA, newV: DomainA) {
+			removed(oldV)
+			added(newV)
+		}
 
-    override def removedAll(vs: Seq[DomainB]) {
-      notify_removedAll(vs)
-    }
+		override def removed(v: DomainA) {
+			notify_removed(v)
+		}
 
-    override def added(v: DomainB) {
-      notify_added(v)
-    }
+		override def removedAll(vs: Seq[DomainA]): Unit = {
+			notify_removedAll(vs)
+		}
 
-    override def addedAll(vs: Seq[DomainB]) {
-      notify_addedAll(vs)
-    }
+		override def added(v: DomainA) {
+			notify_added(v)
+		}
 
-  }
+		override def addedAll(vs: Seq[DomainA]) {
+			notify_addedAll(vs)
+		}
+
+
+	}
+
+	case object RightObserver extends Observer[DomainB] {
+
+		override def updated(oldV: DomainB, newV: DomainB) {
+			removed(oldV)
+			added(newV)
+		}
+
+		override def removed(v: DomainB) {
+			notify_removed(v)
+		}
+
+		override def removedAll(vs: Seq[DomainB]) {
+			notify_removedAll(vs)
+		}
+
+		override def added(v: DomainB) {
+			notify_added(v)
+		}
+
+		override def addedAll(vs: Seq[DomainB]) {
+			notify_addedAll(vs)
+		}
+
+	}
 
 }

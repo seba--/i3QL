@@ -57,7 +57,7 @@ class ExistsInSameDomainView[Domain](val left: MaterializedView[Domain],
 
     right addObserver RightObserver
 
-    override protected def resetInternal(): Unit = ???
+    override protected[idb] def resetInternal(): Unit = ???
 
     override protected def childObservers (o: Observable[_]): Seq[Observer[_]] =
     {

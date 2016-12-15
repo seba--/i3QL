@@ -97,7 +97,7 @@ class RecursiveDRed[Domain](val relation: Relation[Domain],
   // delete supports
   private var rederivations: Seq[Domain] = Seq()
 
-  override protected def resetInternal(): Unit = ???
+  override protected[idb] def resetInternal(): Unit = ???
 
   def added(v: Domain) {
     addedAll(Seq(v))

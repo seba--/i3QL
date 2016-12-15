@@ -46,7 +46,6 @@ import idb.lms.extensions.operations.MirrorDefinitions
 trait ScalaOpsExpOptExtensions
     extends ExpressionUtils
     with DateOpsExp
-  //  with FlightOpsExp
     with ScalaOpsPkgExpAlphaEquivalence
     with MirrorDefinitions
     with FunctionsExpDynamicLambdaAlphaEquivalence

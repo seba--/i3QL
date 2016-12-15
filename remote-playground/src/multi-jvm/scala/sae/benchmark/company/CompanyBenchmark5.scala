@@ -3,7 +3,7 @@ package sae.benchmark.company
 import akka.remote.testkit.MultiNodeSpec
 import idb.Relation
 import idb.algebra.print.RelationalAlgebraPrintPlan
-import idb.query.colors._
+import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.syntax.iql.impl._
 import sae.benchmark.BenchmarkMultiNodeSpec

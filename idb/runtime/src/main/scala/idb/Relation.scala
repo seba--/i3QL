@@ -106,7 +106,7 @@ trait Relation[+V]
         resetInternal()
     }
 
-    protected def resetInternal()
+    protected[idb] def resetInternal()
 
 
     def print(out : PrintStream = System.out): Unit = {

@@ -52,7 +52,7 @@ trait BytecodeStructureDerivedRelations
     override val IR = idb.syntax.iql.IR
 
     import IR._
-	private implicit val queryEnvironment = QueryEnvironment.Default
+	private implicit val env = QueryEnvironment.Default
 
     lazy val classInheritance: Rep[Query[Inheritance]] =
         SELECT (

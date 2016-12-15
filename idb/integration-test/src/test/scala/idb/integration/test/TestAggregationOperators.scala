@@ -49,7 +49,7 @@ class TestAggregationOperators
 {
     @Test
 	def testCountStudents() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (COUNT (*)) FROM students GROUP BY ((s : Rep[Student]) => s.lastName)
@@ -71,7 +71,7 @@ class TestAggregationOperators
 
 	@Test
 	def testSumCreditPoints() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (
@@ -94,7 +94,7 @@ class TestAggregationOperators
 
 	@Test
 	def testAggregateGroupCountWithGroup () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT

@@ -47,7 +47,7 @@ class TestAggregateClauses2
 {
     @Test
     def testGrouping () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[String]) => s) FROM(students, registrations) GROUP BY (
                 (s: Rep[Person], r: Rep[Registration]) => s.lastName + r.comment
@@ -71,7 +71,7 @@ class TestAggregateClauses2
 
     @Test
     def testJoin2CountStar () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (COUNT (*)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) =>
                 s.matriculationNumber == r.studentMatriculationNumber
@@ -98,7 +98,7 @@ class TestAggregateClauses2
 
     @Test
     def testJoin2AggregateGroup1 () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT ((s: Rep[String]) => s) FROM (students, registrations) WHERE ((
             s: Rep[Student],
@@ -125,7 +125,7 @@ class TestAggregateClauses2
 
     @Test
     def testJoin2SumCreditPoints () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
         val query = plan (
             SELECT (SUM ((r: Rep[Registration], c: Rep[Course]) => c.creditPoints)) FROM(registrations, courses) WHERE (
                 (r: Rep[Registration], c: Rep[Course]) => r.courseNumber == c.number

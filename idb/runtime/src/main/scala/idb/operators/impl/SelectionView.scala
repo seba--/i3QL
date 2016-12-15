@@ -64,7 +64,7 @@ case class SelectionView[Domain](
     Nil
   }
 
-  override protected def resetInternal(): Unit = {
+  override protected[idb] def resetInternal(): Unit = {
 
   }
 

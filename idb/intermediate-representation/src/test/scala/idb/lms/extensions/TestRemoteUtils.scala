@@ -33,7 +33,7 @@
 package idb.lms.extensions
 
 import idb.lms.extensions.operations.StringOpsExpExt
-import idb.query.colors._
+import idb.query.taint._
 import org.junit.Assert._
 import org.junit.{Ignore, Test}
 
@@ -52,14 +52,14 @@ class TestRemoteUtils
     with TupleOpsExp
     with BooleanOpsExp
     with LiftAll
-    with ColorUtils
+    with RemoteUtils
 	with PrimitiveOpsExp
 	with StringOpsExpExt
 {
 
 
 	@Test
-	def testColorsInExp1(): Unit = {
+	def testTaintsInExp1(): Unit = {
 		val variable : Exp[Int] = 0 + 1
 
 		val exp = int_plus(
@@ -70,98 +70,98 @@ class TestRemoteUtils
 			1
 		)
 
-		val coloring = FieldColor(
+		val taint = RecordTaint(
 			Map(
-				FieldName("_1") -> FieldColor(Map(FieldName("count") -> Color("blue"))),
-			    FieldName("_2") -> Color("yellow")
+				FieldName("_1") -> RecordTaint(Map(FieldName("count") -> Taint("blue"))),
+			    FieldName("_2") -> Taint("yellow")
 			)
 		)
 
-		println(colorsOfTFieldsInExp(exp, variable, coloring))
+		println(taintOfBaseExp(exp, variable, taint))
 
 
 
 	}
 
 	@Test
-	def testColorsInFun1(): Unit = {
+	def testTaintsInFun1(): Unit = {
 		val f = (t : Rep[((Int, Int), Int)]) => t._1._2 + 1
 
-		val coloring = Color(
-				"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
-				"_2" -> Color("yellow")
+		val taint = Taint(
+				"_1" -> Taint("_1" -> Taint("red"), "_2" -> Taint("blue")),
+				"_2" -> Taint("yellow")
 		)
 
-		assertEquals(Set(Color("blue")), colorsOfTFields(f, coloring))
+		assertEquals(Set(Taint("blue")), taintOfBase(f, taint))
 	}
 
 	@Test
-	def testColorsInFun2(): Unit = {
+	def testTaintsInFun2(): Unit = {
 		val f = (t : Rep[((Int, Int), Int)]) => t._1._2 + t._2
 
-		val coloring = FieldColor(
+		val taint = RecordTaint(
 			Map(
-				FieldName("_1") -> FieldColor(Map(FieldName("_1") -> Color("red"), FieldName("_2") -> Color("blue"))),
-				FieldName("_2") -> Color("yellow")
+				FieldName("_1") -> RecordTaint(Map(FieldName("_1") -> Taint("red"), FieldName("_2") -> Taint("blue"))),
+				FieldName("_2") -> Taint("yellow")
 			)
 		)
 
-		assertEquals(Set(Color("blue"), Color("yellow")), colorsOfTFields(f, coloring))
+		assertEquals(Set(Taint("blue"), Taint("yellow")), taintOfBase(f, taint))
 	}
 
 	@Test
-	def testColorsInFun3(): Unit = {
+	def testTaintsInFun3(): Unit = {
 		val f = (t : Rep[(Int, Int, String)]) => string_length(t._3) + t._1
 
-		val c1 = Color("red")
-		val c2 = Color("blue")
+		val c1 = Taint("red")
+		val c2 = Taint("blue")
 
-		assertEquals(Set(Color("blue"), Color("red")), colorsOfTFields(f, Color.tupled(c1, c1, c2)))
+		assertEquals(Set(Taint("blue"), Taint("red")), taintOfBase(f, Taint.tupled(c1, c1, c2)))
 	}
 
 	@Test
-	def testProjectionColor1(): Unit = {
+	def testProjectionTaint1(): Unit = {
 		val f : Rep[_ => _] = (t : Rep[((Int, Int), Int)]) => make_tuple2((t._1._2 + 1, t._2))
 
-		val coloring = Color(
-			"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
-			"_2" -> Color("yellow")
+		val taint = Taint(
+			"_1" -> Taint("_1" -> Taint("red"), "_2" -> Taint("blue")),
+			"_2" -> Taint("yellow")
 		)
 
-		assertEquals(Color("_1" -> Color("blue"), "_2" -> Color("yellow")), projectionColor(coloring, f))
+		assertEquals(Taint("_1" -> Taint("blue"), "_2" -> Taint("yellow")), taintOfProjection(taint, f))
 	}
 
 	@Test
-	def testProjectionColor2(): Unit = {
+	def testProjectionTaint2(): Unit = {
 		val f : Rep[_ => _] = (t : Rep[((Int, Int), Int)]) => t._2
 
-		val coloring = Color(
-			"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
-			"_2" -> Color("yellow")
+		val taint = Taint(
+			"_1" -> Taint("_1" -> Taint("red"), "_2" -> Taint("blue")),
+			"_2" -> Taint("yellow")
 		)
 
-		assertEquals(Color("yellow"), projectionColor(coloring, f))
+		assertEquals(Taint("yellow"), taintOfProjection(taint, f))
 	}
 
 	@Test
-	def testProjectionColor3(): Unit = {
+	def testProjectionTaint3(): Unit = {
 		val f : Rep[_ => _] = (t : Rep[Int]) => make_tuple2((t, __unit(0)))
 
-		val coloring = Color("red")
+		val taint = Taint("red")
 
-		assertEquals(Color("_1" -> Color("red"), "_2" -> Color.empty), projectionColor(coloring, f))
+		assertEquals(Taint("_1" -> Taint("red"), "_2" -> Taint.empty), taintOfProjection(taint, f))
 	}
 
 	@Test
-	def testProjectionColor4(): Unit = {
+	def testProjectionTaint4(): Unit = {
 		val f : Rep[_ => _] = (t : Rep[((Int, Int), Int)]) => make_tuple3((t._1._2 + t._2, __unit(0), __unit(1)))
 
-		val coloring = Color(
-			"_1" -> Color("_1" -> Color("red"), "_2" -> Color("blue")),
-			"_2" -> Color("yellow")
+		val taint = Taint(
+			"_1" -> Taint("_1" -> Taint("red"), "_2" -> Taint("blue")),
+			"_2" -> Taint("yellow")
 		)
 
-		assertEquals(Color("_1" -> Color.group("blue", "yellow"), "_2" -> Color.empty, "_3" -> Color.empty), projectionColor(coloring, f))
+		assertEquals(Taint("_1" -> Taint.group("blue", "yellow"), "_2" -> Taint.empty, "_3" -> Taint.empty), taintOfProjection(taint, f))
 	}
 
 

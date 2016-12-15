@@ -51,7 +51,7 @@ class TestBasicOperators
 
 	@Test
 	def testStudentNames() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (
@@ -78,7 +78,7 @@ class TestBasicOperators
 
 	@Test
 	def testStudentNames2() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile(
 			SELECT (
@@ -106,7 +106,7 @@ class TestBasicOperators
 
 	@Test
 	def testStudentNames3() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (
@@ -137,7 +137,7 @@ class TestBasicOperators
 
 	@Test
 	def testGroup2() {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (
@@ -173,7 +173,7 @@ class TestBasicOperators
 	@Test
 	@Ignore
     def testSelectFirstNameFromStudents () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
         val query = compile (
             SELECT ((_:Rep[Student]).firstName) FROM students
@@ -196,7 +196,7 @@ class TestBasicOperators
 	@Test
 	@Ignore
 	def testSelectFirstNameLastNameFromStudents () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT ((s:Rep[Student]) => (s.firstName, s.lastName)) FROM students
@@ -220,7 +220,7 @@ class TestBasicOperators
 
 	@Test
 	def testGetStudentIDFromStudents () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT ((s : Rep[Student]) => s.lastName + "@" + s.matriculationNumber) FROM students
@@ -244,7 +244,7 @@ class TestBasicOperators
 
 	@Test
 	def testRegistrationsForCourse () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile(
 			SELECT (*) FROM registrations WHERE ((r : Rep[Registration]) => {
@@ -273,7 +273,7 @@ class TestBasicOperators
 	@Test
 	@Ignore
 	def testGetStudentMatriculationNumber () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile(
 			SELECT ((_:Rep[Student]).matriculationNumber) FROM students WHERE ((s: Rep[Student]) => {
@@ -311,7 +311,7 @@ class TestBasicOperators
 	@Ignore
 	@Test
 	def testGetStudentPairs () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (*) FROM (students, students)
@@ -348,7 +348,7 @@ class TestBasicOperators
 
 	@Test
 	def testGetStudentsAndRegistrations () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT (*) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {
@@ -396,7 +396,7 @@ class TestBasicOperators
 	@Ignore
 	@Test
 	def testGetStudentsAndTheirRegistrations () {
-		implicit val queryEnvironment = QueryEnvironment.Local
+		implicit val env = QueryEnvironment.Local
 
 		val query = compile (
 			SELECT ((s: Rep[Student], r: Rep[Registration]) => (s.lastName, r.courseNumber)) FROM(students, registrations) WHERE ((s: Rep[Student], r: Rep[Registration]) => {

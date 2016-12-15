@@ -25,7 +25,7 @@ case class CrossProductView[DomainA, DomainB, Range](
 	@SerialVersionUID(41271L)
 	object Lock extends Serializable {}
 
-	override protected def resetInternal(): Unit = {
+	override protected[idb] def resetInternal(): Unit = {
 		leftSet.clear()
 		rightSet.clear()
 	}

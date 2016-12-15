@@ -18,12 +18,12 @@ trait RelationalAlgebraIRRemoteJoinAssociativity
 	override def crossProduct[DomainA: Manifest, DomainB: Manifest] (
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
+	)(implicit env : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB = implicitly[Manifest[DomainB]]
 
 		(relationA, relationB) match {
-			case (a, Def(cross@CrossProduct(b, c)))	if a.color == b.color && b.color != c.color	=>
+			case (a, Def(cross@CrossProduct(b, c)))	if a.taint == b.taint && b.taint != c.taint	=>
 				//a x (b x c) --> (a x b) x c
 
 				val mA = mDomA
@@ -43,7 +43,7 @@ trait RelationalAlgebraIRRemoteJoinAssociativity
 				).asInstanceOf[Rep[Query[(DomainA, DomainB)]]]
 
 
-			case (Def(cross@CrossProduct(a, b)), c) if b.color == c.color && a.color != b.color =>
+			case (Def(cross@CrossProduct(a, b)), c) if b.taint == c.taint && a.taint != b.taint =>
 				//(a x b) x c --> a x (b x c)
 				val mA = cross.mDomA
 				val mB = cross.mDomB
@@ -73,7 +73,7 @@ trait RelationalAlgebraIRRemoteJoinAssociativity
 		relationA: Rep[Query[DomainA]],
 		relationB: Rep[Query[DomainB]],
 		equalities: List[(Rep[DomainA => Any], Rep[DomainB => Any])]
-	)(implicit queryEnvironment : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
+	)(implicit env : QueryEnvironment): Rep[Query[(DomainA, DomainB)]] = {
 
 		val mDomA = implicitly[Manifest[DomainA]]
 		val mDomB =  implicitly[Manifest[DomainB]]
@@ -81,7 +81,7 @@ trait RelationalAlgebraIRRemoteJoinAssociativity
 		(relationA, relationB) match {
 
 			case (a, Def(eqJoin@EquiJoin(b, c, eqs)))
-				if a.color == b.color && b.color != c.color
+				if a.taint == b.taint && b.taint != c.taint
 					&& equalities.forall((t) => !(functionHasParameterAccess(t._2,0) && functionHasParameterAccess(t._2,1)) ) //Checks whether the equality functions can be reordered.
 			=>
 				//a >< (b >< c) --> (a >< b) >< c
@@ -131,7 +131,7 @@ trait RelationalAlgebraIRRemoteJoinAssociativity
 
 
 			case (Def(eqJoin@EquiJoin(a, b, eqs)), c)
-				if b.color == c.color && a.color != b.color
+				if b.taint == c.taint && a.taint != b.taint
 				&& equalities.forall((t) => !(functionHasParameterAccess(t._1,0) && functionHasParameterAccess(t._1,1)) ) //Checks whether the equality functions can be reordered.
 				 =>
 				//(a >< b) >< c --> a >< (b >< c)

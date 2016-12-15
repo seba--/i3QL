@@ -2,9 +2,6 @@ package idb.benchmark
 
 import java.lang.management.ManagementFactory
 
-/**
-  * Created by mirko on 25.10.16.
-  */
 object Measurement {
 
 	object CPU {
