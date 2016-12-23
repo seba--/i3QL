@@ -5,7 +5,7 @@ import idb.algebra.remote.PlacementStrategy
 import idb.query.{Host, QueryEnvironment, RemoteHost}
 import idb.query.taint.Taint
 import idb.syntax.iql.IR._
-import idb.syntax.iql.compilation.RemoteUtils
+import idb.syntax.iql.compilation.{CompilerBinding, RemoteUtils}
 
 /**
  * @author Mirko Köhler
@@ -36,8 +36,6 @@ object ROOT {
 			val IR = idb.syntax.iql.IR
 		}
 		 val q = Placement.transform(root(query, rootHost))
-		Predef.println(s"q = $q")
-		globalDefsCache.toList.sortBy(e => e._1.id).foreach(Predef.println)
 
 		val relation : Relation[Domain] = q
 		val RemoteHost(_, queryPath) = q.host
@@ -46,5 +44,11 @@ object ROOT {
 		val r = RemoteUtils.fromWithDeploy(env.system, ref)
 		r
 //		relation
+	}
+
+	def apply[Domain : Manifest](query : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Relation[Domain] = {
+		val r = compile(query)
+		CompilerBinding.initialize(r)
+		r
 	}
 }

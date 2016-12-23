@@ -8,8 +8,7 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  */
 case object SUM
-    extends AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Int, Int]
-{
+    extends AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Int, Int] {
     def start: Int = 0
 
     def added[Domain] (v: Rep[Domain],

@@ -17,7 +17,7 @@ trait KnowledgeDataSchema
 
 	import IR._
 
-	def KnowledgeData (symptom: Rep[String], diagnosis: Rep[String], year : Rep[Int]) =
+	def KnowledgeData (symptom: Rep[String], diagnosis: Rep[String], year : Rep[Int]) : Rep[KnowledgeData] =
 		struct[KnowledgeData](
 			ClassTag[KnowledgeData]("KnowledgeData"),
 			Seq ("symptom" -> symptom, "diagnosis" -> diagnosis, "year" -> year)

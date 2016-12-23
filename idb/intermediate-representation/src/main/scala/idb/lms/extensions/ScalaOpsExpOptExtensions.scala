@@ -37,7 +37,7 @@ import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
 import idb.lms.extensions.normalization._
 import idb.lms.extensions.reduction._
 import idb.lms.extensions.simplification.BooleanOpsExpSimplification
-import idb.lms.extensions.operations.MirrorDefinitions
+import idb.lms.extensions.operations.{DateOpsExp, MirrorDefinitions}
 
 /**
  *

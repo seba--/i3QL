@@ -35,8 +35,9 @@ package idb.syntax.iql.compilation
 import akka.actor.{ActorPath, ActorSystem}
 import idb.Relation
 import idb.algebra.compiler._
-import idb.lms.extensions.ScalaGenDateOps
-import idb.lms.extensions.operations.{ScalaGenEitherOps, ScalaGenOptionOps, ScalaGenSeqOpsExt, ScalaGenStringOpsExt}
+import idb.algebra.compiler.boxing.{BoxedAggregationNotSelfMaintained, BoxedAggregationSelfMaintained, BoxedEquiJoin, BoxedFunction}
+import idb.lms.extensions.operations._
+import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
 
 import scala.language.postfixOps
 import scala.virtualization.lms.common._
@@ -79,7 +80,29 @@ case object CompilerBinding
 		RemoteUtils.from[Domain](ref)
 	}
 
-	override def initialize(system: ActorSystem, relation: Relation[_]): Unit = {
-		//RemoteUtils.initialize(system, relation)
+	def initialize(relation: Relation[_]): Unit = {
+		relation match {
+			case r : SelectionView[_] =>
+				BoxedFunction.compile(r.filter, CompilerBinding)
+
+			case r : ProjectionView[_, _] =>
+				BoxedFunction.compile(r.projection, CompilerBinding)
+
+			case r : BoxedEquiJoin[_, _] =>
+				r.compile(CompilerBinding)
+
+			case r : BoxedAggregationSelfMaintained[_, _, _, _, _] =>
+				r.compile(CompilerBinding)
+
+			case r : BoxedAggregationNotSelfMaintained[_, _, _, _, _] =>
+				r.compile(CompilerBinding)
+
+			case r : UnNestView[_, _] =>
+				BoxedFunction.compile(r.unNestFunction, CompilerBinding)
+
+			case _ =>
+		}
+
+		relation.children.foreach(c => initialize(c))
 	}
 }

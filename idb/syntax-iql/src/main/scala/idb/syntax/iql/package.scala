@@ -25,15 +25,31 @@ package object iql
     // TODO behaves strange
     //def infix_OR (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_or (lhs, rhs)
 
-    case class InfixBooleanOps (lhs: Rep[Boolean])
-    {
-        def AND (rhs: Rep[Boolean]) = boolean_and (lhs, rhs)
+    case class InfixBooleanOps (lhs: Rep[Boolean]) {
+        def AND (rhs: Rep[Boolean]) : Rep[Boolean] =
+	        boolean_and (lhs, rhs)
 
-        def OR (rhs: Rep[Boolean]) = boolean_or (lhs, rhs)
+        def OR (rhs: Rep[Boolean]) : Rep[Boolean] =
+	        boolean_or (lhs, rhs)
     }
 
     implicit def booleanToInfixOps (lhs: Rep[Boolean]) : InfixBooleanOps =
         InfixBooleanOps (lhs)
+
+	//def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strange
+	def NOT (x: Rep[Boolean])(implicit pos: SourceContext) : Rep[Boolean] =
+		boolean_negate (x)
+
+
+	case class LikeOps(s : Rep[String]) {
+		def LIKE (pattern : String) : Rep[Boolean] = {
+			val temp = pattern.replace("%", ".*")
+			string_matches(s, __anythingAsUnit(temp))
+		}
+	}
+
+	implicit def stringToLikeOps(s : Rep[String]) : LikeOps =
+		LikeOps(s)
 
 //	case class EqualityOps[A : Manifest] (lhs : A => _) {
 //		def ===[B : Manifest] (rhs: B => _) : (A, B) => Boolean = (a : A, b : B) => lhs(a) == rhs(b)
@@ -42,8 +58,7 @@ package object iql
 //	implicit def anythingToEqualityOps[A : Manifest] (lhs : A => _) =
 //	EqualityOps (lhs)
 
-    //def infix_unary_NOT(x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate(x) // TODO behaves strange
-    def NOT (x: Rep[Boolean])(implicit pos: SourceContext) = boolean_negate (x)
+
 
 
     // implicit conversions

@@ -1,21 +1,20 @@
-package idb.lms.extensions
+package idb.lms.extensions.operations
 
 import java.util.Date
 
 import idb.lms.extensions.equivalence.BaseExpAlphaEquivalence
 
-import scala.reflect.SourceContext
-import scala.virtualization.lms.common.{OrderingOpsExp, Base, BaseExp, ScalaGenBase}
-
 import scala.language.implicitConversions
+import scala.reflect.SourceContext
+import scala.virtualization.lms.common.{Base, OrderingOpsExp, ScalaGenBase}
 
 /**
  * Created by seba on 11/10/14.
  */
 trait DateOps extends Base {
-  implicit def repDateToDateOps(d: Rep[Date]) = new dateOpsCls(d)
+  implicit def repDateToDateOps(d: Rep[Date]) = new DateOpsCls(d)
 
-  class dateOpsCls(d: Rep[Date]) {
+  class DateOpsCls(d: Rep[Date]) {
     def getTime = date_getTime(d)
     def compareTo(d2: Rep[Date]) = date_compareTo(d, d2)
     def <(d2: Rep[Date]) = date_lt(d, d2)

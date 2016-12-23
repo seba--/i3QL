@@ -41,29 +41,9 @@ class RelationActor[Domain](
 		relation match {
 			case recv : RemoteReceiver[_] =>
 				recv.deploy(context.system)
-
-			case r : SelectionView[_] =>
-				BoxedFunction.compile(r.filter, CompilerBinding)
-
-			case r : ProjectionView[_, _] =>
-				BoxedFunction.compile(r.projection, CompilerBinding)
-
-			case r : BoxedEquiJoin[_, _] =>
-				r.compile(CompilerBinding)
-
-			case r : BoxedAggregationSelfMaintained[_, _, _, _, _] =>
-				r.compile(CompilerBinding)
-
-			case r : BoxedAggregationNotSelfMaintained[_, _, _, _, _] =>
-				r.compile(CompilerBinding)
-
-			case r : UnNestView[_, _] =>
-				BoxedFunction.compile(r.unNestFunction, CompilerBinding)
-
-			case _ =>
 		}
 
-		relation.children.foreach(c => initialize(c))
+		CompilerBinding.initialize(relation)
 	}
 
 	override def updated(oldV: Domain, newV: Domain): Unit ={

@@ -68,16 +68,22 @@ trait StringOpsExpExt
 	def string_substring (s: Rep[String], startIndex : Rep[Int])(implicit pos: SourceContext): Rep[String] =
 		StringSubstring (s, startIndex, string_length(s))
 
+	def string_matches(s: Rep[String], pattern : Rep[String])(implicit pos: SourceContext): Rep[Boolean] =
+		StringMatches(s, pattern)
 
 	case class StringToLowerCase (s : Exp[String]) extends Def[String]
 	case class StringIndexOf (s: Exp[String], s1: Exp[String]) extends Def[Int]
     case class StringLastIndexOf (s: Exp[String], c: Exp[Char]) extends Def[Int]
+	case class StringMatches (s: Exp[String], pattern: Exp[String]) extends Def[Boolean]
 
-    override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
+
+	override def mirror[A: Manifest] (e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
 		case StringIndexOf (s, s1) => string_indexOf(f (s), f (s1))
     	case StringLastIndexOf (s, c) => string_lastIndexOf (f (s), f (c))
 		case StringEndsWith (s, end) => string_endsWith (f (s), f (end))
 		case StringToLowerCase (s) => string_toLowerCase( f (s))
+		case StringMatches(s, pattern) => string_matches(f (s), f (pattern))
+
 		case _ => super.mirror (e, f)
     }).asInstanceOf[Exp[A]]
 }
@@ -94,6 +100,7 @@ trait ScalaGenStringOpsExt extends ScalaGenStringOps
       case StringLastIndexOf (s, c) => emitValDef (sym, "%s.lastIndexOf(%s)".format (quote (s), quote (c)))
       case StringEndsWith (s, end) => emitValDef (sym, "%s.endsWith(%s)".format (quote (s), quote (end)))
       case StringToLowerCase (s) => emitValDef (sym, "%s.toLowerCase".format (quote (s)))
+      case StringMatches (s, pattern) => emitValDef(sym, "%s.matches(%s)".format(quote(s), quote(pattern)))
       case _ => super.emitNode (sym, rhs)
     }
 }

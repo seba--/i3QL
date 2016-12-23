@@ -53,8 +53,6 @@ trait RelationalAlgebraGenBaseAsIncremental extends PlacementStrategy {
 
     import IR._
 
-    def initialize(system : ActorSystem, relation : Relation[_]) : Unit
-
     def compile[Domain : Manifest] (query: Rep[Query[Domain]])(implicit env : QueryEnvironment): Relation[Domain] =
         query match {
             case QueryRelation (relation, _, _, _) => relation
@@ -63,9 +61,8 @@ trait RelationalAlgebraGenBaseAsIncremental extends PlacementStrategy {
 
 			case r@Def (Root (q, host)) =>
                val qt = q //transform(q)
-                val rel = compile (qt)
-	           // initialize(env.system, rel)
-	            rel
+               val rel = compile (qt)
+	           rel
 
 
 

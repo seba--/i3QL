@@ -25,8 +25,6 @@ trait ScalaCodegenExt
 
     val IR: BaseExp with FunctionsExp
 
-
-
     @transient var compiler: Global = _
     @transient var reporter: ConsoleReporter = _
 
