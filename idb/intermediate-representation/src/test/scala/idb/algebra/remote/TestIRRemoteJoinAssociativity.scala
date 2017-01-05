@@ -35,7 +35,7 @@ package idb.algebra.remote
 import idb.algebra.TestUtils
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.{RelationalAlgebraPrintPlan, RelationalAlgebraPrintPlanBasicOperators}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.lms.extensions.ScalaOpsPkgExpOptExtensions
 import idb.lms.extensions.operations.StringOpsExpExt
 import idb.query.taint.Taint
 import idb.query.{QueryEnvironment}
@@ -53,7 +53,7 @@ class TestIRRemoteJoinAssociativity
     extends RelationalAlgebraIRRemoteJoinAssociativity
     with RelationalAlgebraIRBasicOperators
     with RelationalAlgebraPrintPlanBasicOperators
-    with ScalaOpsExpOptExtensions
+    with ScalaOpsPkgExpOptExtensions
 	with StringOpsExpExt
     with LiftAll
     with TestUtils

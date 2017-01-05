@@ -33,8 +33,8 @@
 package idb.algebra.print
 
 
-import idb.algebra.ir.{RelationalAlgebraIRRemoteOperators, RelationalAlgebraIRBasicOperators}
-import idb.lms.extensions.FunctionUtils
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
+import idb.lms.extensions.{FunctionUtils, ScalaOpsPkgExpExtensions}
 import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
 import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
 
@@ -50,7 +50,7 @@ trait RelationalAlgebraPrintPlanRemoteOperators
     with CodeGenIndent
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp with
+	override val IR: ScalaOpsPkgExpExtensions with
         FunctionUtils with RelationalAlgebraIRRemoteOperators
 
 

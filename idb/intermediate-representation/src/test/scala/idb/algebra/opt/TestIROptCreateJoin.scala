@@ -35,7 +35,7 @@ package idb.algebra.opt
 import idb.algebra.TestUtils
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.lms.extensions.ScalaOpsPkgExpOptExtensions
 import idb.query.QueryEnvironment
 import org.junit.Assert._
 import org.junit.Test
@@ -51,7 +51,7 @@ class TestIROptCreateJoin
     extends RelationalAlgebraIROptCreateJoin
     with RelationalAlgebraIRBasicOperators
     with RelationalAlgebraPrintPlanBasicOperators
-    with ScalaOpsExpOptExtensions
+    with ScalaOpsPkgExpOptExtensions
     with LiftAll
     with TestUtils
 {

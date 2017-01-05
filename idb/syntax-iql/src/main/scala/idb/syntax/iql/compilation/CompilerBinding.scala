@@ -36,6 +36,7 @@ import akka.actor.{ActorPath, ActorSystem}
 import idb.Relation
 import idb.algebra.compiler._
 import idb.algebra.compiler.boxing.{BoxedAggregationNotSelfMaintained, BoxedAggregationSelfMaintained, BoxedEquiJoin, BoxedFunction}
+import idb.lms.extensions.ScalaCodeGenPkgExtensions
 import idb.lms.extensions.operations._
 import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
 
@@ -53,16 +54,7 @@ case object CompilerBinding
     with RelationalAlgebraGenRecursiveOperatorsAsIncremental
 	with RelationalAlgebraGenRemoteOperatorsAsIncremental
     with RelationalAlgebraGenCacheAll
-    with ScalaGenStaticData
-    with ScalaGenOptionOps
-	with ScalaGenEitherOps
-    with ScalaGenStringOpsExt
-    with ScalaGenSeqOpsExt
-    with ScalaCodeGenPkg
-    with ScalaGenStruct
-    with ScalaGenTupledFunctions
-    with ScalaGenDateOps
-    with ScalaGenEqual
+    with ScalaCodeGenPkgExtensions
 {
     override val IR = idb.syntax.iql.IR
 

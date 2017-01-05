@@ -32,10 +32,8 @@
  */
 package idb.lms.extensions.functions
 
-import idb.lms.extensions.operations.TupleOpsExpExt
-
 import scala.reflect.SourceContext
-import scala.virtualization.lms.common.TupledFunctionsExp
+import scala.virtualization.lms.common.{TupleOpsExp, TupledFunctionsExp}
 import scala.language.implicitConversions
 
 /**
@@ -47,7 +45,7 @@ import scala.language.implicitConversions
 trait TupledFunctionsExpDynamicLambda
     extends FunctionsExpDynamicLambda
     with TupledFunctionsExp
-    with TupleOpsExpExt
+    with TupleOpsExp
 {
     override implicit def toLambdaOpsAny[B: Manifest] (fun: Rep[Any => B]): LambdaOps[Any, B] =
         toLambdaOps (fun)

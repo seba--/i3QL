@@ -1,0 +1,140 @@
+### Servers ###
+# Data Servers #
+1 : Customer
+	P = CustomerGeneral, CustomerFinance
+2 : LineItem
+	P = LineItemKey, LineItemGeneral, LineItemFinance, LineItemShipping
+3 : Nation
+	P = NationGeneral
+4 : Orders
+	P = OrderGeneral, OrderShipping, OrderFinance
+5 : Part
+	P = PartGeneral, PartPurchasing
+6 : PartSupp
+	P = PartSuppKey, PartSuppGeneral, PartSuppPurchasing
+7 : Region
+	P = RegionGeneral
+8 : Supplier
+	P = SupplierGeneral, SupplierPurchasing
+
+# Processing Servers #
+9 : Finance
+	P = CustomerFinance, LineItemFinance, OrderFinance, LineItemKey
+10 : Purchasing
+	P = PartPurchasing, SupplierPurchasing, PartSuppPurchasing, PartGeneral, PartSuppGeneral, SupplierGeneral, PartSuppKey
+11 : Shipping
+	P = LineItemShipping, OrderShipping, LineItemKey, CustomerGeneral
+12 : Geographical
+	P = RegionGeneral, NationGeneral
+13 : Private //Private server that belongs to the client.
+	P = all permissions
+
+14 : CLIENT
+
+### Taints ###
+
+PUBLIC
+Data that is available to all servers
+
+CustomerGeneral, LineItemGeneral, NationGeneral, OrderGeneral, PartGeneral, PartSuppGeneral, RegionGeneral, SupplierGeneral
+General data of all of the items such as descriptions, comments, and identifying information (excluding keys).
+
+LineItemKey, PartSuppKey
+Combined primary keys.
+
+<Finance> : CustomerFinance, LineItemFinance, OrderFinance
+Financial information such as account balances and selling prices.
+
+<Purchasing> : PartPurchasing, SupplierPurchasing, PartSuppPurchasing
+Buying prices and information.
+
+<Shipping> : LineItemShipping, OrderShipping
+Shipping dates and instructions.
+
+
+### Data ###
+
+Customer(
+	custKey : Int -> PUBLIC
+	name : String -> CustomerGeneral
+	address : String -> CustomerGeneral
+	nationKey : Int -> CustomerGeneral
+	phone : String -> CustomerGeneral
+	acctBal : Double -> CustomerFinance
+	mktSegment : String -> CustomerGeneral
+	comment : String -> CustomerGeneral
+)
+
+LineItem(
+	orderKey : Int -> LineItemKey
+	partKey : Int -> LineItemKey
+	suppKey : Int -> LineItemKey
+	lineNumber : Int -> LineItemGeneral
+	quantity : Double -> LineItemGeneral
+	extendedPrice : Double -> LineItemFinance
+	discount : Double -> LineItemFinance
+	tax : Double -> LineItemFinance
+	returnFlag : Char -> LineItemGeneral
+	lineStatus : Char -> LineItemGeneral
+	shipUpdate : Date -> LineItemShipping
+	commitDate : Date -> LineItemShipping
+	receiptDate : Date -> LineItemShipping
+	shipInstruct : String-> LineItemShipping
+	shipMode : String-> LineItemShipping
+	comment : String -> LineItemGeneral
+)
+
+Nation(
+	nationKey : Int -> PUBLIC
+	name : String -> PUBLIC
+	regionKey : Int -> PUBLIC
+	comment : String -> NationGeneral
+)
+
+Orders(
+	orderKey : Int -> PUBLIC
+	custKey : Int -> OrderGeneral
+	orderStatus : Char -> OrderGeneral
+	totalPrice : Double -> OrderFinance
+	orderDate : Date -> OrderGeneral
+	orderPriority : String -> OrderShipping
+	clerk : String -> OrderGeneral
+	shipPriority : Int -> OrderShipping
+	comment : String -> OrderGeneral
+)
+
+Part(
+	partKey : Int -> PUBLIC
+	name : String -> PartGeneral
+	mfgr : String -> PartGeneral
+	brand : String -> PartGeneral
+	typ : String -> PartGeneral
+	size : Int -> PartGeneral
+	container : String -> PartGeneral
+	retailPrice : Double -> PartPurchasing
+	comment : String -> PartGeneral
+)
+
+PartSupp(
+	partKey : Int -> PartSuppKey
+	suppKey : Int -> PartSuppKey
+	availQty : Int -> PartSuppPurchasing
+	supplyCost : Double -> PartSuppPurchasing
+	comment : String -> PartSuppGeneral
+)
+
+Region(
+	regionKey : Int -> PUBLIC
+	name : String -> PUBLIC
+	comment : String -> RegionGeneral
+)
+
+Supplier(
+	suppKey : Int -> PUBLIC
+	name : String -> SupplierGeneral
+	address : String  -> SupplierGeneral
+	nationKey : Int  -> SupplierGeneral
+	phone : String  -> SupplierGeneral
+	acctBal : Double -> SupplierPurchasing
+	comment : String -> SupplierGeneral
+)

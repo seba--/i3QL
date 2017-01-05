@@ -30,62 +30,29 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions.reduction
+package idb.lms.extensions
 
-import org.junit.{Ignore, Test}
-import scala.virtualization.lms.common.{ScalaOpsPkgExp, LiftAll}
-import org.junit.Assert._
-import idb.lms.extensions.ScalaOpsPkgExpOptExtensions
+import idb.lms.extensions.equivalence._
+import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
+import idb.lms.extensions.normalization._
+import idb.lms.extensions.reduction._
+import idb.lms.extensions.simplification.{BooleanOpsExpSimplification, ScalaOpsExpConstantPropagation}
+import idb.lms.extensions.operations.{DateOpsExp, MirrorDefinitions}
 
 /**
  *
  * @author Ralf Mitschke
  */
-class TestTupleOpsReduction
-    extends LiftAll with ScalaOpsPkgExpOptExtensions with ScalaOpsPkgExp
-{
-
-    @Test
-    def testTuple2ReduceDirect () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)._2
-        val f2 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f1), fun (f2))
-
-    }
-
-    @Ignore
-    @Test
-    def testTuple2ReduceFunComposeThenDirect () {
-        // TODO should create fun first to be a good test
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Ignore
-    @Test
-    def testTuple2ReduceFunComposeThenEqTest () {
-        val f1 = (x: Rep[Int]) => (x, x > 0)
-        val f2 = (x: Rep[(Int, Boolean)]) => x._2 == true
-        val f3 = (x: Rep[Int]) => f2 (f1 (x))
-
-        val f4 = (x: Rep[Int]) => x > 0 == true
-
-        assertSame (fun (f3), fun (f4))
-    }
-
-    @Test
-    @Ignore
-    def testTuple2ReduceDirectConditional () {
-        val f1 = (x: Rep[Int]) => if (x > 0) (x, unit (true)) else (x, unit (false))._2
-        val f2 = (x: Rep[Int]) => if (x > 0) unit (true) else unit (false)
-
-        assertSame (fun (f1), fun (f2))
-    }
-
-}
+protected trait ScalaOpsPkgExpOptExtensions
+    extends ExpressionUtils
+    with ExpAlphaEquivalencePkg
+    with MirrorDefinitions
+    with FunctionsExpDynamicLambdaAlphaEquivalence
+    with ScalaOpsExpConstantPropagation
+    with NumericOpsExpNormalization
+    with TupledFunctionsExpBetaReduction
+    with TupleOpsExpOptBetaReduction
+    with EffectExpAlphaEquivalence
+//  with BooleanOpsExpSimplification
+    //with BooleanOpsExpOrdering
+    //with BooleanOpsExpDNFNormalization

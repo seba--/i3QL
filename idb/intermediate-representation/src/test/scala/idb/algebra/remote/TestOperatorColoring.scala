@@ -2,7 +2,7 @@ package idb.algebra.remote
 
 import idb.algebra.TestUtils
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators}
-import idb.lms.extensions.{FunctionUtils, ScalaOpsExpOptExtensions}
+import idb.lms.extensions.{FunctionUtils, ScalaOpsPkgExpOptExtensions}
 import idb.query.QueryEnvironment
 import idb.query.taint.Taint
 import org.junit.Assert._
@@ -33,7 +33,7 @@ trait CourseSchema
 class TestOperatorTaint
 	extends RelationalAlgebraIRBasicOperators
 	with RelationalAlgebraIRAggregationOperators
-	with ScalaOpsExpOptExtensions
+	with ScalaOpsPkgExpOptExtensions
 	with TestUtils
 	with FunctionUtils
 {

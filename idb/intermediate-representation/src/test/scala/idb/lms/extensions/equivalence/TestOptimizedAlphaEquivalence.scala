@@ -40,7 +40,7 @@ import org.junit.{Ignore, Test}
  * @author Ralf Mitschke
  */
 class TestOptimizedAlphaEquivalence
-    extends LiftAll with ScalaOpsPkgExpAlphaEquivalence
+    extends LiftAll with ExpAlphaEquivalencePkg
 {
 
     /*

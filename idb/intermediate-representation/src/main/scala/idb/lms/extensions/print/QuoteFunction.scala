@@ -34,7 +34,8 @@ package idb.lms.extensions.print
 
 import scala.virtualization.lms.common._
 import java.io.{PrintWriter, StringWriter}
-import idb.lms.extensions.FunctionUtils
+
+import idb.lms.extensions.{FunctionUtils, ScalaCodeGenPkgExtensions, ScalaOpsPkgExpExtensions}
 import idb.lms.extensions.operations._
 
 /**
@@ -42,14 +43,11 @@ import idb.lms.extensions.operations._
  * @author Ralf Mitschke
  */
 trait QuoteFunction
-    extends ScalaCodeGenPkg
-    with ScalaGenStaticData
-    with ScalaGenTupledFunctions
+    extends ScalaCodeGenPkgExtensions
     with CodeGenIndent
-	with ScalaGenStringOpsExt
 {
 
-    override val IR: ScalaOpsPkgExp with StaticDataExp with TupledFunctionsExp with FunctionUtils with StringOpsExpExt
+    override val IR: ScalaOpsPkgExpExtensions with FunctionUtils
 
     import IR._
 

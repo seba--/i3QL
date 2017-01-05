@@ -100,12 +100,30 @@ trait Benchmark extends BenchmarkConfig with CSVPrinter {
 		}
 	}
 
+	object IntermediateNode {
+		def exec(): Unit = {
+			section("deploy")
+			section("compile")
+			if (warmup) {
+				section("warmup-predata")
+				section("warmup-data")
+				section("warmup-finish")
+				section("reset")
+			}
+
+			section("measure-predata")
+			section("measure-init")
+			section("measure-data")
+			section("measure-finish")
+			section("finish")
+		}
+
+	}
+
 	trait ReceiveNode[Domain] {
 
 		def relation() : Relation[Domain]
 		def eventStartTime(e : Domain) : Long
-
-
 
 		var finished = false
 

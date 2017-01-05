@@ -33,7 +33,7 @@ trait DateOps extends Base {
   def date_gt(d1: Rep[Date], d2: Rep[Date])(implicit pos: SourceContext): Rep[Boolean]
 }
 
-trait DateOpsExp extends DateOps with BaseExpAlphaEquivalence with OrderingOpsExp {
+trait DateOpsExp extends DateOps with OrderingOpsExp {
 
   case class DateGetTime(d: Exp[Date]) extends Def[Long]
   case class DateCompareTo(d1: Exp[Date], d2: Exp[Date]) extends Def[Int]
@@ -47,12 +47,7 @@ trait DateOpsExp extends DateOps with BaseExpAlphaEquivalence with OrderingOpsEx
   def date_ge(d1: Rep[Date], d2: Rep[Date])(implicit pos: SourceContext) = ordering_gteq(DateCompareTo(d1, d2), Const(0))
   def date_gt(d1: Rep[Date], d2: Rep[Date])(implicit pos: SourceContext) = ordering_gt(DateCompareTo(d1, d2), Const(0))
 
-  override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
-    (a, b) match {
-      case (DateGetTime(d1), DateGetTime(d2)) => isEquivalent(d1, d2)
-      case (DateCompareTo(d11, d12), DateCompareTo(d21, d22)) => isEquivalent(d11, d21) && isEquivalent(d12, d22)
-      case _ => super.isEquivalentDef(a, b)
-    }
+
 
   override def mirror[A:Manifest](e: Def[A], f: Transformer)(implicit pos: SourceContext): Exp[A] = (e match {
     case DateGetTime(d) => date_getTime(f(d))
@@ -66,10 +61,12 @@ trait ScalaGenDateOps extends ScalaGenBase {
   val IR: DateOpsExp
   import IR._
 
-  override def emitNode(sym: Sym[Any], rhs: Def[Any]) = rhs match {
-    case DateGetTime(d) => emitValDef(sym, src"$d.getTime")
-    case DateCompareTo(d1, d2) => emitValDef(sym, src"$d1.compareTo($d2)")
-    case _ => super.emitNode(sym, rhs)
+  override def emitNode(sym: Sym[Any], rhs: Def[Any]) = {
+    rhs match {
+      case DateGetTime(d) => emitValDef(sym, src"$d.getTime")
+      case DateCompareTo(d1, d2) => emitValDef(sym, src"$d1.compareTo($d2)")
+      case _ => super.emitNode(sym, rhs)
+    }
   }
 
   override def quote(x: Exp[Any]) : String = x match {

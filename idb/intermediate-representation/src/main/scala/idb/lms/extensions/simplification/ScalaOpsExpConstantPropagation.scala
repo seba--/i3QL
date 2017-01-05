@@ -30,10 +30,10 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.simplification
 
-import scala.virtualization.lms.common.{PrimitiveOpsExp, EqualExpOpt, OrderingOpsExp, NumericOpsExpOpt}
 import scala.reflect.SourceContext
+import scala.virtualization.lms.common.{EqualExpOpt, NumericOpsExpOpt, OrderingOpsExp, PrimitiveOpsExp}
 
 /**
  *

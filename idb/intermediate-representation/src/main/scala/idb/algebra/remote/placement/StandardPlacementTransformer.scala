@@ -21,7 +21,7 @@ protected[remote] trait StandardPlacementTransformer
 	import IR._
 
 	override def transform[Domain : Manifest](relation : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Rep[Query[Domain]] = {
-		Predef.println(s"Transforming ~ $relation")
+		//Predef.println(s"Transforming ~ $relation")
 
 		relation match {
 

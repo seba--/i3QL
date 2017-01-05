@@ -48,7 +48,7 @@ case class AggregationForNotSelfMaintainableFunctions[Domain, Key, AggregateValu
 
 	import com.google.common.collect._
 
-	val groups = mutable.Map[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
+	val groups = mutable.HashMap.empty[Key, (HashMultiset[Domain], NotSelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]
 
 
 	override def resetInternal(): Unit = {

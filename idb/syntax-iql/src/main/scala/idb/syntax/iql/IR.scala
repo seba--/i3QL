@@ -34,7 +34,7 @@ package idb.syntax.iql
 
 import idb.algebra.compiler.RelationalAlgebraSAEBinding
 import idb.algebra._
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.lms.extensions.{ScalaOpsPkgExpExtensions, ScalaOpsPkgExpOptExtensions}
 import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
 import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
 import idb.lms.extensions.lifiting.LiftEverything
@@ -54,17 +54,13 @@ import scala.virtualization.lms.common._
  * @author Ralf Mitschke
  */
 case object IR
-    extends ScalaOpsExpOptExtensions
+    extends ScalaOpsPkgExpExtensions
     with RelationalAlgebraIROperatorsPackage
 	with RelationalAlgebraIRFusionPackage
 	with RelationalAlgebraIROptPackage
     with RelationalAlgebraIRNormalizePackage
     with RelationalAlgebraIREssentialsPackage
-    with TupledFunctionsExpDynamicLambda
     with RelationalAlgebraSAEBinding
-    with StructExpAlphaEquivalence
-    with TupledFunctionsExpAlphaEquivalence
-    with StaticDataExp
     with LiftEverything
 {
     type SubQuery[+T] = IQL_SUB_QUERY[T]

@@ -23,7 +23,7 @@ case class LineItem(
 	tax : Double,
 	returnFlag : Char,
 	lineStatus : Char,
-	shipUpdate : Date,
+	shipDate : Date,
 	commitDate : Date,
 	receiptDate : Date,
 	shipInstruct : String,
@@ -46,7 +46,7 @@ trait LineItemSchema {
 		tax : Rep[Double],
 		returnFlag : Rep[Char],
 		lineStatus : Rep[Char],
-		shipUpdate : Rep[Date],
+		shipDate : Rep[Date],
 		commitDate : Rep[Date],
 		receiptDate : Rep[Date],
 		shipInstruct : Rep[String],
@@ -57,7 +57,7 @@ trait LineItemSchema {
 			ClassTag[LineItem]("LineItem"),
 			Seq ("orderKey" -> orderKey, "partKey" -> partKey, "suppKey" -> suppKey, "lineNumber" -> lineNumber,
 				"quantity" -> quantity, "extendedPrice" -> extendedPrice, "discount" -> discount, "tax" -> tax,
-				"returnFlag" -> returnFlag, "lineStatus" -> lineStatus, "shipUpdate" -> shipUpdate, "commitDate" -> commitDate,
+				"returnFlag" -> returnFlag, "lineStatus" -> lineStatus, "shipDate" -> shipDate, "commitDate" -> commitDate,
 				"receiptDate" -> receiptDate, "shipInstruct" -> shipInstruct, "shipMode" -> shipMode, "comment" -> comment
 			)
 		)
@@ -73,7 +73,7 @@ trait LineItemSchema {
 		def tax : Rep[Double] = field[Double](x, "tax")
 		def returnFlag : Rep[Char] = field[Char](x, "returnFlag")
 		def lineStatus : Rep[Char] = field[Char](x, "lineStatus")
-		def shipUpdate : Rep[Date] = field[Date](x, "shipUpdate")
+		def shipDate : Rep[Date] = field[Date](x, "shipDate")
 		def commitDate : Rep[Date] = field[Date](x, "commitDate")
 		def receiptDate : Rep[Date] = field[Date](x, "receiptDate")
 		def shipInstruct : Rep[String] = field[String](x, "shipInstruct")

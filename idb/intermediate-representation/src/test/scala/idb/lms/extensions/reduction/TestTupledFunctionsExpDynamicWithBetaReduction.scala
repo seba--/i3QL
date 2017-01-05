@@ -51,7 +51,7 @@ class TestTupledFunctionsExpDynamicWithBetaReduction
     with TupledFunctionsExpAlphaEquivalence
     with FunctionsExpDynamicLambdaAlphaEquivalence
     with StructExpAlphaEquivalence
-    with ScalaOpsPkgExpAlphaEquivalence
+    with ExpAlphaEquivalencePkg
     with LMSTestUtils
 {
 

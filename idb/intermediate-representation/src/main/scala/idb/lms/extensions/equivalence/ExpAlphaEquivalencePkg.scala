@@ -40,12 +40,8 @@ import idb.lms.extensions.operations.{OptionOps, EitherOps}
  * @author Ralf Mitschke
  *
  */
-
-trait ScalaOpsPkgExpAlphaEquivalence
-    extends ScalaOpsPkgExp
-	with EitherOps
-	with OptionOps
-    with ImplicitOpsExpAlphaEquivalence
+trait ExpAlphaEquivalencePkg
+    extends ImplicitOpsExpAlphaEquivalence
     with NumericOpsExpAlphaEquivalence
     with FractionalOpsExpAlphaEquivalence
     with OrderingOpsExpAlphaEquivalence
@@ -54,10 +50,10 @@ trait ScalaOpsPkgExpAlphaEquivalence
     with IOOpsExpAlphaEquivalence
     with ArrayOpsExpAlphaEquivalence
     with BooleanOpsExpAlphaEquivalence
+    with DateOpsExpAlphaEquivalence
     with PrimitiveOpsExpAlphaEquivalence
     with MiscOpsExpAlphaEquivalence
     with FunctionsExpAlphaEquivalence
-    // the trait below ensures that alpha equivalent functions are reflected via the same sym
     with FunctionsExpDefAlphaEquivalence
     with EqualExpAlphaEquivalence
     with IfThenElseExpAlphaEquivalence
@@ -77,6 +73,3 @@ trait ScalaOpsPkgExpAlphaEquivalence
 	with StaticDataExpAlphaEquivalence
 	with OptionOpsExpAlphaEquivalence
 	with EitherOpsExpAlphaEquivalence
-{
-
-}

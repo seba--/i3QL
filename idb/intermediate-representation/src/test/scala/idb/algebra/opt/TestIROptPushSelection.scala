@@ -36,13 +36,13 @@ import idb.algebra.TestUtils
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
 import idb.lms.extensions.equivalence.{TupledFunctionsExpAlphaEquivalence, StructExpAlphaEquivalence,
-ScalaOpsPkgExpAlphaEquivalence}
+ExpAlphaEquivalencePkg}
 import idb.lms.extensions.operations.OptionOpsExp
 import idb.query.QueryEnvironment
 import org.junit.Assert._
 import org.junit.{Ignore, Test}
 import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, LiftAll}
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.lms.extensions.ScalaOpsPkgExpOptExtensions
 
 /**
  *
@@ -53,7 +53,7 @@ class TestIROptPushSelection
     extends RelationalAlgebraIROptPushSelection
     with RelationalAlgebraIRBasicOperators
     with RelationalAlgebraPrintPlanBasicOperators
-    with ScalaOpsExpOptExtensions
+    with ScalaOpsPkgExpOptExtensions
     with LiftAll
     with TestUtils
 {

@@ -43,8 +43,7 @@ import scala.virtualization.lms.common.{PrimitiveOpsExp, NumericOpsExp}
 trait NumericOpsExpAlphaEquivalence
     extends NumericOpsExp
 	with PrimitiveOpsExp
-    with BaseExpAlphaEquivalence
-{
+    with BaseExpAlphaEquivalence {
 
     override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
         (a, b) match {
@@ -56,8 +55,25 @@ trait NumericOpsExpAlphaEquivalence
                 isEquivalent (x, u) && isEquivalent (y, v)
             case (NumericDivide (x, y), NumericDivide (u, v)) =>
                 isEquivalent (x, u) && isEquivalent (y, v)
+
             case (IntPlus (x, y), IntPlus (u, v)) =>
                 isEquivalent(x, u) && isEquivalent(y, v)
+
+            case (DoubleFloatValue (a1), DoubleFloatValue (a2)) =>
+                isEquivalent(a1, a2)
+            case (DoubleToInt (a1), DoubleToInt (a2)) =>
+                isEquivalent(a1, a2)
+            case (DoubleToFloat (a1), DoubleToFloat (a2)) =>
+                isEquivalent(a1, a2)
+            case (DoublePlus (a1, b1), DoublePlus (a2, b2)) =>
+                isEquivalent(a1, a2) && isEquivalent(b1, b2)
+            case (DoubleMinus (a1, b1), DoubleMinus (a2, b2)) =>
+                isEquivalent(a1, a2) && isEquivalent(b1, b2)
+            case (DoubleTimes (a1, b1), DoubleTimes (a2, b2)) =>
+                isEquivalent(a1, a2) && isEquivalent(b1, b2)
+            case (DoubleDivide (a1, b1), DoubleDivide (a2, b2)) =>
+                isEquivalent(a1, a2) && isEquivalent(b1, b2)
+
             case _ => super.isEquivalentDef (a, b)
         }
 

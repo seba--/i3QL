@@ -46,7 +46,7 @@ class TestTupledFunctionsExpBetaReduction
     with TupledFunctionsExpAlphaEquivalence
     with StaticDataExpAlphaEquivalence
     with StructExpAlphaEquivalence
-    with ScalaOpsPkgExpAlphaEquivalence
+    with ExpAlphaEquivalencePkg
     with LMSTestUtils
 {
 

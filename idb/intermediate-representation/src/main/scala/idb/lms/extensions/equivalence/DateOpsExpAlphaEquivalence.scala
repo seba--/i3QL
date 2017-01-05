@@ -30,33 +30,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.lms.extensions
+package idb.lms.extensions.equivalence
 
-import idb.lms.extensions.equivalence._
-import idb.lms.extensions.functions.FunctionsExpDynamicLambdaAlphaEquivalence
-import idb.lms.extensions.normalization._
-import idb.lms.extensions.reduction._
-import idb.lms.extensions.simplification.BooleanOpsExpSimplification
-import idb.lms.extensions.operations.{DateOpsExp, MirrorDefinitions}
+import idb.lms.extensions.operations.{DateOpsExp, EitherOpsExp}
 
-/**
- *
- * @author Ralf Mitschke
- */
-trait ScalaOpsExpOptExtensions
-    extends ExpressionUtils
-    with DateOpsExp
-    with ScalaOpsPkgExpAlphaEquivalence
-    with MirrorDefinitions
-    with FunctionsExpDynamicLambdaAlphaEquivalence
-    with ScalaOpsExpConstantPropagation
-    with NumericOpsExpNormalization
-    with TupledFunctionsExpBetaReduction
-    with TupleOpsExpOptBetaReduction
-    with EffectExpAlphaEquivalence
-//  with BooleanOpsExpSimplification
-    //with BooleanOpsExpOrdering
-    //with BooleanOpsExpDNFNormalization
+
+trait DateOpsExpAlphaEquivalence
+    extends DateOpsExp
+    with BaseExpAlphaEquivalence
 {
+
+	override def isEquivalentDef[A, B] (a: Def[A], b: Def[B])(implicit renamings: VariableRenamings): Boolean =
+		(a, b) match {
+			case (DateGetTime(d1), DateGetTime(d2)) => isEquivalent(d1, d2)
+			case (DateCompareTo(d11, d12), DateCompareTo(d21, d22)) => isEquivalent(d11, d21) && isEquivalent(d12, d22)
+			case _ => super.isEquivalentDef(a, b)
+		}
+
 
 }

@@ -37,7 +37,7 @@ import idb.query.QueryEnvironment
 import idb.query.taint.{BaseTaint, Taint}
 
 import scala.virtualization.lms.common.LiftAll
-import idb.lms.extensions.{FunctionUtils, RemoteUtils, ScalaOpsExpOptExtensions}
+import idb.lms.extensions.{FunctionUtils, RemoteUtils, ScalaOpsPkgExpOptExtensions}
 
 
 /**

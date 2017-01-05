@@ -32,7 +32,6 @@
  */
 package idb.lms.extensions.reduction
 
-import idb.lms.extensions.operations.TupleOpsExpExt
 
 import scala.reflect.SourceContext
 import scala.virtualization.lms.common.{TupledFunctionsExp, IfThenElseExp, TupleOpsExp}
@@ -43,7 +42,7 @@ import scala.language.implicitConversions
  * @author Ralf Mitschke
  */
 trait TupleOpsExpOptBetaReduction
-    extends TupleOpsExpExt
+    extends TupleOpsExp
     with TupledFunctionsExp
     with IfThenElseExp
 {

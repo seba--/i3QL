@@ -38,7 +38,7 @@ import org.junit.Assert._
 import scala.virtualization.lms.common.LiftAll
 import idb.algebra.TestUtils
 import idb.algebra.fusion.RelationalAlgebraIRFuseBasicOperators
-import idb.lms.extensions.ScalaOpsExpOptExtensions
+import idb.lms.extensions.ScalaOpsPkgExpOptExtensions
 import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
 
 /**
@@ -49,7 +49,7 @@ import idb.algebra.print.RelationalAlgebraPrintPlanBasicOperators
 class TestIROptFusion
     extends RelationalAlgebraIRFuseBasicOperators
     with RelationalAlgebraPrintPlanBasicOperators
-    with ScalaOpsExpOptExtensions
+    with ScalaOpsPkgExpOptExtensions
     with LiftAll
     with TestUtils
 {

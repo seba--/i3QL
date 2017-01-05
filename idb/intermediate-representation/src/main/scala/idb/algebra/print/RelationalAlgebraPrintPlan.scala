@@ -33,9 +33,10 @@
 package idb.algebra.print
 
 import idb.algebra.ir._
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.operations.{SeqOpsExpExt, StringOpsExpExt, OptionOpsExp}
-import scala.virtualization.lms.common.{StaticDataExp, TupledFunctionsExp, StructExp, ScalaOpsPkgExp}
+import idb.lms.extensions.{FunctionUtils, ScalaOpsPkgExpExtensions}
+import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
+
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
 
 /**
@@ -51,8 +52,7 @@ trait RelationalAlgebraPrintPlan
 	with RelationalAlgebraPrintPlanRemoteOperators
 {
 
-    override val IR: ScalaOpsPkgExp with StructExp with StaticDataExp with OptionOpsExp with StringOpsExpExt with SeqOpsExpExt with TupledFunctionsExp with
-        FunctionUtils with
+	override val IR: ScalaOpsPkgExpExtensions with FunctionUtils with
         RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
         RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators with RelationalAlgebraIRRemoteOperators
 

@@ -53,8 +53,7 @@ trait EitherOps
 
 }
 
-trait EitherOpsExp extends EitherOps with EffectExp
-{
+trait EitherOpsExp extends EitherOps with EffectExp {
 
 	case class LeftNew[A: Manifest, B : Manifest] (x: Rep[A]) extends Def[Either[A, B]]
 

@@ -38,7 +38,7 @@ case class AggregationForSelfMaintainableFunctions[Domain, Key, AggregateValue, 
 
     relation.addObserver (this)
 
-    val groups = mutable.Map[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]()
+    val groups = mutable.HashMap.empty[Key, (Count, SelfMaintainableAggregateFunction[Domain, AggregateValue], Result)]
 
 
 	override def resetInternal(): Unit = {

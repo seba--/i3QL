@@ -8,26 +8,26 @@ import idb.syntax.iql.IR._
  * @author Ralf Mitschke
  */
 case object SUM
-    extends AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Int, Int] {
-    def start: Int = 0
+    extends AGGREGATE_FUNCTION_FACTORY_SELF_MAINTAINED[Double, Double] {
+    def start: Double = 0
 
     def added[Domain] (v: Rep[Domain],
-        previousResult: Rep[Int],
-        column: Rep[Domain] => Rep[Int]
-    ): Rep[Int] =
+        previousResult: Rep[Double],
+        column: Rep[Domain] => Rep[Double]
+    ): Rep[Double] =
         previousResult + column (v)
 
     def removed[Domain] (v: Rep[Domain],
-        previousResult: Rep[Int],
-        column: Rep[Domain] => Rep[Int]
-    ): Rep[Int] =
+        previousResult: Rep[Double],
+        column: Rep[Domain] => Rep[Double]
+    ): Rep[Double] =
         previousResult - column (v)
 
     def updated[Domain] (oldV: Rep[Domain],
         newV: Rep[Domain],
-        previousResult: Rep[Int],
-        column: Rep[Domain] => Rep[Int]
-    ): Rep[Int] =
+        previousResult: Rep[Double],
+        column: Rep[Domain] => Rep[Double]
+    ): Rep[Double] =
         previousResult - column (oldV) + column (newV)
 
 }

@@ -9,7 +9,8 @@ import com.typesafe.config.ConfigFactory
 object HospitalMultiNodeConfig extends MultiNodeConfig {
 	//debugConfig(true)
 
-	commonConfig(ConfigFactory.parseString("""
+	commonConfig(ConfigFactory.parseString(
+		"""
 		akka {
 			actor {
 				# Log level used by the configured loggers (see "loggers") as soon
