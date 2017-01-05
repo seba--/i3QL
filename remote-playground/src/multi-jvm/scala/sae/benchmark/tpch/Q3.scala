@@ -250,15 +250,16 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 						(l.orderKey, o.orderDate, o.shipPriority)
 				)
 
+			//... and add ROOT.
+			val r : idb.syntax.iql.IR.Relation[Any] =
+				ROOT(host_client, q1)
+
 			//Print the LMS tree representation
 			val printer = new RelationalAlgebraPrintPlan {
 				override val IR = idb.syntax.iql.IR
 			}
 			Predef.println(printer.quoteRelation(q1))
 
-			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-			val r : idb.syntax.iql.IR.Relation[Any] =
-				ROOT(host_client, q1)
 			r
 		}
 
