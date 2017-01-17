@@ -32,7 +32,7 @@ object Q3 {} // this object is necessary for multi-node testing
 class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 	with BenchmarkMultiNodeSpec
 	//Specifies the table setup
-	with TestDataGenerator
+	with DefaultDataGenerator
 	//Specifies the number of measurements/warmups
 	with TestMeasureConfig {
 
@@ -253,9 +253,6 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 			//... and add ROOT.
 			val r : idb.syntax.iql.IR.Relation[Any] =
 				ROOT(host_client, q1)
-
-
-			Thread.sleep(5000)
 
 			r
 		}
