@@ -254,11 +254,8 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 			val r : idb.syntax.iql.IR.Relation[Any] =
 				ROOT(host_client, q1)
 
-			//Print the LMS tree representation
-			val printer = new RelationalAlgebraPrintPlan {
-				override val IR = idb.syntax.iql.IR
-			}
-			Predef.println(printer.quoteRelation(q1))
+
+			Thread.sleep(5000)
 
 			r
 		}

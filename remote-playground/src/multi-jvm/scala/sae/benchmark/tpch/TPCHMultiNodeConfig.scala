@@ -22,19 +22,23 @@ object TPCHMultiNodeConfig extends MultiNodeConfig {
 				# Options: OFF, ERROR, WARNING, INFO, DEBUG
 				stdout-loglevel = "DEBUG"
 
-				serializers {
-					java = "akka.serialization.JavaSerializer"
-				}
 
-				# Change this setting to change the default serializer
-				serialization-bindings {
-					"idb.remote.DataMessage" = java
-	            }
 
 				warn-about-java-serializer-usage = false
 			}
         }
     """))
+	/*
+	serializers {
+		java = "akka.serialization.JavaSerializer"
+	}
+
+	# Change this setting to change the default serializer
+		serialization-bindings {
+			"idb.remote.DataMessage" = java
+		}
+		*/
+
 	//					myown = "idb.remote.TestSerializer"
 
 

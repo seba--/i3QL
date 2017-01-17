@@ -1,6 +1,7 @@
 package idb.syntax.iql
 
 import akka.actor.ActorPath
+import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.algebra.remote.PlacementStrategy
 import idb.query.{Host, QueryEnvironment, RemoteHost}
 import idb.query.taint.Taint
@@ -32,16 +33,26 @@ object ROOT {
 
 	def apply[Domain : Manifest](rootHost : RemoteHost, query : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Relation[Domain] = {
 
+		Predef.println("### ROOT: Executing placement algorithm...")
 		object Placement extends PlacementStrategy {
 			val IR = idb.syntax.iql.IR
 		}
 		 val q = Placement.transform(root(query, rootHost))
 
+		val printer = new RelationalAlgebraPrintPlan {
+			override val IR = idb.syntax.iql.IR
+		}
+		Predef.println(printer.quoteRelation(q))
+
+		Predef.println("### ROOT: Compiling query...")
 		val relation : Relation[Domain] = q
 		val RemoteHost(_, queryPath) = q.host
 
+		Predef.println("ROOT: Deploying relation...")
 		val ref = RemoteUtils.deploy(env.system, queryPath)(relation)
 		val r = RemoteUtils.fromWithDeploy(env.system, ref)
+
+		Predef.println("ROOT: Finished...")
 		r
 //		relation
 	}
