@@ -2,34 +2,32 @@
 # Data Servers #
 1 : Customer
 	P = CustomerGeneral, CustomerFinance
-2 : LineItem
-	P = LineItemKey, LineItemGeneral, LineItemFinance, LineItemShipping
-3 : Nation
+2 : Nation
 	P = NationGeneral
-4 : Orders
-	P = OrderGeneral, OrderShipping, OrderFinance
-5 : Part
+3 : Orders & Lineitems //Data generation of orders and lineitems are interleaving -> We need to generate them on the same server
+	P = OrderGeneral, OrderShipping, OrderFinance, LineItemKey, LineItemGeneral, LineItemFinance, LineItemShipping
+4 : Part
 	P = PartGeneral, PartPurchasing
-6 : PartSupp
+5 : PartSupp
 	P = PartSuppKey, PartSuppGeneral, PartSuppPurchasing
-7 : Region
+6 : Region
 	P = RegionGeneral
-8 : Supplier
+7 : Supplier
 	P = SupplierGeneral, SupplierPurchasing
 
 # Processing Servers #
-9 : Finance
+8 : Finance
 	P = CustomerFinance, LineItemFinance, OrderFinance, LineItemKey
-10 : Purchasing
+9 : Purchasing
 	P = PartPurchasing, SupplierPurchasing, PartSuppPurchasing, PartGeneral, PartSuppGeneral, SupplierGeneral, PartSuppKey
-11 : Shipping
+10 : Shipping
 	P = LineItemShipping, OrderShipping, LineItemKey, CustomerGeneral
-12 : Geographical
+11 : Geographical
 	P = RegionGeneral, NationGeneral
-13 : Private //Private server that belongs to the client.
+12 : Private //Private server that belongs to the client.
 	P = all permissions
 
-14 : CLIENT
+13 : CLIENT
 
 ### Taints ###
 

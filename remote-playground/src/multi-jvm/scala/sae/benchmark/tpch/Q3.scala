@@ -24,7 +24,6 @@ class Q3MultiJvmNode10 extends Q3
 class Q3MultiJvmNode11 extends Q3
 class Q3MultiJvmNode12 extends Q3
 class Q3MultiJvmNode13 extends Q3
-class Q3MultiJvmNode14 extends Q3
 
 
 object Q3 {} // this object is necessary for multi-node testing
@@ -47,7 +46,6 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 	 */
 	//data hosts
 	val host_data_customer = RemoteHost("host_data_customer", node(node_data_customer))
-	val host_data_lineitem = RemoteHost("host_data_lineitem", node(node_data_lineitem))
 	val host_data_nation = RemoteHost("host_data_nation", node(node_data_nation))
 	val host_data_orders = RemoteHost("host_data_orders", node(node_data_orders))
 	val host_data_part = RemoteHost("host_data_part", node(node_data_part))
@@ -99,9 +97,8 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 		Map(
 			//data
 			host_data_customer -> (100, Set(taintid_CustomerGeneral, taintid_CustomerFinance)),
-			host_data_lineitem -> (100, Set(taintid_LineItemGeneral, taintid_LineItemKey, taintid_LineItemFinance, taintid_LineItemShipping)),
 			host_data_nation -> (100, Set(taintid_NationGeneral)),
-			host_data_orders -> (100, Set(taintid_OrderGeneral, taintid_OrderFinance, taintid_OrderShipping)),
+			host_data_orders -> (100, Set(taintid_OrderGeneral, taintid_OrderFinance, taintid_OrderShipping, taintid_LineItemGeneral, taintid_LineItemKey, taintid_LineItemFinance, taintid_LineItemShipping)),
 			host_data_part -> (100, Set(taintid_PartGeneral, taintid_PartPurchasing)),
 			host_data_partsupp -> (100, Set(taintid_PartSuppGeneral, taintid_PartSuppPurchasing, taintid_PartSuppKey)),
 			host_data_region -> (100, Set(taintid_RegionGeneral)),
@@ -217,11 +214,11 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 			val customerDB : Rep[Query[Customer]] =
 				REMOTE GET (host_data_customer, "db", taint_customer)
 			val lineItemDB : Rep[Query[LineItem]] =
-				REMOTE GET (host_data_lineitem, "db", taint_lineitem)
+				REMOTE GET (host_data_orders, "lineitem", taint_lineitem)
 			val nationDB : Rep[Query[Nation]] =
 				REMOTE GET (host_data_nation, "db", taint_nation)
 			val ordersDB : Rep[Query[Orders]] =
-				REMOTE GET (host_data_orders, "db", taint_orders)
+				REMOTE GET (host_data_orders, "orders", taint_orders)
 			val partDB : Rep[Query[Part]] =
 				REMOTE GET (host_data_part, "db", taint_part)
 			val partSuppDB : Rep[Query[PartSupp]] =
@@ -240,11 +237,11 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 					customerDB, ordersDB, lineItemDB
 				) WHERE	(
 					(c : Rep[Customer], o : Rep[Orders], l : Rep[LineItem]) =>
-						c.mktSegment == "[SEGMENT]" AND
+						c.mktSegment == "AUTOMOBILE" AND
 						c.custKey == o.custKey AND
-						l.orderKey == o.orderKey AND
-						o.orderDate < DATE("2016-05-01") AND
-						l.shipDate > DATE("2016-01-01")
+						l.orderKey == o.orderKey //AND
+					//	o.orderDate < DATE("1995-03-01") AND
+					//	l.shipDate > DATE("1995-03-01")
 				) GROUP BY (
 					(c : Rep[Customer], o : Rep[Orders], l : Rep[LineItem]) =>
 						(l.orderKey, o.orderDate, o.shipPriority)
@@ -253,6 +250,8 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 			//... and add ROOT.
 			val r : idb.syntax.iql.IR.Relation[Any] =
 				ROOT(host_client, q1)
+
+			idb.util.printEvents(r, "result")
 
 			r
 		}
@@ -265,7 +264,6 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 	"Hospital Benchmark" must {
 		"run benchmark" in {
 			runOn(node_data_customer) { CustomerDBNode.exec() }
-			runOn(node_data_lineitem) { LineItemDBNode.exec() }
 			runOn(node_data_nation) { NationDBNode.exec() }
 			runOn(node_data_orders) { OrdersDBNode.exec() }
 			runOn(node_data_part) { PartDBNode.exec() }

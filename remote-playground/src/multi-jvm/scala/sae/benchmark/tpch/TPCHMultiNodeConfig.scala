@@ -44,7 +44,6 @@ object TPCHMultiNodeConfig extends MultiNodeConfig {
 
 	//Data nodes
 	val node_data_customer = role("node_data_customer")
-	val node_data_lineitem = role("node_data_lineitem")
 	val node_data_nation = role("node_data_nation")
 	val node_data_orders = role("node_data_orders")
 	val node_data_part = role("node_data_part")
