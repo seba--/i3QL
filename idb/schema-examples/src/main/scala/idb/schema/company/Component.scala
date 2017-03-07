@@ -4,6 +4,8 @@ import idb.schema.{Benchmarkable, BenchmarkableSchema}
 
 import scala.virtualization.lms.common.StructExp
 
+import scala.language.implicitConversions
+
 case class Component(id : Int, name : String, material : String)
 	extends Nameable with Benchmarkable
 

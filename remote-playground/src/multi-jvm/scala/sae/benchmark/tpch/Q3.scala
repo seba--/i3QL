@@ -3,8 +3,7 @@ package sae.benchmark.tpch
 import java.util.Date
 
 import akka.remote.testkit.MultiNodeSpec
-import idb.Relation
-import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.{Relation, algebra}
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.schema.tpch._
@@ -239,16 +238,16 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 					(c : Rep[Customer], o : Rep[Orders], l : Rep[LineItem]) =>
 						c.mktSegment == "AUTOMOBILE" AND
 						c.custKey == o.custKey AND
-						l.orderKey == o.orderKey //AND
-					//	o.orderDate < DATE("1995-03-01") AND
-					//	l.shipDate > DATE("1995-03-01")
+						l.orderKey == o.orderKey AND
+						o.orderDate < DATE("1995-03-01") AND
+						l.shipDate > DATE("1995-03-01")
 				) GROUP BY (
 					(c : Rep[Customer], o : Rep[Orders], l : Rep[LineItem]) =>
 						(l.orderKey, o.orderDate, o.shipPriority)
 				)
 
 			//... and add ROOT.
-			val r : idb.syntax.iql.IR.Relation[Any] =
+			val r : algebra.IR.Relation[Any] =
 				ROOT(host_client, q1)
 
 			idb.util.printEvents(r, "result")

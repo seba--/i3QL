@@ -3,6 +3,7 @@ package sae.benchmark.tpch
 import java.time.Instant
 import java.util.Date
 
+import idb.algebra.IR
 import idb.schema.tpch.generation.{CommentGenerator, ListStringGenerator, PhoneGenerator, StringGenerator}
 import idb.schema.tpch._
 import idb.{BagTable, Relation, Table}

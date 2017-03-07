@@ -1,8 +1,7 @@
 package idb.syntax
 
+import idb.algebra.CompilerBinding
 import idb.query.QueryEnvironment
-import idb.syntax.iql.IR._
-import idb.syntax.iql.compilation.CompilerBinding
 import idb.syntax.iql.planning.{ClauseToAlgebra, SubQueryToAlgebra}
 
 import scala.language.implicitConversions
@@ -16,8 +15,12 @@ import scala.reflect.SourceContext
 package object iql
 {
     // additional keywords. More are available via objects in the package
+	val IR = idb.algebra.IR
+	import IR._
 
     val * : STAR_KEYWORD = impl.StarKeyword
+
+
 
     // TODO behaves strange
     //def infix_AND (lhs: Rep[Boolean], rhs: Rep[Boolean])(implicit pos: SourceContext) = boolean_and (lhs, rhs)
@@ -134,7 +137,7 @@ package object iql
         groupRangeType: Manifest[GroupRange],
         rangeType: Manifest[Range]
     )(
-        subQuery: SubQuery[Range],
+        subQuery: IQL_SUB_QUERY[Range],
         context: Rep[Query[ContextRange]],
         contextParameter: Rep[ContextRange]
     )(implicit env : QueryEnvironment): Rep[Query[ContextRange]] = subQuery match {

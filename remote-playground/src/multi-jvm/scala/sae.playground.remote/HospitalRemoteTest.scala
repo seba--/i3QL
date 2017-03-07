@@ -2,7 +2,7 @@ package sae.playground.remote
 
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.BagTable
+import idb.{BagTable, algebra}
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
@@ -142,8 +142,8 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				enterBarrier("deployed")
 				Predef.println("### DEPLOYED ###")
 
-				import idb.syntax.iql.IR._
 				import idb.syntax.iql._
+				import IR._
 
 				//Create variables for all the remote tables
 				val personDB : Rep[Query[Person]] =
@@ -189,7 +189,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = idb.syntax.iql.IR
+					override val IR = algebra.IR
 				}
 				Predef.println(printer.quoteRelation(q1))
 

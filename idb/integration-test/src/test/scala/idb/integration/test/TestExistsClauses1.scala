@@ -35,7 +35,7 @@ package idb.integration.test
 import idb.integration.test.UniversityDatabase._
 import idb.query.QueryEnvironment
 import idb.schema.university._
-import idb.syntax.iql.IR._
+import idb.algebra.IR._
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.junit.Test

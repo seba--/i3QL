@@ -73,11 +73,7 @@ trait Relation[+V]
      */
     def asList: List[V] = {
         var l: List[V] = List ()
-        foreach (v =>
-        {
-            l = l :+ v
-        }
-        )
+        foreach (v => l = l :+ v)
         l
     }
 
@@ -90,9 +86,7 @@ trait Relation[+V]
     protected lazy val materializedRelation: MaterializedView[V] = {
         if (isSet) {
             new MaterializedSet[V](this)
-        }
-        else
-        {
+        } else {
             new MaterializedBag[V](this)
         }
     }
@@ -107,7 +101,6 @@ trait Relation[+V]
     }
 
     protected[idb] def resetInternal()
-
 
     def print(out : PrintStream = System.out): Unit = {
         printInternal(out)

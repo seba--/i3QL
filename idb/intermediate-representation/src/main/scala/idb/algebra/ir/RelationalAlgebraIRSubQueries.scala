@@ -47,6 +47,7 @@ trait RelationalAlgebraIRSubQueries
     with FunctionsExpAlphaEquivalence
 {
 
+	override type SubQuery[T] = Rep[Query[T]]
 
     case class ExistsCondition[Domain, ContextDomain] (
         subQuery: SubQuery[Domain]

@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql
 
+import idb.syntax.iql.IR
 import idb.schema.university._
 import idb.{BagTable, Table}
 
@@ -44,7 +45,7 @@ import idb.{BagTable, Table}
 object UniversityDatabase
     extends idb.schema.university.UniversitySchema
 {
-    val IR = idb.syntax.iql.IR
+    val IR = IR
 
     val bookRecommendations: Table[BookRecommendation] = BagTable.empty
 

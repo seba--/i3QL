@@ -1,7 +1,8 @@
-package idb.syntax.iql.compilation
+package idb.distribution
 
-import akka.actor.{Actor, ActorRef, ActorSystem}
+import akka.actor.{Actor, ActorRef}
 import idb.Relation
+import idb.algebra.CompilerBinding
 import idb.algebra.compiler.boxing.{BoxedAggregationNotSelfMaintained, BoxedAggregationSelfMaintained, BoxedEquiJoin, BoxedFunction}
 import idb.observer.Observer
 import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
@@ -11,7 +12,7 @@ import idb.remote.receive.RemoteReceiver
 import scala.collection.mutable
 
 //TODO: Is there a way to move this class to idb-runtime instead?
-class RelationActor[Domain](
+class RemoteOperator[Domain](
 	val relation : Relation[Domain]
 ) extends Actor with Observer[Domain] {
 	relation.addObserver(this)
@@ -37,8 +38,6 @@ class RelationActor[Domain](
 	}
 
 	def initialize(relation : Relation[_]): Unit = {
-
-
 
 		relation match {
 			case recv : RemoteReceiver[_] =>
@@ -69,10 +68,8 @@ class RelationActor[Domain](
 	}
 
 	override def updated(oldV: Domain, newV: Domain): Unit ={
-
 		registeredActors foreach (a => a ! Updated(oldV, newV))
 	}
-
 
 	override def removed(v: Domain): Unit =
 		registeredActors foreach (a => a ! Removed(v))

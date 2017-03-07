@@ -53,7 +53,7 @@ trait RelationalAlgebraSubQueries
      * A sub query can only be translated to the algebra once we translate the outer context and must sometimes be
      * checked for syntactic equality via Object.equals()
      */
-    type SubQuery[+T]
+    type SubQuery[T]
 
 
     /**

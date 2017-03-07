@@ -39,15 +39,14 @@ import idb.syntax.iql.IR._
  *
  * @author Ralf Mitschke
  */
-object EXISTS
-{
-
+object EXISTS {
 
     def apply[Select : Manifest, Domain <: GroupDomain : Manifest, GroupDomain : Manifest, GroupRange <: Select : Manifest, Range : Manifest] (
         subQuery: IQL_QUERY_1[Select, Domain, GroupDomain, GroupRange, Range]
     )(implicit env : QueryEnvironment = QueryEnvironment.Default): Rep[Boolean] =
-        existCondition (
-            subQuery,
-            planSubQueryWithContext(implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[GroupDomain]], implicitly[Manifest[GroupRange]], implicitly[Manifest[Range]]) _
-        )
+        null
+//        existCondition (
+//            subQuery,
+//            planSubQueryWithContext(implicitly[Manifest[Select]], implicitly[Manifest[Domain]], implicitly[Manifest[GroupDomain]], implicitly[Manifest[GroupRange]], implicitly[Manifest[Range]]) _
+//        )
 }

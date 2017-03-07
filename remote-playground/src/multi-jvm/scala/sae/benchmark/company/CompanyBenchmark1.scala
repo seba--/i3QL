@@ -1,7 +1,7 @@
 package sae.benchmark.company
 
 import akka.remote.testkit.MultiNodeSpec
-import idb.Relation
+import idb.{Relation, algebra}
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
@@ -55,7 +55,7 @@ class CompanyBenchmark1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	object ClientNode extends ReceiveNode[ResultType] {
 		override def relation(): Relation[ResultType] = {
 			//Write an i3ql query...
-			import idb.syntax.iql.IR._
+			import idb.algebra.IR._
 			import idb.syntax.iql._
 			import idb.schema.company._
 			import BaseCompany._
@@ -88,12 +88,12 @@ class CompanyBenchmark1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			
 			//Print the LMS tree representation
 			val printer = new RelationalAlgebraPrintPlan {
-				override val IR = idb.syntax.iql.IR
+				override val IR = algebra.IR
 			}
 			Predef.println(printer.quoteRelation(query))
 
 			//Define the root. The operators get distributed here.
-			val r : idb.syntax.iql.IR.Relation[ResultType] =
+			val r : algebra.IR.Relation[ResultType] =
 				ROOT(clientHost, query)
 			r
 		}

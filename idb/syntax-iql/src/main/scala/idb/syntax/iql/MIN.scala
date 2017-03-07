@@ -1,6 +1,6 @@
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
+
 
 /**
  * An aggregation function that calculates the sum over a set of domain entries

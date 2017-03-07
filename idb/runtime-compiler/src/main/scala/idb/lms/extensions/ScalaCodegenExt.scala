@@ -150,7 +150,7 @@ trait ScalaCodegenExt
 
         reporter.reset ()
 
-        val loader = new AbstractFileClassLoader (fileSystem, this.getClass.getClassLoader)
+        val loader = new scala.tools.nsc.util.AbstractFileClassLoader (fileSystem, this.getClass.getClassLoader)
 
         val cls: Class[_] = loader.loadClass (code.className)
 

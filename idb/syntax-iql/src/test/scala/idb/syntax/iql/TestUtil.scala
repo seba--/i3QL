@@ -32,8 +32,8 @@
  */
 package idb.syntax.iql
 
+import idb.algebra
 import idb.algebra.print.RelationalAlgebraPrintPlan
-
 import junit.framework.Assert
 
 /**
@@ -43,7 +43,7 @@ import junit.framework.Assert
 object TestUtil extends RelationalAlgebraPrintPlan
 {
 
-    override val IR = idb.syntax.iql.IR
+    override val IR = algebra.IR
 
     import IR.Rep
     import IR.Query

@@ -34,6 +34,7 @@ package idb.syntax.iql.planning
 
 //import idb.syntax.iql.IR._
 
+import idb.algebra
 import idb.query.QueryEnvironment
 import idb.syntax.iql._
 import idb.syntax.iql.impl._
@@ -47,7 +48,7 @@ import idb.syntax.iql.impl._
 
 object ClauseToAlgebra {
 
-    val IR = idb.syntax.iql.IR
+    val IR = algebra.IR
     import IR._
 
     def apply[

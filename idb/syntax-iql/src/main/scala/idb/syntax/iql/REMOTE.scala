@@ -5,7 +5,7 @@ import idb.query.taint.Taint
 import idb.query.{Host, QueryEnvironment, RemoteHost}
 import idb.remote
 import idb.syntax.iql.IR._
-import idb.syntax.iql.compilation.RemoteUtils
+import idb.algebra.RemoteUtils
 
 
 /**

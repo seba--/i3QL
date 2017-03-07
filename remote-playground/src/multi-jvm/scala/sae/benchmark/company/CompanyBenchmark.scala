@@ -1,6 +1,7 @@
 package sae.benchmark.company
 
 import idb.Table
+import idb.algebra.IR
 import idb.schema.company._
 import sae.benchmark.Benchmark
 

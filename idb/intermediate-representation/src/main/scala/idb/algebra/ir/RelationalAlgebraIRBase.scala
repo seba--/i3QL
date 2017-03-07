@@ -55,11 +55,15 @@ trait RelationalAlgebraIRBase
     type Query[Domain] = QueryBase[Domain]
 
     trait QueryBaseOps {
+	    var node : Option[Host] = None
+
         def isSet: Boolean
  		def host : Host
     }
 
-    abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps
+    abstract class QueryBase[+Domain: Manifest] extends QueryBaseOps {
+
+    }
 
 	implicit def repToQueryBaseOps(r : Rep[Query[_]]) : QueryBaseOps = {
 		r match {
@@ -83,7 +87,6 @@ trait RelationalAlgebraIRBase
     )
             (implicit mDom: Manifest[Domain], mRel: Manifest[Table[Domain]])
         extends Exp[Query[Domain]] with QueryBaseOps {
-
 	}
 
 	case class QueryRelation[Domain] (
@@ -92,7 +95,8 @@ trait RelationalAlgebraIRBase
 		taint : Taint,
 		host : Host
 	)(implicit mDom: Manifest[Domain], mRel: Manifest[Relation[Domain]])
-        extends Exp[Query[Domain]] with QueryBaseOps
+        extends Exp[Query[Domain]] with QueryBaseOps {
+	}
 
 	case class Materialize[Domain : Manifest] (
 	  relation : Rep[Query[Domain]]
@@ -109,12 +113,6 @@ trait RelationalAlgebraIRBase
 		def isSet = relation.isSet
 	}
 
-	//This version checks the type of the table for the annotation instead of the table itself
-//    protected def isIncrementLocal[Domain] (m: Manifest[Domain]) = {
-//		m.runtimeClass.getAnnotation (classOf[LocalIncrement]) != null
-//	}
-
-
     /**
      * Wraps an table as a leaf in the query tree
      */
@@ -123,9 +121,6 @@ trait RelationalAlgebraIRBase
         mRel: Manifest[Table[Domain]],
 		env : QueryEnvironment
     ): Rep[Query[Domain]] = {
-
-		//val c : Color = if (taint == Color.NO_TAINT) getColorAnnotation(table) else Color.NO_TAINT
-
 		val t = QueryTable (
 			table,
 			isSet = isSet,
@@ -135,8 +130,6 @@ trait RelationalAlgebraIRBase
 		t
 	}
 
-
-
     /**
      * Wraps a compiled relation again as a leaf in the query tree
      */
@@ -145,9 +138,7 @@ trait RelationalAlgebraIRBase
         mRel: Manifest[Relation[Domain]],
 		env : QueryEnvironment
     ): Rep[Query[Domain]] = {
-
-		//val c : Color = if (taint == Color.NO_TAINT) getColorAnnotation(relation) else Color.NO_TAINT
-		val t = QueryRelation (
+ 		val t = QueryRelation (
 			relation,
 			isSet = isSet,
 			taint = taint,

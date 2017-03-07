@@ -2,6 +2,7 @@ package sae.benchmark.hospital
 
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
+import idb.algebra
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
@@ -57,7 +58,7 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			//Write an i3ql query...
 			import BaseHospital._
 			import Data._
-			import idb.syntax.iql.IR._
+			import idb.algebra.IR._
 			import idb.syntax.iql._
 
 			val personDB : Rep[Query[PersonType]] =
@@ -82,12 +83,12 @@ class HospitalBenchmark3 extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 			//Print the LMS tree representation
 			val printer = new RelationalAlgebraPrintPlan {
-				override val IR = idb.syntax.iql.IR
+				override val IR = algebra.IR
 			}
 			Predef.println(printer.quoteRelation(q1))
 
 			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-			val r : idb.syntax.iql.IR.Relation[ResultType] =
+			val r : algebra.IR.Relation[ResultType] =
 			ROOT(clientHost, q1)
 			r
 		}

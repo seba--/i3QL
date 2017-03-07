@@ -1,12 +1,13 @@
 package idb.integration.test.operators
 
+import idb.algebra
 import idb.query.QueryEnvironment
 import idb.syntax.iql._
 import org.junit.Assert._
 import org.hamcrest.CoreMatchers._
 import org.junit.Test
 import idb.schema.university.{Registration, Student}
-import idb.syntax.iql.IR._
+import idb.algebra.IR._
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.integration.test.UniversityTestData
 import idb.integration.test.UniversityDatabase._
@@ -22,7 +23,7 @@ import idb.schema.university.Registration
  */
 class TestEquiJoin extends UniversityTestData {
 
-	val IR = idb.syntax.iql.IR
+	val IR = algebra.IR
 
 	val printQuery = true
 

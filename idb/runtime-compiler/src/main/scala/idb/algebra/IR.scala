@@ -30,17 +30,13 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.syntax.iql
+package idb.algebra
 
 import idb.algebra.compiler.RelationalAlgebraSAEBinding
-import idb.algebra._
-import idb.lms.extensions.{ScalaOpsPkgExpExtensions, ScalaOpsPkgExpOptExtensions}
-import idb.lms.extensions.equivalence.{StructExpAlphaEquivalence, TupledFunctionsExpAlphaEquivalence}
-import idb.lms.extensions.functions.TupledFunctionsExpDynamicLambda
+import idb.lms.extensions.ScalaOpsPkgExpExtensions
 import idb.lms.extensions.lifiting.LiftEverything
 
 import scala.language.implicitConversions
-import scala.virtualization.lms.common._
 
 
 /**
@@ -63,8 +59,6 @@ case object IR
     with RelationalAlgebraSAEBinding
     with LiftEverything
 {
-    type SubQuery[+T] = IQL_SUB_QUERY[T]
-
 	@SerialVersionUID(-865432132L)
 	abstract class Def[+T] extends Serializable { // operations (composite)
 		override final lazy val hashCode = scala.runtime.ScalaRunTime._hashCode(this.asInstanceOf[Product])

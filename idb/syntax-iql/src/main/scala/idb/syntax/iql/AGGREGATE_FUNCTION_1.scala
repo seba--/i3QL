@@ -32,8 +32,6 @@
  */
 package idb.syntax.iql
 
-import idb.syntax.iql.IR._
-
 /**
  *
  * @author Mirko Köhler
@@ -41,6 +39,3 @@ import idb.syntax.iql.IR._
  */
 
 trait AGGREGATE_FUNCTION_1[Domain, AggregateRange] extends AGGREGATE_FUNCTION[Domain, AggregateRange]
-{
-
-}

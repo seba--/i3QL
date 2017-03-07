@@ -32,6 +32,7 @@
  */
 package idb.syntax.iql.planning
 
+import idb.algebra
 import idb.query.QueryEnvironment
 import idb.syntax.iql._
 import idb.syntax.iql.impl._
@@ -45,7 +46,7 @@ import idb.syntax.iql.impl._
 object SubQueryToAlgebra
 {
 
-    val IR = idb.syntax.iql.IR
+    val IR = algebra.IR
 
     import IR._
 
@@ -86,19 +87,19 @@ object SubQueryToAlgebra
                 applyDistinct (
                     projection (
                         selection (
-                        crossProduct (context, relation),
-                        {
-                            val ctxFun = dynamicLambda (contextParameter,
-                                dynamicLambda (parameter (predicate), body (predicate)))
-                            fun (
-                                // TODO: Works, but why does compiler need GroupRange with Domain?
-                                (ctx: Rep[ContextDomain], subDom: Rep[GroupRange with Domain]) => {
-                                    val fun1 = ctxFun (ctx)
-                                    val fun2 = fun1 (subDom)
-                                    fun2
-                                }
-                            )
-                        }
+                            crossProduct (context, relation),
+                            {
+                                val ctxFun = dynamicLambda (contextParameter,
+                                    dynamicLambda (parameter (predicate), body (predicate)))
+                                fun (
+                                    // TODO: Works, but why does compiler need GroupRange with Domain?
+                                    (ctx: Rep[ContextDomain], subDom: Rep[GroupRange with Domain]) => {
+                                        val fun1 = ctxFun (ctx)
+                                        val fun2 = fun1 (subDom)
+                                        fun2
+                                    }
+                                )
+                            }
                         ),
                         (ctx: Rep[ContextDomain], subDom: Rep[Select]) => ctx
                     ),

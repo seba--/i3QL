@@ -3,7 +3,7 @@ package sae.playground.remote
 import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.BagTable
+import idb.{BagTable, algebra}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.lms.extensions.FunctionUtils
@@ -71,7 +71,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				enterBarrier("deployed")
 
 				import idb.syntax.iql._
-				import idb.syntax.iql.IR._
+				import idb.algebra.IR._
 
 				//FIXME: Why do we have to explicitly specify the type here?
 				val table : Rep[Query[Int]] =
@@ -93,7 +93,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				val q3 = ROOT (host2, RECLASS(q3_0, Taint("blue")))
 
 				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = idb.syntax.iql.IR
+					override val IR = algebra.IR
 				}
 
 				Predef.println(printer.quoteRelation(q3))

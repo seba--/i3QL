@@ -1,8 +1,9 @@
-package idb.syntax.iql.compilation
+package idb.algebra
 
 import akka.actor.{ActorPath, ActorRef, ActorSystem, Deploy, Props}
 import akka.remote.RemoteScope
 import idb.Relation
+import idb.distribution.RemoteOperator
 import idb.remote.Initialize
 import idb.remote.receive.{PathRemoteReceiver, RefRemoteReceiver, RemoteReceiver}
 
@@ -15,7 +16,7 @@ object RemoteUtils {
 	def deploy[Domain](system : ActorSystem, node : ActorPath)(relation : Relation[Domain]) : ActorRef = {
 
 		val ref = system.actorOf(
-			Props(classOf[RelationActor[Domain]], relation)
+			Props(classOf[RemoteOperator[Domain]], relation)
 				.withDeploy(Deploy(scope=RemoteScope(node.address)))
 		)
 
@@ -28,7 +29,7 @@ object RemoteUtils {
 	  * @return A reference to an access actor that controls the given relation.
 	  */
 	def create(system : ActorSystem)(id : String, relation : Relation[_]) : ActorRef = {
-		system.actorOf(Props(classOf[RelationActor[_]], relation), id)
+		system.actorOf(Props(classOf[RemoteOperator[_]], relation), id)
 	}
 
 	def from[Domain](path : ActorPath) : RemoteReceiver[Domain] = {
