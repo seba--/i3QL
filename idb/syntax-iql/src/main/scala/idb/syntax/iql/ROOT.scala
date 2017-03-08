@@ -34,7 +34,7 @@ object ROOT {
 
 	def apply[Domain : Manifest](rootHost : RemoteHost, query : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Relation[Domain] = {
 
-		Predef.println("### ROOT: Executing placement algorithm...")
+		Predef.println(s"### ROOT: Executing placement algorithm. query = $query")
 		object Placement extends PlacementStrategy {
 			val IR = algebra.IR
 		}

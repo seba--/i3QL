@@ -1,7 +1,7 @@
 package idb.query
 
 import akka.actor.ActorSystem
-import idb.query.taint.TaintId
+import idb.query.taint.{Taint, TaintId}
 
 /**
  * This class describes the environment in which a query should be compiled to.
@@ -39,6 +39,13 @@ trait QueryEnvironment {
 	 * Closes the environment. Queries with that environment should no longer be used.
 	 */
 	def close(): Unit
+
+	/**
+	  * Finds all hosts that satisfy a permission.
+	  */
+	def findHostsFor(permissions : Set[TaintId]) : Set[Host] = {
+		hosts.filter(h => permissions.subsetOf(permissionsOf(h)))
+	}
 }
 
 protected class QueryEnvironmentImpl (

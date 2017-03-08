@@ -26,10 +26,10 @@ trait CompanyConfig extends BenchmarkConfig {
 }
 
 sealed trait DefaultPriorityConfig extends CompanyConfig {
-	override val priorityPublic : Int = 1
-	override val priorityProduction : Int = 1
-	override val priorityPurchasing : Int = 1
-	override val priorityEmployees : Int = 1
+	override val priorityPublic : Int = 50
+	override val priorityProduction : Int = 50
+	override val priorityPurchasing : Int = 50
+	override val priorityEmployees : Int = 50
 	override val priorityClient : Int = 0
 
 	override val permissionsPublic : Set[String] = Set("lab:public")
@@ -49,7 +49,7 @@ sealed trait ClientPriorityConfig extends CompanyConfig {
 	override val priorityProduction : Int = 0
 	override val priorityPurchasing : Int = 0
 	override val priorityEmployees : Int = 0
-	override val priorityClient : Int = 1
+	override val priorityClient : Int = 1000
 
 	override val permissionsPublic : Set[String] = Set("lab:public")
 	override val permissionsProduction : Set[String] = Set("lab:public", "lab:production")

@@ -20,7 +20,7 @@ class CompanyBenchmark1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
-	with Measure4000ClientPriorityConfig {
+	with Test10DefaultPriorityConfig {
 
 	override val benchmarkQuery = "query1"
 	override val benchmarkNumber: Int = 100
@@ -87,10 +87,10 @@ class CompanyBenchmark1 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			val query : Rep[Query[ResultType]] = q1
 			
 			//Print the LMS tree representation
-			val printer = new RelationalAlgebraPrintPlan {
-				override val IR = algebra.IR
-			}
-			Predef.println(printer.quoteRelation(query))
+//			val printer = new RelationalAlgebraPrintPlan {
+//				override val IR = algebra.IR
+//			}
+//			Predef.println(printer.quoteRelation(query))
 
 			//Define the root. The operators get distributed here.
 			val r : algebra.IR.Relation[ResultType] =
