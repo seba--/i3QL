@@ -95,22 +95,22 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 		system,
 		Map(
 			//data
-			host_data_customer -> (100, Set(taintid_CustomerGeneral, taintid_CustomerFinance)),
-			host_data_nation -> (100, Set(taintid_NationGeneral)),
-			host_data_orders -> (100, Set(taintid_OrderGeneral, taintid_OrderFinance, taintid_OrderShipping, taintid_LineItemGeneral, taintid_LineItemKey, taintid_LineItemFinance, taintid_LineItemShipping)),
-			host_data_part -> (100, Set(taintid_PartGeneral, taintid_PartPurchasing)),
-			host_data_partsupp -> (100, Set(taintid_PartSuppGeneral, taintid_PartSuppPurchasing, taintid_PartSuppKey)),
-			host_data_region -> (100, Set(taintid_RegionGeneral)),
-			host_data_supplier -> (100, Set(taintid_SupplierGeneral, taintid_SupplierPurchasing)),
+			host_data_customer -> (8, Set(taintid_CustomerGeneral, taintid_CustomerFinance)),
+			host_data_nation -> (8, Set(taintid_NationGeneral)),
+			host_data_orders -> (8, Set(taintid_OrderGeneral, taintid_OrderFinance, taintid_OrderShipping, taintid_LineItemGeneral, taintid_LineItemKey, taintid_LineItemFinance, taintid_LineItemShipping)),
+			host_data_part -> (8, Set(taintid_PartGeneral, taintid_PartPurchasing)),
+			host_data_partsupp -> (8, Set(taintid_PartSuppGeneral, taintid_PartSuppPurchasing, taintid_PartSuppKey)),
+			host_data_region -> (8, Set(taintid_RegionGeneral)),
+			host_data_supplier -> (8, Set(taintid_SupplierGeneral, taintid_SupplierPurchasing)),
 			//process
-			host_process_finance ->  (200, Set(taintid_CustomerFinance, taintid_LineItemFinance, taintid_OrderFinance, taintid_LineItemKey)),
-			host_process_purchasing ->  (200, Set(taintid_PartPurchasing, taintid_SupplierPurchasing, taintid_PartSuppPurchasing, taintid_PartGeneral,
+			host_process_finance ->  (5, Set(taintid_CustomerFinance, taintid_LineItemFinance, taintid_OrderFinance, taintid_LineItemKey)),
+			host_process_purchasing ->  (5, Set(taintid_PartPurchasing, taintid_SupplierPurchasing, taintid_PartSuppPurchasing, taintid_PartGeneral,
 				taintid_PartSuppGeneral, taintid_SupplierGeneral, taintid_PartSuppKey)),
-			host_process_shipping ->  (200, Set(taintid_LineItemShipping, taintid_OrderShipping, taintid_LineItemKey, taintid_CustomerGeneral)),
-			host_process_geographical ->  (200, Set(taintid_RegionGeneral, taintid_NationGeneral)),
-			host_process_private ->  (100, allTaints),
+			host_process_shipping ->  (5, Set(taintid_LineItemShipping, taintid_OrderShipping, taintid_LineItemKey, taintid_CustomerGeneral)),
+			host_process_geographical ->  (5, Set(taintid_RegionGeneral, taintid_NationGeneral)),
+			host_process_private ->  (5, allTaints),
 			//client
-			host_client -> (0, allTaints)
+			host_client -> (10, allTaints)
 		)
 	)
 	

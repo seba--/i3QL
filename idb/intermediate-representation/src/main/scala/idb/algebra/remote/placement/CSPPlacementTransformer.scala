@@ -1,12 +1,13 @@
 package idb.algebra.remote.placement
 
+import java.util
+
 import idb.algebra.QueryTransformerAdapter
 import idb.algebra.base.RelationalAlgebraBase
 import idb.algebra.exceptions.NoServerAvailableException
 import idb.algebra.ir.{RelationalAlgebraIRAggregationOperators, RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators, RelationalAlgebraIRSetTheoryOperators}
 import idb.algebra.remote.taint.QueryTaint
 import idb.lms.extensions.RemoteUtils
-import idb.query.taint.Taint
 import idb.query.{Host, QueryEnvironment}
 
 import scala.collection.mutable
@@ -28,11 +29,9 @@ trait CSPPlacementTransformer
 		with RemoteUtils
 
 
-
-
 	override def transform[Domain: Manifest](relation: IR.Rep[IR.Query[Domain]])(implicit env: QueryEnvironment): IR.Rep[IR.Query[Domain]] = {
 		//Defines whether the query tree should be use fragments bigger then single operators
-		val USE_FRAGMENTS : Boolean = true
+		val USE_FRAGMENTS : Boolean = false
 
 		println("global Defs = ")
 		IR.globalDefsCache.toList.sortBy(t => t._1.id).foreach(println)
@@ -67,7 +66,7 @@ trait CSPPlacementTransformer
 			}
 		}
 
-		val servers = hostList.map(h => env.priorityOf(h) * 1000)
+		val servers = hostList.map(h => env.priorityOf(h))
 
 		val fragments : Set[Set[Int]] = if (USE_FRAGMENTS) fragmentOperators(links) else Set.empty
 
@@ -265,20 +264,24 @@ trait CSPPlacementTransformer
 			}
 		}
 
-		def createFragment(op : Int, current : Set[Int]) : Set[Set[Int]] = {
+		def createFragment(op : Int, root : Set[Int], current : Set[Int]) : Set[Set[Int]] = {
 			val c = childrenOf(op)
 			if (c.isEmpty)
 				Set(current + op)
-			else if (c.size == 1)
-				createFragment(c.head, current + op)
-			else {
-				c.map(i => createFragment(i, Set.empty)).fold(Set.empty)((s1, s2) => s1 ++ s2) + (current + op)
+			else if (c.size == 1) {
+				val e = c.head
+				if (root.contains(op))
+					createFragment(e, root, Set.empty) + (current + op)
+				else
+					createFragment(e, root, current + op)
+			} else {
+				c.map(i => createFragment(i, root, Set.empty)).fold(Set.empty)((s1, s2) => s1 ++ s2) + (current + op)
 			}
 		}
 
 		println("root = " + root)
 		println("children = " + children)
-		createFragment(root, Set.empty)
+		createFragment(root, Set(root), Set.empty)
 
 	}
 
@@ -289,7 +292,7 @@ trait CSPPlacementTransformer
         operators : Seq[(Int, Option[Int], Set[Int])],
         //operator links = (from, to, network load)
         links : Seq[(Int, Int, Int)],
-        //servers = (maximum load)
+        //servers = (load multiplier)
         servers : Seq[Int],
         //fragmented operators -- operators in the same set are put on the same host
         fragments : Set[Set[Int]]
@@ -315,13 +318,13 @@ trait CSPPlacementTransformer
 		//Define IntVar for each operator. Value = Server number, Domain = correct server numbers
 		//Define load for each operator
 		val operatorVars = new Array[IntVar](numOperators)
-		val loads = new Array[Int](numOperators)
+		val operatorResources = new Array[Int](numOperators)
 
 		{
 			var i = 0
 			for (operator <- operators) {
 				operatorVars(i) = new IntVar(store, "op" + i, 0, numServers - 1)
-				loads(i) = operator._1
+				operatorResources(i) = operator._1
 				//Pin operator on table if needed
 				operator._2 match {
 					case Some(s) => store.impose(new XeqC(operatorVars(i), s))
@@ -338,27 +341,28 @@ trait CSPPlacementTransformer
 			}
 		}
 
+		val maxServerLoad = operatorResources.sum
 
 		//Define IntVar for each servers. Value = load on that server, Domain = min/max load
 		val serverVars = new Array[IntVar](numServers)
 
 		{
 			var i = 0
-			for (server <- servers) {
-				serverVars(i) = new IntVar(store, "s" + i, 0, server)
+			for (s <- servers) {
+				serverVars(i) = new IntVar(store, "s" + i, 0, maxServerLoad)
 				i = i + 1
 			}
 		}
 
 		//Define operator links
 		val linkVars = new Array[IntVar](numLinks)
-		var maximumCost = 0
+		var maxBandwidth = 0
 
 		{
 			var i = 0
 			for (link <- links) {
 				linkVars(i) = new IntVar(store, "l" + i, 0, link._3)
-				maximumCost = maximumCost + link._3
+				maxBandwidth += link._3
 				//Define network constraint for the link
 				store.impose(
 					new IfThenElse(
@@ -384,12 +388,32 @@ trait CSPPlacementTransformer
 			}
 		}
 
-		//Define cost == network load
-		val cost = new IntVar(store, "cost", new IntervalDomain(0, maximumCost))
-		store.impose(new SumInt(store, linkVars, "==", cost))
-
 		//Define bin packing constraint (= load on all servers)
-		//store.impose(new Binpacking(operatorVars, serverVars, loads))
+		store.impose(new Binpacking(operatorVars, serverVars, operatorResources))
+
+		//Define network cost
+		val networkCost = new IntVar(store, "network-cost", 0, maxBandwidth)
+		store.impose(new SumInt(store, linkVars, "==", networkCost))
+
+		//Define load usage cost
+		val loadVars = new Array[IntVar](numServers)
+
+		{
+			var i = 0
+			for (s <- servers) {
+				loadVars(i) = new IntVar(store, "load" + i, 0, maxServerLoad * servers(i))
+				store.impose(new XmulCeqZ(serverVars(i), s, loadVars(i)))
+				i = i + 1
+			}
+
+		}
+
+		val loadCost = new IntVar(store, "load-cost", 0, maxServerLoad * servers.max * numServers)
+		store.impose(new SumInt(store, loadVars, "==", loadCost))
+
+		//Define overall cost
+		val cost = new IntVar(store, "cost", 0, maxBandwidth * (maxServerLoad * servers.max))
+		store.impose(new XmulYeqZ(loadCost, networkCost, cost))
 
 		//Search for a solution and print results
 		val search: Search[IntVar] = new DepthFirstSearch[IntVar]()

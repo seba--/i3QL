@@ -151,7 +151,6 @@ trait DefaultDataGenerator extends TPCHDataGenerator {
 				}
 				k
 			}
-			 //TODO: Change this to the price of all line items in this order
 
 			val days151inMs = 13046400000L
 			import ListStringGenerator._
