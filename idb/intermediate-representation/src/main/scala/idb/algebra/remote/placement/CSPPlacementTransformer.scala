@@ -29,7 +29,10 @@ trait CSPPlacementTransformer
 
 
 
+
 	override def transform[Domain: Manifest](relation: IR.Rep[IR.Query[Domain]])(implicit env: QueryEnvironment): IR.Rep[IR.Query[Domain]] = {
+		//Defines whether the query tree should be use fragments bigger then single operators
+		val USE_FRAGMENTS : Boolean = true
 
 		println("global Defs = ")
 		IR.globalDefsCache.toList.sortBy(t => t._1.id).foreach(println)
@@ -66,10 +69,13 @@ trait CSPPlacementTransformer
 
 		val servers = hostList.map(h => env.priorityOf(h) * 1000)
 
+		val fragments : Set[Set[Int]] = if (USE_FRAGMENTS) fragmentOperators(links) else Set.empty
+
 		//Compute placement using the CSP solver
 		println("operatorList = " + operatorList)
 		println("hostList = " + hostList)
-		val placement : Seq[Int] = computePlacement(operators, links, servers)
+		println("fragments = " + fragments)
+		val placement : Seq[Int] = computePlacement(operators, links, servers, fragments)
 
 		if (placement == null)
 			throw new NoServerAvailableException()
@@ -234,10 +240,48 @@ trait CSPPlacementTransformer
 				(t._1, (query, 0, None, scala.Seq(r), scala.Seq(t._1)) :: t._2)
 			case Def(ActorDef(_, h, _)) =>
 				(1000, scala.List((query, 0, Some(h), scala.Seq.empty, scala.Seq.empty)))
-
-			//TODO: Add the other operators here
 		}
 	}
+
+
+	private def fragmentOperators(links : Seq[(Int, Int, Int)]): Set[Set[Int]] = {
+		val children = new mutable.HashMap[Int, mutable.Set[Int]] with mutable.MultiMap[Int, Int]
+
+		for (l <- links) {
+			children.addBinding(l._2, l._1)
+		}
+
+		def childrenOf(op : Int) : Set[Int] = {
+			children.get(op) match {
+				case None => Set.empty
+				case Some(s) => s.toSet
+			}
+		}
+
+		var root : Int = -1
+		for (op <- children.keys) {
+			if (!children.values.exists(s => s.contains(op))) {
+				root = op
+			}
+		}
+
+		def createFragment(op : Int, current : Set[Int]) : Set[Set[Int]] = {
+			val c = childrenOf(op)
+			if (c.isEmpty)
+				Set(current + op)
+			else if (c.size == 1)
+				createFragment(c.head, current + op)
+			else {
+				c.map(i => createFragment(i, Set.empty)).fold(Set.empty)((s1, s2) => s1 ++ s2) + (current + op)
+			}
+		}
+
+		println("root = " + root)
+		println("children = " + children)
+		createFragment(root, Set.empty)
+
+	}
+
 
 
 	private def computePlacement(
@@ -246,7 +290,9 @@ trait CSPPlacementTransformer
         //operator links = (from, to, network load)
         links : Seq[(Int, Int, Int)],
         //servers = (maximum load)
-        servers : Seq[Int]
+        servers : Seq[Int],
+        //fragmented operators -- operators in the same set are put on the same host
+        fragments : Set[Set[Int]]
     ): Seq[Int] = {
 		import org.jacop.core._
 		import org.jacop.constraints._
@@ -262,7 +308,6 @@ trait CSPPlacementTransformer
 		val numOperators = operators.size
 		val numLinks = links.size
 		val numServers = servers.size
-
 
 		//Create global store
 		val store = new Store()
@@ -326,12 +371,25 @@ trait CSPPlacementTransformer
 			}
 		}
 
+		//Define fragment constraints
+		for (sameHost <- fragments) {
+			var previousOperator : Option[Int] = None
+			for (op <- sameHost) {
+				previousOperator match {
+					case Some(op2) =>
+						store.impose(new XeqY(operatorVars(op), operatorVars(op2)))
+					case None =>
+				}
+				previousOperator = Some(op)
+			}
+		}
+
 		//Define cost == network load
 		val cost = new IntVar(store, "cost", new IntervalDomain(0, maximumCost))
 		store.impose(new SumInt(store, linkVars, "==", cost))
 
 		//Define bin packing constraint (= load on all servers)
-		store.impose(new Binpacking(operatorVars, serverVars, loads))
+		//store.impose(new Binpacking(operatorVars, serverVars, loads))
 
 		//Search for a solution and print results
 		val search: Search[IntVar] = new DepthFirstSearch[IntVar]()
@@ -339,6 +397,8 @@ trait CSPPlacementTransformer
 			new InputOrderSelect[IntVar](store, operatorVars,
 				new IndomainMin[IntVar]())
 		val result: Boolean = search.labeling(store, select, cost)
+
+		println("Store >>>\n" + store + "\n<<< Store")
 
 		if (result) {
 			println("Solution:")
