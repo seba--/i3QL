@@ -3,11 +3,11 @@ package sae.playground.remote
 import akka.actor.{ActorPath, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.algebra.RemoteUtils
 import idb.{BagTable, remote}
 import idb.operators.impl.{DuplicateEliminationView, EquiJoinView, ProjectionView, SelectionView}
 import idb.remote
 import idb.remote.receive.{RefRemoteReceiver, RemoteReceiver}
+import idb.syntax.iql.runtime.RemoteUtils
 import idb.util.PrintEvents
 
 import scala.concurrent.Await

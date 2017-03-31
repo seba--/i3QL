@@ -5,6 +5,7 @@ import idb.{Relation, algebra}
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
+import idb.syntax.iql.IR
 import sae.benchmark.BenchmarkMultiNodeSpec
 
 class HospitalBenchmark1MultiJvmNode1 extends HospitalBenchmark1
@@ -55,7 +56,7 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 			//Write an i3ql query...
 			import BaseHospital._
 			import Data._
-			import idb.algebra.IR._
+			import idb.syntax.iql.IR._
 			import idb.syntax.iql._
 
 			val personDB : Rep[Query[PersonType]] =
@@ -78,14 +79,8 @@ class HospitalBenchmark1 extends MultiNodeSpec(HospitalMultiNodeConfig)
 						person._2.name == "John Doe"
 				)
 
-			//Print the LMS tree representation
-			val printer = new RelationalAlgebraPrintPlan {
-				override val IR = algebra.IR
-			}
-			Predef.println(printer.quoteRelation(q1))
-
 			//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-			val r : algebra.IR.Relation[ResultType] =
+			val r : idb.Relation[ResultType] =
 				ROOT(clientHost, q1)
 			r
 		}

@@ -3,7 +3,6 @@ package sae.playground.remote
 import akka.actor.{ActorPath, Address, Props}
 import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
-import idb.algebra.RemoteUtils
 import idb.{BagTable, algebra, remote}
 import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, _}
 import idb.algebra.print.RelationalAlgebraPrintPlan
@@ -12,6 +11,8 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.taint._
+import idb.syntax.iql.IR
+import idb.syntax.iql.runtime.RemoteUtils
 import idb.util.PrintEvents
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
@@ -68,7 +69,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 			runOn(node2) {
 				import idb.syntax.iql._
-				import idb.algebra.IR._
+				import IR._
 
 				// will send the Selection to node 1 and receive the final results
 				enterBarrier("deployed")
@@ -81,7 +82,7 @@ class I3QLRemoteTreeTest extends MultiNodeSpec(MultiNodeConfig)
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = algebra.IR
+					override val IR = idb.syntax.iql.IR
 				}
 				Predef.println("### Relation.tree ###\n" + printer.quoteRelation(root(q3, host2)))
 

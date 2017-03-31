@@ -30,8 +30,9 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.syntax.iql
 
+import idb.algebra._
 import idb.algebra.compiler.RelationalAlgebraSAEBinding
 import idb.lms.extensions.ScalaOpsPkgExpExtensions
 import idb.lms.extensions.lifiting.LiftEverything
@@ -59,6 +60,9 @@ case object IR
     with RelationalAlgebraSAEBinding
     with LiftEverything
 {
+
+	override type SubQuery[+T] = IQL_SUB_QUERY[T]
+
 	@SerialVersionUID(-865432132L)
 	abstract class Def[+T] extends Serializable { // operations (composite)
 		override final lazy val hashCode = scala.runtime.ScalaRunTime._hashCode(this.asInstanceOf[Product])

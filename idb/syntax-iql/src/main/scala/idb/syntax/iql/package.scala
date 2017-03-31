@@ -1,8 +1,8 @@
 package idb.syntax
 
-import idb.algebra.CompilerBinding
 import idb.query.QueryEnvironment
 import idb.syntax.iql.planning.{ClauseToAlgebra, SubQueryToAlgebra}
+import idb.syntax.iql.runtime.CompilerBinding
 
 import scala.language.implicitConversions
 import scala.reflect.SourceContext
@@ -15,7 +15,7 @@ import scala.reflect.SourceContext
 package object iql
 {
     // additional keywords. More are available via objects in the package
-	val IR = idb.algebra.IR
+
 	import IR._
 
     val * : STAR_KEYWORD = impl.StarKeyword

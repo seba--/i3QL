@@ -7,6 +7,7 @@ import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.schema.hospital._
+import idb.syntax.iql
 import idb.util.PrintEvents
 import sae.benchmark.hospital.HospitalMultiNodeConfig
 
@@ -189,7 +190,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 				//Print the LMS tree representation
 				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = algebra.IR
+					override val IR = iql.IR
 				}
 				Predef.println(printer.quoteRelation(q1))
 

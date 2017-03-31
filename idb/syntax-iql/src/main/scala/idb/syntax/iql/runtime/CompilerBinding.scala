@@ -30,14 +30,15 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra
+package idb.syntax.iql.runtime
 
 import akka.actor.{ActorPath, ActorSystem}
+import idb.Relation
 import idb.algebra.compiler._
 import idb.algebra.compiler.boxing.{BoxedAggregationNotSelfMaintained, BoxedAggregationSelfMaintained, BoxedEquiJoin, BoxedFunction}
 import idb.lms.extensions.ScalaCodeGenPkgExtensions
 import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
-import idb.{Relation, algebra}
+import idb.syntax.iql
 
 import scala.language.postfixOps
 
@@ -54,7 +55,7 @@ case object CompilerBinding
     with RelationalAlgebraGenCacheAll
     with ScalaCodeGenPkgExtensions
 {
-    override val IR = algebra.IR
+    override val IR = iql.IR
 
     override def reset {
       resetQueryCache()

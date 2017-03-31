@@ -5,6 +5,7 @@ import idb.{Relation, algebra}
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
+import idb.syntax.iql.IR
 import sae.benchmark.BenchmarkMultiNodeSpec
 
 class CompanyBenchmark10MultiJvmNode1 extends CompanyBenchmark10
@@ -20,7 +21,7 @@ class CompanyBenchmark10 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
-	with Test4000DefaultPriorityConfig {
+	with Test10DefaultPriorityConfig {
 
 	override val benchmarkQuery = "query10"
 	override val benchmarkNumber: Int = 1
@@ -56,7 +57,7 @@ class CompanyBenchmark10 extends MultiNodeSpec(CompanyMultiNodeConfig)
 		override def relation(): Relation[ResultType] = {
 			//Write an i3ql query...
 			import BaseCompany._
-			import idb.algebra.IR._
+			import idb.syntax.iql.IR._
 			import idb.syntax.iql._
 			import idb.schema.company._
 
@@ -89,15 +90,8 @@ class CompanyBenchmark10 extends MultiNodeSpec(CompanyMultiNodeConfig)
 			val query : Rep[Query[ResultType]] = productsWithWood
 
 			//Define the root. The operators get distributed here.
-			val r : algebra.IR.Relation[ResultType] =
+			val r : idb.Relation[ResultType] =
 				ROOT(clientHost, query).asMaterialized
-
-			//Print the LMS tree representation
-			val printer = new RelationalAlgebraPrintPlan {
-				override val IR = algebra.IR
-			}
-			Predef.println(printer.quoteRelation(query))
-
 
 			r
 		}

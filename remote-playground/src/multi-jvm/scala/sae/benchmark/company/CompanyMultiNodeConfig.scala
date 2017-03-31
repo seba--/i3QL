@@ -25,7 +25,7 @@ object CompanyMultiNodeConfig extends MultiNodeConfig {
 				serializers {
 					java = "akka.serialization.JavaSerializer"
 					proto = "akka.remote.serialization.ProtobufSerializer"
-					test = "idb.remote.TestSerializer"
+
 				}
 
 				# Change this setting to change the default serializer
@@ -37,6 +37,7 @@ object CompanyMultiNodeConfig extends MultiNodeConfig {
 			}
         }
     """))
+	//test = "idb.remote.TestSerializer"
 
 	val rolePublic = role("role:public")
 	val roleProduction = role("role:production")

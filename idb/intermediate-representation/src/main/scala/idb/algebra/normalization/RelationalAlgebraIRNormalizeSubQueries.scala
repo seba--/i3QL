@@ -106,7 +106,8 @@ trait RelationalAlgebraIRNormalizeSubQueries
                                 )
                             )
 
-                        case _ => super.selection (relation, function)
+                        case _ =>
+                            super.selection (relation, function)
                     }
                 case _ => throw new IllegalArgumentException (function.toString + " is not a Lambda function")
             }

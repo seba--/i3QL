@@ -1,11 +1,11 @@
-package idb.algebra
+package idb.syntax.iql.runtime
 
 import akka.actor.{ActorPath, ActorRef, ActorSystem, Deploy, Props}
 import akka.remote.RemoteScope
 import idb.Relation
-import idb.distribution.RemoteOperator
 import idb.remote.Initialize
 import idb.remote.receive.{PathRemoteReceiver, RefRemoteReceiver, RemoteReceiver}
+import idb.syntax.iql.runtime.distribution.RemoteOperator
 
 
 object RemoteUtils {

@@ -1,10 +1,11 @@
-package idb.distribution
+package idb.syntax.iql.runtime.distribution
 
 import akka.actor.{ActorPath, ActorRef, ActorSystem, Deploy, Props}
 import akka.remote.RemoteScope
 import idb.query.RemoteHost
 import idb.remote.Initialize
 import idb.remote.receive.RefRemoteReceiver
+import idb.syntax.iql
 
 /**
   * TODO: Add documentation of class!
@@ -13,7 +14,7 @@ import idb.remote.receive.RefRemoteReceiver
   */
 object DistributionSystem {
 
-	val IR = idb.algebra.IR
+	val IR = iql.IR
 
 	import IR._
 	def distributeQuery[Domain : Manifest](system : ActorSystem, query : Rep[Query[Domain]]) : Relation[Domain] = {

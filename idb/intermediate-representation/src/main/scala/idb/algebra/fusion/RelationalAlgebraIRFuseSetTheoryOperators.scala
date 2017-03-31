@@ -60,7 +60,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
                 withoutNormalization (
                     selection (
                         ra.asInstanceOf[Rep[Query[Range]]],
-                        createDisjunction (fa, fb)(parameterType (fa))
+                        createDisjunction (fa, fb)(parameterType(fa))
                     )
                 )
 
@@ -70,7 +70,7 @@ trait RelationalAlgebraIRFuseSetTheoryOperators
                     withoutNormalization (
                         selection (
                             ra.asInstanceOf[Rep[Query[Range]]],
-                            createDisjunction (fa, fb)(parameterType (fa))
+                            createDisjunction (fa, fb)(parameterType(fa))
                         )
                     ),
                     rx

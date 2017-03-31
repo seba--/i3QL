@@ -32,6 +32,7 @@ trait CSPPlacementTransformer
 	override def transform[Domain: Manifest](relation: IR.Rep[IR.Query[Domain]])(implicit env: QueryEnvironment): IR.Rep[IR.Query[Domain]] = {
 		//Defines whether the query tree should be use fragments bigger then single operators
 		val USE_FRAGMENTS : Boolean = false
+		val USE_PRIVACY : Boolean = false
 
 		println("global Defs = ")
 		IR.globalDefsCache.toList.sortBy(t => t._1.id).foreach(println)
@@ -46,10 +47,16 @@ trait CSPPlacementTransformer
 		val operators : mutable.Buffer[(Int, Option[Int], Set[Int])] = mutable.Buffer.empty
 
 		for (op <- operatorList) {
+			val hostsOfOp : Set[Int] = if (USE_PRIVACY) {
+				env.findHostsFor(taintOf(op._1).ids).map(h => hostId(h))
+			} else {
+				env.hosts.map(h => hostId(h))
+			}
+
 			operators += ((
 				op._2,
 				op._3.map(h => hostId(h)),
-				env.findHostsFor(taintOf(op._1).ids).map(h => hostId(h))
+				hostsOfOp
 			))
 		}
 
@@ -102,6 +109,9 @@ trait CSPPlacementTransformer
 	)(
 		implicit env: QueryEnvironment, placement : mutable.Map[IR.Rep[IR.Query[_]], Host]
 	): IR.Rep[IR.Query[Domain]] = {
+
+		val mDom = implicitly[Manifest[Domain]]
+
 		import IR._
 
 		def distributeUnary[TA : Manifest, T : Manifest](child : Rep[Query[TA]], build : Rep[Query[TA]] => Rep[Query[T]]) : Rep[Query[T]] = {
@@ -135,7 +145,7 @@ trait CSPPlacementTransformer
 			case Def (Materialize(r)) => distributeUnary(r, (q : Rep[Query[Domain]]) => materialize(q))
 
 			//Basic Operators
-			case Def (Selection(r, f)) => distributeUnary(r, (q : Rep[Query[Domain]]) => selection(q, f))
+			case Def (Selection(r, f)) => distributeUnary(r, (q : Rep[Query[Domain]]) => selection(q, f)(mDom, env))
 			case Def (Projection(r, f)) => distributeUnary(r, (q : Rep[Query[Any]]) => projection(q, f))
 			case Def (CrossProduct(r1, r2)) => distributeBinary(r1, r2, (q1 : Rep[Query[Any]], q2 : Rep[Query[Any]]) => crossProduct(q1, q2)).asInstanceOf[Rep[Query[Domain]]]
 			case Def (EquiJoin(r1, r2, eqs)) => distributeBinary(r1, r2, (q1 : Rep[Query[Any]], q2 : Rep[Query[Any]]) => equiJoin(q1, q2, eqs)).asInstanceOf[Rep[Query[Domain]]]
@@ -188,7 +198,7 @@ trait CSPPlacementTransformer
 				(t._1 / 2, (query, 1, None, scala.Seq(r), scala.Seq(t._1)) :: t._2)
 			case Def(Projection(r, _)) =>
 				val t = operatorListFrom(r)
-				(9 * t._1 / 10, (query, 1, None, scala.Seq(r), scala.Seq(t._1)) :: t._2)
+				(t._1, (query, 1, None, scala.Seq(r), scala.Seq(t._1)) :: t._2)
 			case Def(CrossProduct(r1, r2)) =>
 				val t1 = operatorListFrom(r1)
 				val t2 = operatorListFrom(r2)
@@ -199,7 +209,7 @@ trait CSPPlacementTransformer
 				(2 * scala.math.min(t1._1, t2._1), (query, 4, None, scala.Seq(r1, r2), scala.Seq(t1._1, t2._1)) :: (t1._2 ++ t2._2))
 			case Def (DuplicateElimination(r)) =>
 				val t = operatorListFrom(r)
-				(3 * t._1 / 4, (query, 2, None, scala.Seq(r), scala.Seq(t._1)) :: t._2)
+				(t._1 / 2, (query, 2, None, scala.Seq(r), scala.Seq(t._1)) :: t._2)
 			case Def (Unnest(r, _)) =>
 				val t = operatorListFrom(r)
 				(5 * t._1, (query, 1, None, scala.Seq(r), scala.Seq(t._1)) :: t._2)

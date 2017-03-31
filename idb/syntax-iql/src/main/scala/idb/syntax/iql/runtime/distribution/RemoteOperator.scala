@@ -1,13 +1,13 @@
-package idb.distribution
+package idb.syntax.iql.runtime.distribution
 
 import akka.actor.{Actor, ActorRef}
 import idb.Relation
-import idb.algebra.CompilerBinding
 import idb.algebra.compiler.boxing.{BoxedAggregationNotSelfMaintained, BoxedAggregationSelfMaintained, BoxedEquiJoin, BoxedFunction}
 import idb.observer.Observer
 import idb.operators.impl.{ProjectionView, SelectionView, UnNestView}
 import idb.remote._
 import idb.remote.receive.RemoteReceiver
+import idb.syntax.iql.runtime.CompilerBinding
 
 import scala.collection.mutable
 

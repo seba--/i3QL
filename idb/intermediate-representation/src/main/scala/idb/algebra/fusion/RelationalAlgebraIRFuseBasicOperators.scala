@@ -75,11 +75,13 @@ trait RelationalAlgebraIRFuseBasicOperators
         function: Rep[Domain => Boolean]
     )(implicit env : QueryEnvironment): Rep[Query[Domain]] =
         relation match {
-            case Def (Selection (r, f)) => {
+            case Def (Selection (r, f)) =>
+                globalDefsCache.toList.sortBy(t => t._1.id).foreach(println)
+                println(s"manifest = ${implicitly[Manifest[Domain]]}, f = $f, function = $function")
                 withoutNormalization (
-                    selection (r, createConjunction (f, function))
+                    selection (r, createConjunction (f, function)(parameterType(f)))
                 )
-            }
+
             case _ =>
                 super.selection (relation, function)
         }

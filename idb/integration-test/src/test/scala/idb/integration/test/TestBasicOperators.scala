@@ -38,7 +38,7 @@ import idb.syntax.iql._
 import org.junit.Assert._
 import org.junit.{Ignore, Test}
 import idb.schema.university.{Registration, Student, Course}
-import idb.algebra.IR._
+import IR._
 
 
 

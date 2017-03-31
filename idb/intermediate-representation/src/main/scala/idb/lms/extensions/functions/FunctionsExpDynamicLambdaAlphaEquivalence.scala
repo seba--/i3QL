@@ -46,8 +46,10 @@ trait FunctionsExpDynamicLambdaAlphaEquivalence
     with FunctionsExpAlphaEquivalence
 {
 
-    override def dynamicLambda[A, B] (x: Exp[A], body: Exp[B])(implicit pos: SourceContext): Exp[A => B] =
+    override def dynamicLambda[A, B] (x: Exp[A], body: Exp[B])(implicit pos: SourceContext): Exp[A => B] = {
         dynamicLambda(x, body, x.tp, body.tp)
+    }
+
 
     def dynamicLambda[A, B] (x: Exp[A], body: Exp[B], mA : Manifest[A], mB : Manifest[B])(implicit pos: SourceContext): Exp[A => B] = {
         implicit val _mA = mA

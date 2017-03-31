@@ -63,7 +63,7 @@ trait RelationalAlgebraPrintPlanAggregationOperators
         x match {
 
 			case Def (r@AggregationSelfMaintained (relation, grouping, start, added, removed, updated, convertKey, convert)) =>
-				withIndent (s"aggregationSelfMaintained[${r.host}](" + "\n") +
+				withIndent (s"aggregationSelfMaintained[${r.host.name}](" + "\n") +
 					withMoreIndent (quoteRelation (relation) + ",\n") +
 					withMoreIndent (quoteFunction (grouping) + ",\n") +
 					withMoreIndent (start + ",\n") +
@@ -76,7 +76,7 @@ trait RelationalAlgebraPrintPlanAggregationOperators
 
 
 			case Def (r@AggregationNotSelfMaintained (relation, grouping, start, added, removed, updated, convertKey, convert)) =>
-				withIndent (s"aggregationNotSelfMaintained[${r.host}](\n") +
+				withIndent (s"aggregationNotSelfMaintained[${r.host.name}](\n") +
 					withMoreIndent (quoteRelation (relation) + ",\n") +
 					withMoreIndent (quoteFunction (grouping) + ",\n") +
 					withMoreIndent (start + ",\n") +

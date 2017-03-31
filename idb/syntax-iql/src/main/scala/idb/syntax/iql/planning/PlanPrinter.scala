@@ -36,6 +36,7 @@ import idb.algebra
 
 import scala.virtualization.lms.common.{ScalaCodeGenPkg, ScalaGenStruct, ScalaGenTupledFunctions}
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.syntax.iql
 
 
 /**
@@ -48,7 +49,7 @@ object PlanPrinter
     with ScalaGenTupledFunctions
     with RelationalAlgebraPrintPlan
 {
-    override val IR  = algebra.IR
+    override val IR  = iql.IR
 
     def apply(x: IR.Exp[Any]): String = quote(x)
 }

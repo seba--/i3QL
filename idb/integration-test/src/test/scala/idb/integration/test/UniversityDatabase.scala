@@ -32,8 +32,8 @@
  */
 package idb.integration.test
 
-import idb.algebra.IR
 import idb.schema.university._
+import idb.syntax.iql.IR
 import idb.{BagTable, Relation, Table}
 
 /**

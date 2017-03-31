@@ -35,7 +35,7 @@ package idb.integration.test
 import UniversityDatabase._
 import idb.schema.university._
 import idb.syntax.iql._
-import idb.algebra.IR._
+import IR._
 import org.junit.{Ignore, Test}
 import org.junit.Assert._
 import scala.language.implicitConversions

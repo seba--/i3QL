@@ -247,7 +247,7 @@ class Q3 extends MultiNodeSpec(TPCHMultiNodeConfig)
 				)
 
 			//... and add ROOT.
-			val r : algebra.IR.Relation[Any] =
+			val r : idb.Relation[Any] =
 				ROOT(host_client, q1)
 
 			idb.util.printEvents(r, "result")

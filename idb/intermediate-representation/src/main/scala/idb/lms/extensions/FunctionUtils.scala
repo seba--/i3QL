@@ -54,7 +54,7 @@ trait FunctionUtils
 
 
     def parameterType[A, B] (function: Exp[A => B]): Manifest[Any] = {
-        function.tp.typeArguments (0).asInstanceOf[Manifest[Any]]
+        function.tp.typeArguments.head.asInstanceOf[Manifest[Any]]
     }
 
     def returnType[A, B] (function: Exp[A => B]): Manifest[Any] = {
@@ -344,10 +344,10 @@ trait FunctionUtils
     ): Rep[Domain => Boolean] = {
         val mDomain = implicitly[Manifest[Domain]]
 
-        if (!(fa.tp.typeArguments (0) >:> mDomain)) {
-            throw new java.lang.IllegalArgumentException (s"${fa.tp.typeArguments (0)} must conform to $mDomain")
-        } else if (!(fb.tp.typeArguments (0) >:> mDomain)) {
-            throw new java.lang.IllegalArgumentException (s"${fb.tp.typeArguments (0)} must conform to $mDomain")
+        if (!(fa.tp.typeArguments.head >:> mDomain)) {
+            throw new java.lang.IllegalArgumentException (s"${fa.tp.typeArguments.head} must conform to $mDomain")
+        } else if (!(fb.tp.typeArguments.head >:> mDomain)) {
+            throw new java.lang.IllegalArgumentException (s"${fb.tp.typeArguments.head} must conform to $mDomain")
         }
 
         val faUnsafe = fa.asInstanceOf[Rep[Domain => Boolean]]

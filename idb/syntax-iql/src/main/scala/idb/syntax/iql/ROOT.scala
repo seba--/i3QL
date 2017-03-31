@@ -1,13 +1,13 @@
 package idb.syntax.iql
 
 import akka.actor.ActorPath
-import idb.algebra
-import idb.algebra.{CompilerBinding, RemoteUtils}
+
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.algebra.remote.PlacementStrategy
 import idb.query.{Host, QueryEnvironment, RemoteHost}
-import idb.query.taint.Taint
+import idb.syntax.iql
 import idb.syntax.iql.IR._
+import idb.syntax.iql.runtime.{CompilerBinding, RemoteUtils}
 
 /**
  * @author Mirko Köhler
@@ -36,12 +36,12 @@ object ROOT {
 
 		Predef.println(s"### ROOT: Executing placement algorithm. query = $query")
 		object Placement extends PlacementStrategy {
-			val IR = algebra.IR
+			val IR = idb.syntax.iql.IR
 		}
 		 val q = Placement.transform(root(query, rootHost))
 
 		val printer = new RelationalAlgebraPrintPlan {
-			override val IR = algebra.IR
+			override val IR = idb.syntax.iql.IR
 		}
 		Predef.println(printer.quoteRelation(q))
 

@@ -65,9 +65,8 @@ trait RelationalAlgebraPrintPlanRemoteOperators
                     withIndent (")")
 
             case Def (rel@Reclassification(r, newTaint)) =>
-				withIndent (s"reclass[${rel.host.name}](\n") +
+				withIndent (s"reclass[${rel.host.name}](taint = ${newTaint.toString}\n") +
 					withMoreIndent (quoteRelation (r) + "\n") +
-					withMoreIndent (newTaint.toString + "\n") +
 					withIndent (")")
 
             case Def (rel@Declassification(r, taints)) =>

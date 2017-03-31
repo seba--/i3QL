@@ -1,10 +1,10 @@
 package sae.benchmark.hospital
 
-import idb.algebra.IR
 import idb.benchmark.Measurement
 import idb.query.QueryEnvironment
 import idb.schema.hospital
 import idb.schema.hospital._
+import idb.syntax.iql.IR
 import idb.{BagTable, Relation, Table}
 import sae.benchmark.{Benchmark, BenchmarkConfig, CSVPrinter}
 

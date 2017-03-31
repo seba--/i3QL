@@ -38,7 +38,7 @@ class TestRemote extends UniversityTestData {
 		)
 
 		//Initialize remote tables
-		import idb.algebra.IR._
+		import IR._
 
 		val registrationTable = BagTable.empty[Registration]
 		val remoteRegistrations = table(
@@ -106,7 +106,7 @@ class TestRemote extends UniversityTestData {
 		)
 
 		//Initialize remote tables
-		import idb.algebra.IR._
+		import IR._
 
 		val registrationTable = BagTable.empty[Registration]
 		val remoteRegistrations = table(
@@ -162,7 +162,7 @@ class TestRemote extends UniversityTestData {
 		)
 
 		//Initialize remote tables
-		import idb.algebra.IR._
+		import IR._
 
 		val registrationTable = BagTable.empty[Registration]
 		val remoteRegistrations = table(
@@ -227,7 +227,7 @@ class TestRemote extends UniversityTestData {
 		)
 
 		//Initialize remote tables
-		import idb.algebra.IR._
+		import IR._
 
 		val studentTable = BagTable.empty[Student]
 		val remoteStudents = table(

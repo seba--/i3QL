@@ -114,9 +114,9 @@ protected[remote] trait StandardPlacementTransformer
 		newHost match {
 			case Some(h) =>
 				oldHost match {
-					case Some(a) if a == hostA && (!PRIORITY_OVER_SAME_HOST || priorityOf(a) >= priorityOf(h)) =>
+					case Some(a) if a == hostA && (!PRIORITY_OVER_SAME_HOST || priorityOf(a) <= priorityOf(h)) =>
 						return transform(constructor(relationA, remote(relationB, hostA)))
-					case Some(b) if b == hostB && (!PRIORITY_OVER_SAME_HOST || priorityOf(b) >= priorityOf(h)) =>
+					case Some(b) if b == hostB && (!PRIORITY_OVER_SAME_HOST || priorityOf(b) <= priorityOf(h)) =>
 						return transform(constructor(remote(relationA, hostB), relationB))
 					case _ =>
 						return transform(constructor(remote(relationA, h), remote(relationB, h)))

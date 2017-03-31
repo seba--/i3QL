@@ -13,7 +13,7 @@ import idb.query.{QueryEnvironment, RemoteHost}
 import idb.remote._
 import idb.query._
 import idb.query.taint._
-import idb.syntax.iql.RECLASS
+import idb.syntax.iql.{IR, RECLASS}
 
 import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
@@ -71,7 +71,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				enterBarrier("deployed")
 
 				import idb.syntax.iql._
-				import idb.algebra.IR._
+				import IR._
 
 				//FIXME: Why do we have to explicitly specify the type here?
 				val table : Rep[Query[Int]] =
@@ -93,7 +93,7 @@ class I3QLRemoteTest extends MultiNodeSpec(MultiNodeConfig)
 				val q3 = ROOT (host2, RECLASS(q3_0, Taint("blue")))
 
 				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = algebra.IR
+					override val IR = idb.syntax.iql.IR
 				}
 
 				Predef.println(printer.quoteRelation(q3))
