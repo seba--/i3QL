@@ -69,9 +69,9 @@ trait Measure4000DefaultPriorityConfig extends DefaultPriorityConfig {
 	override val warmup = true
 }
 
-trait AWS10000DefaultPriorityConfig extends DefaultPriorityConfig {
-	override val benchmarkConfig : String = "aws-10000-all"
-	override val measureIterations : Int = 10000
+trait AWS4000DefaultPriorityConfig extends DefaultPriorityConfig {
+	override val benchmarkConfig : String = "aws-4000-all"
+	override val measureIterations : Int = 4000
 	override val warmup = true
 }
 
