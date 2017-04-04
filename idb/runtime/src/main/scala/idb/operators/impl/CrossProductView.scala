@@ -23,7 +23,7 @@ case class CrossProductView[DomainA, DomainB, Range](
 	private val rightSet = HashMultiset.create[DomainB]()
 
 	@SerialVersionUID(41271L)
-	object Lock extends Serializable {}
+	protected object Lock extends Serializable {}
 
 	override protected[idb] def resetInternal(): Unit = {
 		leftSet.clear()

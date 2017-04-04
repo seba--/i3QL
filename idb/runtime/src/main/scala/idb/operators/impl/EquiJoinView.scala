@@ -58,7 +58,8 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 
 	rightIndex addObserver RightObserver
 
-	//override protected def children = List(leftIndex, rightIndex)
+	@SerialVersionUID(46237871L)
+	protected object Lock extends Serializable {}
 
 	override def childObservers(o: Observable[_]): Seq[Observer[_]] = {
 		if (o == leftIndex) {
@@ -91,8 +92,7 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 
 	// use the left relation as keys, since this relation is smaller
 	def leftEquiJoin[T](f: (Range) => T) {
-		leftIndex.foreach(
-		{
+		leftIndex.foreach {
 			case (key, v) =>
 				rightIndex.get(key) match {
 					case Some(col) => {
@@ -103,24 +103,21 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 					case _ => // do nothing
 				}
 		}
-		)
 	}
 
 	// use the right relation as keys, since this relation is smaller
 	def rightEquiJoin[T](f: (Range) => T) {
-		rightIndex.foreach(
-		{
+		rightIndex.foreach {
 			case (key, u) =>
 				leftIndex.get(key) match {
-					case Some(col) => {
+					case Some(col) =>
 						col.foreach(v =>
 							f(projection(v, u))
 						)
-					}
+
 					case _ => // do nothing
 				}
 		}
-		)
 	}
 
 
@@ -137,79 +134,90 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 				return // no change in value
 			// change in value/ works also for change in key
 			// could inline the second lookup to the Some(u) in first if no key changes are required
-			rightIndex.get(oldKey) match {
-				case Some(col) => {
-					// the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to leftIndex.count(newKey)) {
-						EquiJoinView.this.notify_removed(projection(oldV, u))
-					}
+
+			Lock.synchronized {
+				rightIndex.get(oldKey) match {
+					case Some(col) =>
+						// the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+						for (u <- col; i <- 1 to leftIndex.count(newKey)) {
+							EquiJoinView.this.notify_removed(projection(oldV, u))
+						}
+
+					case _ => // do nothing
 				}
-				case _ => // do nothing
-			}
-			rightIndex.get(newKey) match {
-				case Some(col) => {
-					// the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to leftIndex.count(newKey)) {
-						EquiJoinView.this.notify_added(projection(newV, u))
-					}
+				rightIndex.get(newKey) match {
+					case Some(col) =>
+						// the leftIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+						for (u <- col; i <- 1 to leftIndex.count(newKey)) {
+							EquiJoinView.this.notify_added(projection(newV, u))
+						}
+
+					case _ => // do nothing
 				}
-				case _ => // do nothing
 			}
 		}
 
 		def removed(kv: (Key, DomainA)) {
 			var removed = Seq[Range]()
-			rightIndex.get(kv._1) match {
-				case Some(col) => {
-					col.foreach(u =>
-						removed = projection(kv._2, u) +: removed
-					)
+			Lock.synchronized {
+				rightIndex.get(kv._1) match {
+					case Some(col) =>
+						col.foreach(u =>
+							removed = projection(kv._2, u) +: removed
+						)
+
+					case _ => // do nothing
 				}
-				case _ => // do nothing
+				notify_removedAll(removed)
 			}
-			notify_removedAll(removed)
 		}
 
 		def removedAll(kvs: Seq[(Key, DomainA)]) {
 			var removed = Seq[Range]()
-			for (kv <- kvs)
-				rightIndex.get(kv._1) match {
-					case Some(col) => {
-						col.foreach(u =>
-							removed = projection(kv._2, u) +: removed
-						)
+			Lock.synchronized {
+				for (kv <- kvs)
+					rightIndex.get(kv._1) match {
+						case Some(col) =>
+							col.foreach(u =>
+								removed = projection(kv._2, u) +: removed
+							)
+
+						case _ => // do nothing
 					}
-					case _ => // do nothing
-				}
-			notify_removedAll(removed)
+				notify_removedAll(removed)
+			}
 		}
 
 		def added(kv: (Key, DomainA)) {
 			var added = Seq[Range]()
-			rightIndex.get(kv._1) match {
-				case Some(col) => {
-					col.foreach(u =>
-						added = projection(kv._2, u) +: added
-					)
+			Lock.synchronized {
+				rightIndex.get(kv._1) match {
+					case Some(col) =>
+						col.foreach(u =>
+							added = projection(kv._2, u) +: added
+						)
+
+					case _ => // do nothing
 				}
-				case _ => // do nothing
+				notify_addedAll(added)
 			}
-			notify_addedAll(added)
 		}
 
 		def addedAll(kvs: Seq[(Key, DomainA)]) {
 			var added = Seq[Range]()
-			for (kv <- kvs)
-				rightIndex.get(kv._1) match {
-					case Some(col) => {
-						col.foreach(u =>
+			Lock.synchronized {
+				for (kv <- kvs)
+					rightIndex.get(kv._1) match {
+						case Some(col) => {
+							col.foreach(u =>
 
-							added = projection(kv._2, u) +: added
-						)
+								added = projection(kv._2, u) +: added
+							)
+						}
+						case _ => // do nothing
 					}
-					case _ => // do nothing
-				}
-			notify_addedAll(added)
+				notify_addedAll(added)
+			}
 		}
 
 	}
@@ -229,43 +237,31 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 			// change in value/ works also for change in key
 
 			// the update may require a larger amount of elements to be generated, due to bag semantics
+			Lock.synchronized {
+				leftIndex.get(oldKey) match {
+					case Some(col) =>
+						// the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+						for (u <- col; i <- 1 to rightIndex.count(newKey)) {
+							notify_removed(projection(u, oldV))
+						}
 
-			leftIndex.get(oldKey) match {
-				case Some(col) => {
-					// the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to rightIndex.count(newKey)) {
-						notify_removed(projection(u, oldV))
-					}
+					case _ => // do nothing
 				}
-				case _ => // do nothing
-			}
-			leftIndex.get(newKey) match {
-				case Some(col) => {
-					// the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
-					for (u <- col; i <- 1 to rightIndex.count(newKey)) {
-						notify_added(projection(u, newV))
-					}
+				leftIndex.get(newKey) match {
+					case Some(col) =>
+						// the rightIndex was already updated so all entries previously mapped to oldKey are now mapped to newKey
+						for (u <- col; i <- 1 to rightIndex.count(newKey)) {
+							notify_added(projection(u, newV))
+						}
+
+					case _ => // do nothing
 				}
-				case _ => // do nothing
 			}
 		}
 
 		def removed(kv: (Key, DomainB)) {
 			var removed = Seq[Range]()
-			leftIndex.get(kv._1) match {
-				case Some(col) => {
-					col.foreach(u =>
-						removed = projection(u, kv._2) +: removed
-					)
-				}
-				case _ => // do nothing
-			}
-			notify_removedAll(removed)
-		}
-
-		def removedAll(kvs: Seq[(Key, DomainB)]) {
-			var removed = Seq[Range]()
-			for (kv <- kvs)
+			Lock.synchronized {
 				leftIndex.get(kv._1) match {
 					case Some(col) => {
 						col.foreach(u =>
@@ -274,34 +270,55 @@ case class EquiJoinView[DomainA, DomainB, Range, Key](
 					}
 					case _ => // do nothing
 				}
-			notify_removedAll(removed)
+				notify_removedAll(removed)
+			}
+		}
+
+		def removedAll(kvs: Seq[(Key, DomainB)]) {
+			var removed = Seq[Range]()
+			Lock.synchronized {
+				for (kv <- kvs)
+					leftIndex.get(kv._1) match {
+						case Some(col) =>
+							col.foreach(u =>
+								removed = projection(u, kv._2) +: removed
+							)
+
+						case _ => // do nothing
+					}
+				notify_removedAll(removed)
+			}
 		}
 
 		def added(kv: (Key, DomainB)) {
 			var added = Seq[Range]()
-			leftIndex.get(kv._1) match {
-				case Some(col) => {
-					col.foreach(u =>
-						added = projection(u, kv._2) +: added
-					)
+			Lock.synchronized {
+				leftIndex.get(kv._1) match {
+					case Some(col) =>
+						col.foreach(u =>
+							added = projection(u, kv._2) +: added
+						)
+
+					case _ => // do nothing
 				}
-				case _ => // do nothing
+				notify_addedAll(added)
 			}
-			notify_addedAll(added)
 		}
 
 		def addedAll(kvs: Seq[(Key, DomainB)]) {
 			var added = Seq[Range]()
-			for (kv <- kvs)
-				leftIndex.get(kv._1) match {
-					case Some(col) => {
-						col.foreach(u =>
-							added = projection(u, kv._2) +: added
-						)
+			Lock.synchronized {
+				for (kv <- kvs)
+					leftIndex.get(kv._1) match {
+						case Some(col) =>
+							col.foreach(u =>
+								added = projection(u, kv._2) +: added
+							)
+
+						case _ => // do nothing
 					}
-					case _ => // do nothing
-				}
-			notify_addedAll(added)
+				notify_addedAll(added)
+			}
 		}
 
 	}

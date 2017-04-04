@@ -25,7 +25,7 @@ class CompanyBenchmark5 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with AWS4000DefaultPriorityConfig {
 
 	override val benchmarkQuery = "query5"
-	override val benchmarkNumber: Int = 1
+	//override val benchmarkNumber: Int = 2
 
 	override val waitForData = 30000 //ms
 

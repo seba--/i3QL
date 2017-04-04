@@ -24,7 +24,7 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	with AWS4000DefaultPriorityConfig {
 
 	override val benchmarkQuery = "query3"
-	override val benchmarkNumber: Int = 1
+	//override val benchmarkNumber: Int = 2
 
 	import CompanyMultiNodeConfig._
 	def initialParticipants = roles.size
