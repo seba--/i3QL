@@ -32,7 +32,7 @@ trait CSPPlacementTransformer
 	override def transform[Domain: Manifest](relation: IR.Rep[IR.Query[Domain]])(implicit env: QueryEnvironment): IR.Rep[IR.Query[Domain]] = {
 		//Defines whether the query tree should be use fragments bigger then single operators
 		val USE_FRAGMENTS : Boolean = false
-		val USE_PRIVACY : Boolean = true
+		val USE_PRIVACY : Boolean = false
 
 		println("global Defs = ")
 		IR.globalDefsCache.toList.sortBy(t => t._1.id).foreach(println)
