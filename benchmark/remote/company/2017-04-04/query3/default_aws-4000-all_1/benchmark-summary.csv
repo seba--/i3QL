@@ -1,0 +1,2 @@
+type,benchmarkName,time,measureIterations,receivedEvents,entries,averageDelay,medianDelay,runtime,timeToReceive,eventsPerSecond
+benchmark,query3,08:50:50.310,4000,36000,36000,606.7145,655,1121,1098,32786.885245901634
