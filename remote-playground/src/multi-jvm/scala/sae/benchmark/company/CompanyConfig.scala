@@ -45,11 +45,11 @@ sealed trait DefaultPriorityConfig extends CompanyConfig {
 }
 
 sealed trait ClientPriorityConfig extends CompanyConfig {
-	override val priorityPublic : Int = 100
-	override val priorityProduction : Int = 100
-	override val priorityPurchasing : Int = 100
-	override val priorityEmployees : Int = 100
-	override val priorityClient : Int = 1
+	override val priorityPublic : Int = 1
+	override val priorityProduction : Int = 1
+	override val priorityPurchasing : Int = 1
+	override val priorityEmployees : Int = 1
+	override val priorityClient : Int = 0
 
 	override val permissionsPublic : Set[String] = Set("lab:public")
 	override val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
