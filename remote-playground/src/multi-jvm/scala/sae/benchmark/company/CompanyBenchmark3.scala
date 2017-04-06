@@ -26,6 +26,9 @@ class CompanyBenchmark3 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	override val benchmarkQuery = "query3"
 	//override val benchmarkNumber: Int = 2
 
+	override val waitForData = 30000 //ms
+
+
 	import CompanyMultiNodeConfig._
 	def initialParticipants = roles.size
 
