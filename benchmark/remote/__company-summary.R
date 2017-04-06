@@ -1,11 +1,11 @@
 source("benchmark-utils.R")
 
 #Parameters
-benchmarkGroup <- file.path("company", "paper")
-benchmarkA <- "default_measure-4000-all"
-benchmarkB <- "default_measure-4000-client"
+benchmarkGroup <- file.path("company", "2017-04-04")
+benchmarkA <- "default_aws-4000-all"
+benchmarkB <- "default_aws-4000-client"
 queryNumbers <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-benchmarkNumbers <- c(1, 2, 3)
+benchmarkNumbers <- c(2, 3)
 
 #Definitions
 readSummaries <- function(benchmark) {
