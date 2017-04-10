@@ -43,6 +43,7 @@ for (i in 1:length(data2)) {
 		data2$usedMemory[i] = 0
 }
 	
+#Initialize data that should be plotted
 plotDataMem <- matrix(c(data1$usedMemory, data2$usedMemory), ncol = length(queryNumbers), byrow = TRUE)
 plotDataTime <- matrix(c(data1$runtime, data2$runtime), ncol = length(queryNumbers), byrow = TRUE)
 
@@ -67,8 +68,8 @@ axis(2, at = seq(0.0, 1.5, by = 0.25))
 lines(x = c(0, length(queryNumbers) * 4 + 1), y = c(1.0, 1.0), lt = "dotted")
 
 #Plot runtime data
-colorTime1 <- rgb(230, 97, 1, maxColorValue = 255)
-colorTime2 <- rgb(253, 184, 99, maxColorValue = 255)
+colorTime1 <- rgb(253, 184, 99, maxColorValue = 255)
+colorTime2 <- rgb(230, 97, 1, maxColorValue = 255)
 
 barplot(
 	height = plotDataTime, 

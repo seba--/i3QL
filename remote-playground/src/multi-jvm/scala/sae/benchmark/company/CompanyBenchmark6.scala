@@ -21,7 +21,7 @@ class CompanyBenchmark6 extends MultiNodeSpec(CompanyMultiNodeConfig)
 	//Specifies the table setup
 	with DefaultCompanyBenchmark
 	//Specifies the number of measurements/warmups
-	with AWS4000DefaultPriorityConfig {
+	with AWS4000DefaultPriorityNoWarmupConfig {
 
 	override val benchmarkQuery = "query6"
 	//override val benchmarkNumber: Int = 2
