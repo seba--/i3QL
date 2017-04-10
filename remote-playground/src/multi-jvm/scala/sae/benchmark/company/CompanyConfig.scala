@@ -81,7 +81,7 @@ trait AWS4000DefaultPriorityConfig extends DefaultPriorityConfig {
 	override val measureIterations : Int = 4000
 	override val warmup = true
 
-	override val benchmarkNumber: Int = 4
+	override val benchmarkNumber: Int = 5
 }
 
 trait AWS4000ClientPriorityConfig extends ClientPriorityConfig {
