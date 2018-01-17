@@ -4,6 +4,7 @@ import akka.remote.testkit.MultiNodeSpec
 import akka.testkit.ImplicitSender
 import idb.{BagTable, algebra}
 import idb.algebra.print.RelationalAlgebraPrintPlan
+import idb.algebra.demo.RelationalAlgebraDemoPrintPlan
 import idb.query.taint._
 import idb.query.{QueryEnvironment, RemoteHost}
 import idb.schema.hospital._
@@ -36,21 +37,44 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 	}
 	import BaseHospital._
 
-	object Data extends HospitalTestData
+	object Data extends HospitalDemoData
 	import Data._
 
 	implicit val env = QueryEnvironment.create(
 		system,
 		Map(
+
+
+
+
+
+
+
+			/***********************************************
+			 *** DEFINE PERMISSIONS HERE *******************
+			 ***********************************************/
+
 			personHost -> (1, Set("red")),
 			patientHost -> (1, Set("red", "green", "purple")),
 			knowledgeHost -> (1, Set("purple")),
-			clientHost -> (0, Set("red", "green", "purple")) //For now: Client has its own permission to simulate pushing queries down
+			clientHost -> (0, Set("red", "green", "purple"))
+
+			/***********************************************
+  		 ***********************************************/
+
+
+
+
+
+
+
+
+
 		)
 	)
 
-	"A hospital" must {
-		"work for three servers (without client)" in {
+	"" must {
+		"" in {
 			/*
 				Person Server
 			 */
@@ -63,20 +87,17 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				Thread.sleep(5000)
 
 				enterBarrier("deployed")
-				Predef.println("### DEPLOYED ###")
 				//The query gets compiled here...
 				enterBarrier("compiled")
-				Predef.println("### COMPILED ###")
 
 				db += johnDoe
 				db += sallyFields
 				db += johnCarter
 				db += janeDoe
 
-				Thread.sleep(10000)
+				Thread.sleep(5000)
 
 				enterBarrier("finished")
-				Predef.println("### FINISHED ###")
 			}
 
 			/*
@@ -91,10 +112,8 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				Thread.sleep(5000)
 
 				enterBarrier("deployed")
-				Predef.println("### DEPLOYED ###")
 				//The query gets compiled here...
 				enterBarrier("compiled")
-				Predef.println("### COMPILED ###")
 
 				db += patientJohnDoe2
 				db += patientSallyFields1
@@ -102,10 +121,9 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				db += patientJaneDoe1
 				db += patientJaneDoe2
 
-				Thread.sleep(10000)
+				Thread.sleep(5000)
 
 				enterBarrier("finished")
-				Predef.println("### FINISHED ###")
 			}
 
 			/*
@@ -120,20 +138,17 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				Thread.sleep(5000)
 
 				enterBarrier("deployed")
-				Predef.println("### DEPLOYED ###")
 				//The query gets compiled here...
 				enterBarrier("compiled")
-				Predef.println("### COMPILED ###")
 
-				db += lungCancer1
-				db += lungCancer2
+				db += allergy1
+				db += allergy2
 				db += commonCold1
 				db += panicDisorder1
 
-				Thread.sleep(10000)
+				Thread.sleep(5000)
 
 				enterBarrier("finished")
-				Predef.println("### FINISHED ###")
 			}
 
 			/*
@@ -141,7 +156,6 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 			 */
 			runOn(node4) {
 				enterBarrier("deployed")
-				Predef.println("### DEPLOYED ###")
 
 				import idb.syntax.iql._
 				import IR._
@@ -154,7 +168,18 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 				val knowledgeDB : Rep[Query[KnowledgeData]] =
 					REMOTE GET [KnowledgeData] (knowledgeHost, "knowledge-db", Taint("purple"))
 
-				//Write an i3ql query...
+
+
+
+
+
+
+
+
+
+				/***********************************************
+         *** DEFINE QUERY HERE *************************
+         ***********************************************/
 				val q1 =
 					SELECT DISTINCT (
 						(person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) => (person.personId, person.name, knowledgeData.diagnosis)
@@ -163,57 +188,59 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 					) WHERE	(
 						(person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) =>
 								person.personId == patientSymptom._1.personId AND
-								patientSymptom._2 == knowledgeData.symptom //AND
-								//knowledgeData.symptom == Symptoms.cough
+								patientSymptom._2 == knowledgeData.symptom 
 					)
 
-//				val q1 =
-//					SELECT DISTINCT (
-//						(person: Rep[Person], patient: Rep[Patient]) => (person.personId, person.name)
-//					) FROM (
-//						personDB, patientDB
-//					) WHERE	(
-//						(person: Rep[Person], patient: Rep[Patient]) =>
-//								person.personId == patient.personId
-//					)
+				/***********************************************
+				 ***********************************************/
 
-//				val personPath: ActorPath = node(node1) / "user" / "person-db"
-//				val persons = RemoteUtils.from[Person](personPath)
-//
-//				val patientPath: ActorPath = node(node2) / "user" / "patient-db"
-//				val patients = RemoteUtils.from[Patient](patientPath)
-//
-//				val r1 = EquiJoinView(persons, patients, Seq((p : Person) => p.personId), Seq((p : Patient) => p.personId),false)
-//				val r2 = DuplicateEliminationView(r1, false)
-//
-//				val q1 = r2
 
-				//Print the LMS tree representation
-				val printer = new RelationalAlgebraPrintPlan {
-					override val IR = iql.IR
-				}
-				Predef.println(printer.quoteRelation(q1))
 
-				//... and add ROOT. Workaround: Reclass the data to make it pushable to the client node.
-				Thread.sleep(10000)
+
+
+
+
+
+
+
+
+
+
+
+				//... and add ROOT.
+				Thread.sleep(5000)
 				val q = ROOT(clientHost, q1)
 
 
 				//Compile the LMS tree and then materialize for further testing purposes
 				val r : idb.Relation[_] = q
+				//Print the incoming events
 				PrintEvents(r, "result")
-				Thread.sleep(5000)
+				Thread.sleep(15000)
 
+        Predef.println()
+        Predef.println()
+        Predef.println()
+        Predef.println()
+        Predef.println("***********************************************")
+        Predef.println("*** RECEIVED EVENTS ***************************")
+        Predef.println("***********************************************")
+        Predef.println()
 
-
-				enterBarrier("compiled")
-				Predef.println("### COMPILED ###")
+  			enterBarrier("compiled")
 				//The tables are now sending data
 
-				Thread.sleep(10000)
+				Thread.sleep(5000)
 
 				enterBarrier("finished")
-				Predef.println("### FINISHED ###")
+
+        Predef.println()
+        Predef.println("***********************************************")
+        Predef.println("***********************************************")
+        Predef.println()
+        Predef.println()
+        Predef.println()
+        Predef.println()
 
 			}
 

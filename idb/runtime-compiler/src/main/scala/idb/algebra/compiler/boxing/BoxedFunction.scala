@@ -7,9 +7,9 @@ case class BoxedFunction[A, B](code : ClassCode[A,B]) extends (A => B) {
 	var f : A => B = null
 
 	def compile(compiler : ScalaCodegenExt): Unit = {
-		Predef.println("BoxedFunction.compile >>>")
-		Predef.println(code)
-		Predef.println("<<<")
+//		Predef.println("BoxedFunction.compile >>>")
+//		Predef.println(code)
+//		Predef.println("<<<")
 		f = compiler.compileScalaCode[A,B](code)
 	}
 

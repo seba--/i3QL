@@ -30,50 +30,54 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.demo
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBase}
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.print.CodeGenIndent
-import scala.virtualization.lms.common.TupledFunctionsExp
+import idb.algebra.ir.{RelationalAlgebraIRBasicOperators, RelationalAlgebraIRRemoteOperators}
+import idb.lms.extensions.{FunctionUtils, ScalaOpsPkgExpExtensions}
+import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
+import idb.lms.extensions.print.{CodeGenIndent, QuoteFunction}
+
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlanRecursiveOperators
-    extends RelationalAlgebraPrintPlanBase
+trait RelationalAlgebraDemoPrintPlanRemoteOperators
+    extends RelationalAlgebraDemoPrintPlanBase
+    with QuoteFunction
     with CodeGenIndent
 {
 
-    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase with
-        RelationalAlgebraIRRecursiveOperators
+	override val IR: ScalaOpsPkgExpExtensions with
+        FunctionUtils with RelationalAlgebraIRRemoteOperators
 
 
-    import IR.Def
-    import IR.Exp
-    import IR.Recursion
-    import IR.RecursionResult
+    import IR.{Remote, Def, Exp, Reclassification, ActorDef, Declassification}
 
 
     override def quoteRelation (x: Exp[Any]): String =
         x match {
-            case Def (rel@Recursion (base, recursion)) =>
-                withIndent (s"Recursion[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (base) + ",\n") +
-                    withMoreIndent (withIndent(recursion.toString) + "\n") +
+            case Def (rel@Remote (relation, newHost)) =>
+                withIndent (s"remote[${rel.host.name}<--](\n") +
+                    withMoreIndent (quoteRelation (relation) + "\n") +
                     withIndent (")")
 
-            case Def (rel@RecursionResult (result, _)) =>
-                withIndent (s"RecursionResult[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (result) + "\n") +
-                    withIndent (")")
+            case Def (rel@Reclassification(r, newTaint)) =>
+				withIndent (s"reclass[${rel.host.name}](taint = ${newTaint.toString}\n") +
+					withMoreIndent (quoteRelation (r) + "\n") +
+					withIndent (")")
 
+            case Def (rel@Declassification(r, taints)) =>
+	            withIndent (s"declass[${rel.host.name}](\n") +
+		            withMoreIndent (quoteRelation (r) + "\n") +
+		            withMoreIndent (taints.toString + "\n") +
+		            withIndent (")")
 
-            case _ =>
-                super.quoteRelation (x)
+            case Def (rel@ActorDef (path, host, taint)) =>
+	            withIndent (s"actor[${host.name}](${path.toString})")
 
+            case _ => super.quoteRelation (x)
         }
-
 
 }

@@ -21,14 +21,11 @@ class RemoteOperator[Domain](
 
 	override def receive: Receive = {
 		case SendTo(ref) =>
-			println(s"[RelationActor] Adding link: ${this.self.path} ---> ${ref.path}")
 			registeredActors += ref
 		case Initialize =>
 			initialize(relation)
-			println(s"[RelationActor] Initialized ${this.self}")
 
 		case Reset =>
-			println(s"[RelationActor] Reset ${this.self}")
 			relation.reset()
 		case Print =>
 			val out = System.out //TODO: How to choose the correct printstream here?

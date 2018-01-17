@@ -30,50 +30,53 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.demo
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBase}
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.print.CodeGenIndent
+import idb.algebra.ir.RelationalAlgebraIRBase
+import scala.virtualization.lms.internal.GenericCodegen
 import scala.virtualization.lms.common.TupledFunctionsExp
+import idb.lms.extensions.print.CodeGenIndent
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlanRecursiveOperators
-    extends RelationalAlgebraPrintPlanBase
+trait RelationalAlgebraDemoPrintPlanBase
+    extends GenericCodegen
     with CodeGenIndent
 {
 
-    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase with
-        RelationalAlgebraIRRecursiveOperators
+    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase
 
-
-    import IR.Def
     import IR.Exp
-    import IR.Recursion
-    import IR.RecursionResult
+    import IR.Def
+    import IR.QueryTable
+    import IR.QueryRelation
+    import IR.Materialize
 
-
-    override def quoteRelation (x: Exp[Any]): String =
+    def quoteRelation (x: Exp[Any]): String =
         x match {
-            case Def (rel@Recursion (base, recursion)) =>
-                withIndent (s"Recursion[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (base) + ",\n") +
-                    withMoreIndent (withIndent(recursion.toString) + "\n") +
+            case r@QueryTable (e, _, taint, host) =>
+                withIndent (s"table[${r.host.name}](${e.hashCode()}, : Table[${x.tp}])")
+
+            case rel@QueryRelation (r, _, taint, host) =>
+				withIndent (s"relation[${rel.host.name}](${r.hashCode()}, : Rel[${x.tp}])")
+
+            case Def (rel@Materialize (r)) =>
+                withIndent (s"materialize[${rel.host.name}](\n") +
+                    withMoreIndent (quoteRelation (r) + "\n") +
                     withIndent (")")
+			case Def (rel@IR.Root (r, host)) =>
+				withIndent (s"root[${rel.host.name}](" + "\n") +
+					withMoreIndent (quoteRelation (r) + "\n") +
+					withIndent (")")
+            case Def(xDef) =>
+				throw new IllegalArgumentException ("Unknown relation: " + xDef)
 
-            case Def (rel@RecursionResult (result, _)) =>
-                withIndent (s"RecursionResult[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (result) + "\n") +
-                    withIndent (")")
-
-
-            case _ =>
-                super.quoteRelation (x)
+			case _ =>
+				throw new IllegalArgumentException ("Unknown relation: " + x)
 
         }
-
 
 }

@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.demo
 
 import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBase}
 import idb.lms.extensions.FunctionUtils
@@ -41,8 +41,8 @@ import scala.virtualization.lms.common.TupledFunctionsExp
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlanRecursiveOperators
-    extends RelationalAlgebraPrintPlanBase
+trait RelationalAlgebraDemoPrintPlanRecursiveOperators
+    extends RelationalAlgebraDemoPrintPlanBase
     with CodeGenIndent
 {
 

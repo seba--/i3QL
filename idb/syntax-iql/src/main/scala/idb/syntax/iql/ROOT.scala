@@ -1,9 +1,11 @@
 package idb.syntax.iql
 
 import akka.actor.ActorPath
-
+import idb.algebra.demo.RelationalAlgebraDemoPrintPlan
+import idb.algebra.ir._
 import idb.algebra.print.RelationalAlgebraPrintPlan
 import idb.algebra.remote.PlacementStrategy
+import idb.lms.extensions.{FunctionUtils, ScalaOpsPkgExpExtensions}
 import idb.query.{Host, QueryEnvironment, RemoteHost}
 import idb.syntax.iql
 import idb.syntax.iql.IR._
@@ -34,26 +36,41 @@ object ROOT {
 
 	def apply[Domain : Manifest](rootHost : RemoteHost, query : Rep[Query[Domain]])(implicit env : QueryEnvironment) : Relation[Domain] = {
 
-		Predef.println(s"### ROOT: Executing placement algorithm. query = $query")
 		object Placement extends PlacementStrategy {
 			val IR = idb.syntax.iql.IR
 		}
 		 val q = Placement.transform(root(query, rootHost))
 
-		val printer = new RelationalAlgebraPrintPlan {
+		val printer = new RelationalAlgebraDemoPrintPlan {
 			override val IR = idb.syntax.iql.IR
 		}
+
+		Predef.println()
+		Predef.println()
+		Predef.println()
+		Predef.println()
+		Predef.println("***********************************************")
+		Predef.println("*** PLACED QUERY ******************************")
+		Predef.println("***********************************************")
+		Predef.println()
+
 		Predef.println(printer.quoteRelation(q))
 
-		Predef.println("### ROOT: Compiling query...")
+
+		Predef.println()
+		Predef.println("***********************************************")
+		Predef.println("***********************************************")
+		Predef.println()
+		Predef.println()
+		Predef.println()
+		Predef.println()
+
 		val relation : Relation[Domain] = q
 		val RemoteHost(_, queryPath) = q.host
 
-		Predef.println("ROOT: Deploying relation...")
 		val ref = RemoteUtils.deploy(env.system, queryPath)(relation)
 		val r = RemoteUtils.fromWithDeploy(env.system, ref)
 
-		Predef.println("ROOT: Finished...")
 		r
 //		relation
 	}

@@ -30,49 +30,59 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.demo
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBase}
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.print.CodeGenIndent
+import idb.algebra.ir.{RelationalAlgebraIRBase, RelationalAlgebraIRSetTheoryOperators}
 import scala.virtualization.lms.common.TupledFunctionsExp
+import idb.lms.extensions.print.CodeGenIndent
+import idb.lms.extensions.FunctionUtils
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlanRecursiveOperators
-    extends RelationalAlgebraPrintPlanBase
+trait RelationalAlgebraDemoPrintPlanSetTheoryOperators
+    extends RelationalAlgebraDemoPrintPlanBase
     with CodeGenIndent
 {
 
-    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase with
-        RelationalAlgebraIRRecursiveOperators
+    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase with RelationalAlgebraIRSetTheoryOperators
 
-
-    import IR.Def
     import IR.Exp
-    import IR.Recursion
-    import IR.RecursionResult
+    import IR.Def
+    import IR.UnionAdd
+    import IR.UnionMax
+    import IR.Intersection
+    import IR.Difference
 
 
     override def quoteRelation (x: Exp[Any]): String =
         x match {
-            case Def (rel@Recursion (base, recursion)) =>
-                withIndent (s"Recursion[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (base) + ",\n") +
-                    withMoreIndent (withIndent(recursion.toString) + "\n") +
+            case Def (rel@UnionAdd (left, right)) =>
+                withIndent (s"unionAdd[${rel.host.name}](\n") +
+                    withMoreIndent (quoteRelation (left) + ",\n") +
+                    withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
-            case Def (rel@RecursionResult (result, _)) =>
-                withIndent (s"RecursionResult[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (result) + "\n") +
+            case Def (rel@UnionMax (left, right)) =>
+                withIndent (s"unionMax[${rel.host.name}](\n") +
+                    withMoreIndent (quoteRelation (left) + ",\n") +
+                    withMoreIndent (quoteRelation (right) + "\n") +
                     withIndent (")")
 
+            case Def (rel@Intersection (left, right)) =>
+                withIndent (s"intersection[${rel.host.name}](" + "\n") +
+                    withMoreIndent (quoteRelation (left) + ",\n") +
+                    withMoreIndent (quoteRelation (right) + "\n") +
+                    withIndent (")")
 
-            case _ =>
-                super.quoteRelation (x)
+            case Def (rel@Difference (left, right)) =>
+                withIndent (s"difference[${rel.host.name}](\n") +
+                    withMoreIndent (quoteRelation (left) + ",\n") +
+                    withMoreIndent (quoteRelation (right) + "\n") +
+                    withIndent (")")
 
+            case _ => super.quoteRelation (x)
         }
 
 

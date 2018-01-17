@@ -52,9 +52,9 @@ trait ScalaCodegenExt
         compiler = new Global (settings, reporter)
     }
 
-	var compileCount = 0
-    var dumpGeneratedCode = true
-    var silent = false
+	  var compileCount = 0
+    var dumpGeneratedCode = false
+    var silent = true
 
     def compileFunctionApplied[A: Manifest, B: Manifest] (f: IR.Rep[A => B]): A => B = {
         compileFunction (IR.doApply (f, _))

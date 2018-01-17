@@ -25,13 +25,11 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 
 	protected def internalDeploy(system : ActorSystem, remoteRef : ActorRef): Unit = {
 		if (sendActorRef != null) {
-			Predef.println("[RemoteReceiver] Warning! RemoteReceiver will not be deployed: Already deployed.")
 			return
 		}
 
 		sendActorRef = remoteRef
 		receiveActorRef = system.actorOf(Props(classOf[ReceiveActorAdapter[Domain]], this))
-		println(s"[RemoteReceiver] Adding link: ${sendActorRef.path} ---> ${receiveActorRef.path}")
 		sendActorRef ! SendTo(receiveActorRef)
 
 	}
@@ -47,7 +45,6 @@ trait RemoteReceiver[Domain] extends Relation[Domain] with NotifyObservers[Domai
 	}
 
 	override protected[idb] def printInternal(out : PrintStream)(implicit prefix: String = " "): Unit = {
-		out.println(prefix + s"Receiver(${if (sendActorRef != null) sendActorRef.path.toStringWithoutAddress else "null"} --> ${if (receiveActorRef != null) receiveActorRef.path.toStringWithoutAddress else "null"})")
 		sendActorRef ! Print
 	}
 

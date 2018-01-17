@@ -30,7 +30,7 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.demo
 
 import idb.algebra.ir.RelationalAlgebraIRBasicOperators
 import idb.lms.extensions.{FunctionUtils, ScalaOpsPkgExpExtensions}
@@ -43,8 +43,8 @@ import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlanBasicOperators
-    extends RelationalAlgebraPrintPlanBase
+trait RelationalAlgebraDemoPrintPlanBasicOperators
+    extends RelationalAlgebraDemoPrintPlanBase
     with QuoteFunction
     with CodeGenIndent
 {
@@ -68,13 +68,11 @@ trait RelationalAlgebraPrintPlanBasicOperators
             case Def (rel@Projection (relation, function)) =>
                 withIndent (s"projection[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
-                    withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
             case Def (rel@Selection (relation, function)) =>
                 withIndent (s"selection[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
-                    withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
             case Def (rel@CrossProduct (left, right)) =>
@@ -87,18 +85,6 @@ trait RelationalAlgebraPrintPlanBasicOperators
                 withIndent (s"equiJoin[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (left) + ",\n") +
                     withMoreIndent (quoteRelation (right) + ",\n") +
-                    withMoreIndent (withIndent ("Seq(\n")) +
-                    withMoreIndent (
-                        withMoreIndent (
-                            equalities.map (equation =>
-                                withIndent ("(\n") +
-                                    quoteFunction (equation._1) + ",\n" +
-                                    quoteFunction (equation._2) + "\n" +
-                                    withIndent (")")
-                            ).reduce (_ + ",\n" + _)
-                        )
-                    ) + "\n" +
-                    withMoreIndent (withIndent (")\n")) +
                     withIndent (")")
 
             case Def (rel@DuplicateElimination (relation)) =>
@@ -109,7 +95,6 @@ trait RelationalAlgebraPrintPlanBasicOperators
            case Def (rel@Unnest (relation, function)) =>
                 withIndent (s"unnest[${rel.host.name}](\n") +
                     withMoreIndent (quoteRelation (relation) + ",\n") +
-                    withMoreIndent (quoteFunction (function) + "\n") +
                     withIndent (")")
 
 

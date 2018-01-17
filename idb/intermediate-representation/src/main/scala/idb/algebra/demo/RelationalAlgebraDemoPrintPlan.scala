@@ -30,50 +30,30 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package idb.algebra.print
+package idb.algebra.demo
 
-import idb.algebra.ir.{RelationalAlgebraIRRecursiveOperators, RelationalAlgebraIRBase}
-import idb.lms.extensions.FunctionUtils
-import idb.lms.extensions.print.CodeGenIndent
-import scala.virtualization.lms.common.TupledFunctionsExp
+import idb.algebra.ir._
+import idb.lms.extensions.{FunctionUtils, ScalaOpsPkgExpExtensions}
+import idb.lms.extensions.operations.{OptionOpsExp, SeqOpsExpExt, StringOpsExpExt}
+
+import scala.virtualization.lms.common.{ScalaOpsPkgExp, StaticDataExp, StructExp, TupledFunctionsExp}
+
 
 /**
  *
  * @author Ralf Mitschke
  */
-trait RelationalAlgebraPrintPlanRecursiveOperators
-    extends RelationalAlgebraPrintPlanBase
-    with CodeGenIndent
+trait RelationalAlgebraDemoPrintPlan
+    extends RelationalAlgebraDemoPrintPlanBase
+    with RelationalAlgebraDemoPrintPlanBasicOperators
+    with RelationalAlgebraDemoPrintPlanAggregationOperators
+    with RelationalAlgebraDemoPrintPlanSetTheoryOperators
+    with RelationalAlgebraDemoPrintPlanRecursiveOperators
+	with RelationalAlgebraDemoPrintPlanRemoteOperators
 {
 
-    override val IR: TupledFunctionsExp with FunctionUtils with RelationalAlgebraIRBase with
-        RelationalAlgebraIRRecursiveOperators
-
-
-    import IR.Def
-    import IR.Exp
-    import IR.Recursion
-    import IR.RecursionResult
-
-
-    override def quoteRelation (x: Exp[Any]): String =
-        x match {
-            case Def (rel@Recursion (base, recursion)) =>
-                withIndent (s"Recursion[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (base) + ",\n") +
-                    withMoreIndent (withIndent(recursion.toString) + "\n") +
-                    withIndent (")")
-
-            case Def (rel@RecursionResult (result, _)) =>
-                withIndent (s"RecursionResult[NOT DITRIBUTED](\n") +
-                    withMoreIndent (quoteRelation (result) + "\n") +
-                    withIndent (")")
-
-
-            case _ =>
-                super.quoteRelation (x)
-
-        }
-
+	override val IR: ScalaOpsPkgExpExtensions with FunctionUtils with
+        RelationalAlgebraIRBasicOperators with RelationalAlgebraIRAggregationOperators with
+        RelationalAlgebraIRSetTheoryOperators with RelationalAlgebraIRRecursiveOperators with RelationalAlgebraIRRemoteOperators
 
 }
