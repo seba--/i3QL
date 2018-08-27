@@ -45,11 +45,6 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 		Map(
 
 
-
-
-
-
-
 			/***********************************************
 			 *** DEFINE PERMISSIONS HERE *******************
 			 ***********************************************/
@@ -61,14 +56,6 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 			/***********************************************
   		 ***********************************************/
-
-
-
-
-
-
-
-
 
 		)
 	)
@@ -171,12 +158,6 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 
 
 
-
-
-
-
-
-
 				/***********************************************
          *** DEFINE QUERY HERE *************************
          ***********************************************/
@@ -188,7 +169,7 @@ class HospitalRemoteTest extends MultiNodeSpec(HospitalMultiNodeConfig)
 					) WHERE	(
 						(person: Rep[Person], patientSymptom: Rep[(Patient, String)], knowledgeData: Rep[KnowledgeData]) =>
 								person.personId == patientSymptom._1.personId AND
-								patientSymptom._2 == knowledgeData.symptom 
+								patientSymptom._2 == knowledgeData.symptom
 					)
 
 				/***********************************************

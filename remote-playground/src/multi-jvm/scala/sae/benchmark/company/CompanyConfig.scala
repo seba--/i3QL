@@ -44,6 +44,25 @@ sealed trait DefaultPriorityConfig extends CompanyConfig {
 	override val labelEmployees : Taint = Taint("lab:employees")
 }
 
+sealed trait PublicPriorityConfig extends CompanyConfig {
+	override val priorityPublic : Int = 4
+	override val priorityProduction : Int = 4
+	override val priorityPurchasing : Int = 4
+	override val priorityEmployees : Int = 4
+	override val priorityClient : Int = 12
+
+	override val permissionsPublic : Set[String] = Set("lab:public")
+	override val permissionsProduction : Set[String] = Set("lab:public", "lab:production")
+	override val permissionsPurchasing : Set[String] = Set("lab:public", "lab:purchasing")
+	override val permissionsEmployees : Set[String] = Set("lab:public", "lab:employees")
+	override val permissionsClient : Set[String] = Set("lab:public", "lab:production", "lab:purchasing", "lab:employees")
+
+	override val labelPublic : Taint = Taint("lab:public")
+	override val labelProduction : Taint = Taint("lab:public")
+	override val labelPurchasing : Taint = Taint("lab:public")
+	override val labelEmployees : Taint = Taint("lab:public")
+}
+
 sealed trait ClientPriorityConfig extends CompanyConfig {
 	override val priorityPublic : Int = 1
 	override val priorityProduction : Int = 1
@@ -128,6 +147,12 @@ trait Test10DefaultPriorityConfig extends DefaultPriorityConfig {
 }
 
 trait Test10ClientPriorityConfig extends ClientPriorityConfig {
+	override val benchmarkConfig : String = "test-10-client"
+	override val measureIterations : Int = 10
+	override val warmup = false
+}
+
+trait Test10PublicPriorityConfig extends PublicPriorityConfig {
 	override val benchmarkConfig : String = "test-10-client"
 	override val measureIterations : Int = 10
 	override val warmup = false

@@ -317,6 +317,8 @@ trait CSPPlacementTransformer
 		println("links: " + links)
 		println("servers: " + servers)
 
+		val startTime = System.nanoTime()
+
 
 		val numOperators = operators.size
 		val numLinks = links.size
@@ -423,6 +425,18 @@ trait CSPPlacementTransformer
 
 		//Define overall cost
 		val cost = new IntVar(store, "cost", 0, maxBandwidth * (maxServerLoad * servers.max))
+
+		//New: cost = load * (weightConst / maxLoad) + network * (weightConst / maxBandwidth)
+		/*val weightConst = 10000
+		val weightedBandwidth = new IntVar(store, "weightedBandwidth", 0, maxBandwidth * (weightConst + 1))
+		val weightedLoad = new IntVar(store, "weightedLoad", 0, maxServerLoad * servers.max * (weightConst + 1))
+		store.impose(new XmulCeqZ(networkCost, weightConst / maxBandwidth, weightedBandwidth))
+		store.impose(new XmulCeqZ(loadCost, weightConst / maxServerLoad * servers.max, weightedLoad))
+		store.impose(new XplusYeqZ(weightedBandwidth, weightedLoad, cost))
+*/
+
+
+		//Old: cost = load * network
 		store.impose(new XmulYeqZ(loadCost, networkCost, cost))
 
 		//Search for a solution and print results
@@ -432,17 +446,23 @@ trait CSPPlacementTransformer
 				new IndomainMin[IntVar]())
 		val result: Boolean = search.labeling(store, select, cost)
 
-		println("Store >>>\n" + store + "\n<<< Store")
+		val endTime = System.nanoTime()
+
+		Predef.println("Time: " + (endTime - startTime))
+
+
+		Predef.println("Store >>>\n" + store + "\n<<< Store")
 
 		if (result) {
-			println("Solution:")
+			Predef.println("Solution:")
 			for (op <- operatorVars)
-				println(op)
+				Predef.println(op)
 			operatorVars.map(op => op.value())
 		} else {
-			println("*** No")
+			Predef.println("*** No")
 			return null
 		}
+
 	}
 
 
